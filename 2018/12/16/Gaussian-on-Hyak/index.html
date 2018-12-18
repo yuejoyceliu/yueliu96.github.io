@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file; submit it to Hyak (super computer server); and analyze the output file by my python script. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-18T07:11:20.066Z">
+<meta property="og:updated_time" content="2018-12-18T07:15:25.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file; submit it to Hyak (super computer server); and analyze the output file by my python script. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -345,7 +345,7 @@
         <p><em>Here introduces how to setup Gaussian input file; submit it to <a href="https://wiki.cac.washington.edu/display/hyakusers/WIKI+for+Hyak+users" target="_blank" rel="noopener">Hyak</a> (super computer server); and analyze the output file by my python script.</em></p>
 <h1 id="Gaussian-16-Input"><a href="#Gaussian-16-Input" class="headerlink" title="Gaussian 16 Input"></a>Gaussian 16 Input</h1><p><a href="http://gaussian.com/input/" target="_blank" rel="noopener">Gaussian 16 input</a> consists of a series of lines in an ASCII text file. In general, the input is free-format and case-insensitive; spaces, commas, tabs and forward slashes are all considered as valid delimiters (multi spaces are treated as a single demiliter). The common suffix of the input file is gjf or com, but com file cannot be sent by gmail. The basic structure of a Gaussian input file includes several different sections:</p>
 <ul>
-<li><em><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></em><ul>
+<li><h4 id="Link-0-Commands"><a href="#Link-0-Commands" class="headerlink" title="Link 0 Commands"></a><em><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></em></h4><ul>
 <li>locate and name scratch files </li>
 <li>not blank line terminated</li>
 <li>example<ul>
@@ -399,7 +399,7 @@
 </li>
 </ul>
 </li>
-<li><em><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></em> <ul>
+<li><h4 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><em><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></em></h4><ul>
 <li>job type and method<ul>
 <li>print form<ul>
 <li><em><code>#N</code></em>: normal print, by default if not specify</li>
@@ -447,14 +447,14 @@
 <li>blank line terminated</li>
 </ul>
 </li>
-<li><em>Title section</em><ul>
+<li><h4 id="Title-section"><a href="#Title-section" class="headerlink" title="Title section"></a><em>Title section</em></h4><ul>
 <li>any descriptions</li>
 <li>cannot exceed 5 lines</li>
 <li>avoid special character: @  #  !  –  _  \  control characters (especially Ctrl-G)</li>
 <li>blank line terminated</li>
 </ul>
 </li>
-<li><em><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></em><ul>
+<li><h4 id="Molecule-specification"><a href="#Molecule-specification" class="headerlink" title="Molecule specification"></a><em><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></em></h4><ul>
 <li>charge, multiplicity, atoms and coordinates<ul>
 <li>multiplicity<ul>
 <li>number of possible spin orentations of the total spin</li>
@@ -466,7 +466,7 @@
 <li>blank line terminated</li>
 </ul>
 </li>
-<li><em>Optinal additional sections</em><ul>
+<li><h4 id="Optinal-additional-sections"><a href="#Optinal-additional-sections" class="headerlink" title="Optinal additional sections"></a><em>Optinal additional sections</em></h4><ul>
 <li>additional input</li>
 <li>blank line terminated</li>
 </ul>
@@ -660,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-opt-analysis"><span class="nav-text">1. opt analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-freq-analysis"><span class="nav-text">2. freq analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tddft-analysis"><span class="nav-text">3. tddft analysis</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optinal-additional-sections"><span class="nav-text">Optinal additional sections</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-opt-analysis"><span class="nav-text">1. opt analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-freq-analysis"><span class="nav-text">2. freq analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tddft-analysis"><span class="nav-text">3. tddft analysis</span></a></li></ol></li></div>
             
 
           </div>
