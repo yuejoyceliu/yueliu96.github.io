@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Here will introduce how to use Gaussian on Linux System, including three different Gaussian jobs: optimization, frequency and tddft; how to submit jobs to Hyak (super computer server); how to analyze">
+<meta name="description" content="Here introduces how to set Gaussian input file on Linux System; how to submit it to Hyak (super computer server); how to analyze the output file by my python script. Input FileGaussian 16 input consis">
 <meta name="keywords" content="Gaussian,Hyak,opt,freq,tddft">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gaussian on Hyak">
 <meta property="og:url" content="http://yoursite.com/2018/12/16/Gaussian-on-Hyak/index.html">
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
-<meta property="og:description" content="Here will introduce how to use Gaussian on Linux System, including three different Gaussian jobs: optimization, frequency and tddft; how to submit jobs to Hyak (super computer server); how to analyze">
+<meta property="og:description" content="Here introduces how to set Gaussian input file on Linux System; how to submit it to Hyak (super computer server); how to analyze the output file by my python script. Input FileGaussian 16 input consis">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-17T08:03:51.794Z">
+<meta property="og:updated_time" content="2018-12-18T06:06:15.180Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
-<meta name="twitter:description" content="Here will introduce how to use Gaussian on Linux System, including three different Gaussian jobs: optimization, frequency and tddft; how to submit jobs to Hyak (super computer server); how to analyze">
+<meta name="twitter:description" content="Here introduces how to set Gaussian input file on Linux System; how to submit it to Hyak (super computer server); how to analyze the output file by my python script. Input FileGaussian 16 input consis">
 
 
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Turecek-s-Lab-Tutorial/" itemprop="url" rel="index">
-                    <span itemprop="name">Turecek's Lab Tutorial</span>
+                  <a href="/categories/Turecek-Lab-Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Turecek Lab Tutorial</span>
                   </a>
                 </span>
 
@@ -342,16 +342,108 @@
       
 
       
-        <p><em>Here will introduce how to use Gaussian on Linux System, including three different Gaussian jobs: optimization, frequency and tddft; how to submit jobs to Hyak (super computer server); how to analyze the output file by my python script.</em></p>
-<h1 id="Input-File"><a href="#Input-File" class="headerlink" title="Input File"></a>Input File</h1><p><a href="http://gaussian.com/input/" target="_blank" rel="noopener">Gaussian 16 input</a> consists of a series of lines in an ASCII text file. The basic structure of a Gaussian input file includes several different sections:</p>
+        <p><em>Here introduces how to set Gaussian input file on Linux System; how to submit it to Hyak (super computer server); how to analyze the output file by my python script.</em></p>
+<h1 id="Input-File"><a href="#Input-File" class="headerlink" title="Input File"></a>Input File</h1><p><a href="http://gaussian.com/input/" target="_blank" rel="noopener">Gaussian 16 input</a> consists of a series of lines in an ASCII text file. In general, the input is free-format and case-insensitive; spaces, commas, tabs and forward slashes are all considered as valid delimiters (multi spaces are treated as a single demiliter). The common suffix of the input file is gjf or com, but com file cannot be sent by gmail. The basic structure of a Gaussian input file includes several different sections:</p>
 <ul>
 <li><em><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></em><ul>
 <li>locate and name scratch files </li>
 <li>not blank line terminated</li>
+<li>example<ul>
+<li>%LindaWorker<ul>
+<li>add it when using 2 or more nodes on Hyak</li>
+</ul>
+</li>
+<li>%NProcShared=<em>N</em><ul>
+<li>use up to N processors/cores on shared memory on one node</li>
+<li>use a smaller number when have memory issue</li>
+<li>default: 28 on Hyak-mox, 16 on Hyak-ikt</li>
+</ul>
+</li>
+<li>%UseSSH<ul>
+<li>start linda workers by ssh instead of rsh(default)</li>
+<li>rsh, remote shell, can execute command on another computer as another user</li>
+<li>ssh: a more secure way to communicate between computers</li>
+<li>some parallel jobs may mess up by using rsh</li>
+</ul>
+</li>
+<li>%mem=<em>N</em><ul>
+<li>can follow by MB,GB,etc.</li>
+<li>800mb for g16 by default</li>
+<li>not use more than 90% of available memory</li>
+</ul>
+</li>
+<li>%rwf=<em>file</em><ul>
+<li>super huge file</li>
+<li>useful for restart a job; not need for opt</li>
+<li>usually followed by <em><code>%NoSave</code></em>, everything before nosave will deleted if job completes normally</li>
+<li>how to locate it if not include this line (Hyak version):<ul>
+<li>find node number of that job, like n2092</li>
+<li>enter that node: <code>ssh n2092</code></li>
+<li>all tempory files are at <code>/scr/</code> , will be deleted after walltime of that node runs out</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>%chk=<em>file</em><ul>
+<li>locates and names the checkpoint file</li>
+<li>useful for restart job</li>
+<li>use to visualize molecular orbital from tddft chk file</li>
+</ul>
+</li>
+<li>%oldchk=<em>file</em><ul>
+<li>use with <em><code>%chk</code></em></li>
+<li>copy oldchk to chk and write the new chk after it.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><em><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></em> <ul>
-<li>job type and method </li>
+<li>job type and method<ul>
+<li>print form<ul>
+<li><em><code>#N</code></em>: normal print, by default if not specify</li>
+<li><em><code>#P</code></em>: print more info</li>
+<li><em><code>#T</code></em>: terse print </li>
+</ul>
+</li>
+<li>job type<ul>
+<li><em><a href="#01">sp</a></em>: single point energy, by default if not specify</li>
+<li><em><a href="#02">opt</a></em>: optimization</li>
+<li><em><a href="#03">freq</a></em>: vibrational frequency and thermal infomation</li>
+<li><em><a href="#04">td</a></em>: excited states calculation</li>
+</ul>
+</li>
+<li>other keywords<ul>
+<li><a href="http://gaussian.com/population/" target="_blank" rel="noopener">pop</a><ul>
+<li>charge and spin distribution</li>
+<li>default except guess=only: <code>pop=min</code></li>
+</ul>
+</li>
+<li><a href="http://gaussian.com/scf/" target="_blank" rel="noopener">scf</a><ul>
+<li>controls the functioning of the SCF procedure</li>
+<li><code>scf=tight</code> by default</li>
+<li><code>scf=xqc</code> is helpful for difficult conversion case</li>
+<li><code>NoSymm</code> or <code>Symmetry=None</code>: release orbital symmetry constraints</li>
+</ul>
+</li>
+<li><a href="http://gaussian.com/scrf/" target="_blank" rel="noopener">scrf</a><ul>
+<li>in the presence of solvent, place solute in a cavity within the solvent reaction field.</li>
+<li><code>scrf=pcm</code> by default</li>
+<li>ex: <code>scrf=(pcm,solvent=water)</code></li>
+</ul>
+</li>
+<li><a href="http://gaussian.com/cachesize/" target="_blank" rel="noopener">cachesize</a><ul>
+<li>the amount of cache per processor to use with various cache-blocking algorithms (in 8-byte words)</li>
+<li>from <code>/proc/cpuinfo</code> find the cache available(35840kb)</li>
+<li>a good value is its 50%: $35840\times1024\div8\times50\%=2293760$</li>
+<li><code>cachesize=2293760</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>blank line terminated</li>
 </ul>
 </li>
@@ -363,7 +455,14 @@
 </ul>
 </li>
 <li><em><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></em><ul>
-<li>charge, multiplicity, atoms and coordinates</li>
+<li>charge, multiplicity, atoms and coordinates<ul>
+<li>multiplicity<ul>
+<li>number of possible spin orentations of the total spin</li>
+<li>mp=2S+1, S($\alpha$ electron)=0.5, S($\beta$ electron)=-0.5</li>
+</ul>
+</li>
+</ul>
+</li>
 <li>blank line terminated</li>
 </ul>
 </li>
@@ -372,40 +471,13 @@
 <li>blank line terminated</li>
 </ul>
 </li>
-<li><em>suffix</em><ul>
-<li>gjf</li>
-<li>com</li>
 </ul>
-</li>
-</ul>
-<p><strong>Example</strong></p>
-<pre><code>%mem=32GB
-%nprocshared=28
-%chk=guanosine.chk
-# opt um062x/6-31+g(d,p) pop=min scf=(xqc,tight)
-
-Complex guanosine
-
-1 2
- O       -3.094427        1.959361        0.291777
- C       -4.011153        1.021154       -0.267210
- C       -3.292860       -0.293751       -0.453718
- O       -2.175288       -0.104229       -1.347075
- ...
- H       -1.180628        1.929546       -0.412585
- H       -3.574938        2.742899        0.582770
- H        1.100354        3.004366        0.220564
-</code></pre><ul>
-<li><p>how many mem to set?</p>
-</li>
-<li><p>why needs chk?</p>
-</li>
-<li><p>what is multiplicoty?</p>
-</li>
-</ul>
-<h1 id="opt"><a href="#opt" class="headerlink" title="opt"></a>opt</h1><h2 id="1-What-is-opt"><a href="#1-What-is-opt" class="headerlink" title="1. What is opt"></a>1. What is opt</h2><p><a href="http://gaussian.com/opt/" target="_blank" rel="noopener">gauss_opt</a></p>
+<p><strong><em>Example</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%chk=guanosine.chk</span><br><span class="line"># opt um062x/6-31+g(d,p) pop=min scf=(xqc,tight)</span><br><span class="line"> </span><br><span class="line">Complex guanosine</span><br><span class="line"></span><br><span class="line">1 2</span><br><span class="line"> O       -3.094427        1.959361        0.291777</span><br><span class="line"> C       -4.011153        1.021154       -0.267210</span><br><span class="line"> C       -3.292860       -0.293751       -0.453718</span><br><span class="line"> O       -2.175288       -0.104229       -1.347075</span><br><span class="line"> ...           ...             ...             ...</span><br><span class="line"> H       -1.180628        1.929546       -0.412585</span><br><span class="line"> H       -3.574938        2.742899        0.582770</span><br><span class="line"> H        1.100354        3.004366        0.220564</span><br></pre></td></tr></table></figure>
+<h1 id="opt"><a href="#opt" class="headerlink" title="opt"></a>opt<h3 id="02"></h3></h1><h2 id="1-What-is-opt"><a href="#1-What-is-opt" class="headerlink" title="1. What is opt"></a>1. What is opt</h2><p><a href="http://gaussian.com/opt/" target="_blank" rel="noopener">gauss_opt</a></p>
 <h2 id="2-Analyze-Result"><a href="#2-Analyze-Result" class="headerlink" title="2. Analyze Result"></a>2. Analyze Result</h2><p><a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/optlog2gjfcom.py" target="_blank" rel="noopener">optlog2gjfcom.py</a></p>
-<h1 id="freq"><a href="#freq" class="headerlink" title="freq"></a>freq</h1><h2 id="1-What-is-freq"><a href="#1-What-is-freq" class="headerlink" title="1. What is freq"></a>1. What is freq</h2><h2 id="2-Analyze-Result-1"><a href="#2-Analyze-Result-1" class="headerlink" title="2. Analyze Result"></a>2. Analyze Result</h2><h1 id="td"><a href="#td" class="headerlink" title="td"></a>td</h1><h2 id="1-What-is-td"><a href="#1-What-is-td" class="headerlink" title="1. What is td"></a>1. What is td</h2><h2 id="2-Analyze-Result-2"><a href="#2-Analyze-Result-2" class="headerlink" title="2. Analyze Result"></a>2. Analyze Result</h2>
+<h1 id="freq"><a href="#freq" class="headerlink" title="freq"></a>freq<h3 id="03"></h3></h1><h2 id="1-What-is-freq"><a href="#1-What-is-freq" class="headerlink" title="1. What is freq"></a>1. What is freq</h2><h2 id="2-Analyze-Result-1"><a href="#2-Analyze-Result-1" class="headerlink" title="2. Analyze Result"></a>2. Analyze Result</h2><h1 id="td"><a href="#td" class="headerlink" title="td"></a>td<he id="04"></he></h1><h2 id="1-What-is-td"><a href="#1-What-is-td" class="headerlink" title="1. What is td"></a>1. What is td</h2><p><a href="http://gaussian.com/td/" target="_blank" rel="noopener">tddft</a></p>
+<h2 id="2-Analyze-Result-2"><a href="#2-Analyze-Result-2" class="headerlink" title="2. Analyze Result"></a>2. Analyze Result</h2>
       
     </div>
     
@@ -583,7 +655,7 @@ Complex guanosine
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Input-File"><span class="nav-text">Input File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#opt"><span class="nav-text">opt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-opt"><span class="nav-text">1. What is opt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Analyze-Result"><span class="nav-text">2. Analyze Result</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#freq"><span class="nav-text">freq</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-freq"><span class="nav-text">1. What is freq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Analyze-Result-1"><span class="nav-text">2. Analyze Result</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#td"><span class="nav-text">td</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-td"><span class="nav-text">1. What is td</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Analyze-Result-2"><span class="nav-text">2. Analyze Result</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Input-File"><span class="nav-text">Input File</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#opt"><span class="nav-text">opt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#02"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-opt"><span class="nav-text">1. What is opt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Analyze-Result"><span class="nav-text">2. Analyze Result</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#freq"><span class="nav-text">freq</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#03"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-freq"><span class="nav-text">1. What is freq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Analyze-Result-1"><span class="nav-text">2. Analyze Result</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#td"><span class="nav-text">td</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-What-is-td"><span class="nav-text">1. What is td</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Analyze-Result-2"><span class="nav-text">2. Analyze Result</span></a></li></ol></li></div>
             
 
           </div>
