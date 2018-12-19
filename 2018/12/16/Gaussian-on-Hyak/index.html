@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T08:58:41.527Z">
+<meta property="og:updated_time" content="2018-12-19T09:05:24.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -439,10 +439,10 @@
 <li><a href="http://gaussian.com/cachesize/" target="_blank" rel="noopener">CacheSize</a><ul>
 <li>the amount of cache per processor to use with various cache-blocking algorithms (in 8-byte words)</li>
 <li>from <code>/proc/cpuinfo</code> find the cache available(35840kb)</li>
-<li>a good value is its 50%: $35840\times1024\div8\times50\%=2293760$: <code>cachesize=2293760</code><h3 id="maxdisk"></h3></li>
+<li>a good value is its 50%: $35840\times1024\div8\times50\%=2293760$: <code>cachesize=2293760</code></li>
 </ul>
 </li>
-<li><a href="http://gaussian.com/maxdisk/" target="_blank" rel="noopener">MaxDisk</a> <ul>
+<li><a href="http://gaussian.com/maxdisk/" target="_blank" rel="noopener"><jump id="maxdisk">MaxDisk</jump></a><ul>
 <li>the amount of disk storage available for <a href="https://gaussian.com/running/?tabid=6" target="_blank" rel="noopener">scratch data</a> </li>
 <li><a href="https://wiki.cac.washington.edu/display/hyakusers/Managing+your+Files" target="_blank" rel="noopener">disk space of one node on Hyak</a> is ~100GB. <code>lsblk -d</code> or <code>df -h</code> can show physical disk info of linux system</li>
 <li>the more disk space available, the faster the evaluation, especially for MP2. Some jobs have fixed or minimum disk requirments, click link for more info.</li>
@@ -667,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maxdisk"><span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optinal-additional-sections"><span class="nav-text">Optinal additional sections</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-opt-analysis"><span class="nav-text">1. opt analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-freq-analysis"><span class="nav-text">2. freq analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tddft-analysis"><span class="nav-text">3. tddft analysis</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optinal-additional-sections"><span class="nav-text">Optinal additional sections</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-text">Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-opt-analysis"><span class="nav-text">1. opt analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-freq-analysis"><span class="nav-text">2. freq analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tddft-analysis"><span class="nav-text">3. tddft analysis</span></a></li></ol></li></div>
             
 
           </div>
