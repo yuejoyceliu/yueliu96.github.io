@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T08:43:14.125Z">
+<meta property="og:updated_time" content="2018-12-19T08:53:33.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -403,8 +403,7 @@
 <li><h4 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><em><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></em></h4><ul>
 <li>job type and method</li>
 <li>blank line terminated</li>
-<li><p>examples</p>
-<ul>
+<li>examples<ul>
 <li>print form<ul>
 <li><em><code>#N</code></em>: normal print, by default if not specify</li>
 <li><em><code>#P</code></em>: print more info</li>
@@ -418,8 +417,7 @@
 <li><em><a href="http://gaussian.com/td/" target="_blank" rel="noopener">TD(NStates=n)</a></em> : calculate n excited states</li>
 </ul>
 </li>
-<li><p>other keywords</p>
-<ul>
+<li>other keywords<ul>
 <li><a href="http://gaussian.com/population/" target="_blank" rel="noopener">POP</a><ul>
 <li>charge and spin distribution</li>
 <li>default except guess=only: <code>pop=min</code></li>
@@ -441,12 +439,10 @@
 <li><a href="http://gaussian.com/cachesize/" target="_blank" rel="noopener">CacheSize</a><ul>
 <li>the amount of cache per processor to use with various cache-blocking algorithms (in 8-byte words)</li>
 <li>from <code>/proc/cpuinfo</code> find the cache available(35840kb)</li>
-<li>a good value is its 50%: $35840\times1024\div8\times50\%=2293760$</li>
-<li><code>cachesize=2293760</code></li>
+<li>a good value is its 50%: $35840\times1024\div8\times50\%=2293760$: <code>cachesize=2293760</code></li>
 </ul>
 </li>
-<li><p><a href="http://gaussian.com/maxdisk/" target="_blank" rel="noopener"><h3 id="maxdisk"></h3>MaxDisk</a></p>
-<ul>
+<li><a href="http://gaussian.com/maxdisk/" target="_blank" rel="noopener"><h3 id="maxdisk"></h3>MaxDisk</a> <ul>
 <li>the amount of disk storage available for <a href="https://gaussian.com/running/?tabid=6" target="_blank" rel="noopener">scratch data</a> </li>
 <li><a href="https://wiki.cac.washington.edu/display/hyakusers/Managing+your+Files" target="_blank" rel="noopener">disk space of one node on Hyak</a> is ~100GB. <code>lsblk -d</code> or <code>df -h</code> can show physical disk info of linux system</li>
 <li>the more disk space available, the faster the evaluation, especially for MP2. Some jobs have fixed or minimum disk requirments, click link for more info.</li>
