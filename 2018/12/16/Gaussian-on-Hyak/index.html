@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T09:05:24.745Z">
+<meta property="og:updated_time" content="2018-12-19T19:43:20.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -355,7 +355,6 @@
 </li>
 <li>%NProcShared=<em>N</em><ul>
 <li>use up to N processors/cores on shared memory on one node</li>
-<li>use a smaller number when have memory issue</li>
 <li>default: 28 on Hyak-mox, 16 on Hyak-ikt</li>
 </ul>
 </li>
@@ -367,17 +366,14 @@
 </ul>
 </li>
 <li>%Mem=<em>N</em><ul>
-<li>set the dynamics of memory, can follow by MB,GB,etc.</li>
-<li>800mb for g16 by default if not specify</li>
+<li>set the dynamics of memory, can follow by MB,GB,etc. 800mb for g16 by default</li>
 <li>some gaussian jobs will select the appropriate algorithm automatically based on the setting of %Mem and <a href="#maxdisk">MaxDisk</a>.</li>
-<li>faster than disk operations by many orders of magnitude. </li>
-<li>specifing more mem than availble one will cause very poor performance, <font color="gray">suggest use 90% of max mem</font></li>
+<li>specifing more mem than availble one will cause very poor performance. suggest use 90% of max mem, leaving several GB  for operating system</li>
 </ul>
 </li>
 <li>%RWF=<em>file</em><ul>
-<li>add it if want to store read-write file, a super huge file</li>
+<li>add it if want to store read-write file, a super huge file, useful for <a href="http://gaussian.com/restart/" target="_blank" rel="noopener">restart</a> a job(not need for opt)</li>
 <li>usually followed by <em><code>%NoSave</code></em>, everything before nosave will deleted if job completes normally</li>
-<li>useful for restart a job; restart opt only needs chk file</li>
 <li>a suggest location  on Hyak to store it is <a href="https://wiki.cac.washington.edu/display/hyakusers/Hyak_disk_quota" target="_blank" rel="noopener"><code>/gscratch/scrubbed/</code> </a></li>
 <li>how to locate it if not include this line (Hyak version):<ul>
 <li>all scratch files are at <a href="https://wiki.cac.washington.edu/display/hyakusers/Managing+your+Files#ManagingyourFiles-HomeDirectories" target="_blank" rel="noopener"><code>/scr/</code></a> of the local node, will be deleted after walltime runs out (find node number run <code>ssh nodenumber</code> to enter that node)</li>
@@ -388,8 +384,7 @@
 </li>
 <li>%Chk=<em>file</em><ul>
 <li>add it to locate and name the checkpoint file</li>
-<li>useful, suggest to keep it</li>
-<li>can restart a job and visualize molecular orbitals for tddft</li>
+<li>useful for restarting jobs(especially opt) and visualizing molecular orbitals for tddft</li>
 </ul>
 </li>
 <li>%OldChk=<em>file</em><ul>
@@ -412,15 +407,15 @@
 </li>
 <li>job type<ul>
 <li><em><a href="http://gaussian.com/sp/" target="_blank" rel="noopener">SP</a></em> : single point energy, by default if not specify</li>
-<li><em><a href="http://gaussian.com/opt/" target="_blank" rel="noopener">OPT</a></em> : optimization</li>
-<li><em><a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></em> : vibrational frequency and thermal infomation</li>
-<li><em><a href="http://gaussian.com/td/" target="_blank" rel="noopener">TD(NStates=n)</a></em> : calculate n excited states</li>
+<li><em><a href="http://gaussian.com/opt/" target="_blank" rel="noopener">OPT</a></em> : geometry optimization</li>
+<li><em><a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></em> : vibrational frequency and thermal information</li>
+<li><em><a href="http://gaussian.com/td/" target="_blank" rel="noopener">TD(NStates=n)</a></em> : calculate n excited transitions</li>
 </ul>
 </li>
 <li>other keywords<ul>
 <li><a href="http://gaussian.com/population/" target="_blank" rel="noopener">POP</a><ul>
 <li>charge and spin distribution</li>
-<li>default except guess=only: <code>pop=min</code></li>
+<li><code>pop=min</code> by default except guess=only</li>
 </ul>
 </li>
 <li><a href="http://gaussian.com/scf/" target="_blank" rel="noopener">SCF</a><ul>
@@ -438,8 +433,7 @@
 </li>
 <li><a href="http://gaussian.com/cachesize/" target="_blank" rel="noopener">CacheSize</a><ul>
 <li>the amount of cache per processor to use with various cache-blocking algorithms (in 8-byte words)</li>
-<li>from <code>/proc/cpuinfo</code> find the cache available(35840kb)</li>
-<li>a good value is its 50%: $35840\times1024\div8\times50\%=2293760$: <code>cachesize=2293760</code></li>
+<li>from <code>/proc/cpuinfo</code> find the cache available(35840kb) and a good value is its 50% ( $35840\times1024\div8\times50\%=2293760$): <code>cachesize=2293760</code></li>
 </ul>
 </li>
 <li><a href="http://gaussian.com/maxdisk/" target="_blank" rel="noopener"><jump id="maxdisk">MaxDisk</jump></a><ul>
