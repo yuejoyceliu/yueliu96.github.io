@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T21:57:43.076Z">
+<meta property="og:updated_time" content="2018-12-19T22:08:47.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -481,32 +481,35 @@
 <p>If <code>Stationary point found</code> is absent in log file, that means the opt job is killed because of time limit. We need to write another restarted input file to submit it again and make it start from what it left last time, the route card of which should be <code># opt=restart ...</code> and the other keywords in the original input.</p>
 <p>For example: if the original route card is:<code># opt ub3lyp/6-31+g(d,p) pop=min scf=(xqc,tight)</code> and the chk file is named as <em>test.chk</em>. The new input file is like: </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%UseSSH</span><br><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%chk=test.chk</span><br><span class="line"># Opt=Restart ub3lyp/6-31+g(d,p) pop=min scf=(xqc,tight)</span><br><span class="line">! a blank line must be here</span><br></pre></td></tr></table></figure>
-<h3 id="Script"><a href="#Script" class="headerlink" title="Script"></a>Script</h3><p>The python script–<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/optlog2gjfcom.py" target="_blank" rel="noopener">optlog2gjfcom.py</a> can acheive the above goals.</p>
-<ul>
+<h3 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a>Scripts</h3><h4 id="1-optlog2gjfcom-py"><a href="#1-optlog2gjfcom-py" class="headerlink" title="1. optlog2gjfcom.py"></a>1. <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/optlog2gjfcom.py" target="_blank" rel="noopener">optlog2gjfcom.py</a></h4><ul>
 <li><em>Usage</em><ul>
 <li>$python\ optlog2gjfcom.py\ logfile$</li>
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
-<li>use $Stationary\ point\ found$ as a key to tell if opt finishes</li>
-<li>if finished, find $Standard\ orientation$ after it, read charge and multiplicity from the very end and then write a new input file, named with $test_opt.gjf$ if original one is $test.com$.</li>
-<li>if not  finished, check if input file in the current directory and get chk file name from it and then write the restarted input file just as showed above named with $test_rst.gjf$ if original one is $test.gjf$. If original input and chk files not found, it will just stop without doing anything.</li>
+<li>uses $Stationary\ point\ found$ as a key to tell if opt finishes</li>
+<li>if finished, finds $Standard\ orientation$ after it, reads charge and multiplicity from the very end and then writes a new input file, named with $test_opt.gjf$ if original one is $test.com$.</li>
+<li>if not  finished, checks if input file in the current directory, gets chk file name from input and then writes the restarted input file just as showed above named with $test_rst.gjf$ if original one is $test.gjf$. If original input and chk files not found, it will just stop without doing anything.</li>
 </ul>
 </li>
-<li><p><em>Notes</em></p>
-<p>The default route card for optimized file and link info for both optimized and restarted one easily in this script:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LINK=&apos;%UseSSH\n%mem=32GB\n%nprocshared=28\n&apos;</span><br><span class="line">ROUTE=&apos;# td(NStates=25) um062x/6-31+g(d,p) pop=min scf=(xqc,tight)&apos;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>The other important information we want to get from the output is optimized energy, which can be achieved by<br><a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/HFenergy.py" target="_blank" rel="noopener">HFenergies.py</a>.</p>
+<li><p><em>Notes</em> </p>
 <ul>
+<li><p>the default route card for optimized file and link info for both optimized and restarted one are easily to changed:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LINK=&apos;%UseSSH\n%mem=32GB\n%nprocshared=28\n&apos;</span><br><span class="line">ROUTE=&apos;# td(NStates=25) um062x/6-31+g(d,p) pop=min scf=(xqc,tight)&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>a quick way to walk through all log files in one directory:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for x in *log; do python optlog2gjfcom.py $x; done</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-HFenergies-py"><a href="#2-HFenergies-py" class="headerlink" title="2. HFenergies.py"></a>2. <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/HFenergy.py" target="_blank" rel="noopener">HFenergies.py</a></h4><p>The other important information we want to get from the output is optimized energy.</p>
+</li>
 <li><em>Usage</em><ul>
 <li>$python\ HFenergies.py$</li>
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
-<li>go through all $*.log$ files in the current directory and try to extract energy</li>
-<li>if $Stationary\ point\ found$ is in the presence of log file, read the enery after the last $SCF\ Done$; if not, return energy=$NA$</li>
+<li>goes through all $*.log$ files in the current directory and try to extract energy</li>
+<li>if $Stationary\ point\ found$ is in the presence of log file, reads the energy after the last $SCF\ Done$; if not, returns energy=$NA$</li>
 <li>energies are sorted ascendingly and written to $HFenergies.csv$ file with corresponding logfile name(without suffix)<h2 id="2-freq-analysis"><a href="#2-freq-analysis" class="headerlink" title="2. freq analysis"></a>2. freq analysis</h2></li>
 </ul>
 </li>
@@ -693,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optinal-additional-sections"><span class="nav-text">Optinal additional sections</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-amp-Analysis"><span class="nav-text">Output &amp; Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OPT"><span class="nav-text">OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Script"><span class="nav-text">Script</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-freq-analysis"><span class="nav-text">2. freq analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tddft-analysis"><span class="nav-text">3. tddft analysis</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optinal-additional-sections"><span class="nav-text">Optinal additional sections</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-amp-Analysis"><span class="nav-text">Output &amp; Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OPT"><span class="nav-text">OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scripts"><span class="nav-text">Scripts</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-optlog2gjfcom-py"><span class="nav-text">1. optlog2gjfcom.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HFenergies-py"><span class="nav-text">2. HFenergies.py</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-freq-analysis"><span class="nav-text">2. freq analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-tddft-analysis"><span class="nav-text">3. tddft analysis</span></a></li></ol></li></div>
             
 
           </div>
