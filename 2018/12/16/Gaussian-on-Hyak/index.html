@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T08:27:33.991Z">
+<meta property="og:updated_time" content="2018-12-20T08:28:44.674Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -347,7 +347,8 @@
 <h3 id="Link-0-Commands"><a href="#Link-0-Commands" class="headerlink" title="Link 0 Commands"></a><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></h3><ul>
 <li>locate and name scratch files </li>
 <li>not blank line terminated</li>
-<li>examples<ul>
+<li><p>examples</p>
+<ul>
 <li>%LindaWorker<ul>
 <li>add it when using 2 or more nodes on Hyak</li>
 </ul>
@@ -389,12 +390,12 @@
 </ul>
 </li>
 </ul>
+<h3 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></h3></li>
+<li><p>job type and method</p>
 </li>
-</ul>
-<h3 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></h3><ul>
-<li>job type and method</li>
 <li>blank line terminated</li>
-<li>examples<ul>
+<li><p>examples</p>
+<ul>
 <li>print form<ul>
 <li><em><code>#N</code></em>: normal print, by default if not specify</li>
 <li><em><code>#P</code></em>: print more info</li>
@@ -443,16 +444,15 @@
 </ul>
 </li>
 </ul>
+<h3 id="Title-section"><a href="#Title-section" class="headerlink" title="Title section"></a>Title section</h3></li>
+<li><p>any descriptions</p>
 </li>
-</ul>
-<h3 id="Title-section"><a href="#Title-section" class="headerlink" title="Title section"></a>Title section</h3><ul>
-<li>any descriptions</li>
 <li>cannot exceed 5 lines</li>
 <li>avoid special character: @  #  !  –  _  \  control characters (especially Ctrl-G)</li>
-<li>blank line terminated</li>
-</ul>
-<h3 id="Molecule-specification"><a href="#Molecule-specification" class="headerlink" title="Molecule specification"></a><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></h3><ul>
-<li>charge, multiplicity, atoms and coordinates<ul>
+<li><p>blank line terminated</p>
+<h3 id="Molecule-specification"><a href="#Molecule-specification" class="headerlink" title="Molecule specification"></a><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></h3></li>
+<li><p>charge, multiplicity, atoms and coordinates</p>
+<ul>
 <li>multiplicity<ul>
 <li>number of possible spin orientations of the total spin</li>
 <li>mp=2S+1, S($\alpha$ electron)=0.5, S($\beta$ electron)=-0.5</li>
@@ -460,15 +460,11 @@
 </li>
 </ul>
 </li>
-<li>blank line terminated</li>
-</ul>
-<ul>
-<li><p>Optinal additional sections</p>
-<ul>
-<li>additional input</li>
-<li>blank line terminated</li>
-</ul>
+<li><p>blank line terminated</p>
+<h3 id="Optinal-additional-sections"><a href="#Optinal-additional-sections" class="headerlink" title="Optinal additional sections"></a>Optinal additional sections</h3></li>
+<li><p>additional input</p>
 </li>
+<li>blank line terminated</li>
 </ul>
 <p><em>Example:</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%chk=guanosine.chk</span><br><span class="line"># opt um062x/6-31+g(d,p) pop=min scf=(xqc,tight)</span><br><span class="line"></span><br><span class="line">Complex guanosine</span><br><span class="line"></span><br><span class="line">1 2</span><br><span class="line">O       -3.094427        1.959361        0.291777</span><br><span class="line">C       -4.011153        1.021154       -0.267210</span><br><span class="line">C       -3.292860       -0.293751       -0.453718</span><br><span class="line">O       -2.175288       -0.104229       -1.347075</span><br><span class="line">...           ...             ...             ...</span><br><span class="line">H       -1.180628        1.929546       -0.412585</span><br><span class="line">H       -3.574938        2.742899        0.582770</span><br><span class="line">H        1.100354        3.004366        0.220564</span><br><span class="line">! a blank line must be here</span><br></pre></td></tr></table></figure>
@@ -772,7 +768,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-amp-Analysis"><span class="nav-text">Output &amp; Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-OPT"><span class="nav-text">I. OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-optlog2gjfcom-py"><span class="nav-text">1. optlog2gjfcom.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HFenergies-py"><span class="nav-text">2.HFenergies.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-FREQ"><span class="nav-text">II. FREQ</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-freq-thermal-py"><span class="nav-text">1.freq_thermal.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CpExtractor-py"><span class="nav-text">2.CpExtractor.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GibbsEnergy-py"><span class="nav-text">3.GibbsEnergy.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-TDDFT"><span class="nav-text">III. TDDFT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-tddft-lorentzian-py"><span class="nav-text">1.tddft_lorentzian.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cubegen-py"><span class="nav-text">2.cubegen.py</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optinal-additional-sections"><span class="nav-text">Optinal additional sections</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-amp-Analysis"><span class="nav-text">Output &amp; Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-OPT"><span class="nav-text">I. OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-optlog2gjfcom-py"><span class="nav-text">1. optlog2gjfcom.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HFenergies-py"><span class="nav-text">2.HFenergies.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-FREQ"><span class="nav-text">II. FREQ</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-freq-thermal-py"><span class="nav-text">1.freq_thermal.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CpExtractor-py"><span class="nav-text">2.CpExtractor.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GibbsEnergy-py"><span class="nav-text">3.GibbsEnergy.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-TDDFT"><span class="nav-text">III. TDDFT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-tddft-lorentzian-py"><span class="nav-text">1.tddft_lorentzian.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cubegen-py"><span class="nav-text">2.cubegen.py</span></a></li></ol></li></ol></li></div>
             
 
           </div>
