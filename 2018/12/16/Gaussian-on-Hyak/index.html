@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T08:28:44.674Z">
+<meta property="og:updated_time" content="2018-12-20T08:34:28.647Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -347,8 +347,7 @@
 <h3 id="Link-0-Commands"><a href="#Link-0-Commands" class="headerlink" title="Link 0 Commands"></a><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></h3><ul>
 <li>locate and name scratch files </li>
 <li>not blank line terminated</li>
-<li><p>examples</p>
-<ul>
+<li>examples<ul>
 <li>%LindaWorker<ul>
 <li>add it when using 2 or more nodes on Hyak</li>
 </ul>
@@ -390,12 +389,12 @@
 </ul>
 </li>
 </ul>
-<h3 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></h3></li>
-<li><p>job type and method</p>
 </li>
+</ul>
+<h3 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></h3><ul>
+<li>job type and method</li>
 <li>blank line terminated</li>
-<li><p>examples</p>
-<ul>
+<li>examples<ul>
 <li>print form<ul>
 <li><em><code>#N</code></em>: normal print, by default if not specify</li>
 <li><em><code>#P</code></em>: print more info</li>
@@ -444,15 +443,16 @@
 </ul>
 </li>
 </ul>
-<h3 id="Title-section"><a href="#Title-section" class="headerlink" title="Title section"></a>Title section</h3></li>
-<li><p>any descriptions</p>
 </li>
+</ul>
+<h3 id="Title-section"><a href="#Title-section" class="headerlink" title="Title section"></a>Title section</h3><ul>
+<li>any descriptions</li>
 <li>cannot exceed 5 lines</li>
 <li>avoid special character: @  #  !  –  _  \  control characters (especially Ctrl-G)</li>
-<li><p>blank line terminated</p>
-<h3 id="Molecule-specification"><a href="#Molecule-specification" class="headerlink" title="Molecule specification"></a><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></h3></li>
-<li><p>charge, multiplicity, atoms and coordinates</p>
-<ul>
+<li>blank line terminated</li>
+</ul>
+<h3 id="Molecule-specification"><a href="#Molecule-specification" class="headerlink" title="Molecule specification"></a><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></h3><ul>
+<li>charge, multiplicity, atoms and coordinates<ul>
 <li>multiplicity<ul>
 <li>number of possible spin orientations of the total spin</li>
 <li>mp=2S+1, S($\alpha$ electron)=0.5, S($\beta$ electron)=-0.5</li>
@@ -460,10 +460,10 @@
 </li>
 </ul>
 </li>
-<li><p>blank line terminated</p>
-<h3 id="Optinal-additional-sections"><a href="#Optinal-additional-sections" class="headerlink" title="Optinal additional sections"></a>Optinal additional sections</h3></li>
-<li><p>additional input</p>
-</li>
+<li>blank line terminated</li>
+</ul>
+<h3 id="Optinal-additional-sections"><a href="#Optinal-additional-sections" class="headerlink" title="Optinal additional sections"></a>Optinal additional sections</h3><ul>
+<li>additional input</li>
 <li>blank line terminated</li>
 </ul>
 <p><em>Example:</em></p>
