@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T03:30:19.336Z">
+<meta property="og:updated_time" content="2018-12-20T04:00:46.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -510,13 +510,13 @@
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
-<li>Goes through all *<em>.log</em> files in the current directory and try to extract energy</li>
+<li>Goes through all *<em>.log</em> files in the current directory to extract energy</li>
 <li>If <code>Stationary point found</code> is in the presence of log file, reads the energy after the last <code>SCF Done</code>; if not, returns energy=<em>NA</em></li>
-<li>Energies are sorted ascendingly and written to <em>HFenergies.csv</em> file with corresponding logfile name(without suffix)<h2 id="II-FREQ"><a href="#II-FREQ" class="headerlink" title="II. FREQ"></a>II. <a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></h2>For nonlinear molecules $3N-6$ frequecies can be found in the output file ($3N-5$ for linear molecules, N is the number of atoms), following by thermochemistry analysis at 298.15K, 1 atm.<br>Since the temperature in the Mass Spec is arount 310K, what we do is to extrat all normal modes(frequencies), zero-point energy and entropy from the log file and calculate entropy and enthalpy again in 310K 1 atm. Also, we correct the frequencies by a factor of 0.975 when calculation.</li>
+<li>Energies are sorted ascendingly and written to <em>HFenergies.csv</em> file with corresponding logfile name(without suffix)<h2 id="II-FREQ"><a href="#II-FREQ" class="headerlink" title="II. FREQ"></a>II. <a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></h2>For nonlinear molecules <em>3N-6</em> frequecies can be found in the output file (<em>3N-5</em> for linear molecules, <em>N</em> is the number of atoms), following by thermochemistry analysis at 298.15K, 1 atm.<br>Since the temperature in the Mass Spec is around 310K, we need to extrat all normal modes(frequencies), zero-point energy and entropy from the log file and calculate entropy and enthalpy at 310K 1 atm. Also, we correct frequencies by a factor of 0.975.</li>
 </ul>
 </li>
 </ul>
-<p><em>Note that the input of freq job should be an optimized structure with the same method and basis set.</em></p>
+<p><em>Note that the input of freq job should be an optimized structure optimized with the same method and basis set.</em></p>
 <h4 id="1-freq-thermal-py"><a href="#1-freq-thermal-py" class="headerlink" title="1.freq_thermal.py"></a>1.<jump id="freqthermal"></jump><a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/freq_thermal.py" target="_blank" rel="noopener">freq_thermal.py</a></h4><ul>
 <li><em>Usage</em><ul>
 <li><code>python freq_thermal.py freqlogfile</code></li>
