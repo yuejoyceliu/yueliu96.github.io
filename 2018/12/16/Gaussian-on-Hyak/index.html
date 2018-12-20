@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T01:39:22.500Z">
+<meta property="og:updated_time" content="2018-12-20T03:30:19.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -483,13 +483,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%UseSSH</span><br><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%chk=test.chk</span><br><span class="line"># Opt=Restart ub3lyp/6-31+g(d,p) pop=min scf=(xqc,tight)</span><br><span class="line">! a blank line must be here</span><br></pre></td></tr></table></figure>
 <h4 id="1-optlog2gjfcom-py"><a href="#1-optlog2gjfcom-py" class="headerlink" title="1. optlog2gjfcom.py"></a>1. <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/optlog2gjfcom.py" target="_blank" rel="noopener">optlog2gjfcom.py</a></h4><ul>
 <li><em>Usage</em><ul>
-<li>$python\ optlog2gjfcom.py\ logfile$</li>
+<li><code>python optlog2gjfcom.py logfile</code></li>
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
-<li>Uses $Stationary\ point\ found$ as a key to tell if opt finishes</li>
-<li>If finished, locates $Standard\ orientation$ after it, reads charge and multiplicity from the very end and then writes a new input file, named with $test$_$opt.gjf$ if original one is $test.com$.</li>
-<li>If not  finished, checks if input file in the current directory, gets chk file name from input and then writes the restarted input file just as showed above named with $test$_$rst.gjf$ if original one is $test.gjf$. If original input and chk files not found, it will just stop without doing anything.</li>
+<li>Uses <code>Stationary point found</code> as a key to tell if opt finishes</li>
+<li>If finished, locates <code>Standard orientation</code> after it, reads charge and multiplicity from the very end and then writes a new input file, named with <em>test_opt.gjf</em> if original one is <em>test$.$com</em>.</li>
+<li>If not  finished, checks if input file in the current directory, gets chk file name from input and then writes the restarted input file just as showed above named with <em>test_rst.gjf</em> if original one is <em>test.gjf</em>. If original input and chk files not found, it will just stop without doing anything.</li>
 </ul>
 </li>
 <li><p><em>Notes</em> </p>
@@ -506,25 +506,25 @@
 <h4 id="2-HFenergies-py"><a href="#2-HFenergies-py" class="headerlink" title="2.HFenergies.py"></a>2.<jump id="hfenergies"></jump><a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/HFenergy.py" target="_blank" rel="noopener">HFenergies.py</a></h4><p>The other important information we want to get from the output is optimized energy.</p>
 <ul>
 <li><em>Usage</em><ul>
-<li>$python\ HFenergies.py$</li>
+<li><code>python HFenergies.py</code></li>
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
-<li>Goes through all $*.log$ files in the current directory and try to extract energy</li>
-<li>If $Stationary\ point\ found$ is in the presence of log file, reads the energy after the last $SCF\ Done$; if not, returns energy=$NA$</li>
-<li>Energies are sorted ascendingly and written to $HFenergies.csv$ file with corresponding logfile name(without suffix)<h2 id="II-FREQ"><a href="#II-FREQ" class="headerlink" title="II. FREQ"></a>II. <a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></h2>For nonlinear molecules $3N-6$ frequecies can be found in the output file ($3N-5$ for linear molecules, N is the number of atoms), following by thermochemistry analysis at 298.15K, 1 atm.<br>Since the temperature in the Mass Spec is arount 310K, what we do is to extrat all normal modes(frequencies), zero-point energy and entropy from the log file and calculate entropy and enthalpy again in 310K 1 atm. Also, we correct the frequencies by a factor of 0.975 when calculation.</li>
+<li>Goes through all *<em>.log</em> files in the current directory and try to extract energy</li>
+<li>If <code>Stationary point found</code> is in the presence of log file, reads the energy after the last <code>SCF Done</code>; if not, returns energy=<em>NA</em></li>
+<li>Energies are sorted ascendingly and written to <em>HFenergies.csv</em> file with corresponding logfile name(without suffix)<h2 id="II-FREQ"><a href="#II-FREQ" class="headerlink" title="II. FREQ"></a>II. <a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></h2>For nonlinear molecules $3N-6$ frequecies can be found in the output file ($3N-5$ for linear molecules, N is the number of atoms), following by thermochemistry analysis at 298.15K, 1 atm.<br>Since the temperature in the Mass Spec is arount 310K, what we do is to extrat all normal modes(frequencies), zero-point energy and entropy from the log file and calculate entropy and enthalpy again in 310K 1 atm. Also, we correct the frequencies by a factor of 0.975 when calculation.</li>
 </ul>
 </li>
 </ul>
 <p><em>Note that the input of freq job should be an optimized structure with the same method and basis set.</em></p>
 <h4 id="1-freq-thermal-py"><a href="#1-freq-thermal-py" class="headerlink" title="1.freq_thermal.py"></a>1.<jump id="freqthermal"></jump><a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/freq_thermal.py" target="_blank" rel="noopener">freq_thermal.py</a></h4><ul>
 <li><em>Usage</em><ul>
-<li>$python\ freq_thermal.py\ freqlogfile$</li>
+<li><code>python freq_thermal.py freqlogfile</code></li>
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
 <li>Extracts frequencies from log file. If the first frequency is negative or freq not finished, raises error and stops.</li>
-<li>Uses partition functions to calculate enthalpy, entropy and heat capacity and writes the result to file named with $test$_$freq.csv$ if $test.log$ is given.</li>
+<li>Uses partition functions to calculate enthalpy, entropy and heat capacity and writes the result to file named with <em>test_freq.csv</em> if <em>test.log</em> is given.</li>
 <li><em><font color="gray">explanations of calculation(to be writted)</font></em></li>
 </ul>
 </li>
@@ -532,22 +532,22 @@
 <h4 id="2-CpExtractor-py"><a href="#2-CpExtractor-py" class="headerlink" title="2.CpExtractor.py"></a>2.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/CpExtractor.py" target="_blank" rel="noopener">CpExtractor.py</a></h4><p>Sometimes, we only want to know the heat capacity at constant pressure, that is why this simple script is here.</p>
 <ul>
 <li><em>Usage</em><ul>
-<li>$python\ CpExtractor.py$</li>
+<li><code>python CpExtractor.py</code></li>
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
-<li>Goes through all *_freq.csv files in the working directory and writes the Cp and its file name into a new file $Cp.csv$</li>
+<li>Goes through all *<em>_freq.csv</em> files in the working directory and writes the Cp and its file name into a new file <em>Cp.csv</em></li>
 <li>If Cp not found, <em>NA</em> will be there instead of a number <h4 id="3-GibbsEnergy-py"><a href="#3-GibbsEnergy-py" class="headerlink" title="3.GibbsEnergy.py"></a>3.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/GibbsEnergy.py" target="_blank" rel="noopener">GibbsEnergy.py</a></h4>After we finish all opt and freq jobs, we can use energies get from opt output and <em>ZPVE</em>, <em>H</em> and <em>S</em> calculated based on freq output to calculate their free energies.</li>
 </ul>
 </li>
 <li><em>Usage</em><ul>
-<li>$python\ GibbsEnergy.py\ energyfile$</li>
+<li><code>python GibbsEnergy.py energyfile</code></li>
 </ul>
 </li>
 <li><em>Descriptions</em><ul>
 <li>Needs energy file got from <a href="#&#39;hfenergies&#39;">HFenergies.py</a> and corresponding *_freq.csv files got from <a href="#&#39;freqthermal&#39;">freq_thermal.py</a> in the same directory. The delimiter of all these files must be comma(,)</li>
 <li>Reads structure’s name(x) and energy from energy file. The frist row is considered as title, will be skipped. The structure with lowest energy is seen as reference.</li>
-<li>Uses x find its freq file: x_freq.csv and read its 9th rows(thermal infomation); only read 8th row(title info) for the first *_freq.csv it finds.</li>
+<li>Uses x find its freq file: x_freq.csv and read its 9th rows(thermal infomation); only read 8th row(title info) for the first *<em>_freq.csv</em> it finds.</li>
 <li>$G=E_{elec}+ZPVE_{corr}+H(T)-T\cdot S(T)$ and $\Delta G=G-G_{ref}$ are used, the result in $kJ/mol$<h2 id="III-TDDFT"><a href="#III-TDDFT" class="headerlink" title="III. TDDFT"></a>III. TDDFT</h2><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3></li>
 </ul>
 </li>
