@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T08:22:18.878Z">
+<meta property="og:updated_time" content="2018-12-20T08:25:23.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -344,7 +344,8 @@
       
         <p><em>Here introduces how to setup Gaussian input file, submit it to <a href="https://wiki.cac.washington.edu/display/hyakusers/WIKI+for+Hyak+users" target="_blank" rel="noopener">Hyak</a> (super computer server) and analyze the output file by my python scripts.</em></p>
 <h1 id="Gaussian-16-Input"><a href="#Gaussian-16-Input" class="headerlink" title="Gaussian 16 Input"></a>Gaussian 16 Input</h1><p><a href="http://gaussian.com/input/" target="_blank" rel="noopener">Gaussian 16 input</a> consists of a series of lines in an ASCII text file. In general, the input is free-format and case-insensitive; comments start with an exclamation point(!), could be anywhere on a line; spaces, commas, tabs and forward slashes are all considered as valid delimiters (multi spaces are treated as a single demiliter); keyword=option,kw(op),kw=(op1,op2,…) and kw(op1,op2) are all correct. The common suffixes of the input file are gjf and com. The basic structure of a Gaussian input file includes several different sections:</p>
-<p><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></p>
+<ul>
+<li><p><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></p>
 <ul>
 <li>locate and name scratch files </li>
 <li>not blank line terminated</li>
@@ -392,7 +393,8 @@
 </ul>
 </li>
 </ul>
-<p><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a> </p>
+</li>
+<li><p><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a> </p>
 <ul>
 <li>job type and method</li>
 <li>blank line terminated</li>
@@ -447,14 +449,16 @@
 </ul>
 </li>
 </ul>
-<p>Title section</p>
+</li>
+<li><p>Title section</p>
 <ul>
 <li>any descriptions</li>
 <li>cannot exceed 5 lines</li>
 <li>avoid special character: @  #  !  –  _  \  control characters (especially Ctrl-G)</li>
 <li>blank line terminated</li>
 </ul>
-<p><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></p>
+</li>
+<li><p><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></p>
 <ul>
 <li>charge, multiplicity, atoms and coordinates<ul>
 <li>multiplicity<ul>
@@ -466,10 +470,13 @@
 </li>
 <li>blank line terminated</li>
 </ul>
-<p>Optinal additional sections</p>
+</li>
+<li><p>Optinal additional sections</p>
 <ul>
 <li>additional input</li>
 <li>blank line terminated</li>
+</ul>
+</li>
 </ul>
 <p><em>Example:</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%chk=guanosine.chk</span><br><span class="line"># opt um062x/6-31+g(d,p) pop=min scf=(xqc,tight)</span><br><span class="line"></span><br><span class="line">Complex guanosine</span><br><span class="line"></span><br><span class="line">1 2</span><br><span class="line">O       -3.094427        1.959361        0.291777</span><br><span class="line">C       -4.011153        1.021154       -0.267210</span><br><span class="line">C       -3.292860       -0.293751       -0.453718</span><br><span class="line">O       -2.175288       -0.104229       -1.347075</span><br><span class="line">...           ...             ...             ...</span><br><span class="line">H       -1.180628        1.929546       -0.412585</span><br><span class="line">H       -3.574938        2.742899        0.582770</span><br><span class="line">H        1.100354        3.004366        0.220564</span><br><span class="line">! a blank line must be here</span><br></pre></td></tr></table></figure>
