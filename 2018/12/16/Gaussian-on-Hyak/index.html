@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T08:25:23.466Z">
+<meta property="og:updated_time" content="2018-12-20T08:27:17.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -344,9 +344,7 @@
       
         <p><em>Here introduces how to setup Gaussian input file, submit it to <a href="https://wiki.cac.washington.edu/display/hyakusers/WIKI+for+Hyak+users" target="_blank" rel="noopener">Hyak</a> (super computer server) and analyze the output file by my python scripts.</em></p>
 <h1 id="Gaussian-16-Input"><a href="#Gaussian-16-Input" class="headerlink" title="Gaussian 16 Input"></a>Gaussian 16 Input</h1><p><a href="http://gaussian.com/input/" target="_blank" rel="noopener">Gaussian 16 input</a> consists of a series of lines in an ASCII text file. In general, the input is free-format and case-insensitive; comments start with an exclamation point(!), could be anywhere on a line; spaces, commas, tabs and forward slashes are all considered as valid delimiters (multi spaces are treated as a single demiliter); keyword=option,kw(op),kw=(op1,op2,…) and kw(op1,op2) are all correct. The common suffixes of the input file are gjf and com. The basic structure of a Gaussian input file includes several different sections:</p>
-<ul>
-<li><p><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></p>
-<ul>
+<h3 id="Link-0-Commands"><a href="#Link-0-Commands" class="headerlink" title="Link 0 Commands"></a><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></h3><ul>
 <li>locate and name scratch files </li>
 <li>not blank line terminated</li>
 <li>examples<ul>
@@ -393,9 +391,7 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a> </p>
-<ul>
+<h3 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></h3><ul>
 <li>job type and method</li>
 <li>blank line terminated</li>
 <li>examples<ul>
@@ -449,17 +445,13 @@
 </ul>
 </li>
 </ul>
-</li>
-<li><p>Title section</p>
-<ul>
+<h3 id="Title-section"><a href="#Title-section" class="headerlink" title="Title section"></a>Title section</h3><ul>
 <li>any descriptions</li>
 <li>cannot exceed 5 lines</li>
 <li>avoid special character: @  #  !  –  _  \  control characters (especially Ctrl-G)</li>
 <li>blank line terminated</li>
 </ul>
-</li>
-<li><p><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></p>
-<ul>
+<h3 id="Molecule-specification"><a href="#Molecule-specification" class="headerlink" title="Molecule specification"></a><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></h3><ul>
 <li>charge, multiplicity, atoms and coordinates<ul>
 <li>multiplicity<ul>
 <li>number of possible spin orientations of the total spin</li>
@@ -470,7 +462,7 @@
 </li>
 <li>blank line terminated</li>
 </ul>
-</li>
+<ul>
 <li><p>Optinal additional sections</p>
 <ul>
 <li>additional input</li>
@@ -780,7 +772,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-amp-Analysis"><span class="nav-text">Output &amp; Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-OPT"><span class="nav-text">I. OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-optlog2gjfcom-py"><span class="nav-text">1. optlog2gjfcom.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HFenergies-py"><span class="nav-text">2.HFenergies.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-FREQ"><span class="nav-text">II. FREQ</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-freq-thermal-py"><span class="nav-text">1.freq_thermal.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CpExtractor-py"><span class="nav-text">2.CpExtractor.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GibbsEnergy-py"><span class="nav-text">3.GibbsEnergy.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-TDDFT"><span class="nav-text">III. TDDFT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-tddft-lorentzian-py"><span class="nav-text">1.tddft_lorentzian.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cubegen-py"><span class="nav-text">2.cubegen.py</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-amp-Analysis"><span class="nav-text">Output &amp; Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#I-OPT"><span class="nav-text">I. OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-optlog2gjfcom-py"><span class="nav-text">1. optlog2gjfcom.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HFenergies-py"><span class="nav-text">2.HFenergies.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#II-FREQ"><span class="nav-text">II. FREQ</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-freq-thermal-py"><span class="nav-text">1.freq_thermal.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CpExtractor-py"><span class="nav-text">2.CpExtractor.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-GibbsEnergy-py"><span class="nav-text">3.GibbsEnergy.py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#III-TDDFT"><span class="nav-text">III. TDDFT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-tddft-lorentzian-py"><span class="nav-text">1.tddft_lorentzian.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-cubegen-py"><span class="nav-text">2.cubegen.py</span></a></li></ol></li></ol></li></div>
             
 
           </div>
