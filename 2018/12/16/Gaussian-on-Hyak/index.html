@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T07:32:02.891Z">
+<meta property="og:updated_time" content="2018-12-20T07:37:16.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -538,9 +538,12 @@
 </li>
 <li><em>Descriptions</em><ul>
 <li>Goes through all *<em>_freq.csv</em> files in the working directory and writes the Cp and its file name into a new file <em>Cp.csv</em></li>
-<li>If Cp not found, <em>NA</em> will be there instead of a number <h4 id="3-GibbsEnergy-py"><a href="#3-GibbsEnergy-py" class="headerlink" title="3.GibbsEnergy.py"></a>3.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/GibbsEnergy.py" target="_blank" rel="noopener">GibbsEnergy.py</a></h4>After we finish all opt and freq jobs, we can use energies got from opt output and <em>ZPVE</em>, <em>H</em> and <em>S</em> calculated based on freq output to calculate their free energies.</li>
+<li>If Cp not found, <em>NA</em> will be there instead of a number</li>
 </ul>
 </li>
+</ul>
+<h4 id="3-GibbsEnergy-py"><a href="#3-GibbsEnergy-py" class="headerlink" title="3.GibbsEnergy.py"></a>3.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/GibbsEnergy.py" target="_blank" rel="noopener">GibbsEnergy.py</a></h4><p>After we finish all opt and freq jobs, we can use energies got from opt output and <em>ZPVE</em>, <em>H</em> and <em>S</em> calculated based on freq output to calculate their free energies.</p>
+<ul>
 <li><em>Usage</em><ul>
 <li><code>python GibbsEnergy.py energyfile</code></li>
 </ul>
@@ -563,10 +566,11 @@
 <li><em>Descriptions</em><ul>
 <li>Reads all excitated frequencies, oscilation strength and S**2 from log file and checks if the last one is below 210nm.</li>
 <li>If not, starts to write the new input file like listed above named with <em>test_add.gjf</em> if original input is <em>test.gjf</em>. The original input file and chk file must be in the same directory.</li>
-<li>Else, uses S*<em>2=2.6 as a cutoff to choose frequencies and lorentzian equation to calculate absorption spectra. The results are written to </em>test_uvvis.csv<em> if </em>test.log* is given.<h4 id="2-cubegen-py"><a href="#2-cubegen-py" class="headerlink" title="2.cubegen.py"></a>2.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/cubegen.py" target="_blank" rel="noopener">cubegen.py</a></h4>We can also visualize the molecular orbital if we have tddft chk file. We should first use <a href="http://gaussian.com/formchk/" target="_blank" rel="noopener"><code>formchk</code></a> command to generate fchk file, and then use <a href="http://gaussian.com/cubegen/" target="_blank" rel="noopener"><code>cubegen</code></a> to get the cube file, which can be visualized by Gaussian-View. To use cubegen, we also need to decide the molecular orbital number, for $\alpha$ orbital, like 68A, just set mo=68. But for $\beta$ orbital,like 72B, we should find the total number of $\alpha$ orbitals first. If one molecule has 70 $\alpha$ electrons(NAE) and 356 virtual $\alpha$ orbitals(NVA), set mo=498(70+356+72). </li>
+<li>Else, uses S*<em>2=2.6 as a cutoff to choose frequencies and lorentzian equation to calculate absorption spectra. The results are written to </em>test_uvvis.csv<em> if </em>test.log* is given.</li>
 </ul>
 </li>
 </ul>
+<h4 id="2-cubegen-py"><a href="#2-cubegen-py" class="headerlink" title="2.cubegen.py"></a>2.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/cubegen.py" target="_blank" rel="noopener">cubegen.py</a></h4><p>We can also visualize the molecular orbital if we have tddft chk file. We should first use <a href="http://gaussian.com/formchk/" target="_blank" rel="noopener"><code>formchk</code></a> command to generate fchk file, and then use <a href="http://gaussian.com/cubegen/" target="_blank" rel="noopener"><code>cubegen</code></a> to get the cube file, which can be visualized by Gaussian-View. To use cubegen, we also need to decide the molecular orbital number, for $\alpha$ orbital, like 68A, just set mo=68. But for $\beta$ orbital,like 72B, we should find the total number of $\alpha$ orbitals first. If one molecule has 70 $\alpha$ electrons(NAE) and 356 virtual $\alpha$ orbitals(NVA), set mo=498(70+356+72). </p>
 <p>If we run cubegen on the login node, it will take around 1 minutes. Usually we are interested in several orbitals in one or more excited states. In this way, this script comes out. </p>
 <ul>
 <li><em>Usage</em><ul>
