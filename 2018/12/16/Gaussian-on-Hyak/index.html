@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-20T01:31:22.818Z">
+<meta property="og:updated_time" content="2018-12-20T01:39:22.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
 <meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
@@ -488,8 +488,8 @@
 </li>
 <li><em>Descriptions</em><ul>
 <li>Uses $Stationary\ point\ found$ as a key to tell if opt finishes</li>
-<li>If finished, finds $Standard\ orientation$ after it, reads charge and multiplicity from the very end and then writes a new input file, named with $test_opt.gjf$ if original one is $test.com$.</li>
-<li>If not  finished, checks if input file in the current directory, gets chk file name from input and then writes the restarted input file just as showed above named with $test_rst.gjf$ if original one is $test.gjf$. If original input and chk files not found, it will just stop without doing anything.</li>
+<li>If finished, locates $Standard\ orientation$ after it, reads charge and multiplicity from the very end and then writes a new input file, named with $test$_$opt.gjf$ if original one is $test.com$.</li>
+<li>If not  finished, checks if input file in the current directory, gets chk file name from input and then writes the restarted input file just as showed above named with $test$_$rst.gjf$ if original one is $test.gjf$. If original input and chk files not found, it will just stop without doing anything.</li>
 </ul>
 </li>
 <li><p><em>Notes</em> </p>
@@ -524,7 +524,7 @@
 </li>
 <li><em>Descriptions</em><ul>
 <li>Extracts frequencies from log file. If the first frequency is negative or freq not finished, raises error and stops.</li>
-<li>Uses partition functions to calculate enthalpy, entropy and heat capacity and writes the result to file named with $test_freq.csv$ if $test.log$ is given.</li>
+<li>Uses partition functions to calculate enthalpy, entropy and heat capacity and writes the result to file named with $test$_$freq.csv$ if $test.log$ is given.</li>
 <li><em><font color="gray">explanations of calculation(to be writted)</font></em></li>
 </ul>
 </li>
