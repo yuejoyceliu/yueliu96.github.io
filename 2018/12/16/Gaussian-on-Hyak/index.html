@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Gaussian,Hyak,opt,freq,tddft,">
+  <meta name="keywords" content="Hyak,ComputChem,software,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
-<meta name="keywords" content="Gaussian,Hyak,opt,freq,tddft">
+<meta name="description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.">
+<meta name="keywords" content="Hyak,ComputChem,software">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gaussian on Hyak">
 <meta property="og:url" content="http://yoursite.com/2018/12/16/Gaussian-on-Hyak/index.html">
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
-<meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
+<meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-21T04:03:29.759Z">
+<meta property="og:updated_time" content="2018-12-31T21:24:35.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gaussian on Hyak">
-<meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Gaussian 16 InputGaussian 16 input consists of a series of">
+<meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.">
 
 
 
@@ -342,7 +342,7 @@
       
 
       
-        <p><em>Here introduces how to setup Gaussian input file, submit it to <a href="https://wiki.cac.washington.edu/display/hyakusers/WIKI+for+Hyak+users" target="_blank" rel="noopener">Hyak</a> (super computer server) and analyze the output file by my python scripts.</em></p>
+        <p><em>Here introduces how to setup Gaussian input file, submit it to <a href="https://wiki.cac.washington.edu/display/hyakusers/WIKI+for+Hyak+users" target="_blank" rel="noopener">Hyak</a> (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.</em></p>
 <h1 id="Gaussian-16-Input"><a href="#Gaussian-16-Input" class="headerlink" title="Gaussian 16 Input"></a>Gaussian 16 Input</h1><p><a href="http://gaussian.com/input/" target="_blank" rel="noopener">Gaussian 16 input</a> consists of a series of lines in an ASCII text file. In general, the input is free-format and case-insensitive; comments start with an exclamation point(!), could be anywhere on a line; spaces, commas, tabs and forward slashes are all considered as valid delimiters (multi spaces are treated as a single demiliter); keyword=option,kw(op),kw=(op1,op2,…) and kw(op1,op2) are all correct. The common suffixes of the input file are gjf and com. The basic structure includes several different sections:</p>
 <h2 id="Link-0-Commands"><a href="#Link-0-Commands" class="headerlink" title="Link 0 Commands"></a><font size="3"><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></font></h2><ul>
 <li>locate and name scratch files </li>
@@ -459,6 +459,10 @@
 <li>multiplicity<ul>
 <li>number of possible spin orientations of the total spin</li>
 <li>mp=2S+1, S($\alpha$ electron)=0.5, S($\beta$ electron)=-0.5</li>
+</ul>
+</li>
+<li>coordinates<ul>
+<li>x, y and z coordinates in angstrom</li>
 </ul>
 </li>
 </ul>
@@ -613,15 +617,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Gaussian/" rel="tag"># Gaussian</a>
-          
             <a href="/tags/Hyak/" rel="tag"># Hyak</a>
           
-            <a href="/tags/opt/" rel="tag"># opt</a>
+            <a href="/tags/ComputChem/" rel="tag"># ComputChem</a>
           
-            <a href="/tags/freq/" rel="tag"># freq</a>
-          
-            <a href="/tags/tddft/" rel="tag"># tddft</a>
+            <a href="/tags/software/" rel="tag"># software</a>
           
         </div>
       
@@ -643,6 +643,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/28/Mopac-with-Cuby4/" rel="prev" title="Mopac_with_Cuby4">
+                Mopac_with_Cuby4 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -719,7 +723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -741,7 +745,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
