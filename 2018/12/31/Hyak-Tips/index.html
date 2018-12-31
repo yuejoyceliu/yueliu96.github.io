@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Tips on: python scripts | squeue format | to be continue… Python Scripts It’s a good choice to store useful python scripts in user’s home directory, whose quotas are set to 10 GB with a limit of 5,000">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-31T22:35:16.146Z">
+<meta property="og:updated_time" content="2018-12-31T22:38:32.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyak Tips">
 <meta name="twitter:description" content="Tips on: python scripts | squeue format | to be continue… Python Scripts It’s a good choice to store useful python scripts in user’s home directory, whose quotas are set to 10 GB with a limit of 5,000">
@@ -342,8 +342,8 @@
       
 
       
-        <p>Tips on: python scripts | squeue format | to be continue…</p>
-<h1 id="Python-Scripts"><a href="#Python-Scripts" class="headerlink" title="Python Scripts"></a>Python Scripts</h1><ul>
+        <p>Tips on: <a href="#pyscripts">python scripts</a> | <a href="#squeue">squeue format</a> | to be continue…</p>
+<h1 id="Python-Scripts"><a href="#Python-Scripts" class="headerlink" title="Python Scripts"></a><jump id="pyscripts">Python Scripts</jump></h1><ul>
 <li>It’s a good choice to store useful python scripts in user’s home directory, whose quotas are set to 10 GB with a limit of 5,000 files. </li>
 <li>Python scripts starting with <code>#!/usr/bin/env python</code>, can be executed by <code>directory/pyfile ...</code> besides <code>python pyfile ...</code>. </li>
 <li>Use <code>chmod u+x pyfile</code> if it isn’t executable</li>
@@ -355,7 +355,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="Squeue-Format"><a href="#Squeue-Format" class="headerlink" title="Squeue Format"></a>Squeue Format</h1><p>add <code>export SQUEUE_FORMAT=&quot;the-format-you-like&quot;</code> to /.bash_profile file and then run <code>source /.bash_profile</code></p>
+<h1 id="Squeue-Format"><a href="#Squeue-Format" class="headerlink" title="Squeue Format"></a><jump id="squeue">Squeue Format</jump></h1><p>add <code>export SQUEUE_FORMAT=&quot;the-format-you-like&quot;</code> to /.bash_profile file and then run <code>source /.bash_profile</code></p>
 <ul>
 <li><p>My own version:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export SQUEUE_FORMAT=&quot;%.7i %9P %15j %.8u %.2t %.12M %.12L %.5C %.7m  %.4D %R&quot;</span><br></pre></td></tr></table></figure>
