@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Tips on: python scripts | squeue format | to be continue… Python Scripts It’s a good choice to store useful python scripts in user’s home directory, whose quotas are set to 10 GB with a limit of 5,000">
+<meta name="description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | squeue format | to be continue… File Transfer from ikt to mox 12hyakbbcp myfile mox1.hyak.uw.edu:mydirectoryhyakbbcp -r myfolder mox">
 <meta name="keywords" content="Hyak">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hyak Tips">
 <meta property="og:url" content="http://yoursite.com/2018/12/31/Hyak-Tips/index.html">
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
-<meta property="og:description" content="Tips on: python scripts | squeue format | to be continue… Python Scripts It’s a good choice to store useful python scripts in user’s home directory, whose quotas are set to 10 GB with a limit of 5,000">
+<meta property="og:description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | squeue format | to be continue… File Transfer from ikt to mox 12hyakbbcp myfile mox1.hyak.uw.edu:mydirectoryhyakbbcp -r myfolder mox">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-31T22:38:32.428Z">
+<meta property="og:updated_time" content="2019-01-01T05:43:15.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyak Tips">
-<meta name="twitter:description" content="Tips on: python scripts | squeue format | to be continue… Python Scripts It’s a good choice to store useful python scripts in user’s home directory, whose quotas are set to 10 GB with a limit of 5,000">
+<meta name="twitter:description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | squeue format | to be continue… File Transfer from ikt to mox 12hyakbbcp myfile mox1.hyak.uw.edu:mydirectoryhyakbbcp -r myfolder mox">
 
 
 
@@ -342,7 +342,41 @@
       
 
       
-        <p>Tips on: <a href="#pyscripts">python scripts</a> | <a href="#squeue">squeue format</a> | to be continue…</p>
+        <p>Tips on: <a href="#scp">file transfer</a> | <a href="#memdisk">memory &amp; disk space</a> | <a href="#pyscripts">python scripts</a> | <a href="#squeue">squeue format</a> | to be continue…</p>
+<h1 id="File-Transfer"><a href="#File-Transfer" class="headerlink" title="File Transfer"></a><jump id="scp">File Transfer</jump></h1><ul>
+<li><p>from ikt to mox</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hyakbbcp myfile mox1.hyak.uw.edu:mydirectory</span><br><span class="line">hyakbbcp -r myfolder mox1.hyak.uw.edu:mydirectory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>from mox to ikt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hyakbbcp myfile ikt1.hyak.uw.edu:mydirectory</span><br><span class="line">hyakbbcp -r myfolder ikt1.hyak.uw.edu:mydirectory</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>into hyak</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp myfile user@mox.hyak.uw.edu:path/of/destination</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>out of hyak</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp user@ikt.hyak.uw.edu:path/of/your/file .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>into or out of hyak by sftp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sftp user@mox.hyak.uw.edu</span><br><span class="line">get myfile   #move myfile from hyak to local direcotry</span><br><span class="line">get -r myfolder </span><br><span class="line">put myfile   #move myfile from local directory to hyak</span><br><span class="line">put -r myfolder</span><br><span class="line">ls           #list files and folders on hyak directory</span><br><span class="line">lls          #list files and folders on local directory</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Memory-and-Disk-Space"><a href="#Memory-and-Disk-Space" class="headerlink" title="Memory and Disk Space"></a><jump id="memdisk">Memory and Disk Space</jump></h1><ul>
+<li>Commonality<ul>
+<li>Place to hold data</li>
+<li>Unit: bytes, kilobytes, megabytes, etc</li>
+</ul>
+</li>
+<li>Difference<ul>
+<li>Memory is known as random access memory (RAM), which stores actively running programs on the computer. The more memory is, the more it is able to run complex programs and more programs at the same time.</li>
+<li>Disk space is a spindle of magnetic discs to store files you download, install or save.</li>
+</ul>
+</li>
+<li>Command<ul>
+<li>mem: <code>free -g</code> (g:GB,m:MB,k:KB)</li>
+<li>disk space: <code>df -h</code></li>
+</ul>
+</li>
+</ul>
 <h1 id="Python-Scripts"><a href="#Python-Scripts" class="headerlink" title="Python Scripts"></a><jump id="pyscripts">Python Scripts</jump></h1><ul>
 <li>It’s a good choice to store useful python scripts in user’s home directory, whose quotas are set to 10 GB with a limit of 5,000 files. </li>
 <li>Python scripts starting with <code>#!/usr/bin/env python</code>, can be executed by <code>directory/pyfile ...</code> besides <code>python pyfile ...</code>. </li>
@@ -541,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Scripts"><span class="nav-text">Python Scripts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Squeue-Format"><span class="nav-text">Squeue Format</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#File-Transfer"><span class="nav-text">File Transfer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory-and-Disk-Space"><span class="nav-text">Memory and Disk Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Scripts"><span class="nav-text">Python Scripts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Squeue-Format"><span class="nav-text">Squeue Format</span></a></li></ol></div>
             
 
           </div>
