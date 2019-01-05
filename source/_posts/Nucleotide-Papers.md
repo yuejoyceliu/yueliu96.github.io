@@ -29,53 +29,75 @@ categories:
   - pseudo-dAA-catrad
     - zwitterionic structures
     - Coulomb stablization
-1. Gaseous Protonated A
-  - N-1, N-3, N- 7, N-9, and NH2 (N-10) positions: potential protonation sites
-  - dA: N-3
-    - H bond stablization
-  - dAA: N-1, N-1''
-  - psedo-dAA: N-3, N-3''
-    - H bond stablization
-2. Form Cation Radicals
-  - ETD dAA+2$H^+$: $[M-H]^{+\cdot}(m/z\ 565)$, $[M-H-A]^+(m/z\ 431)$, $w^{+\cdot}(m/z\  332)$
-  - M+CE/DBCE$\rightarrow$ESI$\rightarrow$ETD: $M^{+\cdot}$
-  - CE favors N-1 position
-3. UV-Vis Action Spectrum 
-  - vis: broad band at 465nm; uv: 340nm, 260nm 
-  - channel: $w^{+\cdot}(m/z\ 332)$, $[w+H]^+(m/z\ 333)$, $[M-H-A]^+(m/z\ 431)$
-  - 260nm is same with [pccp_adenine1](#ap1) and [pccp_adenine2](#ap2)
-4. Dinucleotide Cation Radical Structures
-  - if exothermic, isomerization driven by proton migrations will occur sponstaneously and driven by exotherimic energy provided by the electron attachment reaction. 
-  - electron not attach N-1
-  - hydrogen migration might face substantial energy barrier. [[A+H1](#l1) | [A+H2](#l2)]
-  - proton transfer (move radical position)$\rightarrow$optimize$\rightarrow$ more stable structures
-  - theoritical uvvis spectra and molecular orbital analysis $\rightarrow$ possible tautomers & spectra contributions $\pi_z \rightarrow \pi_z^*$
-5. Adenine Ribonucleotide Chimeras
-  - uv-vis analysis: similiar band position to dAA 
-  -  aromatic diesters
-     - opt: zwitterionic dication-anion radicals $\longleftrightarrow$ folded structure (exothermic conformation collapse)
-     - Coulomb stablization of zwitterionic structures is analogous to the solvent effects governing DNA ionization ([DNAion1](#ion1) | [DNAion2](#ion2))
-  - cyclohexane diester: 
-    - adenine cation and radical moieties are located on the opposite sides of the cyclohexane ring 
-    - attractive ion−dipole and ion-induced dipole interactions
+  
+## 1. Gaseous Protonated A
 
+- N-1, N-3, N- 7, N-9, and NH2 (N-10) positions: potential protonation sites
+- dA: N-3
+  - H bond stablization
+- dAA: N-1, N-1''
+- psedo-dAA: N-3, N-3''
+  - H bond stablization
 
+## 2. Form Cation Radicals
+
+- ETD dAA+2$H^+$: $[M-H]^{+\cdot}(m/z\ 565)$, $[M-H-A]^+(m/z\ 431)$, $w^{+\cdot}(m/z\  332)$
+- M+CE/DBCE$\rightarrow$ESI$\rightarrow$ETD: $M^{+\cdot}$
+- CE favors N-1 position
+
+## 3. UV-Vis Action Spectrum 
+
+- vis: broad band at 465nm; uv: 340nm, 260nm 
+- channel: $w^{+\cdot}(m/z\ 332)$, $[w+H]^+(m/z\ 333)$, $[M-H-A]^+(m/z\ 431)$
+- 260nm is same with [pccp_adenine1](#ap1) and [pccp_adenine2](#ap2)
+
+## 4. Dinucleotide Cation Radical Structures
+- if exothermic, isomerization driven by proton migrations will occur sponstaneously and driven by exotherimic energy provided by the electron attachment reaction. 
+- electron not attach N-1
+- hydrogen migration might face substantial energy barrier. [[A+H1](#l1) | [A+H2](#l2)]
+- proton transfer (move radical position)$\rightarrow$optimize$\rightarrow$ more stable structures
+- theoritical uvvis spectra and molecular orbital analysis $\rightarrow$ possible tautomers & spectra contributions $\pi_z \rightarrow \pi_z^*$
+
+## 5. Adenine Ribonucleotide Chimeras
+
+- uv-vis analysis: similiar band position to dAA 
+- aromatic diesters
+  - opt: zwitterionic dication-anion radicals $\longleftrightarrow$ folded structure (exothermic conformation collapse)
+  - Coulomb stablization of zwitterionic structures is analogous to the solvent effects governing DNA ionization ([DNAion1](#ion1) | [DNAion2](#ion2))
+- cyclohexane diester: 
+  - adenine cation and radical moieties are located on the opposite sides of the cyclohexane ring 
+  - attractive ion−dipole and ion-induced dipole interactions
 
 # [Hydrogen-Rich Cation Radicals of DNA Dinucleotides: Generation and Structure Elucidation by UV–Vis Action Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.8b07925)
 
 - Why
   - DNA ionization causes chemical chnages leading to complex process of DNA damage; intermediates: DNA cation radicals
   - the intrinsic electronic properties of the reactive cation radical intermediates just are elucidated recently
+    - proton transfer in DNA oxidation
+    - DNA ionization in solution
+  - Gas-phase studies can focus the intrinsic electronic and chemical properties of the radical species of interest [[reference](#gasphase)]
 - Goal
+  - purine and pyrimidine nucleobases in dinucleotide
+cation radicals exhibit different properties
+    - nucleobase stacking
+    - hydrogen bonds
+    - propensity for undergoing intramolecular proton transfer
+  - use dGG, dGC, dCG
 - Intro
+  - proton transfer
+    - $(dGG+2H)^{+\cdot}$: conform collapse & 3'-G C-8-H radicals
+    - $(dCG+2H)^{+\cdot}$: conform collapse & a mixture of 5'-C and 3'-G radicals
+    - $(dGC+2H)^{+\cdot}$: retain structure of a 3'-C radical
+  - basicities ($pK_a$) in water
+    - $(G+H)^\cdot:\ 20.0$
+    - $(C+H)^\cdot:\ 4.6$
 
-# [Watson-Crick Base Pair Radical Cation as a Model for Oxidative Damage in DNA](https://www.ncbi.nlm.nih.gov/pubmed/28628332)
+# [Watson-Crick Base Pair Radical Cation as a Model for Oxidative Damage in DNA](https://pubs.acs.org/doi/10.1021/acs.jpclett.7b01251)
 
-# Wu, J.; McLuckey, S. A. Gas-Phase Fragmentation of Oligonucleotide Ions. Int. J. Mass Spectrom. 2004, 237, 197−241.
+# [Gas-Phase Fragmentation of Oligonucleotide Ions. Int. J. Mass Spectrom. 2004, 237, 197−241](https://www.sciencedirect.com/journal/international-journal-of-mass-spectrometry/vol/237/issue/2)
 
 
 # <jump id="ap1">[The Electronic Spectrum of Protonated Adenine: Theory and Experiment](https://pubs.rsc.org/en/content/articlelanding/2005/cp/b507422c/unauth#!divAbstract)</jump>
-
 
 # <jump id='ap2'>[Gas-phase spectroscopy of protonated adenine, adenosine 5′-monophosphate and monohydrated ions](https://pubs.rsc.org/en/content/articlelanding/2013/cp/c3cp53742k/unauth#!divAbstract)</jump>
 
@@ -97,4 +119,4 @@ categories:
 
 # [One-Electron Oxidation of DNA Oligomers That Lack Guanine:  Reaction and Strand Cleavage at Remote Thymines by Long-Distance Radical Cation Hopping](https://pubs.acs.org/doi/abs/10.1021/ja058758b)
 
-# [Transient Intermediates of Chemical Reactions by Neutralization—Reionization Mass Spectrometry](https://link.springer.com/chapter/10.1007/3-540-36113-8_3)
+# <jump id="gasphase">[Transient Intermediates of Chemical Reactions by Neutralization—Reionization Mass Spectrometry](https://link.springer.com/chapter/10.1007/3-540-36113-8_3)</jump>
