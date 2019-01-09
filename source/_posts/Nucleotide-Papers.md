@@ -159,10 +159,32 @@ categories:
 - $(G+H)^{+} (aq,pK_a=3.3)+(G+H)^\cdot (aq) \overset{\Delta G=-95 kJ/mol}{\longrightarrow} G(aq)+(G+2H)^{+\cdot}(aq,pK_a\approx20.0)$
 - $(C+H)^{+} (aq,pK_a=4.6)+(C+H)^\cdot(aq) \overset{\Delta G=-0.1 kJ/mol}{\rightleftharpoons} C(aq)+(C+2H)^{+\cdot}(aq,pK_a\approx4.6)$
 
-
 # [Watson-Crick Base Pair Radical Cation as a Model for Oxidative Damage in DNA](https://pubs.acs.org/doi/10.1021/acs.jpclett.7b01251)
 
-# [Gas-Phase Fragmentation of Oligonucleotide Ions. Int. J. Mass Spectrom](https://www.sciencedirect.com/science/article/pii/S1387380604003264?via%3Dihub)
+## Background
+- mechanisms of DNA damage poorly understood
+  - oxidation $\rightarrow$ deprotonation at G $\rightarrow$ H abstraction from sugar $\rightarrow$ DNA strand breaks $\rightarrow$ mutagenesis and cancer
+  - probing initially formed radical cation challengeing
+- proton-coupled electron and hole transfer is an important
+feature in radiation damage process
+
+## Notes
+- gas-phase acidity data may be more appropriate to characterize the equilibrium position of the proton in oxidized GC base pairs ([ref](#gasbetter))
+- Guanine
+  1. the lowest ionization energy among GATC, both in solution and gas $\Rightarrow$
+  2. electtron loss during ionization of DNA mostly occurs form G $\rightarrow$
+  3. G radical cations enhaces acidities than G $\Rightarrow$ 
+  - dG$^{+\cdot}$-dC pair: H transfer from G to C (G3$\rightarrow$C3) $\Rightarrow$ relocation of radical site to sugar
+- homolytic bond dissociation enthaloy of 401kJ/mol for [dG+H(N$_7$)]$^+$ is comparable to that for a typical C-H bond $\Rightarrow$ other radicals via intra- or intermolecular H-abstraction reactions
+- CID
+  1. $[dGdC]^{+\cdot}-CH_2O$: occurs on the sugar of G
+  2. further loss $C_2H_3O_2$
+  3. $[dGdC]^{+\cdot}-C_5H_8O_3$ not nucleobase specific 
+
+# [Gas-Phase Fragmentation of Oligonucleotide Ions](https://www.sciencedirect.com/science/article/pii/S1387380604003264?via%3Dihub)
+
+- The preferred dissociation channels for a given ion are a function of the ion type, the structure o fth emolecule, the internal energy distribution of the ion and the time-frame over which the fragmentation reactions can evolve
+- McLuckey's nomenclature for backbone cleavages (a/w,b/x,c/y,d/z, 5'-frag:a,b,c,d; 3'-frag: w,x,y,z)
 
 
 # <jump id="ap1">[The Electronic Spectrum of Protonated Adenine: Theory and Experiment](https://pubs.rsc.org/en/content/articlelanding/2005/cp/b507422c/unauth#!divAbstract)</jump>
@@ -201,3 +223,9 @@ categories:
 # [Purine bases, nucleosides, and nucleotides: aqueous solution redox chemistry and transformation reactions of their radical cations and e- and OH adducts](https://pubs.acs.org/doi/10.1021/cr00093a003)
 
 # [Proton-coupled Electron Transfer in DNA on Formation of Radiation-produced Ion Radicals](http://pubs.acs.org/doi/abs/10.1021/cr100023g)
+
+# [Induction of Strand Breaks in Single-stranded Polyribonucleotides and DNA by Photoionization: One Electron Oxidized Nucleobase Radicals as Precursors](https://pubs.acs.org/doi/abs/10.1021/ja961722m)
+
+# [How Easily Oxidizable is DNA? One-electron Reduction Potentials of Adenosine and Guanosine Radicals in Aqueous Solution](https://pubs.acs.org/doi/10.1021/ja962255b)
+
+# <jump id='gasbetter'>[Structure and Acid-base Properties of One-electron-oxidized Deoxyguanosine, Guanosine, and 1-Methylguanosine](https://pubs.acs.org/doi/10.1021/ja00185a046)</jump>
