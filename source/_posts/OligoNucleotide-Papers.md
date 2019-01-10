@@ -1,11 +1,10 @@
 ---
-title: Nucleotide Papers
+title: OligoNucleotide Papers
 date: 2019-01-02 15:30:51
 tags:
-- nucleotide
-- pubNote
+- oligo
 categories:
-- NoteBook
+- OligoReading
 ---
 
  ***Keyword***
@@ -150,7 +149,7 @@ categories:
 
 - site of electron attachment to the dications depends on
   - nucleobase nature
-     C>G: *RE*$_{adiab}$*(C)*=5.17eV; *RE*$_{adiab}$*(G)*=4.46eV
+     C>G: $RE_{adiab}(C)$=5.17eV; $RE_{adiab}(G)$=4.46eV
   - nucleobase position
     dGG: 5'-G>3'-G
 - ring stacking and proton transfer
@@ -179,13 +178,7 @@ feature in radiation damage process
 - CID
   1. $[dGdC]^{+\cdot}-CH_2O$: occurs on the sugar of G
   2. further loss $C_2H_3O_2$
-  3. $[dGdC]^{+\cdot}-C_5H_8O_3$ not nucleobase specific 
-
-# [Gas-Phase Fragmentation of Oligonucleotide Ions](https://www.sciencedirect.com/science/article/pii/S1387380604003264?via%3Dihub)
-
-- The preferred dissociation channels for a given ion are a function of the ion type, the structure o fth emolecule, the internal energy distribution of the ion and the time-frame over which the fragmentation reactions can evolve
-- McLuckey's nomenclature for backbone cleavages (a/w,b/x,c/y,d/z, 5'-frag:a,b,c,d; 3'-frag: w,x,y,z)
-
+  3. $[dGdC]^{+\cdot}-C_5H_8O_3$ not nucleobase specific
 
 # <jump id="ap1">[The Electronic Spectrum of Protonated Adenine: Theory and Experiment](https://pubs.rsc.org/en/content/articlelanding/2005/cp/b507422c/unauth#!divAbstract)</jump>
 
