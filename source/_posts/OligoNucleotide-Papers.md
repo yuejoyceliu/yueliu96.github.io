@@ -11,7 +11,6 @@ categories:
   
  adenine |  cation radical |  cytosine | electron attachment | guanine | nucleotide | proton transfer | spectra | thymine |
 
-
 # [UV–Vis Action Spectroscopy Reveals a Conformational Collapse in Hydrogen-Rich Dinucleotide Cation Radicals](https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b01856)
 
 - Why
@@ -28,6 +27,8 @@ categories:
   - pseudo-dAA-catrad
     - zwitterionic structures
     - Coulomb stablization
+
+the first time Turecek found combining UVPD with TDDFT can identify and distinguish isomeric peptide cation-radicals by ETD in [here](https://onlinelibrary.wiley.com/doi/full/10.1002/jms.3717)
   
 ## 1. Gaseous Protonated A
 
@@ -171,8 +172,8 @@ feature in radiation damage process
 - gas-phase acidity data may be more appropriate to characterize the equilibrium position of the proton in oxidized GC base pairs ([ref](#gasbetter))
 - Guanine
   1. the lowest ionization energy among GATC, both in solution and gas $\Rightarrow$
-  2. electtron loss during ionization of DNA mostly occurs form G $\rightarrow$
-  3. G radical cations enhaces acidities than G $\Rightarrow$ 
+  2. electron loss during ionization of DNA mostly occurs from G $\rightarrow$
+  3. G radical cations enhances acidities than G $\Rightarrow$ 
   - dG$^{+\cdot}$-dC pair: H transfer from G to C (G3$\rightarrow$C3) $\Rightarrow$ relocation of radical site to sugar
 - homolytic bond dissociation enthaloy of 401kJ/mol for [dG+H(N$_7$)]$^+$ is comparable to that for a typical C-H bond $\Rightarrow$ other radicals via intra- or intermolecular H-abstraction reactions
 - CID
@@ -182,12 +183,57 @@ feature in radiation damage process
 
 # <jump id="ap1">[The Electronic Spectrum of Protonated Adenine: Theory and Experiment](https://pubs.rsc.org/en/content/articlelanding/2005/cp/b507422c/unauth#!divAbstract)</jump>
 
+## Background
+
+- high photostability of DNA is essential for life on earth
+- advantage of gas phase experiment
+  - spectra of protonated species in solution is principally complicated, because:
+    - solvation shifts and inhomogeneous broadening
+    - charged and neutral species coexist $\rightarrow$ superposition of spectra
+    - in plolar protic solvents proton exchange fast, causing lifetime broadening
+  - mass selection before spectra
+- 1951 crystallographic evidence: 9H-A prefers protonated at N-1
+- in tA-T Watson-Crick base pair, the N1 atome of A acts as a H-bond acceptor
+
+## Note
+
+- 实验方法： 中性和酸性腺嘌呤的实验谱图与计算的跃迁对比，观察红移或蓝移的情况归属峰的性质,计算激发态构型判断峰的形状
+- UV-Vis: 205nm, 260nm both neutral and protonated A
+- $S_0-S_1$ photofragment spectrum pf A+H: the lowest $\pi\pi^*$ transtion
+  - loss of $NH_3$ ager absorption of one UV photon
+- tautomer:
+  - 9H-A-N1H most stable > 7H-A-N3H >> 9H-A-N3H
+  - neutral ddenine 7H-A large dipole moment than 9H-A
+- vertical absorption spectra
+  - neutral 9H-A
+    - 4.91eV/252nm: 1st $\pi\pi^*$ excitaion, medium $HOMO\rightarrow LUMO+1$ and $HOMO-1\rightarrow LUMO$, not HOMO to LUMO
+    - 5.02eV/247nm: weak 1st $n\pi^*$
+    - 5.09eV/244nm: 2nd $\pi\pi^*\ (HOMO\rightarrow LUMO)$
+    - 5.35eV/232nm: $HOMO\rightarrow Rydberg\ orbital$
+  - protonated 1H-9H-A
+    - 4.83eV/257nm: 1st $\pi\pi^*\ (HOMO\rightarrow LUMO)$
+    - 5.15eV/241nm: 2nd $\pi\pi^*\ (HOMO\rightarrow LUMO+1)$
+    - 5.23eV/234nm: weak 1st $n\pi^*$
 
 # <jump id='ap2'>[Gas-phase spectroscopy of protonated adenine, adenosine 5′-monophosphate and monohydrated ions](https://pubs.rsc.org/en/content/articlelanding/2013/cp/c3cp53742k/unauth#!divAbstract)</jump>
 
-# [Combining UV photodissociation action spectroscopy with electron transfer dissociation for structure analysis of gas‐phase peptide cation‐radicals](https://onlinelibrary.wiley.com/doi/full/10.1002/jms.3717)
+- the action spectra of $AMPH^+$, $AH+$, $AH^+(H_2O)$ similiar indicates
+  - the same protonation site, mostly N-1
+  - the lowest-energy trnsitions are independent of surrondings
+- Action Spectra: broad band between 230 and 290nm and 210nm
+  - 250,270nm: $\pi\pi^*$
+  - 230nm: $n\pi^*$
 
 # <jump id='l1'>[Distonic Isomers and Tautomers of Adenine Cation Radical in the Gas Phase and Aqueous Solution](https://pubs.acs.org/doi/10.1021/jp046575q)</jump>
+
+## Background
+
+- DNA damage mechanism: direct ionization produce cation radicals and electron capture leading to anion radicals
+  
+## Note
+
+- protonation of A occur: $N_1 (PA=939kJ\ mol^{-1})$, $N_3\ (932)$ and $N_7\ (904)$
+
 
 # <jump id='l2'>[Adenine Radicals in the Gas Phase. An Experimental and Computational Study of Hydrogen Atom Adducts to Adenine](https://pubs.acs.org/doi/abs/10.1021/jp0529725)</jump>
 
