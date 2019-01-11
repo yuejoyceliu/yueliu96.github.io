@@ -1,15 +1,17 @@
 ---
-title: OligoNucleotide Review 1
+title: Gas-Phase Framentation of Oligo Ions
 date: 2019-01-09 12:00:27
 tags:
 - oligo
 categories:
 - OligoReading
 ---
-# [Gas-Phase Fragmentation of Oligonucleotide Ions](https://www.sciencedirect.com/science/article/pii/S1387380604003264?via%3Dihub)
+ [Gas-Phase Fragmentation of Oligonucleotide Ions](https://www.sciencedirect.com/science/article/pii/S1387380604003264?via%3Dihub)
 
-- The preferred dissociation channels for a given ion are a function of the ion type, the structure o fth emolecule, the internal energy distribution of the ion and the time-frame over which the fragmentation reactions can evolve
+- The preferred dissociation channels for a given ion are a function of the ion type, the structure of the molecule, the internal energy distribution of the ion and the time-frame over which the fragmentation reactions can evolve
 - McLuckey's nomenclature for backbone cleavages (a/w,b/x,c/y,d/z, 5'-frag:a,b,c,d; 3'-frag: w,x,y,z)
+
+*MALDI and mechanism not included.*
 
 ## 1 hetero-dinucleotide FAB CID
 
@@ -94,10 +96,10 @@ $$\frac {|(M/n)-(m_a/x)|}{|(M/n)-(m_b/y)|}=\frac {y}{x}$$
 
 #### 2.1.6 other mass analyzers
 
-- triple quadrupoles:
+- triple quadrupoles (TQIT):
   - low energy process $\rightarrow$ sensitive
   - more extensive structural info
-- quadrupole ion traps
+- quadrupole ion traps (QIT):
   - beam-type collisional activation experiment
   - multiple competitive dissociation reactions can happen
 - base loss on CID in triple quadrupoles is much less dependent on the identity of the base than in quadrupole ion traps
@@ -137,3 +139,44 @@ $$\frac {|(M/n)-(m_a/x)|}{|(M/n)-(m_b/y)|}=\frac {y}{x}$$
 - c/y ions in major
 
 ### 2.2 Positive ESI
+
+#### 2.2.1 dinucleotide $(M+H)^+$
+
+- 3'-$BH_2^+$ loss > 5', except 3'-T
+
+#### 2.2.2 all trimers and 16 mixed-base tetramers $(M+H)^+$ in QIT
+
+- initial step:  neutral base loss
+  - loss depends on PA: C $\approx$ G>A>>T
+  - positon: 5'>3'>internal
+- cleavage of 3'C-O phosphodiester bond $\rightarrow$ w and (a-B)
+- dTTT
+  - protonaed at phosphat oxygen
+  - $z_2^+$ ion (also occur as a 2nd process in a few cases when 5'-B=C/G/A)
+
+#### 2.2.3 up to 10-mer in TQIT
+
+- charged B loss followed by w/(a-B)
+  - C>G>A>>T
+  - 3'>5'>internal
+  - agree with dimers, but trimers
+- poly-T: x-2H and z-2H
+
+#### 2.2.4 EBE-TOF MS
+
+- $BH_2^+$ loss agree with PA
+- charge of the precursor affects the abundance of ions from the bases more than position of the base
+- loss of T as an anion possible for $(M-2H)^{2-}$
+
+#### 2.2.5 ECD and IRMPD of doubly protonated
+
+- ECD
+  - polydG: radical w/d "sequence". no even-e a/z ions
+  - polydC: even-e w/d ions, a/z ions in most
+  - polydA: even-e w/d ions, little fragemntation than C/G
+  - polydT: poor ionization, low PA
+  - dGCATGC: even-e d-ion and a $z^\cdot$-type
+- IRMPD
+  - similiar to CID: B, w/(a-B)
+  - more sequence info than ECD
+
