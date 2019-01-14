@@ -11,7 +11,6 @@ categories:
   
  adenine |  cation radical |  cytosine | electron attachment | guanine | nucleotide | proton transfer | spectra | thymine |
 
-
 # [UV–Vis Action Spectroscopy Reveals a Conformational Collapse in Hydrogen-Rich Dinucleotide Cation Radicals](https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b01856)
 
 - Why
@@ -28,6 +27,8 @@ categories:
   - pseudo-dAA-catrad
     - zwitterionic structures
     - Coulomb stablization
+
+the first time Turecek found combining UVPD with TDDFT can identify and distinguish isomeric peptide cation-radicals by ETD in [here](https://onlinelibrary.wiley.com/doi/full/10.1002/jms.3717)
   
 ## 1. Gaseous Protonated A
 
@@ -216,17 +217,23 @@ feature in radiation damage process
 
 # <jump id='ap2'>[Gas-phase spectroscopy of protonated adenine, adenosine 5′-monophosphate and monohydrated ions](https://pubs.rsc.org/en/content/articlelanding/2013/cp/c3cp53742k/unauth#!divAbstract)</jump>
 
-the action spectra of $AMPH^+$, $AH+$, $AH^+(H_2O)$ similiar indicates
-- the same protonation site, mostly N-1
-- the lowest-energy trnsitions are independent of surrondings
-
-Action Spectra: broad band between 230 and 290nm and 210nm
-- 250,270nm: $\pi\pi^*$
-- 230nm: $n\pi^*$
-
-# [Combining UV photodissociation action spectroscopy with electron transfer dissociation for structure analysis of gas‐phase peptide cation‐radicals](https://onlinelibrary.wiley.com/doi/full/10.1002/jms.3717)
+- the action spectra of $AMPH^+$, $AH+$, $AH^+(H_2O)$ similiar indicates
+  - the same protonation site, mostly N-1
+  - the lowest-energy trnsitions are independent of surrondings
+- Action Spectra: broad band between 230 and 290nm and 210nm
+  - 250,270nm: $\pi\pi^*$
+  - 230nm: $n\pi^*$
 
 # <jump id='l1'>[Distonic Isomers and Tautomers of Adenine Cation Radical in the Gas Phase and Aqueous Solution](https://pubs.acs.org/doi/10.1021/jp046575q)</jump>
+
+## Background
+
+- DNA damage mechanism: direct ionization produce cation radicals and electron capture leading to anion radicals
+  
+## Note
+
+- protonation of A occur: $N_1 (PA=939kJ\ mol^{-1})$, $N_3\ (932)$ and $N_7\ (904)$
+
 
 # <jump id='l2'>[Adenine Radicals in the Gas Phase. An Experimental and Computational Study of Hydrogen Atom Adducts to Adenine](https://pubs.acs.org/doi/abs/10.1021/jp0529725)</jump>
 

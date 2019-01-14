@@ -56,8 +56,8 @@ categories:
 
 - Comlementary ions
 
-$$M^{n-} \rightarrow m_a^{x-} + m_b^{y-}$$
-$$\frac {|(M/n)-(m_a/x)|}{|(M/n)-(m_b/y)|}=\frac {y}{x}$$
+$$M^{n-} \rightarrow m_a^{x-} + m_b^{y-}\\
+\frac {|(M/n)-(m_a/x)|}{|(M/n)-(m_b/y)|}=\frac {y}{x}$$
 
 - 5'-B > 3'-B
 - 5' loss for a given 3'-B: 
