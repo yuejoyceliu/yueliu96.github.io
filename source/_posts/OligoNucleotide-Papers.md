@@ -228,16 +228,45 @@ feature in radiation damage process
 
 ## Background
 
+- Distonic/ylid ions
+  - nonclassical open-shell species in which the charge and radical sites reside on separate atoms
+  - often more stable than isomeric canonical cation-radical structures
 - DNA damage mechanism: direct ionization produce cation radicals and electron capture leading to anion radicals
+
   
 ## Note
 
-- protonation of A occur: $N_1 (PA=939kJ\ mol^{-1})$, $N_3\ (932)$ and $N_7\ (904)$
+- protonation of gas phase under CI depends on PA
 
+![PA_A](https://raw.githubusercontent.com/yueliu96/blog_images/master/Screen%20Shot%202019-01-12%20at%2016.22.32.png)
+
+- $pK_a$ of N-9, N-10, C-2 and C-8: 3.2, 3.3, 6.2 and 11.9
+- CAD of $AH^+$: M-H; M-NH3 (H transfer from $N_1,\ N_3\ or\ N_7$ on amino group); ring cleavage M-HCN, consecutive -$CH2N2$
+- DFT calcualtion
+  - amino group shows less pyramidization
+  - removing an electron from orbitals that has nodal surfaces decreases the $\pi$-antibonding interaction resulting in shortening bonds
+  - polar solvents are known to affect the realtive stabilites of nucleobase tautomers greatly
+- Calcualtion result
+  - elimination of $NH_3$ is the lowest-energy channel that requires $\Delta H_{rxn,0}=371kJ\ mole^{-1}$
+  - loss of a H is also endothermic
+  - a small activation energy for the addition of H to C-2 position
+  - H attached to N-10 is exothermic, $\Delta G=383kJ mol^{-1}$, which is sufficient to drive exothermic hydrogen transfer from ... to it
+    - methyl group in T
+    - SH group in C
+    - OH in Tyr
+    - $C_{\alpha}$ methines of the peptide backbone
 
 # <jump id='l2'>[Adenine Radicals in the Gas Phase. An Experimental and Computational Study of Hydrogen Atom Adducts to Adenine](https://pubs.acs.org/doi/abs/10.1021/jp0529725)</jump>
 
+![dna damage scheme](https://raw.githubusercontent.com/yueliu96/blog_images/master/Screen%20Shot%202019-01-13%20at%2012.36.45.png)
+-  the elusive hydrogen atom adduct to the N-1 position in A, which is thought to be the initial intermediate of chemical damage
+   -  N-1 is 48-130 times more basic than N-3
+-  C-8 adduct is the most stable tautuomer, which is predicted to be the prdominating product at thermal equilibrium in solution at 298K
+-  proton transfer from $H_3O^+ or\ NH_4^+$ to Ade is exthothermic
+
 # [Dependence of Spurious Charge- Transfer Excited States on Orbital Exchange in TDDFT: Large Molecules and Clusters](https://pubs.acs.org/doi/10.1021/ct600282k)
+
+- intensity of CT ransitions is likely to be exaggerated by TDDFT calcualtions
 
 # <jump id='ion1'>[Electron Detachment Energies and Isomerism in Purinic Deoxyribonucleotides](https://onlinelibrary.wiley.com/doi/abs/10.1002/qua.21330)</jump>
 
