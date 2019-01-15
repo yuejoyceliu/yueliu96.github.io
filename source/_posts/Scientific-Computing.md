@@ -45,24 +45,25 @@ Note that each subsequenct approximation in Euler Method is generated from the s
 
 ### In general 
   
-  $$y_{n+1}=y_n+\Delta t[A \cdot f(t_n,y_n)+B \cdot f(t+P\Delta t,y_n+Q\Delta t \cdot f(t_n,y_n)]\\where\quad A+B=1\quad B\cdot P=\frac{1}{2}\quad B\cdot Q=\frac{1}{2}$$
+  $$y_{n+1}=y_n+\Delta t[A \cdot f(t_n,y_n)+B \cdot f(t+P\Delta t,y_n+Q\Delta t \cdot f(t_n,y_n)\\\\
+  where\quad A+B=1\quad B\cdot P=\frac{1}{2}\quad B\cdot Q=\frac{1}{2}$$
 
 - If $A=\frac{1}{2}\Rightarrow B=\frac{1}{2}\Rightarrow P=1\Rightarrow Q=1\Rightarrow$Heun's Method
 - If $A=0\Rightarrow B=0\Rightarrow P=\frac{1}{2}\Rightarrow Q=\frac{1}{2}\Rightarrow$RK2 Method
   
 ### RK4
   
-$$y_{n+1}=y_n+\frac{\Delta t}{6}(f_1+2f_2+2f_3+f_4)\\
-f_1=f(t_n,y_n)\\
-f_2=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_1)\\
-f_3=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_2)\\
+$$y_{n+1}=y_n+\frac{\Delta t}{6}(f_1+2f_2+2f_3+f_4)\\\\
+f_1=f(t_n,y_n)\\\\
+f_2=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_1)\\\\
+f_3=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_2)\\\\
 f_4=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_3)$$
 
 ### Summary and Error Analysis
 
 | Scheme | Local Error | Global Error | Matlab | Python
 |----|----|----|----|----|
-|Forward Euler|$\Delta t^2$|$\Delta t$||
+|Forward Euler|$\Delta t^2$|$\Delta t$|||
 |Heun's/RK2|$\Delta t^3$|$\Delta t^2$|ode23|Method=RK23
 |RK4|$\Delta t^5$|$\Delta t^4$|ode45|Method=RK45
 
@@ -83,14 +84,14 @@ $$\frac{dy}{dt}=\lambda y\quad y(0)=y_0$$
   set  $r_{FE}=(1+\Delta t \lambda)^N\Rightarrow y_n=y_0\cdot r_{FE}^N+\varepsilon_{round\_off}\cdot r_{FE}^N$
   
   - $\lambda>0\Rightarrow |r_{FE}|>1\Rightarrow$ unconditionally unstable
-  - $\lambda<0\Rightarrow |r_{FE}|<1\Rightarrow \begin{cases} \Delta t<\frac{2}{|\lambda|} & stable\\ \Delta t>\frac{2}{|\lambda|} & unsatble\\ \end{cases}$
+  - $\lambda<0\Rightarrow |r_{FE}|<1\Rightarrow \begin{cases} \Delta t<\frac{2}{|\lambda|} & stable\\\\ \Delta t>\frac{2}{|\lambda|} & unsatble\\ \end{cases}$
   
 - BE:
   
-  $$y_n=y_{n+1}-\Delta t\cdot \lambda\cdot y_{n+1}\Rightarrow y_{n+1}=r_{BE}\cdot y_n,\ where\ r_{BE}=\frac{1}{1-\Delta t\lambda}
-  \\y_n=y_0\cdot r_{BE}^N+\varepsilon_{round\_off}\cdot r_{BE}^N$$
+  $$y_n=y_{n+1}-\Delta t\cdot \lambda\cdot y_{n+1}\Rightarrow y_{n+1}=r_{BE}\cdot y_n,\ where\ r_{BE}=\frac{1}{1-\Delta t\lambda}\\\\ 
+  y_n=y_0\cdot r_{BE}^N+\varepsilon_{round\_off}\cdot r_{BE}^N$$
     - $\lambda<0\Rightarrow |r_{FE}|<1\Rightarrow$ unconditionally stable
-    - $\lambda>0\Rightarrow |r_{FE}|<1\Rightarrow \begin{cases} \Delta t>\frac{2}{|\lambda|} & stable\\ \Delta t<\frac{2}{|\lambda|} & unsatble\\ \end{cases}$
+    - $\lambda>0\Rightarrow |r_{FE}|<1\Rightarrow \begin{cases} \Delta t>\frac{2}{|\lambda|} & stable\\\\ \Delta t<\frac{2}{|\lambda|} & unsatble\\ \end{cases}$
  
 ## MultiStep Method
 
@@ -99,20 +100,21 @@ $$\frac{dy}{dt}=\lambda y\quad y(0)=y_0$$
  - Adams-Moulthon (implicit method)
   $$y_{n+1}=y_n+\frac{\Delta t}{2}(f_{n+1}+f_n)$$
  - Predictor-Corrector
-  $$y_{n+1}^P=y_n+\frac{\Delta t}{2}(3f_n-f_{n-1})\\y_{n+1}=y_n+\frac{\Delta t}{2}[f(t_{n+1},y_{n+1}^P)+f_n]$$
+  $$y_{n+1}^P=y_n+\frac{\Delta t}{2}(3f_n-f_{n-1})\\\
+  y_{n+1}=y_n+\frac{\Delta t}{2}[f(t_{n+1},y_{n+1}^P)+f_n]$$
 
 ## Matlab for ODE45
 
 solve this equation $\frac{d^2y(t)}{dt^2}+\epsilon[y^2(t)-1]\frac{dy(t)}{dt}+y(t)=0$ with $\epsilon$=0.1, t=[0:0.5:32], y(t=0)=$\sqrt 3$ and $\frac{dy(t=0)}{dt}$=1 by ode45 method.
 
-```
+```matlab
 function f = fvdposc(t,y,epsilon)
 f1 = y(2);                          %f1=y'
 f2 = -epsilon*(y(1)^2-1)*y(2)-y(1);%f2=y''
 f = [f1;f2];    %f must be a column vector	
 ```
 
-```
+```matlab
 abstol=10^-6;reltol=10^-6;
 options = odeset('AbsTol',abstol,'RelTol',reltol);
 %if options not specified, use the default one. the other items must be there.
@@ -144,8 +146,8 @@ So we can guess an initial condition to see how difference the result from the o
 Here we can consider a general case:
 
 $$
-\frac{d^2y}{dt^2}=p(t)\frac{dy}{dt}+q(t)y+r(t)\\
-\alpha_1y(a)+\beta_1y'(a)=\gamma_1\\
+\frac{d^2y}{dt^2}=p(t)\frac{dy}{dt}+q(t)y+r(t)\\\\
+\alpha_1y(a)+\beta_1y'(a)=\gamma_1\\\\
 \alpha_2y(b)+\beta_2y'(b)=\gamma_2
 $$
 
@@ -157,7 +159,7 @@ Convert it in to matrix form:
 
 $$A\times \overrightarrow x = \overrightarrow b$$
 
-$$ \begin{pmatrix} 1 & 0 &\cdots &\cdots &\cdots & 0 \\ a & b & c & 0 &\cdots &0 \\0&a&b&c&\cdots&0\\\vdots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots&\ddots&\ddots&a&b&c\\0&\cdots&\cdots&\cdots&a&1 \end{pmatrix} \times \begin{pmatrix}y(t_0)\\y(t+\Delta t)\\y(t+2\Delta t)\\\vdots\\\vdots\\y(t_N) \end{pmatrix}=\begin{pmatrix} \alpha\\r(t+\Delta t)\Delta t^2\\ r(t+2\Delta t)\Delta t^2\\\vdots\\\vdots\\\beta \end{pmatrix}$$
+$$ \begin{pmatrix} 1 & 0 &\cdots &\cdots &\cdots & 0 \\\\ a & b & c & 0 &\cdots &0 \\\\0&a&b&c&\cdots&0\\\\\vdots&\ddots&\ddots&\ddots&\ddots&\vdots\\\\\vdots&\ddots&\ddots&a&b&c\\\\0&\cdots&\cdots&\cdots&a&1 \end{pmatrix} \times \begin{pmatrix}y(t_0)\\\\y(t+\Delta t)\\\\y(t+2\Delta t)\\\\\vdots\\\\\vdots\\\\y(t_N) \end{pmatrix}=\begin{pmatrix} \alpha\\\\r(t+\Delta t)\Delta t^2\\\\ r(t+2\Delta t)\Delta t^2\\\\\vdots\\\\\vdots\\\\\beta \end{pmatrix}$$
 
 In Matlab, we can use function `X=A\b` or `eig(A)` to solve it; in python(numpy), function `linalg.solve(A,b)` or `eig(A)` also works.
 
@@ -326,11 +328,11 @@ Solving PDE is harder than ODE, because we need to consider both initial conditi
 
 ## Finite Scheme Method for Vorticity-Streamfunction Equations
 
-$$\omega_t+[\psi,\omega]=\mu\nabla^2\psi\quad \nabla^2\psi=\omega\\
+$$\omega_t+[\psi,\omega]=\mu\nabla^2\psi\quad \nabla^2\psi=\omega\\\\
 where\; [\psi,\omega]=\psi_x\omega_y-\psi_y\omega_x \; and \; \nabla^2=\partial_x^2+\partial_y^2$$
 
 - Steps:
- 1. Elliptic Solve: given $\omega_0 \rightarrow$ compute $\psi_0$ by using $ \nabla^2\psi=\omega$
+ 1. Elliptic Solve: given $\omega_0 \rightarrow$ compute $\psi_0$ by using $\nabla^2\psi=\omega$
  2. Time-Stepping: choose step $\Delta t$ compute $\omega '$ using $\omega_{k+1}=\omega_k+\Delta t\cdot f(\psi^k,\omega^k)$
  3. Iterate
 
@@ -400,13 +402,13 @@ psi = A\w;
 - Step 2: Method Line
 
 $$
-\nabla^2\psi(x,y)=f(x,y)\qquad+b.c.\\
-u_t(t,x)=u_x(t,x)\quad+i.c.,b.c.\\
+\nabla^2\psi(x,y)=f(x,y)\qquad+b.c.\\\\
+u_t(t,x)=u_x(t,x)\quad+i.c.,b.c.\\\\
 u_x(t,x)\approx\frac{u(x+\Delta x)-u(x-\Delta x)}{2\Delta x}
 $$
 We have to condiser the stability of this method. Choose $\lambda$ carefully to make sure it is stable and also will not run forever.
-$$u_n^{(m)}=g^mexp(i\zeta\Delta x)\\
-$$\lambda =\frac{\Delta t^{num-t-der}} {\Delta x^{num-x-der}}$$
+$$u_n^{(m)}=g^mexp(i\zeta\Delta x)\\\\
+\lambda =\frac{\Delta t^{num-t-der}} {\Delta x^{num-x-der}}$$
 
 ## Spectral Method for Vorticity-Streamfunction Equations
 
@@ -416,7 +418,7 @@ $$u(x,t)=\sum_{k=1}^N a_k(t)\phi_k(x)\qquad$$
  where $\phi_k(x)$are orthogonal
 Using Fourier Series
 
-$$\widehat{u}(t)=u(k,t)=\sum_{n=1}^N u(n,t)e^{-i2\pi(k-1)(n-1)/N}\\\qquad\;u(n,t)=1/N\sum_{n=1}^N \widehat u(t)e^{i2\pi(k-1)(n-1)/N}$$
+$$\widehat{u}(t)=u(k,t)=\sum_{n=1}^N u(n,t)e^{-i2\pi(k-1)(n-1)/N}\\\\\qquad\;u(n,t)=1/N\sum_{n=1}^N \widehat u(t)e^{i2\pi(k-1)(n-1)/N}$$
 Derivative property:
 $$\widehat u^{(m)}(x,t)=(ik)^{(m)}\widehat u(k,t)$$
 PDE  Fourier Space
@@ -498,7 +500,7 @@ function [D,x] = cheb(N)
 ```
 
 Solve reaction-diffusion system with both spectral and cheb methods
-$$U_t=\lambda(A)U-\omega (A)V+D_1\nabla^2U\\V_t=\omega (a)U+\lambda(A)V+D_2\nabla^2V$$
+$$U_t=\lambda(A)U-\omega (A)V+D_1\nabla^2U\\\\V_t=\omega (a)U+\lambda(A)V+D_2\nabla^2V$$
 where $A^2=U^2+V^2$ and $\nabla^2=\partial_x^2+\partial_y^2$. Consider $\lambda(A)=1-A^2$ and $\omega(A)=-\beta A^2$
 
 ```matlab
