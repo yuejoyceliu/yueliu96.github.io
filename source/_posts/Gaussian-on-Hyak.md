@@ -126,7 +126,7 @@ H        1.100354        3.004366        0.220564
 
 Run ` ~/Hyak-Gaussian/gaussian-sub.py input_file`, will generate a sbatch file(suffix is sh):
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=???
 #SBATCH --nodes=1
@@ -172,7 +172,7 @@ Run `sbatch *.sh` to submit it to hyak.
 
 If key word `Tight` or `SCF` is in route card, Berny optimization will be used. This kind of output is dilimited by *GradGradGrad...*. The appearance of the following words marks completion of opt, and the final structure is displayed after that. We always want to extract the optimized standard structure for the next step calculation.
 
-```
+ ```bash
          Item               Value     Threshold  Converged?
  Maximum Force            0.000020     0.000450     YES
  RMS     Force            0.000004     0.000300     YES
@@ -180,7 +180,7 @@ If key word `Tight` or `SCF` is in route card, Berny optimization will be used. 
  RMS     Displacement     0.000199     0.001200     YES
  Optimization completed.
     -- Stationary point found
-```
+ ```
 
 <jump id='rstopt'></jump>If `Stationary point found` is absent in log file, that means the opt job is ended earlier, maybe because of time limit. In this case, we need to write another restarted input file and submit it again to start from where it left, the route card of which should be `# opt=restart` plus the other keywords in the original input. For example: if the original route card is:`# opt ub3lyp/6-31+g(d,p) pop=min scf=(xqc,tight)` and the chk file is named as *test.chk*. The new input file is like: 
 
@@ -210,9 +210,9 @@ If key word `Tight` or `SCF` is in route card, Berny optimization will be used. 
     ```
 
   - A quick way to walk through all log files in one directory:
-    ```
+     ```bash
     for x in *log; do python optlog2gjfcom.py $x; done
-    ```
+     ```
 
 ### <font size=3>2.<jump id='hfenergies'></jump>[HFenergies.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/HFenergies.py)</font>
 
@@ -298,14 +298,14 @@ The main output of tddft contains the excitation energies, oscillation strength(
 
 ### <jump id='vistd'></jump><font size=3>2.[cubegen.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/cubegen.py)</font>
 
-We can also visualize the molecular orbital if we have tddft chk file. We should first use [`formchk`](http://gaussian.com/formchk/) command to generate fchk file, and then use [`cubegen`](http://gaussian.com/cubegen/) to get the cube file, which can be visualized by Gaussian-View. To use cubegen, we also need to decide the molecular orbital number, for $\alpha$ orbital, like 68A, just set mo=68. But for $\beta$ orbital,like 72B, we should find the total number of $\alpha$ orbitals first. If one molecule has 70 $\alpha$ electrons(NAE) and 356 virtual $\alpha$ orbitals(NVA), set mo=498(70+356+72). 
+We can also visualize the molecular orbital if we have tddft chk file. We should first use [`formchk`](http://gaussian.com/formchk/) command to generate fchk file, and then use [`cubegen`](http://gaussian.com/cubegen/) to get the cube file, which can be visualized by Gaussian-View. To use cubegen, we also need to decide the molecular orbital number. For $\alpha$ orbital, like 68A, just set mo=68. But for $\beta$ orbital,like 72B, we should find the total number of $\alpha$ orbitals first: if one molecule has 70 $\alpha$ electrons(NAE) and 356 virtual $\alpha$ orbitals(NVA), set mo=498(70+356+72). 
 
 If we run cubegen on the login node, it will take around 1 minutes. Usually we are interested in several orbitals in one or more excited states. In this way, this script comes out. 
 
 - *Usage*
   - `python cubegen.py td_log num_excited_states`
 - *Descriptions*
-  - Finds the name of chk file from log file. If chk file not found, stops and does nothing. If its fchk file not found, writes formchk to a sbatch file. 
+  - Finds the name of chk/fchk file from log file. After fchk found, skip to next step; if not, start to locate chk file and generate fchk from chk. If both of them not found, stop processing. 
   - Finds NAE, NVA and unique molecule orbitals in the specified excited state. And writes corresponding cubegen to a txt file.
   - Loads parallel environment and cats tasklists( the txt file) to the sbatch file.
   - Submits it to ckpt partition. It should be finished in several seconds
@@ -326,7 +326,7 @@ If we run cubegen on the login node, it will take around 1 minutes. Usually we a
 
     *t1_test.sh*:
 
-    ```
+     ```bash
     #!/bin/bash
     #SBATCH --job-name=fchk_cube
     #SBATCH --nodes=1
@@ -353,7 +353,7 @@ If we run cubegen on the login node, it will take around 1 minutes. Usually we a
 
     end=$(date +%s)
     echo 'Elapsed Time: '$(($end-$start))'s'
-    ```
+     ```
     After finish, we can get 6 cube files. Transfer them from hyak to your local work directory. We need to use *GaussView* to see how the orbital looks like:
     - open test.fchk with *GaussView*
     - click `Result`$\rightarrow$`Surfaces/Contours`$\rightarrow$`Cube Actions`$\rightarrow$`Load Cube`$\rightarrow$choose one of  your cube files$\rightarrow$highlight that cube$\rightarrow$`Surfacec Actions`$\rightarrow$`New Surface`

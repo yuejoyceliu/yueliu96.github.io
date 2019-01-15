@@ -266,7 +266,19 @@ feature in radiation damage process
 
 # [Dependence of Spurious Charge- Transfer Excited States on Orbital Exchange in TDDFT: Large Molecules and Clusters](https://pubs.acs.org/doi/10.1021/ct600282k)
 
+<<<<<<< HEAD
 - intensity of CT ransitions is likely to be exaggerated by TDDFT calcualtions
+=======
+- Density functional theory formally permits the expression of the total ground-state energy and other properties of a quantum many-body systme as functionals of the electron density alone and provides a formally exact scheme for solving the many-body problem
+- TDDFT is an extension of DFT in which many-body excitations are associated with the poles of the exact density response
+- 6-31G basis sets: an efficient blend of accuracy and manageablw size for large confugated molecules
+  - 6-31G*: with polarization functions
+  - 6-31+G: with diffuse functions
+- Charge transfer states
+  - photexcited electron and hole are significant spatial separation
+  - usually higher in energy than the relevant Frenkel-exciton band of optical (nonvanishing oscillator-strength) and dark (vanishing oscillater-strength) states
+  - however, DFT methods drastically underesetimate their energies $\rightarrow$ all 3 types of states in dimers might be mixed
+>>>>>>> f2903ffd2fe6b808f4ff57d95ac499dd5fdd34b7
 
 # <jump id='ion1'>[Electron Detachment Energies and Isomerism in Purinic Deoxyribonucleotides](https://onlinelibrary.wiley.com/doi/abs/10.1002/qua.21330)</jump>
 
@@ -274,13 +286,18 @@ feature in radiation damage process
 
 # [Ion/Ion Reactions: New Chemistry for Analytical MS](https://pubs.acs.org/doi/abs/10.1021/ac9014935)
 
-# [Base Pair Radical Cation as a Model for Oxidative Damage in DNA](https://pubs.acs.org/doi/abs/10.1021/acs.jpclett.7b01251)
-
 # [One-Electron Oxidation of DNA Oligomers That Lack Guanine:  Reaction and Strand Cleavage at Remote Thymines by Long-Distance Radical Cation Hopping](https://pubs.acs.org/doi/abs/10.1021/ja058758b)
 
 # <jump id="ref">[Transient Intermediates of Chemical Reactions by Neutralization—Reionization Mass Spectrometry](https://link.springer.com/chapter/10.1007/3-540-36113-8_3)</jump>
 
 # [Irreversible Electron Attachment - A Key to DNA Damage by Solvated Electrons in Aqueous Solution](https://pubs.rsc.org/en/content/articlelanding/2015/ob/c5ob01542a#!divAbstract)
+
+- oligomers bombared with low energy electrons in vacuum $\rightarrow$ damage to TXT trimers (X=A, G, T or C)
+- hydrated electrons ($e_{aq}^-$, major form of lectrons generated during radio therapy) are negligible factor in damage to native DNA
+  - $^\cdot OH$ radical induce damgage
+  - $e_{aq}^-$ forms when hypoxia
+- brominated nucleobases have a potential to sensitize DNA
+  - bromopyrimidines lead to more strand breaks than bromopurines
 
 # [What Hinders Electron Transfer Dissociation (ETD) of DNA Cations?](https://link.springer.com/article/10.1007%2Fs13361-017-1791-z)
 
@@ -297,3 +314,16 @@ feature in radiation damage process
 # [How Easily Oxidizable is DNA? One-electron Reduction Potentials of Adenosine and Guanosine Radicals in Aqueous Solution](https://pubs.acs.org/doi/10.1021/ja962255b)
 
 # <jump id='gasbetter'>[Structure and Acid-base Properties of One-electron-oxidized Deoxyguanosine, Guanosine, and 1-Methylguanosine](https://pubs.acs.org/doi/10.1021/ja00185a046)</jump>
+
+# [Resonant Formation of DNA Strand Breaks by Low-Energy (3 to 20 eV) Electrons](http://science.sciencemag.org/content/287/5458/1658.long)
+
+- low-energy electrons (1~20eV) are able to induce genotoxic damage, such as single- and double-strand breaks, even electron enrgy well below the ionaization limit of DNA (7.5~)
+- DNA damage by 3-20eV electrons is highly dependent on the initial kinetic energy of the incident electron, where thresholds near 3 to 5 eV and intense peaks near 10eV
+- the mechanisms of DNA damage depend not only on the quantum of energy absorbed, but also on the nature of the particle that deposits the energy
+  - electron with energies below 15eV initiate fragmentation of small molecules essentially by attachment of the incident electron
+  - this leads to the formation of a resonace state (a transient molecular anion TMA)
+  - TMA decays by electron autodetachment (d1) or by dissociation along one or several specific bonds (d2)
+  - the branching ratio between d1 and d2 depends in part on the above intrinsic characteristics of the specific TMA; the final damage yields also depend on extrinsic effects
+- result
+  - DNA strand breaks (below 14eV) are initiated by resonant electron attachment to the various basic DNA components, followed by bond dissociations within th eTMA's lifetime, ususally femtoseconds
+  - Some fragmentation products subsequenctly react locally with other DNA components, leading to a double damaged site with breaks on opposing strands (E required for two ionizations are above 20 eV, here are below 20eV)

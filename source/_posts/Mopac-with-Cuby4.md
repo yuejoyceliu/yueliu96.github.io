@@ -201,15 +201,15 @@ there should exist xyz and yaml files in every absolute directory.
 
 ## Scripts for Parallel-Run
 - [pm6opt_parallel.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/pm6opt_parallel.py)
-- [pm6traj_parallel.py](https://github.com/yueliu96/scripts_for_lab/blob/master/pm6traj_parallel.py)
+- [pm6bomd_parallel.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/pm6bomd_parallel.py)
   
-To run pm6-optimize or pm6-dynamics for several different modecules, create their xyz files in the working directory:
+To run pm6-optimize or pm6-BOMD for several different molecules, create their xyz files in the working directory:
 
 ```
 test1.xyz test2.xyz test3.xyz
 ```
 
-and then run `python pm6opt_parallel.py optimize` or `python pm6traj_parallel.py`. tasklists$.$sh file, parallel_run$.$sh file and sub-directories for every xyz file will be created, in where xyz and yaml files are created correspondingly:
+and then run `python pm6opt_parallel.py` or `python pm6bomd_parallel.py`. tasklists$.$sh file, parallel_run$.$sh file and sub-directories for every xyz file will be created, in where xyz and yaml files are created correspondingly:
 
 ```
 dtest1  dtest2 dtest3 taskslists.sh parallel_run.sh
