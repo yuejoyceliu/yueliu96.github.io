@@ -53,7 +53,7 @@ yaml file is a list of keywords, which is the bridge to connect cuby with comput
 
 *Example--inp.yaml*:
 
-```
+```yaml
 job: optimize
 geometry: test.xyz
 charge: 2
@@ -94,7 +94,7 @@ modifier_h_bonds:
 
 *Example--anneal.yaml*:
 
-```
+```yaml
 job: dynamics
 geometry: test.xyz
 charge: 2
@@ -150,7 +150,7 @@ thermostat_tc: 0.05
 
 Besides xyz and yaml (test.yaml) files, sbatch file (test.sh) also needed:
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=???
 #SBATCH --nodes=1
@@ -173,7 +173,7 @@ run `sbatch test.sh` to submit it.
 
 Most nodes on hyak.mox have 28 processors, however, the code in MOPAC only allows a single processor to be used for a single calculation. If several calculations to be run, each calculation could be started on a different processor in one node.
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=??????
 #SBATCH --nodes=1
@@ -191,7 +191,7 @@ cat tasklists.sh | parallel -j 28
 ```
 where, tasklists$.$sh is :
 
-```
+```bash
 cd absolute-directory-1; cuby4 test.yaml &>LOG
 cd absolute-directory-2; cuby4 test.yaml &>LOG
 ......

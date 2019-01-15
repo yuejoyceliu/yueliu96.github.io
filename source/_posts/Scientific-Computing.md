@@ -180,16 +180,16 @@ we expect the solution $\phi_n(x)\rightarrow 0$ as $x\rightarrow \pm \infty$ and
 
 - Shooting method
 
-```
+ ```matlab
 function f=pdefunc(x,y,e)
 
 f1 = y(2);
 f2 = (x^2-e)*y(1);
 
 f = [f1;f2];
-```
+ ```
 
-```
+ ```matlab
 L=4; dx=0.1; e_start=0.5; tol=10^-4;
 
 xspan = -L:dx:L;
@@ -221,11 +221,11 @@ for modes=1:5
 end
 
 %eigen_phi,eigen_e are what we want
-```
+ ```
 
 - Direct Method
 
-```
+ ```matlab
 L=4; dx=0.1; 
 xspan = -L:dx:L;
 max = length(xspan)-2;
@@ -264,7 +264,7 @@ for i =1:5
 end
 
 %phi_sort,eng is the result
-```
+ ```
 
 - Shooting for nonlinear cases
   
@@ -272,7 +272,7 @@ $$\frac{d^2\phi_n}{dx^2}-[\gamma |\phi_n|^2+Kx^2-\varepsilon_n]\phi_n=0$$\
 
 Still use $x\in [-L,L]$ with L=2 and choose xspan = -L:0.1:L. Find the first two normalized modes for  $\gamma=0.05$:
 
-```
+ ```matlab
 L=2; dx=0.1; e_start=0.5; tol=10^-4; gama=0.05; A_start=0.2;
 xspan = -L:dx:L;
 
@@ -318,7 +318,7 @@ for modes=1:2
     A_start = A+1;
     eigen_phi(:,modes) = phi(:,1)/sqrt(trapz(x,phi(:,1).^2));    
 end
-```
+ ```
 
 # Partial Differential Equations
 
@@ -346,7 +346,7 @@ where $A=A'/\delta^2$, $A'=A_D+A_x+A_y$, $A_D=-4\psi_{m,n}$, $A_x=\psi_{m-1,n}+\
     
     $A=\nabla^2$, $B=\partial_x$, $C=\partial_y$
 
-```
+ ```matlab
 function [A B C] = derivmatrix(dx,dy,n)
 
 e1 = ones(n^2,1);
@@ -383,19 +383,19 @@ for i=1:n
     end
 end
 C = C/(2*dy);
-```
+ ```
 
 then, we could use one of these two method to slove $\psi$
 
-```
+ ```matlab
 psi = A\w;
-```
+ ```
 
-```
+ ```matlab
  [L,U,P] = lu(A);
- y=L\(P*w);
+ y = L\(P*w);
  psi = U\y;
-```
+ ```
 
 - Step 2: Method Line
 
@@ -423,7 +423,7 @@ PDE  Fourier Space
 $$u_t=Lu+N(u) \Longrightarrow \widehat(u)_t=\alpha(k)\widehat u+\widehat N(u)$$
 Here attached the script for solve VSE by the above two methods.
 
-```
+```matlab
 clear all; clf; close all; clc
 nu = 0.001;
 n=64;
@@ -437,7 +437,7 @@ w2 = runvs(L,n,tspan,nu,2);
 w3 = runvs(L,n,tspan,nu,3);
 ```
 
-```
+```matlab
 function wfsol = runvs(L,n,tspan,nu,choice)
 
 x2 = linspace(-L/2,L/2,n+1);
@@ -463,7 +463,7 @@ if choice==3
 end
 ```
 
-```
+```matlab
 function rhs = vortstream(t,w,n,nu,A,B,C,choice,K)
 
 if choice==1
@@ -486,7 +486,7 @@ rhs = -(B*psi).*(C*w)+(C*psi).*(B*w)+nu*A*w;%vector
 $$\phi_k(x)=T_k(x)\quad T_k(cos\theta)=cosk\theta$$
 Matlab Script:
 
-```
+```matlab
 function [D,x] = cheb(N)
   if N==0, D=0; x=1; return, end
   x = cos(pi*(0:N)/N)'; 
@@ -501,7 +501,7 @@ Solve reaction-diffusion system with both spectral and cheb methods
 $$U_t=\lambda(A)U-\omega (A)V+D_1\nabla^2U\\V_t=\omega (a)U+\lambda(A)V+D_2\nabla^2V$$
 where $A^2=U^2+V^2$ and $\nabla^2=\partial_x^2+\partial_y^2$. Consider $\lambda(A)=1-A^2$ and $\omega(A)=-\beta A^2$
 
-```
+```matlab
 clear all; close all; clc
 L=20;n=64;beta=1;d1=0.1;d2=d1;m=1;
 tspan=0:0.5:4;
@@ -517,7 +517,7 @@ A3 = uv2;
 we consider $x,y \in[-10,10]$, n=64, $\beta =1$, $D_1=D_2=0.1$, m=1, tspan=0:0.5:4 and $u_f$ stacked on top of $v_f$.
 The following is FFT(spectral) method:
 
-```
+```matlab
 function xfsol = runrds_fft(tspan,L,n,beta,d1,d2,m)
 
 x2 = linspace(-L/2,L/2,n+1);
@@ -545,7 +545,7 @@ xfvecint = [ufvecint;vfvecint];
 
 ```
 
-```
+```matlab
 function rhs = rds_fft(t,xfvec,beta,Kvec,n,d1,d2)
 
 ufvec = xfvec(1:n^2);
@@ -565,7 +565,7 @@ rhs = [uft;vft];
 
 The following is cheb method with n=30 and m=1
 
-```
+```matlab
 function xsolvec = runrds_cheb(tspan,L,n,beta,d1,d2,m)
 
 [D,x2] = cheb(n-1);
@@ -589,7 +589,7 @@ xvecinit = [uvecinit;vvecinit];
 
 ```
 
-```
+```matlab
 function rhs = rds_cheb(t,L,xvec,beta,Lap,n,d1,d2)
 
 uvec = xvec(1:n^2);

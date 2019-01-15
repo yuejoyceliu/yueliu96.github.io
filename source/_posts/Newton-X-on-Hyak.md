@@ -75,7 +75,7 @@ This step is to split the job among several computers (nodes), could be skipped 
 
 In every directory containing a complete set of input files  (geom, freq.out, initqp_input and JOB_AD), create a sbatch file to submit the job to Hyak node.
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=???
 #SBATCH --nodes=1

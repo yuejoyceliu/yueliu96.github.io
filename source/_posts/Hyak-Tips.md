@@ -39,7 +39,7 @@ Hyak Mox Overview website: [click me](https://wiki.cac.washington.edu/display/hy
 
 - into or out of hyak by sftp
   
-  ```
+  ```bash
   sftp user@mox.hyak.uw.edu
   get myfile   #move myfile from hyak to local direcotry
   get -r myfolder 
@@ -77,7 +77,7 @@ add `export SQUEUE_FORMAT="the-format-you-like"` to /.bash_profile file and then
 
 - My own version:
   
-  ```
+  ```bash
   export SQUEUE_FORMAT="%.7i %9P %15j %.8u %.2t %.12M %.12L %.5C %.7m  %.4D %R"
   ```
     what is like:
