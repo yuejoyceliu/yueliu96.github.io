@@ -232,7 +232,7 @@ Since the temperature in the Mass Spec is around 310K, we need to extrat all nor
 
 *Note that the input of freq job should be the optimized structure optimized with the same method and basis set.*
 
-### <font size=3>1.<jump id='freqthermal'></jump>[freq_thermal.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/freq_thermal.py)</font>
+### <font size=3>1.<jump id='freqt'></jump>[freq_thermal.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/freq_thermal.py)</font>
 
 - *Usage*
   - `python freq_thermal.py freq_log`
@@ -258,7 +258,7 @@ After finish all opt and freq jobs, we can use energy file got from *HFenergies$
 - *Usage*
   - `python GibbsEnergy.py energyfile`
 - *Descriptions*
-  - Needs energy($E_{elec}$) file got from [HFenergies.py](#'hfenergies') and corresponding *_freq.csv files got from [freq_thermal.py](#'freqthermal') in the same directory. The delimiter of all these files must be comma(by default, don't change it)
+  - Needs energy($E_{elec}$) file got from [HFenergies.py](#hfenergies) and corresponding *_freq.csv files got from [freq_thermal.py](#freqt) in the same directory. The delimiter of all these files must be comma(by default, don't change it)
   - Reads structure's name(x) and energy from energy file. The frist row is considered as title, will be skipped. The structure with lowest energy is seen as reference.
   - Uses x find its freq file: x_freq.csv and reads its 9th row(thermal information); only reads 8th row(title info) for one **_freq.csv*.
   - $G=E_{elec}+ZPVE_{corr}+H(T)-T\cdot S(T)$ and $\Delta G=G-G_{ref}$ are used, the result in $kJ/mol$
