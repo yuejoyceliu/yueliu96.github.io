@@ -61,8 +61,41 @@ heterogeneity in the protein oligomeric states, differenced in th ebicelle stabi
 
 ## advantage of this article
 
-- capture the transient intermediates in situ and in real time
+- quickly capture the transient intermediates in situ and in real time
 - identify the formation of $\beta$-hairpin-like monomers, $\beta$-sheet oligomers and fibrils
 - reveal the mechanism of amyloid aggregation at the lipid membrane
 - method
   - X-ray crystallography: high-rsolution, but not enough time resolution to probe the real-time aggregation
+
+## method
+
+the combination of interface-sensitive chiral amide I, achiral amide II and amide III spectral signals of the protein backbone generated in sum frequency generation vibrational spectroscopy (SFG-VS) can provide a unique and powerful tool to capture the hIAPP intermediates at the interface d uring the agggregation process with sufficient structural temporal resolutions
+
+develop a highly-sensitive femtosecond SFG-VS system, can acquire the ssp and psp sepctra simultaneously with a recording time of < 5 seconds
+
+Amide II vibrations arise from the out-of-phase combination of the C-N stretch and the N-H in-plane deformation
+
+- $\alpha$-helix: achiral: 1660, 1280
+- $\beta$-sheet:
+  - chiral amide I mode:
+    - $\beta$-hairpin-like monomer (2 antiparallel hydrogen bonded $\beta$-strands connected by a $beta$-turn or short loop): 1630-1643
+    - B mode parallel $\beta$-sheet oligomers and fibruls: 1624 (<1630)
+    - A mode parrallel $\beta$-sheet: 1670
+  - chiral N-H stretch mode: 3285 $cm^{-1}$
+  - achiral amide I
+    - 1625
+    - 1680
+  - achiral amide II at 1540: $\beta$-sheet oligomers and fibrils
+- loop: achiral: 1660, 1230
+- coil: achiral: 1660
+- turn: achiral: 1660
+  
+# [Biological Macromolecules at Interfaces Probed by Chiral Vibrational Sum Frequency Generation Spectroscopy](https://pubs.acs.org/doi/10.1021/cr4006044)
+
+## SFG
+
+Second-order nonlinear optical technique, which uses two pulsed lase sources, one at infrared (IR) frequency ($\omega_{IR}$) and the other ar visible frequency ($\omega_{VIS}$). When this two beams are made to spqtially and temporally overlap at surfaces, a second order nonlinear optical process producing polarization at the sum frequency ($\omega_{IR}+\omega_{VIS}$) can be induced to generate SFG signal.
+
+The electric field of SFG signals $E_{SFG}^I \propto \sum_{JK}\chi_{IJK}^{(2)} E_{VIS}^J E_{IR}^K$. $\chi_{IJK}^{(2)}$ is an element of the second-order susceptibility tensor, which contains structural and chemical information about the target medium. It is nonzero only when the medium lacks centrosymmetry and the second-order susceptibility of an interface consists of a nonresonant term, $\chi_{NR}^{(2)}$, and a sum of vibrationally resonant terms, $\chi_q^{(2)}$
+$$\chi^{(2)}=\chi_{NR}^{(2)}+\sum_q \chi_q^{(2)}=\chi_{NR}^{(2)}+\sum_q \frac{A_q}{\omega_{IR}-\omega_q+i\Gamma_q}$$
+where $A_q$ is the amplitude, $\Gamma_q$ is the damping coefficient, $\omega_q$ is the resonat frequency of the qth vibrational mode, and $w_{IR}$ is the frequency of the incident IR beam. The SFG signal is enhanced when $\omega_{IR}$ is in resonance with $\omega_q$. Thus, SFG is a surface-specific vibrational spectroscopy
