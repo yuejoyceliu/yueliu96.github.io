@@ -78,8 +78,9 @@ Hyak Mox Overview website: [click me](https://wiki.cac.washington.edu/display/hy
     except BaseException as err:
         print(err)
     ```
-    If store it to [gscratch_space.py](https://github.com/yueliu96/scripts_for_lab/blob/master/gscratch_space.py) in the home directory and run this script as `~/gscratch_space.py`, we can get:
 
+    If store it to [gscratch_space.py](https://github.com/yueliu96/scripts_for_lab/blob/master/gscratch_space.py) in the home directory and run this script as `~/gscratch_space.py`, we can get:
+    
     ```txt
     Name      Use(GB)     Quota(GB)   Limit(GB)   Files       FilesQuota     FilesLimit      
     stf       24437       45500       50050       3064981     68250000       75075000        

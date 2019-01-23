@@ -172,15 +172,15 @@ Run `sbatch *.sh` to submit it to hyak.
 
 If key word `Tight` or `SCF` is in route card, Berny optimization will be used. This kind of output is dilimited by *GradGradGrad...*. The appearance of the following words marks completion of opt, and the final structure is displayed after that. We always want to extract the optimized standard structure for the next step calculation.
 
- ```txt
-         Item               Value     Threshold  Converged?
+  ```
+             Item               Value     Threshold  Converged?
  Maximum Force            0.000020     0.000450     YES
  RMS     Force            0.000004     0.000300     YES
  Maximum Displacement     0.001510     0.001800     YES
  RMS     Displacement     0.000199     0.001200     YES
  Optimization completed.
     -- Stationary point found
- ```
+  ```
 
 <jump id='rstopt'></jump>If `Stationary point found` is absent in log file, that means the opt job is ended earlier, maybe because of time limit. In this case, we need to write another restarted input file and submit it again to start from where it left, the route card of which should be `# opt=restart` plus the other keywords in the original input. For example: if the original route card is:`# opt ub3lyp/6-31+g(d,p) pop=min scf=(xqc,tight)` and the chk file is named as *test.chk*. The new input file is like: 
 
@@ -303,7 +303,9 @@ The main output of tddft contains the excitation energies, oscillation strength(
   - uvvis.csv is the file got from tddft_lorentzian.py
   - need import matplotlib, pandas, numpy, `module load anacond3_5.3` if not able to impor tthese modules
 - *Descriptions*
-![tddft plot](https://raw.githubusercontent.com/yueliu96/blog_images/master/tddftplot_eg.jpg)
+
+  ![tddft plot](https://raw.githubusercontent.com/yueliu96/blog_images/master/tddftplot_eg.jpg)
+
 ### <jump id='vistd'></jump><font size=3>3.[cubegen.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/cubegen.py)</font>
 
 We can also visualize the molecular orbital if we have tddft chk file. We should first use [`formchk`](http://gaussian.com/formchk/) command to generate fchk file, and then use [`cubegen`](http://gaussian.com/cubegen/) to get the cube file, which can be visualized by Gaussian-View. To use cubegen, we also need to decide the molecular orbital number. For $\alpha$ orbital, like 68A, just set mo=68. But for $\beta$ orbital,like 72B, we should find the total number of $\alpha$ orbitals first: if one molecule has 70 $\alpha$ electrons(NAE) and 356 virtual $\alpha$ orbitals(NVA), set mo=498(70+356+72). 
