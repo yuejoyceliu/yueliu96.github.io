@@ -62,7 +62,7 @@ The MaxDisk keyword specifies the amount of disk storage available for scratch d
  File lengths (MBytes):  RWF=  63349 Int=      0 D2E=      0 Chk=     16 Scr=      1
 ```
 
-Where, `MaxDsk=13421772800` means I uses `maxdisk=100G` ($\frac{13421772800\times8}{1024^3}$); `Total=  43587966555` means the minimum disk should be 325G ($\frac{43587966555\times8}{1024^3}$).
+Where, `MaxDsk=13421772800` means I uses `maxdisk=100G` ($\frac{13421772800\times8}{1024^3}$); `Total=43587966555` means the minimum disk should be 325G ($\frac{43587966555\times8}{1024^3}$).
 
 For Hyak, there is around 100G storage space for one node. So we can locate the largest scratch file (read and write file) to `/gscratch/scrubbed/username/` like:
 

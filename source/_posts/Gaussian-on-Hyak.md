@@ -172,7 +172,7 @@ Run `sbatch *.sh` to submit it to hyak.
 
 If key word `Tight` or `SCF` is in route card, Berny optimization will be used. This kind of output is dilimited by *GradGradGrad...*. The appearance of the following words marks completion of opt, and the final structure is displayed after that. We always want to extract the optimized standard structure for the next step calculation.
 
- ```bash
+ ```txt
          Item               Value     Threshold  Converged?
  Maximum Force            0.000020     0.000450     YES
  RMS     Force            0.000004     0.000300     YES
@@ -267,7 +267,7 @@ After finish all opt and freq jobs, we can use energy file got from *HFenergies$
 
 The main output of tddft contains the excitation energies, oscillation strength(f, the intensity of that transition) and S\*\*2, listed below. A resonable transition should satisfy spin forbidden. For a doublet(multiplicity:2S+1=2) S=0.5, so S\*\*2=S(S+1)=0.75. What should be consider is that if not following that rule, the electron flips during the transiton, the total spin momentum S changes from 0.5 to 1.5, and S\*\*2=3.75. When running tddft job, the transition is a combination of these two situations, usually the more differ from what S\*\*2 should be, the less f is. In our lab, we only keep transitions whose S\*\*2<2.6, and use lorentzian equation to calcualte its absorption spectra.
 
-```
+```txt
  Excited State   1:  2.065-A      2.0123 eV  616.13 nm  f=0.0002  <S**2>=0.816
      62B -> 70B       -0.10013
      63B -> 70B       -0.16217
@@ -296,7 +296,15 @@ The main output of tddft contains the excitation energies, oscillation strength(
   - If not, writes the new input file as shown above named with *test_add.gjf* if original input is *test.gjf*. The original input file and chk file must be in the same directory.
   - Otherwise, uses S**2=2.6 as a cutoff to choose frequencies and applies lorentzian equation to calculate absorption spectra. The results are written to *test_uvvis.csv* if log named with *test.log*.
 
-### <jump id='vistd'></jump><font size=3>2.[cubegen.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/cubegen.py)</font>
+### <font size=3>2.[tddft_plot.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/tddft_plot.py)
+
+- *Usage*
+  - `python tddft_plot.py uvvis.csv`
+  - uvvis.csv is the file got from tddft_lorentzian.py
+  - need import matplotlib, pandas, numpy, `module load anacond3_5.3` if not able to impor tthese modules
+- *Descriptions*
+![tddft plot](https://raw.githubusercontent.com/yueliu96/blog_images/master/tddftplot_eg.jpg)
+### <jump id='vistd'></jump><font size=3>3.[cubegen.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/cubegen.py)</font>
 
 We can also visualize the molecular orbital if we have tddft chk file. We should first use [`formchk`](http://gaussian.com/formchk/) command to generate fchk file, and then use [`cubegen`](http://gaussian.com/cubegen/) to get the cube file, which can be visualized by Gaussian-View. To use cubegen, we also need to decide the molecular orbital number. For $\alpha$ orbital, like 68A, just set mo=68. But for $\beta$ orbital,like 72B, we should find the total number of $\alpha$ orbitals first: if one molecule has 70 $\alpha$ electrons(NAE) and 356 virtual $\alpha$ orbitals(NVA), set mo=498(70+356+72). 
 
