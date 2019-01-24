@@ -8,6 +8,8 @@ categories:
 
 how concentration, temperature, bilayer, time and pH affects gp41
 
+[Protein Secondary Structure](http://www.cryst.bbk.ac.uk/PPS2/course/section8/ss-960531_1.html)
+
 # [Oligomeric Structure and Three-Dimensional Fold of the HIV gp41 Membrane-Proximal External Region and Transmembrane Domain in Phospholipid Bilayers](https://pubs.acs.org/doi/10.1021/jacs.8b04010)
 
 ## HIV-1 glycoprotein, gp41
@@ -99,3 +101,32 @@ Second-order nonlinear optical technique, which uses two pulsed lase sources, on
 The electric field of SFG signals $E_{SFG}^I \propto \sum_{JK}\chi_{IJK}^{(2)} E_{VIS}^J E_{IR}^K$. $\chi_{IJK}^{(2)}$ is an element of the second-order susceptibility tensor, which contains structural and chemical information about the target medium. It is nonzero only when the medium lacks centrosymmetry and the second-order susceptibility of an interface consists of a nonresonant term, $\chi_{NR}^{(2)}$, and a sum of vibrationally resonant terms, $\chi_q^{(2)}$
 $$\chi^{(2)}=\chi_{NR}^{(2)}+\sum_q \chi_q^{(2)}=\chi_{NR}^{(2)}+\sum_q \frac{A_q}{\omega_{IR}-\omega_q+i\Gamma_q}$$
 where $A_q$ is the amplitude, $\Gamma_q$ is the damping coefficient, $\omega_q$ is the resonat frequency of the qth vibrational mode, and $w_{IR}$ is the frequency of the incident IR beam. The SFG signal is enhanced when $\omega_{IR}$ is in resonance with $\omega_q$. Thus, SFG is a surface-specific vibrational spectroscopy
+
+# [Observing a Model Ion Channel Gating Action in Model Cell Membranes in Real Time in Situ: Membrane Potential Change Induced Alamethicin Orientation Change](https://pubs.acs.org/doi/10.1021/ja2110784)
+
+## $3_{10}$-helix
+
+A $3_{10}$ helix is a type of secondary structure found in proteins and polypeptides. Of the numerous protein secondary structures present, it is the 4th most common type observed; following $\alpha$-helices, $\beta$-sheeots and reverse turns. $3_{10}$ helices constitute nearly 10%-15% of all helices in protein secondary structures, and are typically observed as extensions of $\alpha$-helices fond at either their N- or C- termini.
+
+
+## alamethicin
+
+Predominantly helical with an N-terminal $\alpha$-helix and a C-terminal domain containing a $3_{10}$-helical element. The Pro14 residue separating the two domains induces a $20^\circ-35^\circ$ bend in alamethicin
+
+## SFG result
+
+- 1670$cm^{-1}$: a helical structure dominated by $\alpha$-helix with minor contribution from a $3_{10}$-helix
+- 1635: $3_{10}$-helical structure
+- 1720: carbonyl groups of lipid bilayer
+- the relationship between the measured ppp and ssp intensity ratios of the peaks at 1670 and 1635 $cm^{-1}$, it is possible to determine the orientation angles $\theta_1$ and $\theta_2$
+- SFG signal intensity is related to the number of molecules detected and their orientations
+
+# [Orientation Determination of Protein Helical Secondary Structures Using Linear and Nonlinear Vibrational Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/jp904153z)
+
+![SFG tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/SFGorien.jpeg)
+
+## Pauling's $\alpha$-Helix
+
+Pauling's assumption: each peptide bond is planar due to the resonace structure between teh carbonyl C=O bond and teh amide C-N bond. On the basis of this assumption, two helical models were constructed and proposed, a $\gamma$-helix and an $\alpha$-helix, with 5.1 residues per turn and 3.6 residues per turn, respectively.
+
+# [In Situ Molecular Level Studies on Membrane Related Peptides and Proteins in Real Time Using Sum Frequency Generation Vibrational Spectroscopy](https://www.sciencedirect.com/science/article/pii/S1047847709000744?via%3Dihub)
