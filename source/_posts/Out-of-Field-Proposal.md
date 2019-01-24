@@ -123,10 +123,22 @@ Predominantly helical with an N-terminal $\alpha$-helix and a C-terminal domain 
 
 # [Orientation Determination of Protein Helical Secondary Structures Using Linear and Nonlinear Vibrational Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/jp904153z)
 
+SFG amide I signals can be collected using different polarization combinations of the input laser beams and output signal beam to measure the second-order nonlinear hyperpolarizability elements through the orientation distribution of these helices.
+
+$$I_{ssp}\propto (-L_{yy}(\omega)L_{zz}(\omega_1)L_{yy}(\omega_2)sin\beta_2 \chi_{yyz})^2$$
+where $L_{ii}(\omega)$ is a Fresnel coefficient and local field correction factor and $\beta,\ \beta_1\ and\ \beta_2$ are angles of the signal, visible and IR beams with respect to the surface normal, respectively.
+
+when input or output beam angle is close to the critical angle of the total internal reflection:
+$$I_{ppp}\propto |L_{zz}(\omega)L_{zz}(\omega_1)L_{zz}(\omega_2)sin\beta sin\beta_1sin\beta_2 \chi_{zzz}|^2 $$
 ![SFG tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/SFGorien.jpeg)
 
 ## Pauling's $\alpha$-Helix
 
-Pauling's assumption: each peptide bond is planar due to the resonace structure between teh carbonyl C=O bond and teh amide C-N bond. On the basis of this assumption, two helical models were constructed and proposed, a $\gamma$-helix and an $\alpha$-helix, with 5.1 residues per turn and 3.6 residues per turn, respectively.
+Pauling's assumption: each peptide bond is planar due to the resonace structure between teh carbonyl C=O bond and teh amide C-N bond. On the basis of this assumption, two helical models were constructed and proposed, a $\gamma$-helix (not discovered in any protein structures) and an $\alpha$-helix, with 5.1 residues per turn and 3.6 residues per turn, respectively.
+
+$\alpha$-helix: it repeats itselt every 5.4
+$\overset{\circ}{A}$ along the helical axis. Every backbone carbonyl C=O and N-H group on a peptide unit is hydrogen bonded to another N-H and C=O, respectively. Additionally, the backbone C=O groups point in the same direction, while the N-H groups point in the opposite direction.
+
+Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $E_1$ are IR-active, while the all three modes are Raman-active. Because a SFG-active mode needs to be both IR- and Raman-active, only the A and $E_1$ modes are SFG-active.
 
 # [In Situ Molecular Level Studies on Membrane Related Peptides and Proteins in Real Time Using Sum Frequency Generation Vibrational Spectroscopy](https://www.sciencedirect.com/science/article/pii/S1047847709000744?via%3Dihub)
