@@ -101,7 +101,7 @@ Hyak Mox Overview website: [click me](https://wiki.cac.washington.edu/display/hy
 
 # <jump id='squeue'>Squeue Format</jump>
 
-add `export SQUEUE_FORMAT="the-format-you-like"` to /.bash_profile file and then run `source /.bash_profile`
+add `export SQUEUE_FORMAT="the-format-you-like"` to ~/.bash_profile file and then run `source ~/.bash_profile`
 
 - My own version:
   

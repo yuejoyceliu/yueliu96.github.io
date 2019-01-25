@@ -9,9 +9,9 @@ categories:
 - Turecek Lab Tutorial
 ---
 
-*Two types of jobs, optimization and dynamics with pm6 method, are introduced here. Linked python scripts should be useful to setup input and analyze result, which can run both in python2 and in python3.*
+*Two types of jobs, optimization and Born-Oppenheimer molecualr-dynamics with pm6 method, are introduced here. Linked python scripts should be useful to setup input and analyze result, which can run both in python2 and in python3.*
 
-*[Mopac](http://openmopac.net/Manual/index.html) is a general-purpose semiempirical molecular orbital package for the study of solid state and molecular structures and reactions. Several semiempirical methods are used to calculate electronic part, among which we usually choose PM6 method to run geometry optimization and molecular dynamics. Just like other computational software packages, Mopac works in 3 steps: create a data file which describes molecular system and specifies job types; command Mopac to carry out the calcualtion with that data-file (on Hyak node); extract the desired result from the output-file.*
+*[Mopac](http://openmopac.net/Manual/index.html) is a general-purpose semiempirical molecular orbital package for the study of solid state and molecular structures and reactions. Several semiempirical methods are used to calculate electronic part, among which we usually choose PM6 method to run geometry optimization and BOMD. Just like other computational software packages, Mopac works in 3 steps: create a data file which describes molecular system and specifies job types; command Mopac to carry out the calcualtion with that data-file (on Hyak node); extract the desired result from the output-file.*
 
 # Input Setup
 
@@ -47,7 +47,7 @@ python script [xyz2gjf.py](https://raw.githubusercontent.com/yueliu96/scripts_fo
 
 ## yaml-file
 
-yaml file is a list of keywords, which is the bridge to connect cuby with computational softwares.
+yaml file is a list of keywords, which is the bridge to connect cuby with computational softwares. The format is `keyword: option` and there must be a space after colon (:).
 
 ### optimize-yaml
 
@@ -209,7 +209,7 @@ To run pm6-optimize or pm6-BOMD for several different molecules, create their xy
 test1.xyz test2.xyz test3.xyz
 ```
 
-and then run `python pm6opt_parallel.py` or `python pm6bomd_parallel.py`. tasklists$.$sh file, parallel_run$.$sh file and sub-directories for every xyz file will be created, in where xyz and yaml files are created correspondingly:
+and then run `python pm6opt_parallel.py` or `python pm6bomd_parallel.py`. Then, tasklists$.$sh file, parallel_run$.$sh file and sub-directories for every xyz file will be created. In every xyz sub-folder, xyz and yaml files are created correspondingly:
 
 ```
 dtest1  dtest2 dtest3 taskslists.sh parallel_run.sh
