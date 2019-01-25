@@ -74,16 +74,36 @@ where $A_q$ is the amplitude, $\Gamma_q$ is the damping coefficient, $\omega_q$ 
 ## [Molecular Chemical Structure on Poly(methyl methacrylate) (PMMA) Surface Studied by Sum Frequency Generation (SFG) Vibrational Spectroscopy](https://pubs.acs.org/doi/full/10.1021/jp013161d) 
 
 In an SFG setup, a pulsed visible laser beam (532nm) and a tunable pulsed IR beam are overlapped spatially and temporally on a surface. The light emitted by the nonlinear process at the sum frequency, $\omega=\omega_1+\omega_2$, is detected by a photodector. The intensity of output is proportional to the square of the samples's second-order nonlinear susceptibility, which vanishes when a material has inversion symmetry under the electric-dipole approximation. Bothe theoretical calculations and experimental results show that SFG is submonolayer sensitive. Aplot of SFG intensities vs the frequency of the IR laser produces the vibrational spectrum of the surface species. As SFG is a polarized light experiment, the orientation of surface molecules can also be deduced by using different polarization combinations of input and output beams.
+
 ![sfg setup](https://raw.githubusercontent.com/yueliu96/blog_images/master/sfg_setup.jpg)
 $$I(\omega)=\frac{8\pi^3\omega^2sec^2\beta}{c^3n_1(\omega)n_1(\omega_1)n_1(\omega_2)}|\chi_{eff}^{(2)}|^2I_1(\omega_1)I_2(\omega_2)$$
 where $n_i(\omega)$ is the refractive index of medium i at frequency $\omega$, $\beta$ is thereflection angle of the sum frequency field, $I_1(\omega_1)$ and $I_2(\omega_2)$ are the intensities of the two input files. $\chi_{eff}^{(2)}$ is the effective second-order nonlinear susceptibility tensor of the surface, which is related to the second-order nonlinear susceptibility $\chi^{(2)}$ in the lab coordinate system.
+
+Different component of $\chi^{(2)}$ are related to the respective componets of the molecular hyperpolarizability (in the molecular coordinated system, which is a product of IR and Raman transition moments) by the average orientational angle of the functional group. Therefore, we can deduce the orientation information of each functional group after determining the corresponding components of $\chi^{(2)}$ by fitting SFG spectra and knowing the molecular hyperpolarizability.
+
+$$
+\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}
+$$
+
+$$
+\chi_{eff,ppp}^{(2)}=-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\\\
+-L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\\\
++L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\\\
++L_{zz}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{SFG}sin\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{zzz} \tag{1}
+$$
+
+Here $\chi_{xyz}$ is one componaent of $\chi^{(2)}$ with the lab coordinates chosedn such that z is along the interface normal and x is in the incident plane. $\chi_{eff,ssp}^{(2)}$ is a component of the effective second-order nonlinear susceptibility measured in the experiment, means the element obtained by s-polarized SF beam, s-polarized visible beam and p-polarized IR beam. $\beta_{x}$ is the angle between the surface normal and the x beam. $L_{ii} (i=x,y\ or\ z)$ are the Fresnel coefficients. Using the near total reflection geometry, the first three items in equation (1) are approxiamated to be 0. 
+
+With IR-visible SFG, if the IR frequency is near vibrational resonance, $\chi_{eff}^{(2)}$ can be written as 
+
+$$\chi_{eff}^{(2)}=\chi_{nr}+\sum_q \frac{A_q}{\omega_{IR}-\omega_q+i\Gamma_q}$$
+
+$\chi_{nr}$ arises from the nonresonant background contribution
+
 $$
 I_{SFG}=|A_0+\sum_j^\text{num of peaks}\frac{A_j}{\omega-\omega_j+i\Gamma_j}|^2\\
 \chi^{(2)}_{eff}(j)=\frac{A_j}{\Gamma_j}$$
 where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and damping coefficient of the vibrational mode j, respectively. And they can be obtained by fitting the spectrum
-
-Different component of $\chi^{(2)}$ are related to the respective componets of the molecular hyperpolarizability (in the molecular coordinated system, which is a product of IR and Raman transition moments) by the average orientational angle of the functional group. Therefore, we can deduce the orientation information of each functional group after determining the corresponding components of $\chi^{(2)}$ by fitting SFG spectra and knowing the molecular hyperpolarizability.
-
 
 # SFG Method
 
@@ -146,21 +166,6 @@ Predominantly helical with an N-terminal $\alpha$-helix and a C-terminal domain 
 
 [Surpport Information](https://pubs.acs.org/doi/suppl/10.1021/ja2110784/suppl_file/ja2110784_si_001.pdf)
 
-$$
-\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}
-$$
-
-$$
-\begin{aligned}
-\chi_{eff,ppp}^{(2)}=&-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\
-&-L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\
-&+L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\
-&+L_{zz}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{SFG}sin\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{zzz} \tag{1}
-\end{aligned}
-$$
-
-where $\beta_{x}$ is the angle between the surface normal and the x beam. Using the near total reflection geometry, the first three items in equation (1) are approxiamated to be 0. 
-
 ### [Orientation Determination of Protein Helical Secondary Structures Using Linear and Nonlinear Vibrational Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/jp904153z)
 
 SFG amide I signals can be collected using different polarization combinations of the input laser beams and output signal beam to measure the second-order nonlinear hyperpolarizability elements through the orientation distribution of these helices.
@@ -180,11 +185,14 @@ $\overset{\circ}{A}$ along the helical axis. Every backbone carbonyl C=O and N-H
 
 Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $E_1$ are IR-active, while the all three modes are Raman-active. Because a SFG-active mode needs to be both IR- and Raman-active, only the A and $E_1$ modes are SFG-active.
 
+### [Interactions of Alamethicin with Model Cell Membranes Investigated Using Sum Frequency Generation Vibrational Spectroscopy in Real Time in Situ](https://pubs.acs.org/doi/10.1021/jp911174d)
+![alam tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/alam%20helix%20angle.jpeg)
+
 # To Be Read 
 
 [In Situ Molecular Level Studies on Membrane Related Peptides and Proteins in Real Time Using Sum Frequency Generation Vibrational Spectroscopy](https://www.sciencedirect.com/science/article/pii/S1047847709000744?via%3Dihub)
 
-[Interactions of Alamethicin with Model Cell Membranes Investigated Using Sum Frequency Generation Vibrational Spectroscopy in Real Time in Situ](https://pubs.acs.org/doi/10.1021/jp911174d)
+
 
 [Structure and Orientation of Interfacial Proteins Determined by Sum Frequency Generation Vibrational Spectroscopy: Method and Application](https://www.sciencedirect.com/science/article/pii/B9780124165960000075?via%3Dihub)
 

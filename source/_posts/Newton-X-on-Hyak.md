@@ -11,7 +11,7 @@ categories:
 
 *[Newton-X](http://www.newtonx.org) is a general-purpose program package for excited-state molecular dynamics, which is used to simulate absorption spectrum with GAUSSIAN09 in our group.*
 
-*Input-file setup and output analysis are introduced here or could be found on its website. A fast setup could be achieved by my python script. Scripts attached here can run both in python2 and in python3.*
+*Input-file setup and output analysis are introduced here or could be found on its website. A fast setup could be achieved by [my python script](#pscript). Scripts attached here can run both in python2 and in python3.*
 
 # Newton-X Setup
 
@@ -99,7 +99,7 @@ end=$(date +%s)
 echo 'Elapsed Time: '$(($end-$begin))'s'
 ```
 
-## Scripts
+## <jump id='pscript'>Scripts</jump>
 
   python script [newtonx.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/newtonx.py) can do exactly what step 2 to step 8 do.
 
@@ -133,7 +133,7 @@ Move to this directory and proceed with the spectrum simulation by command `$NX/
 
 The simulated cross section using a Lorentzian line shape with phenomenological broadening $\delta=0.1eV$ is written to *cross-section.dat*, containing four columns of data -- DE/ev, lambda/nm, sigma/A^2 and +/-error/A^2.
 
-## Script
+## <jump id='pscript'>Script</jump>
 
 All the above steps can be achieved by script [nxplot.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/nxplot.py). 
 
