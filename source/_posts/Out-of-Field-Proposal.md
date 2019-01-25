@@ -8,9 +8,9 @@ categories:
 
 # Goal
 
-how concentration, temperature, bilayer, time and pH affects gp41:
-- secondary structures ($\alpha$-helix, $\beta$-strand and turn/loop?)
-- tilt angles (if all $\alpha$-helix, or one is $3_{10}$ helix)
+- how concentration, temperature, bilayer, time and pH affects gp41
+  - secondary structures ($\alpha$-helix, $\beta$-strand and turn/loop?)
+  - tilt angles (if all $\alpha$-helix, or one is $3_{10}$ helix)
 
 ## [Oligomeric Structure and Three-Dimensional Fold of the HIV gp41 Membrane-Proximal External Region and Transmembrane Domain in Phospholipid Bilayers](https://pubs.acs.org/doi/10.1021/jacs.8b04010)
 
@@ -65,33 +65,46 @@ heterogeneity in the protein oligomeric states, differenced in th ebicelle stabi
 
 ## [Biological Macromolecules at Interfaces Probed by Chiral Vibrational Sum Frequency Generation Spectroscopy](https://pubs.acs.org/doi/10.1021/cr4006044)
 
-Second-order nonlinear optical technique, which uses two pulsed lase sources, one at infrared (IR) frequency ($\omega_{IR}$) and the other ar visible frequency ($\omega_{VIS}$). When this two beams are made to spqtially and temporally overlap at surfaces, a second order nonlinear optical process producing polarization at the sum frequency ($\omega_{IR}+\omega_{VIS}$) can be induced to generate SFG signal.
+Second-order nonlinear optical technique, which uses two pulsed lase sources, one at infrared (IR) frequency ($\omega_{IR}$) and the other at visible frequency ($\omega_{VIS}$). When this two beams are made to spatially and temporally overlap at surfaces, a second order nonlinear optical process producing polarization at the sum frequency ($\omega_{IR}+\omega_{VIS}$) can be induced to generate SFG signal.
 
 The electric field of SFG signals $E_{SFG}^I \propto \sum_{JK}\chi_{IJK}^{(2)} E_{VIS}^J E_{IR}^K$. $\chi_{IJK}^{(2)}$ is an element of the second-order susceptibility tensor, which contains structural and chemical information about the target medium. It is nonzero only when the medium lacks centrosymmetry and the second-order susceptibility of an interface consists of a nonresonant term, $\chi_{NR}^{(2)}$, and a sum of vibrationally resonant terms, $\chi_q^{(2)}$
 $$\chi^{(2)}=\chi_{NR}^{(2)}+\sum_q \chi_q^{(2)}=\chi_{NR}^{(2)}+\sum_q \frac{A_q}{\omega_{IR}-\omega_q+i\Gamma_q}$$
 where $A_q$ is the amplitude, $\Gamma_q$ is the damping coefficient, $\omega_q$ is the resonat frequency of the qth vibrational mode, and $w_{IR}$ is the frequency of the incident IR beam. The SFG signal is enhanced when $\omega_{IR}$ is in resonance with $\omega_q$. Thus, SFG is a surface-specific vibrational spectroscopy
 
+## [Molecular Chemical Structure on Poly(methyl methacrylate) (PMMA) Surface Studied by Sum Frequency Generation (SFG) Vibrational Spectroscopy](https://pubs.acs.org/doi/full/10.1021/jp013161d) 
+
+In an SFG setup, a pulsed visible laser beam (532nm) and a tunable pulsed IR beam are overlapped spatially and temporally on a surface. The light emitted by the nonlinear process at the sum frequency, $\omega=\omega_1+\omega_2$, is detected by a photodector. The intensity of output is proportional to the square of the samples's second-order nonlinear susceptibility, which vanishes when a material has inversion symmetry under the electric-dipole approximation. Bothe theoretical calculations and experimental results show that SFG is submonolayer sensitive. Aplot of SFG intensities vs the frequency of the IR laser produces the vibrational spectrum of the surface species. As SFG is a polarized light experiment, the orientation of surface molecules can also be deduced by using different polarization combinations of input and output beams.
+![sfg setup](https://raw.githubusercontent.com/yueliu96/blog_images/master/sfg_setup.jpg)
+$$I(\omega)=\frac{8\pi^3\omega^2sec^2\beta}{c^3n_1(\omega)n_1(\omega_1)n_1(\omega_2)}|\chi_{eff}^{(2)}|^2I_1(\omega_1)I_2(\omega_2)$$
+where $n_i(\omega)$ is the refractive index of medium i at frequency $\omega$, $\beta$ is thereflection angle of the sum frequency field, $I_1(\omega_1)$ and $I_2(\omega_2)$ are the intensities of the two input files. $\chi_{eff}^{(2)}$ is the effective second-order nonlinear susceptibility tensor of the surface, which is related to the second-order nonlinear susceptibility $\chi^{(2)}$ in the lab coordinate system.
+$$
+I_{SFG}=|A_0+\sum_j^\text{num of peaks}\frac{A_j}{\omega-\omega_j+i\Gamma_j}|^2\\
+\chi^{(2)}_{eff}(j)=\frac{A_j}{\Gamma_j}$$
+where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and damping coefficient of the vibrational mode j, respectively. And they can be obtained by fitting the spectrum
+
+Different component of $\chi^{(2)}$ are related to the respective componets of the molecular hyperpolarizability (in the molecular coordinated system, which is a product of IR and Raman transition moments) by the average orientational angle of the functional group. Therefore, we can deduce the orientation information of each functional group after determining the corresponding components of $\chi^{(2)}$ by fitting SFG spectra and knowing the molecular hyperpolarizability.
+
+
 # SFG Method
 
 ## Tell $\beta$-strand and $\beta$-sheet
 
-[Misfolding of Human Islet Amyloid Polypeptide at Lipid Membrane Populates through β-Sheet Conformers without Involving α-Helical Intermediates](https://pubs.acs.org/doi/10.1021/jacs.8b08537)
+### [Misfolding of Human Islet Amyloid Polypeptide at Lipid Membrane Populates through β-Sheet Conformers without Involving α-Helical Intermediates](https://pubs.acs.org/doi/10.1021/jacs.8b08537)
 
-### advantage of this article
-
+1. advantage of this article
 - quickly capture the transient intermediates in situ and in real time
 - identify the formation of $\beta$-hairpin-like monomers, $\beta$-sheet oligomers and fibrils
 - reveal the mechanism of amyloid aggregation at the lipid membrane
 - method
   - X-ray crystallography: high-rsolution, but not enough time resolution to probe the real-time aggregation
 
-### method
+2. method
 
-the combination of interface-sensitive chiral amide I, achiral amide II and amide III spectral signals of the protein backbone generated in sum frequency generation vibrational spectroscopy (SFG-VS) can provide a unique and powerful tool to capture the hIAPP intermediates at the interface d uring the agggregation process with sufficient structural temporal resolutions
+   the combination of interface-sensitive chiral amide I, achiral amide II and amide III spectral signals of the protein backbone generated in sum frequency generation vibrational spectroscopy (SFG-VS) can provide a unique and powerful tool to capture the hIAPP intermediates at the interface d uring the agggregation process with sufficient structural temporal resolutions
 
-develop a highly-sensitive femtosecond SFG-VS system, can acquire the ssp and psp sepctra simultaneously with a recording time of < 5 seconds
+   develop a highly-sensitive femtosecond SFG-VS system, can acquire the ssp and psp sepctra simultaneously with a recording time of < 5 seconds
 
-Amide II vibrations arise from the out-of-phase combination of the C-N stretch and the N-H in-plane deformation
+   Amide II vibrations arise from the out-of-phase combination of the C-N stretch and the N-H in-plane deformation
 
 - $\alpha$-helix: achiral: 1660, 1280
 - $\beta$-sheet:
@@ -112,6 +125,8 @@ Amide II vibrations arise from the out-of-phase combination of the C-N stretch a
 
 ### [Observing a Model Ion Channel Gating Action in Model Cell Membranes in Real Time in Situ: Membrane Potential Change Induced Alamethicin Orientation Change](https://pubs.acs.org/doi/10.1021/ja2110784)
 
+![sfg](https://pubs.acs.org/appl/literatum/publisher/achs/journals/content/jacsat/2012/jacsat.2012.134.issue-14/ja2110784/production/images/large/ja-2011-110784_0004.jpeg)
+
 #### $3_{10}$-helix
 
 A $3_{10}$ helix is a type of secondary structure found in proteins and polypeptides. Of the numerous protein secondary structures present, it is the 4th most common type observed; following $\alpha$-helices, $\beta$-sheeots and reverse turns. $3_{10}$ helices constitute nearly 10%-15% of all helices in protein secondary structures, and are typically observed as extensions of $\alpha$-helices fond at either their N- or C- termini.
@@ -128,6 +143,23 @@ Predominantly helical with an N-terminal $\alpha$-helix and a C-terminal domain 
 - 1720: carbonyl groups of lipid bilayer
 - the relationship between the measured ppp and ssp intensity ratios of the peaks at 1670 and 1635 $cm^{-1}$, it is possible to determine the orientation angles $\theta_1$ and $\theta_2$
 - SFG signal intensity is related to the number of molecules detected and their orientations
+
+[Surpport Information](https://pubs.acs.org/doi/suppl/10.1021/ja2110784/suppl_file/ja2110784_si_001.pdf)
+
+$$
+\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}
+$$
+
+$$
+\begin{aligned}
+\chi_{eff,ppp}^{(2)}=&-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\
+&-L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\
+&+L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\
+&+L_{zz}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{SFG}sin\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{zzz} \tag{1}
+\end{aligned}
+$$
+
+where $\beta_{x}$ is the angle between the surface normal and the x beam. Using the near total reflection geometry, the first three items in equation (1) are approxiamated to be 0. 
 
 ### [Orientation Determination of Protein Helical Secondary Structures Using Linear and Nonlinear Vibrational Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/jp904153z)
 
@@ -152,6 +184,9 @@ Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $
 
 [In Situ Molecular Level Studies on Membrane Related Peptides and Proteins in Real Time Using Sum Frequency Generation Vibrational Spectroscopy](https://www.sciencedirect.com/science/article/pii/S1047847709000744?via%3Dihub)
 
+[Interactions of Alamethicin with Model Cell Membranes Investigated Using Sum Frequency Generation Vibrational Spectroscopy in Real Time in Situ](https://pubs.acs.org/doi/10.1021/jp911174d)
+
+[Structure and Orientation of Interfacial Proteins Determined by Sum Frequency Generation Vibrational Spectroscopy: Method and Application](https://www.sciencedirect.com/science/article/pii/B9780124165960000075?via%3Dihub)
 
 # Useful Link
 

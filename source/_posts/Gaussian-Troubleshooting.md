@@ -7,14 +7,26 @@ categories:
 - Turecek Lab Tutorial
 ---
 
-Troubleshooting about: [FormBX had a problem](#formbx) | [Negative Frequency](#nfreq) | [Freq job never stops calculating vectors](#vecfreq) | [Transformation cannot fit in the specified MaxDisk](#maxdisk) | To be continue ...
+Troubleshooting about:  [Freq: Negative Frequency](#nfreq) | [Freq job never stops calculating vectors](#vecfreq) | [Opt: Energy Oscillates](#eosc) | [Opt: FormBX had a problem](#formbx) | [Transformation cannot fit in the specified MaxDisk](#maxdisk) | To be continue ...
+
+# <jump id='eosc'>Energy oscillates and opt never converges
+
+If during geometry optimization the energy oscillates as shown in the following figure:
+![E_osc](https://raw.githubusercontent.com/yueliu96/blog_images/master/energy_osc.PNG)
+
+This oscillation happens because one or more of the second derivatives is very close to zero.
+
+Try:
+1. restart the geometry optimization from the point with the lowest energy (step 60 for this case)
+2. `opt(calcfc)`--specifies that the force constants be computed at the first point using the current method. It will ensure that the calculation starts with accurate second derivatives, but may be too expensive to be practical
+3. It is recommended for molecules containing lots of tetrahedral centers and for computing very low frequency modes of systems to use [`Integral(UltraFine)`](http://gaussian.com/integral/)
 
 
 # <jump id='formbx'>FormBX had a problem</jump>
 
 If get error message like:
 
-```txt
+```
  GradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGrad
  Berny optimization.
  Using GEDIIS/GDIIS optimizer.
@@ -47,7 +59,7 @@ We will get this error when specifying `maxdisk=xxx` and the disk is not enough 
 
 The MaxDisk keyword specifies the amount of disk storage available for scratch data. But some jobs, like CCSD, CCSD(T), QCISD(T), and BD(T) energies have fixed disk which cannot be limited by MaxDisk. In this case, if the disk storage is not enough, we will get error information like:
 
-```txt
+```
  Semi-Direct transformation.
  ModeAB=           4 MOrb=            51 LenV=   26834989397
  LASXX=   3675829080 LTotXX=  3675829080 LenRXX=  7405142880
