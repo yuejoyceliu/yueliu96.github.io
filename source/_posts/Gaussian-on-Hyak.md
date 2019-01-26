@@ -74,9 +74,11 @@ categories:
       - in the presence of solvent, place solute in a cavity within the solvent reaction field.
        - `scrf=pcm` by default
        - ex: `scrf=(pcm,solvent=water)`
-    - [CacheSize](http://gaussian.com/cachesize/)
+  
+    - <font color=gray>[CacheSize](http://gaussian.com/cachesize/)
       - the amount of cache per processor to use with various cache-blocking algorithms (in 8-byte words)
       - ex: from `/proc/cpuinfo` find the cache available(35840kb) and a good value is its 50% ( $35840\times1024\div8\times50\%=2293760$): `cachesize=2293760`
+      - no need to add it for Hyak</font>
     - [<jump id='maxdisk'>MaxDisk</jump>](http://gaussian.com/maxdisk/)
       - the amount of disk storage available for [scratch data](https://gaussian.com/running/?tabid=6) 
       - disk space of one node on Hyak is ~100GB. `lsblk -d` or `df -h` can show physical disk info of linux system
@@ -301,7 +303,7 @@ The main output of tddft contains the excitation energies, oscillation strength(
 - *Usage*
   - `python tddft_plot.py uvvis.csv`
   - uvvis.csv is the file got from tddft_lorentzian.py
-  - need import matplotlib, pandas, numpy, `module load anacond3_5.3` if not able to impor tthese modules
+  - need import matplotlib, pandas, numpy, `module load anacond3_5.3` if not able to import these modules
 - *Descriptions*
 
   ![tddft plot](https://raw.githubusercontent.com/yueliu96/blog_images/master/tddftplot_eg.jpg)

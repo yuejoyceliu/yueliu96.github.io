@@ -89,10 +89,10 @@ $$
 \chi_{eff,ppp}^{(2)}=-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\\\
 -L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\\\
 +L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\\\
-+L_{zz}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{SFG}sin\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{zzz} \tag{1}
++L_{zz}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{SFG}sin\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{zzz}
 $$
 
-Here $\chi_{xyz}$ is one componaent of $\chi^{(2)}$ with the lab coordinates chosedn such that z is along the interface normal and x is in the incident plane. $\chi_{eff,ssp}^{(2)}$ is a component of the effective second-order nonlinear susceptibility measured in the experiment, means the element obtained by s-polarized SF beam, s-polarized visible beam and p-polarized IR beam. $\beta_{x}$ is the angle between the surface normal and the x beam. $L_{ii} (i=x,y\ or\ z)$ are the Fresnel coefficients. Using the near total reflection geometry, the first three items in equation (1) are approxiamated to be 0. 
+Here $\chi_{xyz}$ is one componaent of $\chi^{(2)}$ with the lab coordinates chosedn such that z is along the interface normal and x is in the incident plane. $\chi_{eff,ssp}^{(2)}$ is a component of the effective second-order nonlinear susceptibility measured in the experiment, means the element obtained by s-polarized SF beam, s-polarized visible beam and p-polarized IR beam. $\beta_{x}$ is the angle between the surface normal and the x beam. $L_{ii} (i=x,y\ or\ z)$ are the Fresnel coefficients. Using the near total reflection geometry, the first three items in the equation of $\chi_{eff,ppp}^{(2)}$ are approxiamated to be 0. 
 
 With IR-visible SFG, if the IR frequency is near vibrational resonance, $\chi_{eff}^{(2)}$ can be written as 
 

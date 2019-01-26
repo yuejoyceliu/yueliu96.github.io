@@ -17,9 +17,15 @@ If during geometry optimization the energy oscillates as shown in the following 
 This oscillation happens because one or more of the second derivatives is very close to zero.
 
 Try:
-1. restart the geometry optimization from the point with the lowest energy (step 60 for this case)
-2. `opt(calcfc)`--specifies that the force constants be computed at the first point using the current method. It will ensure that the calculation starts with accurate second derivatives, but may be too expensive to be practical
-3. It is recommended for molecules containing lots of tetrahedral centers and for computing very low frequency modes of systems to use [`Integral(UltraFine)`](http://gaussian.com/integral/)
+1. restart the geometry optimization from the point with the lowest energy (step 60 for this case). It works for all of my jobs for now. If it doesn't work, try what is listed below
+2. change `opt` to `opt(calcfc)` on the route card
+   - specifies that the force constants be computed at the first point using the current method.
+   - ensures that the calculation starts with accurate second derivatives, but may be too expensive to be practical. 
+   - e.g., one of my jobs take 9 hours to finish with `opt(calcfc)` compared to 3 hours without it.
+3. add another keyword [`Integral(UltraFine)`](http://gaussian.com/integral/) on the route card
+   - It is recommended for molecules containing lots of tetrahedral centers and for computing very low frequency modes of systems to use.
+   - Also useful for optimizations of larger molecules with many soft modes such as methyl rotations, making such optimizations more reliable.
+   - But note that it is very important to **use the same gride for all calculations where you intend to compare energies**.
 
 
 # <jump id='formbx'>FormBX had a problem</jump>

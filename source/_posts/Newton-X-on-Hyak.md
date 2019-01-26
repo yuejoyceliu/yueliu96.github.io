@@ -135,7 +135,7 @@ The simulated cross section using a Lorentzian line shape with phenomenological 
 
 ## <jump id='pscript'>Script</jump>
 
-All the above steps can be achieved by script [nxplot.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/nxplot.py). 
+All the above steps can be achieved by script [nxplot.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/nxplot.py). (This script is to be updated, especially for plot function)
 
 - *Usage*
   - `python nxplot.py`
