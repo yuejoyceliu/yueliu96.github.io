@@ -82,10 +82,7 @@ where $n_i(\omega)$ is the refractive index of medium i at frequency $\omega$, $
 Different component of $\chi^{(2)}$ are related to the respective componets of the molecular hyperpolarizability (in the molecular coordinated system, which is a product of IR and Raman transition moments) by the average orientational angle of the functional group. Therefore, we can deduce the orientation information of each functional group after determining the corresponding components of $\chi^{(2)}$ by fitting SFG spectra and knowing the molecular hyperpolarizability.
 
 $$
-\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}
-$$
-
-$$
+\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}\\\\
 \chi_{eff,ppp}^{(2)}=-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\\\
 -L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\\\
 +L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\\\
