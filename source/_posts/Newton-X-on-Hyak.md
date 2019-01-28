@@ -63,13 +63,13 @@ Note that the subdirectory must be named with *JOB_AD* and the name of these two
 
 ### 6. newton-x input
 
-Back to the directory *TDDFT_SPEC*, use command `$NX/nxinp` and answer several quesitons by instructions to genetrate the newton-x input file *initqp_input*. Answers to the questions are `1; 2; numer of atoms; 300 (number of initial conditions); geom; 4; freq.out; 1; 310 (temperature); n; 1; 1 (ground state); number of states; 1; 100; 6.5; 0; 1; 7 (exit)`, respectively.
+Back to the directory *TDDFT_SPEC*, use command `$NX/nxinp` and answer several quesitons by instructions to genetrate the newton-x input file *initqp_input*. Answers to the questions are `1 (Generate initial condition); 2 (Winger); numer of atoms; 300 (number of initial conditions); geom; 4 (gaussian output); freq.out; 1 (modified frequency); 310 (temperature); n; 1 (check energy); 1 (ground state); number of states; 1 ; 100 (de, width of restriction); 6.5; 0 (seed value); 1; 7 (exit)`, respectively. Here, the large "de" implies that this restriction will not be used. It can be imposed later on.
 
 ### 7. splitting jobs
 
 This step is to split the job among several computers (nodes), could be skipped and go directly to run the newton-x by `$NX/initcond.pl > initcond.log`.
 
- To split the job, run `NX/split_initcond.pl` in the directory *TDDFT_SPEC*. Two questions will be asked, the first one is the number of directories to split the job and the second one is if the job run in a batch system. This program produces one file named *split_initcond.log* and a directory called *INITIAL_CONDITIONS*. If the answer to the first quesiton is 10, 10 subdirectories called *I1,I2,...,I10* are inside *INITIAL_CONDITIONS*, each one containing a complete set of input files but with 30 (300 $\div$ 10) initial conditions and iseed=-1 not 0.
+ To split the job, run `NX/split_initcond.pl` in the directory *TDDFT_SPEC*. Two questions will be asked, the first one is the number of directories to split the job and the second one is if the job run in a batch system. The answer to the second question is "n". This program produces one file named *split_initcond.log* and a directory called *INITIAL_CONDITIONS*. If the answer to the first quesiton is 10, 10 subdirectories called *I1,I2,...,I10* are inside *INITIAL_CONDITIONS*, each one containing a complete set of input files but with 30 (300 $\div$ 10) initial conditions and iseed=-1 not 0.
 
  ### 8. submit newton-x job
 
@@ -129,7 +129,7 @@ After all sub-tasks finish, go to the directory *INITIAL_CONDITIONS* and run `$N
 
 ### spectrum simulation
 
-Move to this directory and proceed with the spectrum simulation by command `$NX/nxinp`. The answers to the questions it will ask are `5 (spectra); 1 (spectra); 1 (initial state); 2-N (array of final states); F (Absorption); 0 (no restriction); -1; local; 1 (random seed); lorentz; 0.1 (delta); 310 (temperature); 1; 0.005; 3; 7 (exit)`, among which delta contronls the width of the curve.
+Move to this directory and proceed with the spectrum simulation by command `$NX/nxinp`. The answers to the questions it will ask are `5 (spectra); 1 (spectra); 1 (initial state); 2-N (array of final states); F (Absorption); 0 (no restriction); -1(read osc strength from file); local; 1 (random seed); lorentz; 0.1 (delta); 310 (temperature); 1 (refraction index); 0.005 (distance between consecutive points in the spectrum); 3 (kappa: the range of the spectrum is defined between Emin-kappa*delta and Emax+kappa*delta); 7 (exit)`, among which delta contronls the width of the curve.
 
 The simulated cross section using a Lorentzian line shape with phenomenological broadening $\delta=0.1eV$ is written to *cross-section.dat*, containing four columns of data -- DE/ev, lambda/nm, sigma/A^2 and +/-error/A^2.
 

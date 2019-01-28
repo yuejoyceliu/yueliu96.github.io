@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="software,Hyak,ComputChem,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Newton-X is a general-purpose program package for excited-state molecular dynamics, which is used to simulate absorption spectrum with GAUSSIAN09 in our group. Input-file setup and output analysis are">
+<meta name="keywords" content="software,Hyak,ComputChem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Newton-X on Hyak">
+<meta property="og:url" content="http://yoursite.com/2018/12/30/Newton-X-on-Hyak/index.html">
+<meta property="og:site_name" content="Yue Liu&#39;s Blog">
+<meta property="og:description" content="Newton-X is a general-purpose program package for excited-state molecular dynamics, which is used to simulate absorption spectrum with GAUSSIAN09 in our group. Input-file setup and output analysis are">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-25T22:49:17.749Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Newton-X on Hyak">
+<meta name="twitter:description" content="Newton-X is a general-purpose program package for excited-state molecular dynamics, which is used to simulate absorption spectrum with GAUSSIAN09 in our group. Input-file setup and output analysis are">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/30/Newton-X-on-Hyak/">
+
+
+
+
+
+  <title>Newton-X on Hyak | Yue Liu's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yue Liu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/30/Newton-X-on-Hyak/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yue Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yue Liu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Newton-X on Hyak</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T20:30:09-08:00">
+                2018-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Turecek-Lab-Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Turecek Lab Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em><a href="http://www.newtonx.org" target="_blank" rel="noopener">Newton-X</a> is a general-purpose program package for excited-state molecular dynamics, which is used to simulate absorption spectrum with GAUSSIAN09 in our group.</em></p>
+<p><em>Input-file setup and output analysis are introduced here or could be found on its website. A fast setup could be achieved by <a href="#pscript">my python script</a>. Scripts attached here can run both in python2 and in python3.</em></p>
+<h1 id="Newton-X-Setup"><a href="#Newton-X-Setup" class="headerlink" title="Newton-X Setup"></a>Newton-X Setup</h1><h2 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h2><h3 id="1-geometry-and-normal-mode-input"><a href="#1-geometry-and-normal-mode-input" class="headerlink" title="1. geometry and normal mode input"></a>1. geometry and normal mode input</h3><p>In the working directory prepare two files: one is the optimized geometry in gaussian input format and the other is the normal mode calculation output file (gaussian frequency log file, usually calcuated with b3lyp method):</p>
+<p><code>opt.gjf  freq.log</code></p>
+<h3 id="2-load-newton-x-environment"><a href="#2-load-newton-x-environment" class="headerlink" title="2. load newton-x environment"></a>2. load newton-x environment</h3><p>To work in the newton-x environment on Hyak, run <code>module load contrib/newtonX</code> or <code>module load contrib/newton-x</code>. Their difference is that newton-x contains other package like gaussin09. </p>
+<p>We can check if we load successfully by command <code>$NX</code>, which should produce an info <code>-bash: /sw/contrib/newtonX/NX-2-B17/bin: Is a directory</code>. Or run <code>module list</code> to see all packages availabe to use.</p>
+<h3 id="3-convert-optimized-geometry-into-newton-x-format"><a href="#3-convert-optimized-geometry-into-newton-x-format" class="headerlink" title="3. convert optimized geometry into newton-x format"></a>3. convert optimized geometry into newton-x format</h3><p>Convert optimized geometry (opt.gjf) into xyz format first, could be achieved by script <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/gjfcom2xyz.py" target="_blank" rel="noopener">gjfcom2xyz.py</a>: <code>python gjfcom2xyz.py opt.gjf</code>. opt.xyz could be produced.</p>
+<p><code>$NX/xyz2nx &lt; opt.xyz</code> generates newton-x geometry file named <em>geom</em>, whose second column is the atomic number, the following three columns are x, y and z coordinates in atomic units (<em>Bohr</em>) and the last one contains the atomic masses.</p>
+<h3 id="4-newton-x-working-directory"><a href="#4-newton-x-working-directory" class="headerlink" title="4. newton-x working directory"></a>4. newton-x working directory</h3><p>Creat a new directory <em>TDDFT_SPEC</em> in the working directory, copy/move <em>geom</em> to it, copy/move <em>freq.log</em> to it with a new name <em>freq.out</em>: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir TDDFT_SPEC</span><br><span class="line">mv geom TDDFT_SPEC</span><br><span class="line">cp freq.log TDDFT_SPEC/freq.out</span><br></pre></td></tr></table></figure>
+<h3 id="5-energy-and-transition-moment-input"><a href="#5-energy-and-transition-moment-input" class="headerlink" title="5. energy and transition moment input"></a>5. energy and transition moment input</h3><p>Move to the directory <em>TDDFT_SPEC</em> and create a new subdirectory called <em>JOB_AD</em>. Move into <em>JOB_AD</em> and prepare two files named, <em>basis</em> and <em>gaussian$.$com</em>.<br><em>basis</em> contains the basis set information, like <code>6-31+g(d,p)</code>. <em>gaussian$.$com</em> is same with the very first optimized geometry file <em>opt.gjf</em> but with different link command lines and route card, like (%rwf and %nosave could be deleted):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%mem=100gb</span><br><span class="line">%nprocshared=28</span><br><span class="line">%rwf=gaussian</span><br><span class="line">%nosave</span><br><span class="line">%chk=gaussian</span><br><span class="line"># TD(NStates=10) m062xd/6-31+g(d,p)  pop=none scf=(xqc,tight) Symmetry=None</span><br></pre></td></tr></table></figure>
+<p>Note that the subdirectory must be named with <em>JOB_AD</em> and the name of these two files must be <em>basis</em> and <em>gaussian$.$com</em> since Newton-X will search for them.</p>
+<h3 id="6-newton-x-input"><a href="#6-newton-x-input" class="headerlink" title="6. newton-x input"></a>6. newton-x input</h3><p>Back to the directory <em>TDDFT_SPEC</em>, use command <code>$NX/nxinp</code> and answer several quesitons by instructions to genetrate the newton-x input file <em>initqp_input</em>. Answers to the questions are <code>1; 2; numer of atoms; 300 (number of initial conditions); geom; 4; freq.out; 1; 310 (temperature); n; 1; 1 (ground state); number of states; 1; 100; 6.5; 0; 1; 7 (exit)</code>, respectively.</p>
+<h3 id="7-splitting-jobs"><a href="#7-splitting-jobs" class="headerlink" title="7. splitting jobs"></a>7. splitting jobs</h3><p>This step is to split the job among several computers (nodes), could be skipped and go directly to run the newton-x by <code>$NX/initcond.pl &gt; initcond.log</code>.</p>
+<p> To split the job, run <code>NX/split_initcond.pl</code> in the directory <em>TDDFT_SPEC</em>. Two questions will be asked, the first one is the number of directories to split the job and the second one is if the job run in a batch system. This program produces one file named <em>split_initcond.log</em> and a directory called <em>INITIAL_CONDITIONS</em>. If the answer to the first quesiton is 10, 10 subdirectories called <em>I1,I2,…,I10</em> are inside <em>INITIAL_CONDITIONS</em>, each one containing a complete set of input files but with 30 (300 $\div$ 10) initial conditions and iseed=-1 not 0.</p>
+<h3 id="8-submit-newton-x-job"><a href="#8-submit-newton-x-job" class="headerlink" title="8. submit newton-x job"></a>8. submit newton-x job</h3><p>In every directory containing a complete set of input files  (geom, freq.out, initqp_input and JOB_AD), create a sbatch file to submit the job to Hyak node.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#SBATCH --job-name=???</span></span><br><span class="line"><span class="comment">#SBATCH --nodes=1</span></span><br><span class="line"><span class="comment">#SBATCH --ntasks-per-node=28</span></span><br><span class="line"><span class="comment">#SBATCH --time=??:00:00</span></span><br><span class="line"><span class="comment">#SBATCH --mem=???G</span></span><br><span class="line"><span class="comment">#SABTCH --workdir=???????</span></span><br><span class="line"><span class="comment">#SBATCH --partition=???</span></span><br><span class="line"><span class="comment">#SBATCH --account=???</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'This job will run on'</span> <span class="variable">$SLURM_JOB_NODELIST</span></span><br><span class="line"><span class="comment">#set up time</span></span><br><span class="line">begin=$(date +%s)</span><br><span class="line"></span><br><span class="line"><span class="comment">#load newtonx and gauss09 environment</span></span><br><span class="line">module load contrib/newton-x</span><br><span class="line"></span><br><span class="line"><span class="variable">$NX</span>/initcond.pl &gt; initcond.log</span><br><span class="line"></span><br><span class="line">end=$(date +%s)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Elapsed Time: '</span>$((<span class="variable">$end</span>-<span class="variable">$begin</span>))<span class="string">'s'</span></span><br></pre></td></tr></table></figure>
+<h2 id="Scripts"><a href="#Scripts" class="headerlink" title="Scripts"></a><jump id="pscript">Scripts</jump></h2><p>  python script <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/newtonx.py" target="_blank" rel="noopener">newtonx.py</a> can do exactly what step 2 to step 8 do.</p>
+<ul>
+<li><em>Usage</em><ul>
+<li><code>python newtonx.py geometry-gif-file freq-log</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li><em>TDDFT_SPEC</em> folder is created, which contains <em>geom</em>, <em>freq.log</em>, <em>initqp_input</em>, <em>split_initcond.log</em>, <em>newtonx$.$sh</em>, <em>JOB_AD</em>, <em>INITIAL_CONDITIONS</em></li>
+<li><em>I1 I2 …</em> in <em>INITIAL_CONDITIONS</em>, each subfolder containing a complete set input – <em>geom</em>, <em>freq.out</em>, <em>initqp_input</em> (iseed=1234,2468,…), <em>JOB_AD</em> and a sbatch file – <em>nx_submit.sh</em></li>
+<li><em>nx_submit.sh</em> is the sbatch file same with what is listed in step 8, but with partition=ckpt, account=stf-ckpt.</li>
+<li><em>newtonx$.$sh</em> contains a list of bash command like: <code>cd absolute-path-of-I1; sbatch -p ckpt -A stf-ckpt --time=20:00:00 nx_submit.sh</code></li>
+<li>after satisfied with everything, run <code>bash newtonx.sh</code> to submit all jobs to hyak nodes; the final partition, account and time are decided by the setting in <em>newtonx$.$sh</em> even if <em>newtonx$.$sh</em> is different from <em>nx_submit.sh</em></li>
+</ul>
+</li>
+<li><em>Note</em><ul>
+<li>why ckpt?<ul>
+<li>increasing the number of splitting jobs speeds up the task greatly</li>
+<li><a href="https://wiki.cac.washington.edu/display/hyakusers/Mox_checkpoint" target="_blank" rel="noopener">ckpt queue</a> is a good choice to run short jobs that finish within 4 hours</li>
+</ul>
+</li>
+<li>why iseed=1234,2468,…,1234*n?<ul>
+<li>different iseed values guarantee no repeated jobs</li>
+<li>iseed=-1 may generate a super large number not suit for ckpt queue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Newton-X-Result"><a href="#Newton-X-Result" class="headerlink" title="Newton-X Result"></a>Newton-X Result</h1><h2 id="Procedures-1"><a href="#Procedures-1" class="headerlink" title="Procedures"></a>Procedures</h2><h3 id="merge-splitting-jobs"><a href="#merge-splitting-jobs" class="headerlink" title="merge splitting jobs"></a>merge splitting jobs</h3><p>After all sub-tasks finish, go to the directory <em>INITIAL_CONDITIONS</em> and run <code>$NX/merge_initcond.pl</code>. This program will ask the number of jobs to be merged and it will create a new directory called <em>I_merged</em> with merged results. All important data are in <em>final_optput.1.N</em> file, which contains transition information from state 1 to state <em>N</em>. </p>
+<h3 id="spectrum-simulation"><a href="#spectrum-simulation" class="headerlink" title="spectrum simulation"></a>spectrum simulation</h3><p>Move to this directory and proceed with the spectrum simulation by command <code>$NX/nxinp</code>. The answers to the questions it will ask are <code>5 (spectra); 1 (spectra); 1 (initial state); 2-N (array of final states); F (Absorption); 0 (no restriction); -1; local; 1 (random seed); lorentz; 0.1 (delta); 310 (temperature); 1; 0.005; 3; 7 (exit)</code>, among which delta contronls the width of the curve.</p>
+<p>The simulated cross section using a Lorentzian line shape with phenomenological broadening $\delta=0.1eV$ is written to <em>cross-section.dat</em>, containing four columns of data – DE/ev, lambda/nm, sigma/A^2 and +/-error/A^2.</p>
+<h2 id="Script"><a href="#Script" class="headerlink" title="Script"></a><jump id="pscript">Script</jump></h2><p>All the above steps can be achieved by script <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/nxplot.py" target="_blank" rel="noopener">nxplot.py</a>. </p>
+<ul>
+<li><em>Usage</em><ul>
+<li><code>python nxplot.py</code></li>
+<li>run inside the directory <em>INITIAL_CONDITIONS</em></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>check if jobs completed</li>
+<li>merge splitting jobs</li>
+<li>spectrum simulation</li>
+<li>extract the lamda and sigma columns if lamda within 0-1200nm from <em>cross-section.dat</em> and written to <em>cross-section.tsv</em></li>
+<li>plot <em>cross-section.tsv</em> if in python3 environment</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/software/" rel="tag"># software</a>
+          
+            <a href="/tags/Hyak/" rel="tag"># Hyak</a>
+          
+            <a href="/tags/ComputChem/" rel="tag"># ComputChem</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/28/Mopac-with-Cuby4/" rel="next" title="Mopac with Cuby4">
+                <i class="fa fa-chevron-left"></i> Mopac with Cuby4
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/31/Hyak-Tips/" rel="prev" title="Hyak Tips">
+                Hyak Tips <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="Yue Liu">
+            
+              <p class="site-author-name" itemprop="name">Yue Liu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Newton-X-Setup"><span class="nav-text">Newton-X Setup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Procedures"><span class="nav-text">Procedures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-geometry-and-normal-mode-input"><span class="nav-text">1. geometry and normal mode input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-load-newton-x-environment"><span class="nav-text">2. load newton-x environment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-convert-optimized-geometry-into-newton-x-format"><span class="nav-text">3. convert optimized geometry into newton-x format</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-newton-x-working-directory"><span class="nav-text">4. newton-x working directory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-energy-and-transition-moment-input"><span class="nav-text">5. energy and transition moment input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-newton-x-input"><span class="nav-text">6. newton-x input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-splitting-jobs"><span class="nav-text">7. splitting jobs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-submit-newton-x-job"><span class="nav-text">8. submit newton-x job</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scripts"><span class="nav-text">Scripts</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Newton-X-Result"><span class="nav-text">Newton-X Result</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Procedures-1"><span class="nav-text">Procedures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#merge-splitting-jobs"><span class="nav-text">merge splitting jobs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spectrum-simulation"><span class="nav-text">spectrum simulation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Script"><span class="nav-text">Script</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
