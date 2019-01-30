@@ -11,7 +11,7 @@ categories:
 
 *[Newton-X](http://www.newtonx.org) is a general-purpose program package for excited-state molecular dynamics, which is used to simulate absorption spectrum with GAUSSIAN09 in our group.*
 
-*Input-file setup and output analysis are introduced here or could be found on its website. A fast setup could be achieved by [my python script](#pscript). Scripts attached here can run both in python2 and in python3.*
+*There is [a tutorial written by Andy Dang](https://github.com/yueliu96/Turecek-GroupMeeting/blob/master/NX%20Tutorial%20for%20Vibronically%20Broadened%20Spectra.pdf) about why we need Newton-X, how to run it on Hyak and how to analyse its data. One can find another tutorial on [Newton-X website](http://www.newtonx.org), which is also the reference of the following content. A fast setup could be achieved by [my python script](#pscript). Scripts attached here can run both in python2 and in python3.*
 
 # Newton-X Setup
 
@@ -63,7 +63,7 @@ Note that the subdirectory must be named with *JOB_AD* and the name of these two
 
 ### 6. newton-x input
 
-Back to the directory *TDDFT_SPEC*, use command `$NX/nxinp` and answer several quesitons by instructions to genetrate the newton-x input file *initqp_input*. Answers to the questions are `1 (Generate initial condition); 2 (Winger); numer of atoms; 300 (number of initial conditions); geom; 4 (gaussian output); freq.out; 1 (modified frequency); 310 (temperature); n; 1 (check energy); 1 (ground state); number of states; 1 ; 100 (de, width of restriction); 6.5; 0 (seed value); 1; 7 (exit)`, respectively. Here, the large "de" implies that this restriction will not be used. It can be imposed later on.
+Back to the directory *TDDFT_SPEC*, use command `$NX/nxinp` and answer several quesitons by instructions to genetrate the newton-x input file *initqp_input*. Answers to the questions are `1 (Generate initial condition); 2 (Winger); numer of atoms; 300 (number of initial conditions); geom; 4 (gaussian output); freq.out; 0.975 (modified frequency); 310 (temperature); n; 1 (check energy); 1 (ground state); number of states; 1 ; 100 (de, width of restriction); 6.5; 0 (seed value); 1; 7 (exit)`, respectively. Here, the large "de" implies that this restriction will not be used. It can be imposed later on.
 
 ### 7. splitting jobs
 
