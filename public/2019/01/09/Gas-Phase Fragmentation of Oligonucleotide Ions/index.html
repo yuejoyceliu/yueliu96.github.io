@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="oligo,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Gas-Phase Fragmentation of Oligonucleotide Ions  The preferred dissociation channels for a given ion are a function of the ion type, the structure of the molecule, the internal energy distribution of">
+<meta name="keywords" content="oligo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gas-Phase Framentation of Oligo Ions">
+<meta property="og:url" content="http://yoursite.com/2019/01/09/Gas-Phase Fragmentation of Oligonucleotide Ions/index.html">
+<meta property="og:site_name" content="Yue Liu&#39;s Blog">
+<meta property="og:description" content="Gas-Phase Fragmentation of Oligonucleotide Ions  The preferred dissociation channels for a given ion are a function of the ion type, the structure of the molecule, the internal energy distribution of">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-11T18:51:36.894Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gas-Phase Framentation of Oligo Ions">
+<meta name="twitter:description" content="Gas-Phase Fragmentation of Oligonucleotide Ions  The preferred dissociation channels for a given ion are a function of the ion type, the structure of the molecule, the internal energy distribution of">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/09/Gas-Phase Fragmentation of Oligonucleotide Ions/">
+
+
+
+
+
+  <title>Gas-Phase Framentation of Oligo Ions | Yue Liu's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yue Liu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/Gas-Phase Fragmentation of Oligonucleotide Ions/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yue Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yue Liu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gas-Phase Framentation of Oligo Ions</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T12:00:27-08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/OligoReading/" itemprop="url" rel="index">
+                    <span itemprop="name">OligoReading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> <a href="https://www.sciencedirect.com/science/article/pii/S1387380604003264?via%3Dihub" target="_blank" rel="noopener">Gas-Phase Fragmentation of Oligonucleotide Ions</a></p>
+<ul>
+<li>The preferred dissociation channels for a given ion are a function of the ion type, the structure of the molecule, the internal energy distribution of the ion and the time-frame over which the fragmentation reactions can evolve</li>
+<li>McLuckey’s nomenclature for backbone cleavages (a/w,b/x,c/y,d/z, 5’-frag:a,b,c,d; 3’-frag: w,x,y,z)</li>
+</ul>
+<p><em>MALDI and mechanism not included.</em></p>
+<h2 id="1-hetero-dinucleotide-FAB-CID"><a href="#1-hetero-dinucleotide-FAB-CID" class="headerlink" title="1 hetero-dinucleotide FAB CID"></a>1 hetero-dinucleotide FAB CID</h2><h3 id="1-1-M-H"><a href="#1-1-M-H" class="headerlink" title="1.1 $(M+H)^+$"></a>1.1 $(M+H)^+$</h3><ul>
+<li>protonated 3’-(B$_2$+2H)$^+$ &gt; 5’-(B$_1$+2H)$^+$<ul>
+<li>except 3’-T; T: low proton affinity</li>
+<li>interaction between P and the 3’-B, incuding a partial positive charge on 3’-B $\rightarrow$ enhace glycosidic bond cleavage</li>
+</ul>
+</li>
+<li>neutral 5’-(B$_1$+H) &gt; neutral 3’-(B$_2$+H)<ul>
+<li>loss of 3’-base only in dAG and dAC</li>
+<li>4 bases similiar preference</li>
+</ul>
+</li>
+<li>$w_1&gt;d_1$<ul>
+<li>$(w_1+H_2)^+$ only not seen in dTG and dTC, where $(d_1+H_2)^+$ is not produced</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-M-H"><a href="#1-2-M-H" class="headerlink" title="1.2 $(M-H)^-$"></a>1.2 $(M-H)^-$</h3><ul>
+<li>5’-B$_1^-$&gt;3’-B$_2^-$</li>
+<li>5’-(B$_1$+H) &gt; 3’-(B$_2$+H) except dGA and dGT</li>
+<li>$w_1^-&gt;d_1^-$</li>
+</ul>
+<h3 id="trend"><a href="#trend" class="headerlink" title="trend"></a>trend</h3><ul>
+<li>basicity: $C^-&gt;T^-$, $A^-&gt;G^-$</li>
+<li>3’-terminus base is stabilized through H-bond interaction with the P: <ul>
+<li>strength: G&gt;T&gt;C&gt;A</li>
+</ul>
+</li>
+<li>acidities: A&gt;T&gt;G&gt;C</li>
+<li>proton affinity: cytidine(C+S), G+S, A+S &gt; C &gt; G &gt; A &gt; T+S &gt; T</li>
+</ul>
+<h2 id="2-ESI-mass-spectrometry"><a href="#2-ESI-mass-spectrometry" class="headerlink" title="2 ESI mass spectrometry"></a>2 ESI mass spectrometry</h2><h3 id="2-1-Negative-mass-spec"><a href="#2-1-Negative-mass-spec" class="headerlink" title="2.1 Negative mass spec"></a>2.1 Negative mass spec</h3><h4 id="2-1-1-mononucleotide"><a href="#2-1-1-mononucleotide" class="headerlink" title="2.1.1 mononucleotide"></a>2.1.1 mononucleotide</h4><ul>
+<li>loss of B is facilitated by the presence of 3’-P rather than 5’-P</li>
+<li>3’-P: lower excitation threshold and freater fragmentation effiiciency</li>
+<li>2-B-5’-P<ul>
+<li>water loss following loss of B</li>
+<li>neutral base loss dAp, dTp &gt; dCp &gt; dGp, and pdA, pdT &gt;pdC &gt;&gt;pdG</li>
+<li>H-bond stablize G</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-2-deoxyribodinucleotide"><a href="#2-1-2-deoxyribodinucleotide" class="headerlink" title="2.1.2 deoxyribodinucleotide"></a>2.1.2 deoxyribodinucleotide</h4><ul>
+<li>Comlementary ions</li>
+</ul>
+<p>$$M^{n-} \rightarrow m_a^{x-} + m_b^{y-}\<br>\frac {|(M/n)-(m_a/x)|}{|(M/n)-(m_b/y)|}=\frac {y}{x}$$</p>
+<ul>
+<li>5’-B &gt; 3’-B</li>
+<li>5’ loss for a given 3’-B: <ul>
+<li>low charge parent ion: no obvious preference</li>
+<li>high charge parent ion : A$^-$&gt;G$^-$&gt;T$^-$&gt;C$^-$ or A$^-$&gt;T$^-$&gt;G$^-$,C$^-$</li>
+</ul>
+</li>
+<li>3’-B affects 5’-B loss: 3’-B=A&gt;C&gt;T&gt;G</li>
+<li>subsequent decomposition: w and (a-B)</li>
+<li>loss of PO$_3^-$ from 5’-P ions (ex: w ions $\rightarrow$ y) can compete effectively with loss of a base. Lower charge generally favors more greatly the loss of PO$_3^-$ group</li>
+<li>Multiple base loss increses with increasing activation and incresing charge state</li>
+</ul>
+<h4 id="2-1-3-trinucleotide"><a href="#2-1-3-trinucleotide" class="headerlink" title="2.1.3 trinucleotide"></a>2.1.3 trinucleotide</h4><ul>
+<li>5’-B$_1$&gt; B$_2$, B$_3$: A&gt;T&gt;G&gt;C</li>
+<li>loss of 5’-B depends on 3’-B=A&gt;T&gt;G&gt;C</li>
+<li>subsequent: w and (a-B)</li>
+<li>c, x, y, z types also observed</li>
+</ul>
+<h4 id="2-1-4-tetranucleotide"><a href="#2-1-4-tetranucleotide" class="headerlink" title="2.1.4 tetranucleotide"></a>2.1.4 tetranucleotide</h4><ul>
+<li>(M-H)$^-$: 3’-B more readily than 5’-B loss</li>
+<li>(M-2H)$^{2-}$<ul>
+<li>same general trend as trinucleotide </li>
+<li>y more abundant</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-5-single-base-nucleotide-3-to-8-mers"><a href="#2-1-5-single-base-nucleotide-3-to-8-mers" class="headerlink" title="2.1.5 single-base nucleotide (3- to 8-mers)"></a>2.1.5 single-base nucleotide (3- to 8-mers)</h4><ul>
+<li>nucleobase identity<ul>
+<li>poly-T: loss of 5’-T</li>
+<li>poly-G: loss of 5’-G inhibited</li>
+<li>the ease of fragmetation: poly-A&gt;&gt;T$\approx$C&gt;G<ul>
+<li>weak N-glycosidic bond streng accssoced with A</li>
+<li>stable G due to H-bonding</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>odd- and even-electron parent anions:<ul>
+<li>odd: w no M-B $\rightarrow$ backbone cleavage without loss of B</li>
+<li>even: first loss a base, followed by backbone cleavage</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-6-other-mass-analyzers"><a href="#2-1-6-other-mass-analyzers" class="headerlink" title="2.1.6 other mass analyzers"></a>2.1.6 other mass analyzers</h4><ul>
+<li>triple quadrupoles (TQIT):<ul>
+<li>low energy process $\rightarrow$ sensitive</li>
+<li>more extensive structural info</li>
+</ul>
+</li>
+<li>quadrupole ion traps (QIT):<ul>
+<li>beam-type collisional activation experiment</li>
+<li>multiple competitive dissociation reactions can happen</li>
+</ul>
+</li>
+<li>base loss on CID in triple quadrupoles is much less dependent on the identity of the base than in quadrupole ion traps</li>
+<li>base loss not necesssary for backbone cleavages for a modified tetraribonucleotide</li>
+</ul>
+<h4 id="2-1-7-oligonucleotides-with-a-modified-nuclebase-CACGXG"><a href="#2-1-7-oligonucleotides-with-a-modified-nuclebase-CACGXG" class="headerlink" title="2.1.7 oligonucleotides with a modified nuclebase: CACGXG"></a>2.1.7 oligonucleotides with a modified nuclebase: CACGXG</h4><ul>
+<li>loss of all non-terminal bases in conjuction with cleavage of their respective 3’ C-O bonds</li>
+<li>more electron withdrawing of X, more facile of the loss of B$^-$</li>
+<li>more electron withdrawing of product ions, more likely to further fragemntation</li>
+</ul>
+<h4 id="2-1-8-large-DNA-anions-50-to-108mers"><a href="#2-1-8-large-DNA-anions-50-to-108mers" class="headerlink" title="2.1.8 large DNA anions: 50- to 108mers"></a>2.1.8 large DNA anions: 50- to 108mers</h4><ul>
+<li>predominant dissociation chanels depend on DNA molecule itself</li>
+<li>base loss: AH&gt;GH, CH&gt;&gt;TH</li>
+</ul>
+<h4 id="2-1-9-BIRD-FT-MS-pm-7-mers"><a href="#2-1-9-BIRD-FT-MS-pm-7-mers" class="headerlink" title="2.1.9 BIRD-FT-MS pm 7-mers"></a>2.1.9 BIRD-FT-MS pm 7-mers</h4><ul>
+<li>all backbone cleavages are preceded by base loss</li>
+<li>prefered cleavage sites depends on the internal energy of the precursor ions<ul>
+<li>effective T&gt;540K: cleavage at C and G residues</li>
+<li>effective T&lt;475K: dissociation at A residues dominates</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-10-DNA-duplex-ions"><a href="#2-1-10-DNA-duplex-ions" class="headerlink" title="2.1.10 DNA duplex ions"></a>2.1.10 DNA duplex ions</h4><ul>
+<li>noncovalent dissociation of the complex into single strands</li>
+<li>covalent fragmentation<ul>
+<li>predominant channel: neutral base loss</li>
+<li>base loss initiated backbone fragmentation</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-11-RNA"><a href="#2-1-11-RNA" class="headerlink" title="2.1.11 RNA"></a>2.1.11 RNA</h4><ul>
+<li>base loss less important</li>
+<li>loss pf a neutral or negatively charged B is the low-energy dissociation process</li>
+<li>5’-B prefer: C&gt;&gt;T&gt;U</li>
+<li>backbone fragmentation of RNA is decoupled from base loss</li>
+<li>c/y ions in major</li>
+</ul>
+<h3 id="2-2-Positive-ESI"><a href="#2-2-Positive-ESI" class="headerlink" title="2.2 Positive ESI"></a>2.2 Positive ESI</h3><h4 id="2-2-1-dinucleotide-M-H"><a href="#2-2-1-dinucleotide-M-H" class="headerlink" title="2.2.1 dinucleotide $(M+H)^+$"></a>2.2.1 dinucleotide $(M+H)^+$</h4><ul>
+<li>3’-$BH_2^+$ loss &gt; 5’, except 3’-T</li>
+</ul>
+<h4 id="2-2-2-all-trimers-and-16-mixed-base-tetramers-M-H-in-QIT"><a href="#2-2-2-all-trimers-and-16-mixed-base-tetramers-M-H-in-QIT" class="headerlink" title="2.2.2 all trimers and 16 mixed-base tetramers $(M+H)^+$ in QIT"></a>2.2.2 all trimers and 16 mixed-base tetramers $(M+H)^+$ in QIT</h4><ul>
+<li>initial step:  neutral base loss<ul>
+<li>loss depends on PA: C $\approx$ G&gt;A&gt;&gt;T</li>
+<li>positon: 5’&gt;3’&gt;internal</li>
+</ul>
+</li>
+<li>cleavage of 3’C-O phosphodiester bond $\rightarrow$ w and (a-B)</li>
+<li>dTTT<ul>
+<li>protonaed at phosphat oxygen</li>
+<li>$z_2^+$ ion (also occur as a 2nd process in a few cases when 5’-B=C/G/A)</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-3-up-to-10-mer-in-TQIT"><a href="#2-2-3-up-to-10-mer-in-TQIT" class="headerlink" title="2.2.3 up to 10-mer in TQIT"></a>2.2.3 up to 10-mer in TQIT</h4><ul>
+<li>charged B loss followed by w/(a-B)<ul>
+<li>C&gt;G&gt;A&gt;&gt;T</li>
+<li>3’&gt;5’&gt;internal</li>
+<li>agree with dimers, but trimers</li>
+</ul>
+</li>
+<li>poly-T: x-2H and z-2H</li>
+</ul>
+<h4 id="2-2-4-EBE-TOF-MS"><a href="#2-2-4-EBE-TOF-MS" class="headerlink" title="2.2.4 EBE-TOF MS"></a>2.2.4 EBE-TOF MS</h4><ul>
+<li>$BH_2^+$ loss agree with PA</li>
+<li>charge of the precursor affects the abundance of ions from the bases more than position of the base</li>
+<li>loss of T as an anion possible for $(M-2H)^{2-}$</li>
+</ul>
+<h4 id="2-2-5-ECD-and-IRMPD-of-doubly-protonated"><a href="#2-2-5-ECD-and-IRMPD-of-doubly-protonated" class="headerlink" title="2.2.5 ECD and IRMPD of doubly protonated"></a>2.2.5 ECD and IRMPD of doubly protonated</h4><ul>
+<li>ECD<ul>
+<li>polydG: radical w/d “sequence”. no even-e a/z ions</li>
+<li>polydC: even-e w/d ions, a/z ions in most</li>
+<li>polydA: even-e w/d ions, little fragemntation than C/G</li>
+<li>polydT: poor ionization, low PA</li>
+<li>dGCATGC: even-e d-ion and a $z^\cdot$-type</li>
+</ul>
+</li>
+<li>IRMPD<ul>
+<li>similiar to CID: B, w/(a-B)</li>
+<li>more sequence info than ECD</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/oligo/" rel="tag"># oligo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/02/OligoNucleotide-Papers/" rel="next" title="OligoNucleotide Papers">
+                <i class="fa fa-chevron-left"></i> OligoNucleotide Papers
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/14/OligoReading-DNA-Damage/" rel="prev" title="OligoReading--DNA Damage">
+                OligoReading--DNA Damage <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="Yue Liu">
+            
+              <p class="site-author-name" itemprop="name">Yue Liu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-hetero-dinucleotide-FAB-CID"><span class="nav-text">1 hetero-dinucleotide FAB CID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-M-H"><span class="nav-text">1.1 $(M+H)^+$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-M-H"><span class="nav-text">1.2 $(M-H)^-$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trend"><span class="nav-text">trend</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ESI-mass-spectrometry"><span class="nav-text">2 ESI mass spectrometry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Negative-mass-spec"><span class="nav-text">2.1 Negative mass spec</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-mononucleotide"><span class="nav-text">2.1.1 mononucleotide</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-deoxyribodinucleotide"><span class="nav-text">2.1.2 deoxyribodinucleotide</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-trinucleotide"><span class="nav-text">2.1.3 trinucleotide</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-tetranucleotide"><span class="nav-text">2.1.4 tetranucleotide</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-5-single-base-nucleotide-3-to-8-mers"><span class="nav-text">2.1.5 single-base nucleotide (3- to 8-mers)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-6-other-mass-analyzers"><span class="nav-text">2.1.6 other mass analyzers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-7-oligonucleotides-with-a-modified-nuclebase-CACGXG"><span class="nav-text">2.1.7 oligonucleotides with a modified nuclebase: CACGXG</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-8-large-DNA-anions-50-to-108mers"><span class="nav-text">2.1.8 large DNA anions: 50- to 108mers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-9-BIRD-FT-MS-pm-7-mers"><span class="nav-text">2.1.9 BIRD-FT-MS pm 7-mers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-10-DNA-duplex-ions"><span class="nav-text">2.1.10 DNA duplex ions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-11-RNA"><span class="nav-text">2.1.11 RNA</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Positive-ESI"><span class="nav-text">2.2 Positive ESI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-dinucleotide-M-H"><span class="nav-text">2.2.1 dinucleotide $(M+H)^+$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-all-trimers-and-16-mixed-base-tetramers-M-H-in-QIT"><span class="nav-text">2.2.2 all trimers and 16 mixed-base tetramers $(M+H)^+$ in QIT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-up-to-10-mer-in-TQIT"><span class="nav-text">2.2.3 up to 10-mer in TQIT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-EBE-TOF-MS"><span class="nav-text">2.2.4 EBE-TOF MS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-5-ECD-and-IRMPD-of-doubly-protonated"><span class="nav-text">2.2.5 ECD and IRMPD of doubly protonated</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

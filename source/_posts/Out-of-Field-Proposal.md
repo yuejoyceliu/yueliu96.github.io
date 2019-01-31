@@ -102,6 +102,31 @@ I_{SFG}=|A_0+\sum_j^\text{num of peaks}\frac{A_j}{\omega-\omega_j+i\Gamma_j}|^2\
 \chi^{(2)}_{eff}(j)=\frac{A_j}{\Gamma_j}$$
 where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and damping coefficient of the vibrational mode j, respectively. And they can be obtained by fitting the spectrum
 
+## [In Situ Molecular Level Studies on Membrane Related Peptides and Proteins in Real Time Using Sum Frequency Generation Vibrational Spectroscopy](https://www.sciencedirect.com/science/article/pii/S1047847709000744?via%3Dihub)
+
+### name of lipid
+
+| Abbr. | Full Name |
+| :------ | :------| 
+| POPC | 1-Palmitoyl-2-Oleoyl-sn-Glycero-3-Phosphocholine |
+| POPG | 1-Palmitoyl-2-Oleoyl-sn-Glycero-3-[Phospho-rac-(1-glycerol)] (Sodium Salt) |
+| DMPC | 1,2-Dimyristoyl-sn-Glycero-3-Phosphocholine |
+| d-DMPC | 1,2-Dimyristoyl-D54-sn-Glycero-3-Phosphocholine-1,1,2,2-D4-N,N,N-trimethyl-D9 |
+| DMPC-d54 | 1,2-Dimyristoyl-D54-sn-Glycero-3-Phosphocholine |
+| DPPC | 1,2-Dipalmitoyl-sn-Glycero-3-Phosphocholine |
+| d-DPPC | 1,2-Dipalmitoyl-D62-sn-Glycero-3-Phosphocholine-1,1,2,2-D4-N,N,N-trimethyl-D9 |
+| DPPG | 1,2-Dipalmitoyl-sn-Glycero-3-[Phospho-rac-(1-glycerol)] (Sodium Salt) |
+| d-DPPG | 1,2-Dipalmitoyl-D62-sn-Glycero-3-[Phospho-rac-(1-glycerol)] (Sodium Salt) |
+| DSPC | 1,2-Distearoyl-sn-Glycero-3-Phosphocholine |
+|d-DSPC or DSPC-d83 |	1,2-Distearoyl-D70-sn-Glycero-3-Phosphocholine-1,1,2,2-D4-N,N,N-trimethyl-D9 |
+| DSPC-d70 |	1,2-Distearoyl-D70-sn-Glycero-3-Phosphocholine |
+| DSPG | 1,2-Distearoyl-sn-Glycero-3-[Phospho-rac-(1-glycerol)] (Sodium Salt) |
+
+### SFG setup
+
+![sfg set](https://raw.githubusercontent.com/yueliu96/blog_images/master/sfg_setup_ye.jpg)
+
+
 # SFG Method
 
 ## Tell $\beta$-strand and $\beta$-sheet
@@ -132,7 +157,7 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
   - chiral N-H stretch mode: 3285 $cm^{-1}$
   - achiral amide I
     - 1625
-    - 1680
+    - 1680: (antiparallel $\beta$-sheet) 
   - achiral amide II at 1540: $\beta$-sheet oligomers and fibrils
 - loop: achiral: 1660, 1230
 - coil: achiral: 1660
@@ -146,7 +171,7 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
 
 #### $3_{10}$-helix
 
-A $3_{10}$ helix is a type of secondary structure found in proteins and polypeptides. Of the numerous protein secondary structures present, it is the 4th most common type observed; following $\alpha$-helices, $\beta$-sheeots and reverse turns. $3_{10}$ helices constitute nearly 10%-15% of all helices in protein secondary structures, and are typically observed as extensions of $\alpha$-helices fond at either their N- or C- termini.
+A $3_{10}$ helix is a type of secondary structure found in proteins and polypeptides. Of the numerous protein secondary structures present, it is the 4th most common type observed; following $\alpha$-helices, $\beta$-sheets and reverse turns. $3_{10}$ helices constitute nearly 10%-15% of all helices in protein secondary structures, and are typically observed as extensions of $\alpha$-helices fond at either their N- or C- termini.
 
 
 #### alamethicin
@@ -185,13 +210,35 @@ Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $
 ### [Interactions of Alamethicin with Model Cell Membranes Investigated Using Sum Frequency Generation Vibrational Spectroscopy in Real Time in Situ](https://pubs.acs.org/doi/10.1021/jp911174d)
 ![alam tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/alam%20helix%20angle.jpeg)
 
+#### SFG advantage
+
+- intrinsically surface-sensitive
+- require small amount of samples
+- probe surfaces and interfaces in situ in real-time
+- polarized vibrational spectroscopy
+  - idenfication of interfacial molecular species
+  - orientation and its distribution of functional groups on a surface or at an interface
+
+#### Note
+
+- two peaks: 1635 & 1670:
+  - 1670 higher than normal (1660) is dominatedly contributed by $\alpha$-helix (1-13 residues) but with a $3_{10}$-heix part (14-20 residues)
+  - 1635: $3_{10}$-helix 
+  - two helcial segments because of the presence of the helix-breaking Pro14 residue
+- 1685: antiparallel $\beta$-sheet or aggregated strand of peptides
+- lipid chain length is one of the factors that determine the phase of the lipid bilayer at room temperature
+  - similiar lipids with londer chains tend to exist in the gel phase, wheras shorter chains are likely in the fluid phase
+
 # To Be Read 
 
-[In Situ Molecular Level Studies on Membrane Related Peptides and Proteins in Real Time Using Sum Frequency Generation Vibrational Spectroscopy](https://www.sciencedirect.com/science/article/pii/S1047847709000744?via%3Dihub)
-
-
-
 [Structure and Orientation of Interfacial Proteins Determined by Sum Frequency Generation Vibrational Spectroscopy: Method and Application](https://www.sciencedirect.com/science/article/pii/B9780124165960000075?via%3Dihub)
+
+[Multiple Orientation of Melittin inside a Single Lipid Bilayer
+Determined by Combined Vibrational Spectroscopic Studies](https://pubs.acs.org/doi/abs/10.1021/ja067446l)
+
+[Molecular Interactions between Magainin 2 and Model Membranes in Situ](https://pubs.acs.org/doi/abs/10.1021/jp904154w)
+
+[In Situ Investigation of Heterotrimeric G Protein βγ Subunit Binding and Orientation on Membrane Bilayers](https://pubs.acs.org/doi/abs/10.1021/ja075542w)
 
 # Useful Link
 
