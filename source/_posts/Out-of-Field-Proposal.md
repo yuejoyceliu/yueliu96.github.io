@@ -82,10 +82,10 @@ where $n_i(\omega)$ is the refractive index of medium i at frequency $\omega$, $
 Different component of $\chi^{(2)}$ are related to the respective componets of the molecular hyperpolarizability (in the molecular coordinated system, which is a product of IR and Raman transition moments) by the average orientational angle of the functional group. Therefore, we can deduce the orientation information of each functional group after determining the corresponding components of $\chi^{(2)}$ by fitting SFG spectra and knowing the molecular hyperpolarizability.
 
 $$
-\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}\\\\
-\chi_{eff,ppp}^{(2)}=-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\\\
--L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\\\
-+L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\\\
+\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}\\
+\chi_{eff,ppp}^{(2)}=-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\
+-L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\
++L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\
 +L_{zz}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{SFG}sin\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{zzz}
 $$
 
@@ -107,7 +107,7 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
 ### name of lipid
 
 | Abbr. | Full Name |
-| :------ | :------| 
+| ------ | ------| 
 | POPC | 1-Palmitoyl-2-Oleoyl-sn-Glycero-3-Phosphocholine |
 | POPG | 1-Palmitoyl-2-Oleoyl-sn-Glycero-3-[Phospho-rac-(1-glycerol)] (Sodium Salt) |
 | DMPC | 1,2-Dimyristoyl-sn-Glycero-3-Phosphocholine |
@@ -216,7 +216,7 @@ Predominantly helical with an N-terminal $\alpha$-helix and a C-terminal domain 
 
 ### [Orientation Determination of Protein Helical Secondary Structures Using Linear and Nonlinear Vibrational Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/jp904153z)
 
-SFG amide I signals can be collected using different polarization combinations of the input laser beams and output signal beam to measure the second-order nonlinear hyperpolarizability elements through the orientation distribution of these helices.
+SFG amide I signals can be collected using different polarization combinations of the input laser beams and output signal beam to measure the second-order nonlinear hyperpolarizability elements through the orientation distribution of these helices. Although such orientation information can also be measured using polarized infrared or polarized Raman amide I signals, SFG has a much lower detection limit, which can be used to study the orientation of a helix when its surface coverage is much lower than a monolayer.
 $$I_{ssp}\propto (-L_{yy}(\omega)L_{zz}(\omega_1)L_{yy}(\omega_2)sin\beta_2 \chi_{yyz})^2$$
 where $L_{ii}(\omega)$ is a Fresnel coefficient and local field correction factor and $\beta,\ \beta_1\ and\ \beta_2$ are angles of the signal, visible and IR beams with respect to the surface normal, respectively.
 
@@ -228,10 +228,24 @@ $$I_{ppp}\propto |L_{zz}(\omega)L_{zz}(\omega_1)L_{zz}(\omega_2)sin\beta sin\bet
 
 Pauling's assumption: each peptide bond is planar due to the resonace structure between teh carbonyl C=O bond and teh amide C-N bond. On the basis of this assumption, two helical models were constructed and proposed, a $\gamma$-helix (not discovered in any protein structures) and an $\alpha$-helix, with 5.1 residues per turn and 3.6 residues per turn, respectively.
 
-$\alpha$-helix: it repeats itselt every 5.4
-$\overset{\circ}{A}$ along the helical axis. Every backbone carbonyl C=O and N-H group on a peptide unit is hydrogen bonded to another N-H and C=O, respectively. Additionally, the backbone C=O groups point in the same direction, while the N-H groups point in the opposite direction.
+$\alpha$-helix: it repeats itselt every 5.4 $\overset{\circ}{A}$ along the helical axis. Every backbone carbonyl C=O and N-H group on a peptide unit is hydrogen bonded to another N-H and C=O, respectively. Additionally, the backbone C=O groups point in the same direction, while the N-H groups point in the opposite direction.
 
 Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $E_1$ are IR-active, while the all three modes are Raman-active. Because a SFG-active mode needs to be both IR- and Raman-active, only the A and $E_1$ modes are SFG-active.
+
+**theory**
+
+For short $\alpha$-helices, whose number of peptide units not close to 3.6 or 7.2 may be influenced by a breaking of the symmetry, it is important to calculate the molecular hyperpolarizability ratios $\beta_{aac}/\beta_{ccc}$ and $\beta_{aca}/\beta_{ccc}$ For idal $\alpha$-helical structures, either a unit cell with 18 peptide units (for 5 turns) or an infinitely long $\alpha$-helix:
+
+$$
+\chi_{A,xxz}=\chi_{A,yyz}=\frac{1}{2}N_S[(1+r)<cos\theta>-(1-r)<cos^3\theta>]\beta_{ccc}\\
+\chi_{A,zzz}=N_S[r<cos\theta>+(1-r)<cos^3\theta>]\beta_{ccc}\\
+\chi_{E_1,xxz}=\chi_{E_1,yyz}=-N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}\\
+\chi_{E_1,zzz}=2N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}\\
+\beta_{aca}\approx0.32\beta_{ccc} \text{, depolarization ratio }r=\beta_{aac}/\beta_{ccc}\approx 0.54$$
+
+For any $\alpha$-helix longer than 18 peptide units, the extra units (any peptide units beyond a multiple number of repeated helical units) are much less than the normal units. In this case, the deviation fron the $\alpha$-helical symmetry should be minimal, and the SFG data analysis for a perfec $\alpha$-helix can be approximately applied.
+
+For short $\alpha$-helices, whose number of peptide units not close to 3.6 or 7.2 may be influenced by a breaking of the symmetry, it is important to calculate the molecular hyperpolarizability ratios $\beta_{aac}/\beta_{ccc}$ and $\beta_{aca}/\beta_{ccc}$ 
 
 ### [Interactions of Alamethicin with Model Cell Membranes Investigated Using Sum Frequency Generation Vibrational Spectroscopy in Real Time in Situ](https://pubs.acs.org/doi/10.1021/jp911174d)
 ![alam tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/alam%20helix%20angle.jpeg)
@@ -259,6 +273,8 @@ Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $
 ![2tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/2helixtilt.jpeg)
 
 combine SFG with attenuated total refkection-Fourier transform infrared spectroscopy (ATR-FTIR) to investigate the orientation of $\alpha$-helical peptides reconstituted in substrate supported lipid bilayers.
+
+#### theoretical background
 
 
 # To Be Read 
