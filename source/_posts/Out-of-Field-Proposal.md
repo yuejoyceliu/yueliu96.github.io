@@ -124,8 +124,34 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
 
 ### SFG setup
 
+a near total reflection experimental geometry that enables us to obtain very strong SFG amide I signals of interfacial proteins, which makes the data analysis eaiser and more accurate. A tunable IR laser beam and a green laser beam of fixed wavelength 532nm are overlapped at the surface of a $CaF_2$ prism onto which a bilayer is deposited. The generated SFG signal is collected by monochromator and aphotomeltilpier tube. By scanning the IR over a certain frequency range, the allowed vibrational modes at the interface can be obtained.
+
 ![sfg set](https://raw.githubusercontent.com/yueliu96/blog_images/master/sfg_setup_ye.jpg)
 
+### detection of SFG amide I signal
+
+#### advantage
+
+- the water bending mode does not contribute noticeable SFG signals
+  - detected directly without a background substraction
+- proteins in the bulk solution do not generate SFG signals
+  - selectively probe interfacial proteins/peptides
+- probe more measurements than ATR-FRIR in studying the orientation of interfacial proteins/peptides
+
+#### how
+
+SFG amide I signals of proteins can be affected by the surface coverage, orientation and secondary structures of the adsorbed proteins. The amide I mode contains predominately the peptide C=O stretching bands. These C=O groups are held together by hydrogen bonds within the secondary structures and the frequency of the C=O stretch depens heavily on its hydrogen-bonded environment.
+
+- secondary structure
+  - $\alpha$-helix: 1650
+  - $\beta$-sheet: B1/B3 antiparallel 1685; B2 mode antiparallel : 1635
+  - $3_{10}$ helix: 1635 and 1670
+- tilt angle of $\alpha$-helix
+  - assume all have the same orientation ($\delta$ distribution): easy
+  - [two distributions](#2tilt), also introduced the maximum entropy function to deduce the orientation distribution of melittin in a single lipid bilayer based on the ATR-FTIR and SFG measurements
+     ![tilt22](https://raw.githubusercontent.com/yueliu96/blog_images/master/2tilt_w.jpg)
+  - [membrane proteins tha transduce extracellular signals](#tiltout)
+     ![tilt out](https://raw.githubusercontent.com/yueliu96/blog_images/master/tilt%20out%20membrane.jpg)
 
 # SFG Method
 
@@ -156,8 +182,8 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
     - A mode parrallel $\beta$-sheet: 1670
   - chiral N-H stretch mode: 3285 $cm^{-1}$
   - achiral amide I
-    - 1625
-    - 1680: (antiparallel $\beta$-sheet) 
+    - 1625: B2 mode of antiparallel
+    - 1680: (B1/B3 mode of antiparallel $\beta$-sheet) 
   - achiral amide II at 1540: $\beta$-sheet oligomers and fibrils
 - loop: achiral: 1660, 1230
 - coil: achiral: 1660
@@ -229,16 +255,23 @@ Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $
 - lipid chain length is one of the factors that determine the phase of the lipid bilayer at room temperature
   - similiar lipids with londer chains tend to exist in the gel phase, wheras shorter chains are likely in the fluid phase
 
+### <jump id='2tilt'>[Multiple Orientation of Melittin inside a Single Lipid Bilayer Determined by Combined Vibrational Spectroscopic Studies](https://pubs.acs.org/doi/abs/10.1021/ja067446l)</jump>
+![2tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/2helixtilt.jpeg)
+
+combine SFG with attenuated total refkection-Fourier transform infrared spectroscopy (ATR-FTIR) to investigate the orientation of $\alpha$-helical peptides reconstituted in substrate supported lipid bilayers.
+
+
 # To Be Read 
 
 [Structure and Orientation of Interfacial Proteins Determined by Sum Frequency Generation Vibrational Spectroscopy: Method and Application](https://www.sciencedirect.com/science/article/pii/B9780124165960000075?via%3Dihub)
 
-[Multiple Orientation of Melittin inside a Single Lipid Bilayer
-Determined by Combined Vibrational Spectroscopic Studies](https://pubs.acs.org/doi/abs/10.1021/ja067446l)
+
+
+[Quantifying the Ordering of Adsorbed Proteins In Situ](https://pubs.acs.org/doi/abs/10.1021/jp077556u)
 
 [Molecular Interactions between Magainin 2 and Model Membranes in Situ](https://pubs.acs.org/doi/abs/10.1021/jp904154w)
 
-[In Situ Investigation of Heterotrimeric G Protein βγ Subunit Binding and Orientation on Membrane Bilayers](https://pubs.acs.org/doi/abs/10.1021/ja075542w)
+<jump id='tiltout'>[In Situ Investigation of Heterotrimeric G Protein βγ Subunit Binding and Orientation on Membrane Bilayers](https://pubs.acs.org/doi/abs/10.1021/ja075542w)</jump>
 
 # Useful Link
 
