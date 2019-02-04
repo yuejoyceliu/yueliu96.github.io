@@ -81,12 +81,15 @@ where $n_i(\omega)$ is the refractive index of medium i at frequency $\omega$, $
 
 Different component of $\chi^{(2)}$ are related to the respective componets of the molecular hyperpolarizability (in the molecular coordinated system, which is a product of IR and Raman transition moments) by the average orientational angle of the functional group. Therefore, we can deduce the orientation information of each functional group after determining the corresponding components of $\chi^{(2)}$ by fitting SFG spectra and knowing the molecular hyperpolarizability.
 
-$$\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}$$
-
-$$\chi_{eff,ppp}^{(2)} = - L_{xx} (\omega_{SFG}) L_{xx} (\omega_{Vis}) L_{zz} (\omega_{IR}) cos\beta_{SFG} cos\beta_{Vis} sin\beta_{IR}\chi^{(2)}_{xxz}\\
--L_{xx}(\omega_{SFG}) L_{zz}(\omega_{Vis}) L_{xx} (\omega_{IR})cos\beta_{SFG} sin\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{xzx}\\
-+L_{zz}(\omega_{SFG}) L_{xx}(\omega_{Vis}) L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{zxx}\\
-+L_{zz} (\omega_{SFG}) L_{zz} (\omega_{Vis}) L_{zz} (\omega_{IR}) sin\beta_{SFG} sin\beta_{Vis} sin\beta_{IR} \chi^{(2)}_{zzz}$$
+$$
+\begin{aligned}
+\chi_{eff,ssp}^{(2)}= & L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}\\
+\chi_{eff,ppp}^{(2)} = & - L_{xx} (\omega_{SFG}) L_{xx} (\omega_{Vis}) L_{zz} (\omega_{IR}) cos\beta_{SFG} cos\beta_{Vis} sin\beta_{IR}\chi^{(2)}_{xxz}\\
+& -L_{xx}(\omega_{SFG}) L_{zz}(\omega_{Vis}) L_{xx} (\omega_{IR})cos\beta_{SFG} sin\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{xzx}\\
+& + L_{zz}(\omega_{SFG}) L_{xx}(\omega_{Vis}) L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{zxx}\\
+& + L_{zz} (\omega_{SFG}) L_{zz} (\omega_{Vis}) L_{zz} (\omega_{IR}) sin\beta_{SFG} sin\beta_{Vis} sin\beta_{IR} \chi^{(2)}_{zzz}
+\end{aligned}
+$$
 
 Here $\chi_{xyz}$ is one componaent of $\chi^{(2)}$ with the lab coordinates chosedn such that z is along the interface normal and x is in the incident plane. $\chi_{eff,ssp}^{(2)}$ is a component of the effective second-order nonlinear susceptibility measured in the experiment, means the element obtained by s-polarized SF beam, s-polarized visible beam and p-polarized IR beam. $\beta_{x}$ is the angle between the surface normal and the x beam. $L_{ii} (i=x,y\ or\ z)$ are the Fresnel coefficients. Using the near total reflection geometry, the first three items in the equation of $\chi_{eff,ppp}^{(2)}$ are approxiamated to be 0. 
 
@@ -238,11 +241,15 @@ Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $
 For short $\alpha$-helices, whose number of peptide units not close to 3.6 or 7.2 may be influenced by a breaking of the symmetry, it is important to calculate the molecular hyperpolarizability ratios $\beta_{aac}/\beta_{ccc}$ and $\beta_{aca}/\beta_{ccc}$ For idal $\alpha$-helical structures, either a unit cell with 18 peptide units (for 5 turns) or an infinitely long $\alpha$-helix:
 
 $$
-\chi_{A,xxz}=\chi_{A,yyz}=\frac{1}{2}N_S[(1+r)<cos\theta>-(1-r)<cos^3\theta>]\beta_{ccc}\\\\
-\chi_{A,zzz}=N_S[r<cos\theta>+(1-r)<cos^3\theta>]\beta_{ccc}\\\\
-\chi_{E_1,xxz}=\chi_{E_1,yyz}=-N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}\\\\
-\chi_{E_1,zzz}=2N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}\\\\
-\beta_{aca}\approx0.32\beta_{ccc} \text{, depolarization ratio }r=\beta_{aac}/\beta_{ccc}\approx 0.54$$
+\begin{aligned}
+\chi_{A,xxz}=\chi_{A,yyz} & =\frac{1}{2}N_S[(1+r)<cos\theta>-(1-r)<cos^3\theta>]\beta_{ccc}\\
+\chi_{A,zzz} & =N_S[r<cos\theta>+(1-r)<cos^3\theta>]\beta_{ccc}\\
+\chi_{E_1,xxz} =\chi_{E_1,yyz} & =-N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}\\
+\chi_{E_1,zzz}& = 2N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}
+\end{aligned}
+$$
+
+where $\beta_{aca} \approx0.32\beta_{ccc}$, depolarization ratio $r=\beta_{aac}/\beta_{ccc}\approx 0.54$
 
 For any $\alpha$-helix longer than 18 peptide units, the extra units (any peptide units beyond a multiple number of repeated helical units) are much less than the normal units. In this case, the deviation fron the $\alpha$-helical symmetry should be minimal, and the SFG data analysis for a perfec $\alpha$-helix can be approximately applied.
 
@@ -309,11 +316,11 @@ the least biased approach in deducing orientation distribution based on limited 
 
 $$
 \begin{aligned}
-G(\theta)=&e^{-\sum_i \lambda_i cos^i\theta}\\
-1=&\int_{-1}^1 G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta\\
-<cos\theta>=&\int_{-1}^1 cos\theta G(\theta)\sqrt{1-cos^2\theta} \mathrm{d}cos\theta\\
-<cos^2\theta>=&\int_{-1}^1 cos^2\theta G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta\\
-<cos^3\theta>=&\int_{-1}^1 cos^3\theta G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta\\
+G(\theta) = & e^{-\sum_i \lambda_i cos^i\theta} \\
+1 = & \int_{-1}^1 G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta \\
+&lt;cos\theta&gt; = & \int_{-1}^1 cos\theta G(\theta)\sqrt{1-cos^2\theta} \mathrm{d}cos\theta \\
+&lt;cos^2\theta&gt; = & \int_{-1}^1 cos^2\theta G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta \\
+&lt;cos^3\theta&gt; = & \int_{-1}^1 cos^3\theta G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta \\
 \end{aligned}
 $$
 
