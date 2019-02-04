@@ -81,13 +81,12 @@ where $n_i(\omega)$ is the refractive index of medium i at frequency $\omega$, $
 
 Different component of $\chi^{(2)}$ are related to the respective componets of the molecular hyperpolarizability (in the molecular coordinated system, which is a product of IR and Raman transition moments) by the average orientational angle of the functional group. Therefore, we can deduce the orientation information of each functional group after determining the corresponding components of $\chi^{(2)}$ by fitting SFG spectra and knowing the molecular hyperpolarizability.
 
-$$
-\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}\\\\
-\chi_{eff,ppp}^{(2)}=-L_{xx}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{zz}(\omega_{IR})cos\beta_{SFG}cos\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{xxz}\\\\
--L_{xx}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{xx}(\omega_{IR})cos\beta_{SFG}sin\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{xzx}\\\\
-+L_{zz}(\omega_{SFG})L_{xx}(\omega_{Vis})L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis}cos\beta_{IR}\chi^{(2)}_{zxx}\\\\
-+L_{zz}(\omega_{SFG})L_{zz}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{SFG}sin\beta_{Vis}sin\beta_{IR}\chi^{(2)}_{zzz}
-$$
+$$\chi_{eff,ssp}^{(2)}=L_{yy}(\omega_{SFG})L_{yy}(\omega_{Vis})L_{zz}(\omega_{IR})sin\beta_{IR} \chi_{yyz}^{(2)}$$
+
+$$\chi_{eff,ppp}^{(2)} = - L_{xx} (\omega_{SFG}) L_{xx} (\omega_{Vis}) L_{zz} (\omega_{IR}) cos\beta_{SFG} cos\beta_{Vis} sin\beta_{IR}\chi^{(2)}_{xxz}\\
+-L_{xx}(\omega_{SFG}) L_{zz}(\omega_{Vis}) L_{xx} (\omega_{IR})cos\beta_{SFG} sin\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{xzx}\\
++L_{zz}(\omega_{SFG}) L_{xx}(\omega_{Vis}) L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{zxx}\\
++L_{zz} (\omega_{SFG}) L_{zz} (\omega_{Vis}) L_{zz} (\omega_{IR}) sin\beta_{SFG} sin\beta_{Vis} sin\beta_{IR} \chi^{(2)}_{zzz}$$
 
 Here $\chi_{xyz}$ is one componaent of $\chi^{(2)}$ with the lab coordinates chosedn such that z is along the interface normal and x is in the incident plane. $\chi_{eff,ssp}^{(2)}$ is a component of the effective second-order nonlinear susceptibility measured in the experiment, means the element obtained by s-polarized SF beam, s-polarized visible beam and p-polarized IR beam. $\beta_{x}$ is the angle between the surface normal and the x beam. $L_{ii} (i=x,y\ or\ z)$ are the Fresnel coefficients. Using the near total reflection geometry, the first three items in the equation of $\chi_{eff,ppp}^{(2)}$ are approxiamated to be 0. 
 
@@ -107,7 +106,7 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
 ### name of lipid
 
 | Abbr. | Full Name |
-| :------ | :------| 
+| ------ | ------| 
 | POPC | 1-Palmitoyl-2-Oleoyl-sn-Glycero-3-Phosphocholine |
 | POPG | 1-Palmitoyl-2-Oleoyl-sn-Glycero-3-[Phospho-rac-(1-glycerol)] (Sodium Salt) |
 | DMPC | 1,2-Dimyristoyl-sn-Glycero-3-Phosphocholine |
@@ -124,14 +123,42 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
 
 ### SFG setup
 
+a near total reflection experimental geometry that enables us to obtain very strong SFG amide I signals of interfacial proteins, which makes the data analysis eaiser and more accurate. A tunable IR laser beam and a green laser beam of fixed wavelength 532nm are overlapped at the surface of a $CaF_2$ prism onto which a bilayer is deposited. The generated SFG signal is collected by monochromator and aphotomeltilpier tube. By scanning the IR over a certain frequency range, the allowed vibrational modes at the interface can be obtained.
+
 ![sfg set](https://raw.githubusercontent.com/yueliu96/blog_images/master/sfg_setup_ye.jpg)
 
+### detection of SFG amide I signal
+
+#### advantage
+
+- the water bending mode does not contribute noticeable SFG signals
+  - detected directly without a background substraction
+- proteins in the bulk solution do not generate SFG signals
+  - selectively probe interfacial proteins/peptides
+- probe more measurements than ATR-FRIR in studying the orientation of interfacial proteins/peptides
+
+#### how
+
+SFG amide I signals of proteins can be affected by the surface coverage, orientation and secondary structures of the adsorbed proteins. The amide I mode contains predominately the peptide C=O stretching bands. These C=O groups are held together by hydrogen bonds within the secondary structures and the frequency of the C=O stretch depens heavily on its hydrogen-bonded environment.
+
+- secondary structure
+  - $\alpha$-helix: 1650
+  - $\beta$-sheet: B1/B3 antiparallel 1685; B2 mode antiparallel : 1635
+  - $3_{10}$ helix: 1635 and 1670
+- tilt angle of $\alpha$-helix
+  - assume all have the same orientation ($\delta$ distribution): easy
+  - [two distributions](#2tilt), also introduced the maximum entropy function to deduce the orientation distribution of melittin in a single lipid bilayer based on the ATR-FTIR and SFG measurements
+     ![tilt22](https://raw.githubusercontent.com/yueliu96/blog_images/master/2tilt_w.jpg)
+  - [membrane proteins the transduce extracellular signals](#tiltout)
+     ![tilt out](https://raw.githubusercontent.com/yueliu96/blog_images/master/tilt%20out%20membrane.jpg)
 
 # SFG Method
 
 ## Tell $\beta$-strand and $\beta$-sheet
 
 ### [Misfolding of Human Islet Amyloid Polypeptide at Lipid Membrane Populates through β-Sheet Conformers without Involving α-Helical Intermediates](https://pubs.acs.org/doi/10.1021/jacs.8b08537)
+
+![beta oligomer](https://raw.githubusercontent.com/yueliu96/blog_images/master/betaoligomers.jpeg)
 
 1. advantage of this article
 - quickly capture the transient intermediates in situ and in real time
@@ -156,8 +183,8 @@ where $A_j$, $\omega_j$ and $\Gamma_j$ are the strength, resonant frequency and 
     - A mode parrallel $\beta$-sheet: 1670
   - chiral N-H stretch mode: 3285 $cm^{-1}$
   - achiral amide I
-    - 1625
-    - 1680: (antiparallel $\beta$-sheet) 
+    - 1625: B2 mode of antiparallel
+    - 1680: (B1/B3 mode of antiparallel $\beta$-sheet) 
   - achiral amide II at 1540: $\beta$-sheet oligomers and fibrils
 - loop: achiral: 1660, 1230
 - coil: achiral: 1660
@@ -190,7 +217,7 @@ Predominantly helical with an N-terminal $\alpha$-helix and a C-terminal domain 
 
 ### [Orientation Determination of Protein Helical Secondary Structures Using Linear and Nonlinear Vibrational Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/jp904153z)
 
-SFG amide I signals can be collected using different polarization combinations of the input laser beams and output signal beam to measure the second-order nonlinear hyperpolarizability elements through the orientation distribution of these helices.
+SFG amide I signals can be collected using different polarization combinations of the input laser beams and output signal beam to measure the second-order nonlinear hyperpolarizability elements through the orientation distribution of these helices. Although such orientation information can also be measured using polarized infrared or polarized Raman amide I signals, SFG has a much lower detection limit, which can be used to study the orientation of a helix when its surface coverage is much lower than a monolayer.
 $$I_{ssp}\propto (-L_{yy}(\omega)L_{zz}(\omega_1)L_{yy}(\omega_2)sin\beta_2 \chi_{yyz})^2$$
 where $L_{ii}(\omega)$ is a Fresnel coefficient and local field correction factor and $\beta,\ \beta_1\ and\ \beta_2$ are angles of the signal, visible and IR beams with respect to the surface normal, respectively.
 
@@ -202,10 +229,30 @@ $$I_{ppp}\propto |L_{zz}(\omega)L_{zz}(\omega_1)L_{zz}(\omega_2)sin\beta sin\bet
 
 Pauling's assumption: each peptide bond is planar due to the resonace structure between teh carbonyl C=O bond and teh amide C-N bond. On the basis of this assumption, two helical models were constructed and proposed, a $\gamma$-helix (not discovered in any protein structures) and an $\alpha$-helix, with 5.1 residues per turn and 3.6 residues per turn, respectively.
 
-$\alpha$-helix: it repeats itselt every 5.4
-$\overset{\circ}{A}$ along the helical axis. Every backbone carbonyl C=O and N-H group on a peptide unit is hydrogen bonded to another N-H and C=O, respectively. Additionally, the backbone C=O groups point in the same direction, while the N-H groups point in the opposite direction.
+$\alpha$-helix: it repeats itselt every 5.4 $\overset{\circ}{A}$ along the helical axis. Every backbone carbonyl C=O and N-H group on a peptide unit is hydrogen bonded to another N-H and C=O, respectively. Additionally, the backbone C=O groups point in the same direction, while the N-H groups point in the opposite direction.
 
 Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $E_1$ are IR-active, while the all three modes are Raman-active. Because a SFG-active mode needs to be both IR- and Raman-active, only the A and $E_1$ modes are SFG-active.
+
+**theory**
+
+For short $\alpha$-helices, whose number of peptide units not close to 3.6 or 7.2 may be influenced by a breaking of the symmetry, it is important to calculate the molecular hyperpolarizability ratios $\beta_{aac}/\beta_{ccc}$ and $\beta_{aca}/\beta_{ccc}$ For idal $\alpha$-helical structures, either a unit cell with 18 peptide units (for 5 turns) or an infinitely long $\alpha$-helix:
+
+$$
+\chi_{A,xxz}=\chi_{A,yyz}=\frac{1}{2}N_S[(1+r)<cos\theta>-(1-r)<cos^3\theta>]\beta_{ccc}\\\\
+\chi_{A,zzz}=N_S[r<cos\theta>+(1-r)<cos^3\theta>]\beta_{ccc}\\\\
+\chi_{E_1,xxz}=\chi_{E_1,yyz}=-N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}\\\\
+\chi_{E_1,zzz}=2N_S(<cos\theta>-<cos^3\theta>)\beta_{aca}\\\\
+\beta_{aca}\approx0.32\beta_{ccc} \text{, depolarization ratio }r=\beta_{aac}/\beta_{ccc}\approx 0.54$$
+
+For any $\alpha$-helix longer than 18 peptide units, the extra units (any peptide units beyond a multiple number of repeated helical units) are much less than the normal units. In this case, the deviation fron the $\alpha$-helical symmetry should be minimal, and the SFG data analysis for a perfec $\alpha$-helix can be approximately applied.
+
+For short $\alpha$-helices, whose number of peptide units not close to 3.6 or 7.2 may be influenced by a breaking of the symmetry, it is important to calculate the molecular hyperpolarizability ratios $\beta_{aac}/\beta_{ccc}$ and $\beta_{aca}/\beta_{ccc}$ 
+
+All $\alpha$-helices in a sample may not adopt the exact same orientation. Use a gaussian distrubution to describe the orientation distribution: the average orientation and orientation distribution width need to be simultaneously deduced. SFG can measure two orientation parameters, $<cos\theta>$ and $<cos^3\theta>$. To deduce Gaussian distribution, these two parameters need to be measured independently, so the absolute intensity of the SFG signal needs to be obtained.
+
+However, the orientation distribution may sometimes ne more complicated than a Gaussian distribution. If the same helix adopt two different orientations with separate orientation angles $\theta_1$ and $\theta_2$, ATR-FTIR is needed. In ATR-FTIR studies, the tilt angle of an $\alpha$-helix can be calculated from the order parameter $(S_\theta)$, which is defined as $S_\theta=\frac{3<cos^2\theta>-1}{2}$. $<cos^2\theta>$ can be determined from the measured intensity ratio in ATR-FTIR using p- and s-polarized IR light.
+
+Also, a maximum entropy distribution function can be used as a trial function for determining the orientation distribution. Mathematically, this function can have the minimum amount of bias depending on the number of available measured parameters. If the orientation distribution is still difficult to deduce after using combined vibrational spectroscopic studies, isotope-labled proteins can be used, similiar to those in NMR studies.
 
 ### [Interactions of Alamethicin with Model Cell Membranes Investigated Using Sum Frequency Generation Vibrational Spectroscopy in Real Time in Situ](https://pubs.acs.org/doi/10.1021/jp911174d)
 ![alam tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/alam%20helix%20angle.jpeg)
@@ -229,16 +276,63 @@ Three amide I vibrational modes of $\alpha$-helices, A, $E_1$ and $E_2$. A and $
 - lipid chain length is one of the factors that determine the phase of the lipid bilayer at room temperature
   - similiar lipids with londer chains tend to exist in the gel phase, wheras shorter chains are likely in the fluid phase
 
+### <jump id='2tilt'>[Multiple Orientation of Melittin inside a Single Lipid Bilayer Determined by Combined Vibrational Spectroscopic Studies](https://pubs.acs.org/doi/abs/10.1021/ja067446l)</jump>
+![2tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/2helixtilt.jpeg)
+
+combine SFG with attenuated total refkection-Fourier transform infrared spectroscopy (ATR-FTIR) to investigate the orientation of $\alpha$-helical peptides reconstituted in substrate supported lipid bilayers.
+
+**theoretical background**
+
+ATR-FTIR: $S_\theta=(3<cos^2\theta>-1)/2$, with $S_\theta=1$ representing helices orientated perpendicularly to the surface and $S_\theta=-0.5$ representing helices lying down parallel to the surface. For most biological samples, however, $S_\theta$ is between -0.5 and 1, and there can be ambiguity as to exact orientation of helices. SFG can be used to measure two additional independent parameters, $<cos\theta>$ and $<cos^3\theta>$ and thus greatly reduce teh ambiguity involved.
+
+In order to deduce the orientation of $\alpha$-helices from SFG signals obtained using various polarization combinations, we need to know how $\chi^{(2)}$, the second-order surface susceptibility of interfacial peptides in the lab coordinate system, is related to $\beta^{(2)}$, the hyperpolarizability of an $\alpha$-helix in the molecular coordinate system.
+
+**SFG Hyperpolarizability of a Bent Helix**
+
+represent the peptide as being composed of two $\alpha$-helices, with an interhelical angle $\theta_h$ between N-terminal helix segment and the C-terminal helix segment. The final form of $\chi$ is thus a function of both $\psi$ and $\theta$.
+
+![bent tilt](https://raw.githubusercontent.com/yueliu96/blog_images/master/bent2tilt.jpeg)
+
+Figure a and b show how $|\chi_{zzz}/\chi_{yyz}|$ changes as a function of $\theta$ and $\psi$ in a 3-D plot and a contour plot, assuming a 135$^\circ$ interhelical angle $\theta_h$.
+
+![more bent tilt figure](https://raw.githubusercontent.com/yueliu96/blog_images/master/Screen%20Shot%202019-02-03%20at%2016.09.43.png)
+
+**Orientation Distribution Function**
+
+one way to determine protein orientation distribution functions is to study how proteins interact with polarized light. The Gaussian function $(1/\sigma 2\pi)exp((-\theta-\theta_0)^2/(2\sigma^2))$, which requires the determination of two parameters: both the mean tilt angle $\theta_0$ and the distribution width $\sigma$.
+
+![tilt&ditribution](https://raw.githubusercontent.com/yueliu96/blog_images/master/tilt2distri.jpeg)
+
+**Maximum entropy theory**
+
+the least biased approach in deducing orientation distribution based on limited measurables. [reference](https://pubs.acs.org/doi/abs/10.1021/jp077556u)
+
+$$
+\begin{aligned}
+G(\theta)=&e^{-\sum_i \lambda_i cos^i\theta}\\
+1=&\int_{-1}^1 G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta\\
+<cos\theta>=&\int_{-1}^1 cos\theta G(\theta)\sqrt{1-cos^2\theta} \mathrm{d}cos\theta\\
+<cos^2\theta>=&\int_{-1}^1 cos^2\theta G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta\\
+<cos^3\theta>=&\int_{-1}^1 cos^3\theta G(\theta)\sqrt{1-cos^2\theta}\mathrm{d}cos\theta\\
+\end{aligned}
+$$
+
+We can also calculate the population of each orientation by integration since the orientation distribution function is normalized.
+
+### <jump id='tiltout'>[In Situ Investigation of Heterotrimeric G Protein βγ Subunit Binding and Orientation on Membrane Bilayers](https://pubs.acs.org/doi/abs/10.1021/ja075542w)</jump>
+
+This is the first time that SFG has been used to deduce the orientation of a peripheral membrane protein.
+
+Soluble $G\beta_1\gamma_2$ generated weaker signals, with peak centered at 1630 $cm^{-1}$. This means it associates at best weakly with the surface, and when it does the $\beta$-propeller faces the membrane surface. At this orientaiton the helical domains orient more or less parallel to the surface. Therefore, the$\beta$-propeller of $G\beta_1$ should be able to generate some SFG amide signals due to its interaction with the surface despite its native semi-centrosymmetry, but $\alpha$-helices lying down generate no or extremely weak ssp and ppp SFG signals.
+
+The injection of geranylgeranylated $G\beta_1\gamma_2$ resulted in significantly stronger SFG signals at 1650. It is anchored to the membrane via the geranylgeranyl group with the $\beta$-propeller more or less oeroendicular to the surface. Under this circumstance, the helical domains are no longer parallel to the surface and hence contribute the dominant spectral features. Furthermore, the $\beta$-propeller does not substantially interact with the membrane and its signal is minimal.
+
 # To Be Read 
 
 [Structure and Orientation of Interfacial Proteins Determined by Sum Frequency Generation Vibrational Spectroscopy: Method and Application](https://www.sciencedirect.com/science/article/pii/B9780124165960000075?via%3Dihub)
 
-[Multiple Orientation of Melittin inside a Single Lipid Bilayer
-Determined by Combined Vibrational Spectroscopic Studies](https://pubs.acs.org/doi/abs/10.1021/ja067446l)
-
 [Molecular Interactions between Magainin 2 and Model Membranes in Situ](https://pubs.acs.org/doi/abs/10.1021/jp904154w)
 
-[In Situ Investigation of Heterotrimeric G Protein βγ Subunit Binding and Orientation on Membrane Bilayers](https://pubs.acs.org/doi/abs/10.1021/ja075542w)
 
 # Useful Link
 
