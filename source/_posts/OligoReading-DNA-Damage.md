@@ -47,8 +47,54 @@ The initial damage produced by either direct ionization or by free-radical attac
 
 # [How Easily Oxidizable Is DNA? One-Electron Reduction Potentials of Adenosine and Guanosine Radicals in Aqueous Solution](https://pubs.acs.org/doi/full/10.1021/ja962255b)
 
-The direct and indirect effects of ionizaing radiation on DNA, particularly those relating to base alterations and sighle-strand breaks, are mediated  by (the one-electron deficient) DNA base radicals.
+The direct and indirect effects of ionizaing radiation on DNA, particularly those relating to base alterations and sigle-strand breaks, are mediated  by (the one-electron deficient) DNA base radicals.
 
-The ionization of DNA, induced either by ionzing radiation, 193 nm photolysis, or chemmi-ionization by strong transient oxidant such as $SO_4^{\cdot -}$ or Tl(II) results in the formation of a positive "hole". ESR experimets show that this positive "hole" is transmitted to a guanine moiety. The driving force for such intramolecular electron "hops" is the difference in the reduction potentials of the DNA base radicals.
+The ionization of DNA, induced either by ionzing radiation, 193 nm photolysis, or chemmi-ionization by strong transient oxidant such as $SO_4^{\cdot -}$ or Tl(II) results in the formation of **a positive "hole"**. ESR experimets show that this positive "hole" is transmitted to a **guanine** moiety. The driving force for such intramolecular electron "hops" is the difference in the reduction potentials of the DNA base radicals. The guanine radical apparently has the lowest reduction potential.
+
+The reduction potentials of the neutral purine radicals in neutral solution ($E_{pH}$), $E_7(Guo^\cdot /Guo)=1.29V$, $E_7(Ado^\cdot /Ado)=1.42V$, $E_7(deocytidine)\approxeq 1.6V$ and $E_7(thymidine)\approxeq 1.7V$. These numbers explain the observed positive hole transfer from an oxidized base to the guanine moiety.
+
+The reduction potential of guanosine radical is higher than that of alkyl peroxyl radicals ($E_7=1.05V$), which means that (the electrophilic) lipid peroxyl radicals cannot oxidize DNA bases by one-electron transfer. On the other hand, the reduction potential of guanosine radical is considerably higher than those of aromatic and sulfur amino acids (e.g., $E_7(tryptophan)=1.01V$ and $E^0(RS^\cdot /RS^-)=0.75V$), which means that the repair of a positive hole (electron deficiency) in DNA by a histone protein is thermodynamically feasible.
 
 # [Purine bases, nucleosides, and nucleotides: aqueous solution redox chemistry and transformation reactions of their radical cations and e- and OH adducts](https://pubs.acs.org/doi/10.1021/cr00093a003)
+
+The purine and pyrimidine bases are the most sensitive to radiation-induced modification or destruction of the the componets of DNA, iteself the most critical of the cellular targets. 
+
+The **pyrimidines and the purines** have a very high reactivity with respect to both $e_{aq}^{\cdot -}$, $H^\cdot$ and $^\cdot OH$, wheras the **ribose phosphate moiety** is less reactive with $^\cdot OH$ and almost unreactive with respect to $e_{aq}^{\cdot -}$. An $e_{aq}^{\cdot -}$ produced near a DNA chain will therefore end up with a pyrimidine or purine base, whereas an OH radical is as well likely to be scavenged by a deoxyribose unit, a reaction that has a good chance of leading to a DNA chain break. 
+
+The purines have a very high intrinsic reactivity with $e_{aq}^{\cdot -}$. On **introduction of one phosphate group** into the system the rate constants **decrease**. Since phosphate groups are not expected to reduce the electron affinity of the base moieties, this rate-decreasing effect must be due to electrostatic repulsion between the negatively charged reactances and nucleotide. Repulsion is, of course, multiplied in the case of the polynucleotides, such as poly(A) or DNA.
+
+In the case of adenosine, (1) Moorthy and Hayon: the radical existing in the pH range 5-9 (characterized by $\lambda_{max}=320nm$ and $\epsilon(320nm)=4.9\times 10^3M^{-1}cm^{-1}$) is a doubly protonated electron adduct (a radical cation); (2) Hissung et al. monoprotonated (a neutral radical) at pH 4-9 and up tp pH=11.5. The electron adduct of adenosine ($A^{\cdot -}$) is protonated by $H_2O$ in <5 ns, which forms the product ($ANH^\cdot$)
+
+Nitrogen has a greater electron affinity than carbon, it is reasonable to assume that the negative charge in the radical anion resides mainly on the nitrogens.
+
+Electron transfer from base to base along the helix axis is much faster than proton transfer, which occurs in the directrion perpendicular to the helix axis. Hower=ver, proton transfer along the interbase hydrogen bonds invovles only a slight displacement of the equilibrium position of the bridging protin and is therefore likely to alos be an extremely fast process (estimated reaction period $\leq 1ps$) against which electron transfer has to compete. Rates of electron transfer in DNA have been estimated by quantum chemical methods to be of the order $10^{14}s^{-1}$.
+
+Proton transfer leads to separation of charge from spin and it thus converts radical cations (positive holes) or radical anions (localized but mobile electrons) into neutral radicals. This means that proton transfer destroys or at least slows down the mobility of the charge and spin carriers, which  are thereby "frozen" or trapped. 
+
+# [UV-Induced Proton Transfer between DNA Strands](https://pubs.acs.org/doi/abs/10.1021/jacs.5b03914)
+
+![uv induce dna damage](https://raw.githubusercontent.com/yueliu96/blog_images/master/uvdna%20damage.jpeg)
+
+Radical ion pairs with lifetimes of tens to hundreds of picoseconds are formed in sigle-stranded DNA by photoinduced electron transfer (ET) between stacked nucleobases. Picoseconds lifetimes have also been observed in double-stranded DNA.
+
+Intrastrand electron transfer can potentially trigger interstrand proton transfer. This paper is the first observation of photoinduced proton transfer (PT) in DNA.
+
+Radical ions of single nucleobases are considerably stronger acids and bases than their parent molecules. Single PT can occur in one or both of the base pair radical ions generated by intrastrand ET, transforming an initial radical ion into a neutral radical and causing the complementary base to acquire a charge through deprotonation or protonation. ET/PT thus separate spin from charge in a base pair, yielding distonic radical ions. PT could take place on an ultrafast time scale in most base pair radical anions, but is less likesly in base pair radical cations.
+
+$$
+\begin{aligned}
+d(AT)_9d(AT)_9 & \rightarrow d(A^{\cdot +}T^{\cdot -})d(AT) & \tau & = 300 \pm 10ps\\
+dA_{18}dT_{18} & \rightarrow d(A^{\cdot +}AH^\cdot) d(T(T-H)^-) & \tau & = 150 \pm 20ps \\
+d(GC)_9d(GC)_9 & \rightarrow d(G^{\cdot +}CH^\cdot)d(C(G-H)^-) & \tau & = 32 \pm 1ps
+\end{aligned}
+$$
+
+PT is endergonic in the $AT^{\cdot -}$ base pair because of the low acidity of $A$ and the low basicity of $T^{\cdot -}$
+
+# [Direct Oxidative Damage of Naked DNA Generated upon Absorption of UV Radiation by Nucleobases](https://pubs.acs.org/doi/10.1021/acs.jpclett.6b01781)
+
+![uv2](https://raw.githubusercontent.com/yueliu96/blog_images/master/uvc-b%20dna.jpeg)
+
+# [DNA Damage Emanating From a Neutral Purine Radical Reveals the Sequence Dependent Convergence of the Direct and Indirect Effects of γ‐Radiolysis](https://pubs.acs.org/doi/10.1021/jacs.7b10942)
+
+![dAdA.](https://raw.githubusercontent.com/yueliu96/blog_images/master/dAdAp.jpeg)
