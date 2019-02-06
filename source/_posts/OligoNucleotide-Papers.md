@@ -117,6 +117,7 @@ the first time Turecek found combining UVPD with TDDFT can identify and distingu
     - 2nd basic: 6-OH−N-3−H
   - CE at 5'-terminal stable than that at 3'
   - H transfer
+    - $dG^+dG^\cdot$
     - exthothermic 
     - cation and radical at 5'-G most stable
     - cation at 3'-G, radical at 5'-G relatively stable and match spectra
@@ -132,6 +133,7 @@ the first time Turecek found combining UVPD with TDDFT can identify and distingu
   - CE at 5'-C ring and 3'-G ring
   - H posiitons: dC3G7
   - H transfer
+    - $dC^\cdot G^+ \leftrightarrow dCG^{+\cdot}$
     - transition state high, but exthothermic finally (kinetic hampered)
     - major: radical at C; minor at G
     - RRKM calculation: 310kJ/mol internal energy needed for conversion
@@ -143,7 +145,7 @@ the first time Turecek found combining UVPD with TDDFT can identify and distingu
 - action spectra: extremely weak broad 620nm, 420-500nm and 360nm, strong 285nm
 - structure
   - CE at 3'-C ring
-  - radical at C
+  - radical at C: $dG^+C^\cdot$
   - proton transfer exthothermic but not fit spectra 
   
 ## 6. Discussion
@@ -277,6 +279,14 @@ feature in radiation damage process
   - usually higher in energy than the relevant Frenkel-exciton band of optical (nonvanishing oscillator-strength) and dark (vanishing oscillater-strength) states
   - however, DFT methods drastically underesetimate their energies $\rightarrow$ all 3 types of states in dimers might be mixed
 
+# [Experimental Evidence for Noncanonical Thymine Cation Radicals in the Gas Phase](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.7b09872)
+
+# [Cytosine Radical Cations: A Gas-Phase Study Combining IRMPD Spectroscopy, UVPD Spectroscopy, Ion–Molecule Reactions, and Theoretical Calculations](https://onlinelibrary.wiley.com/doi/full/10.1002/cphc.201700281)
+
+# [Radical Cations of the Nucleic Bases and Radiation Damage to DNA: Ab Initio Study](https://www.sciencedirect.com/science/article/pii/S0065327606520064)
+
+# [Hydrogen Bonding and Proton Transfer in Ionized DNA Base Pairs,Amino Acids and Peptides](https://onlinelibrary.wiley.com/doi/abs/10.1002/9783527629213.ch7#)
+
 # <jump id='ion1'>[Electron Detachment Energies and Isomerism in Purinic Deoxyribonucleotides](https://onlinelibrary.wiley.com/doi/abs/10.1002/qua.21330)</jump>
 
 # <jump id='ion2'>[Ab Initio Electron Propagator Methods: Applications to Nucleic Acids Fragments and Metallophthalocyanines.](https://onlinelibrary.wiley.com/doi/abs/10.1002/qua.22836)</jump>
@@ -284,6 +294,12 @@ feature in radiation damage process
 # [Ion/Ion Reactions: New Chemistry for Analytical MS](https://pubs.acs.org/doi/abs/10.1021/ac9014935)
 
 # [One-Electron Oxidation of DNA Oligomers That Lack Guanine:  Reaction and Strand Cleavage at Remote Thymines by Long-Distance Radical Cation Hopping](https://pubs.acs.org/doi/abs/10.1021/ja058758b)
+
+![AT rxn at T](https://raw.githubusercontent.com/yueliu96/blog_images/master/AT%20rxn%20at%20T.jpeg)
+
+A defining characteristic of the one-electron oxidation of duplex DNA is reaction at $G_n$ (n=1-3) sites tat is detected as strand cleavage following chemical or enzymatic treatment. Reaction occurs primarily at guanines because they have low oxidation potentials, which causes the migrating radical cation to pause there briefly. Oxidation of DNA by photoionization with 193 nm light results primarily in reaction at G, but in "guanine-poor regions". reaction at A is alse observed. Pyrimidines T and C are considerably more difficult to oxidize than purines.
+
+Here, one-electron oxidation of DNA oligomers that do not contain guanine: reaction occurs primarily at thymine even though adenine has a significantly lower $E_{ox}$
 
 # <jump id="ref">[Transient Intermediates of Chemical Reactions by Neutralization—Reionization Mass Spectrometry](https://link.springer.com/chapter/10.1007/3-540-36113-8_3)</jump>
 
@@ -302,3 +318,4 @@ feature in radiation damage process
 # [How Easily Oxidizable is DNA? One-electron Reduction Potentials of Adenosine and Guanosine Radicals in Aqueous Solution](https://pubs.acs.org/doi/10.1021/ja962255b)
 
 # <jump id='gasbetter'>[Structure and Acid-base Properties of One-electron-oxidized Deoxyguanosine, Guanosine, and 1-Methylguanosine](https://pubs.acs.org/doi/10.1021/ja00185a046)</jump>
+
