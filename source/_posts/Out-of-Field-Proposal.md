@@ -56,6 +56,14 @@ heterogeneity in the protein oligomeric states, differenced in th ebicelle stabi
 - a monomeric membrane-spanning $\alpha$-helix is expected to undergo rapid uniaxial diffusion in the membrane, while a highly oligomerized peptide or a peptide that contains an extended segment on the membrane surface is expected to be immobilized
 - MPER-TMD trimer is insensitive to the peptide concentration
 
+### Result
+
+- The umbrella-like structural topology is held together by the trimeric membrane-spanning TMD stalk, while the MPER fans out on the membrane surface
+- PE increases $\beta$-sheet structure to 50%
+- low peptide/lipid: monomer; high: trimer
+- longer bilayer: trimer
+- trimer formation forvored by high pH
+
 ### Question
 - inconsistent and contradictory structural information abounds in the literature about the C-terminal membrane-interaction region of gp41
 - difficulty of crystallizing and solubilizaing the MPER-TMD, most structural studies of this functionally important domain were carried out using either only MPER or only TMD
@@ -69,7 +77,7 @@ Second-order nonlinear optical technique, which uses two pulsed lase sources, on
 
 The electric field of SFG signals $E_{SFG}^I \propto \sum_{JK}\chi_{IJK}^{(2)} E_{VIS}^J E_{IR}^K$. $\chi_{IJK}^{(2)}$ is an element of the second-order susceptibility tensor, which contains structural and chemical information about the target medium. It is nonzero only when the medium lacks centrosymmetry and the second-order susceptibility of an interface consists of a nonresonant term, $\chi_{NR}^{(2)}$, and a sum of vibrationally resonant terms, $\chi_q^{(2)}$
 $$\chi^{(2)}=\chi_{NR}^{(2)}+\sum_q \chi_q^{(2)}=\chi_{NR}^{(2)}+\sum_q \frac{A_q}{\omega_{IR}-\omega_q+i\Gamma_q}$$
-where $A_q$ is the amplitude, $\Gamma_q$ is the damping coefficient, $\omega_q$ is the resonat frequency of the qth vibrational mode, and $w_{IR}$ is the frequency of the incident IR beam. The SFG signal is enhanced when $\omega_{IR}$ is in resonance with $\omega_q$. Thus, SFG is a surface-specific vibrational spectroscopy
+where $A_q$ is the amplitude, $\Gamma_q$ is the damping coefficient, $\omega_q$ is the resonant frequency of the qth vibrational mode, $\chi_{NR}^{(2)}$ is non-resonant background, and $w_{IR}$ is the frequency of the incident IR beam. The SFG signal is enhanced when $\omega_{IR}$ is in resonance with $\omega_q$. Thus, SFG is a surface-specific vibrational spectroscopy
 
 ## [Molecular Chemical Structure on Poly(methyl methacrylate) (PMMA) Surface Studied by Sum Frequency Generation (SFG) Vibrational Spectroscopy](https://pubs.acs.org/doi/full/10.1021/jp013161d) 
 
@@ -87,11 +95,14 @@ $$
 \chi_{eff,ppp}^{(2)} = & - L_{xx} (\omega_{SFG}) L_{xx} (\omega_{Vis}) L_{zz} (\omega_{IR}) cos\beta_{SFG} cos\beta_{Vis} sin\beta_{IR}\chi^{(2)}_{xxz}\\
 & -L_{xx}(\omega_{SFG}) L_{zz}(\omega_{Vis}) L_{xx} (\omega_{IR})cos\beta_{SFG} sin\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{xzx}\\
 & + L_{zz}(\omega_{SFG}) L_{xx}(\omega_{Vis}) L_{xx}(\omega_{IR})sin\beta_{SFG}cos\beta_{Vis} cos\beta_{IR} \chi^{(2)}_{zxx}\\
-& + L_{zz} (\omega_{SFG}) L_{zz} (\omega_{Vis}) L_{zz} (\omega_{IR}) sin\beta_{SFG} sin\beta_{Vis} sin\beta_{IR} \chi^{(2)}_{zzz}
+& + L_{zz} (\omega_{SFG}) L_{zz} (\omega_{Vis}) L_{zz} (\omega_{IR}) sin\beta_{SFG} sin\beta_{Vis} sin\beta_{IR} \chi^{(2)}_{zzz}\\
+\text{T.F.G.} = & L_{zz} (\omega_{SFG}) L_{zz} (\omega_{Vis}) L_{zz} (\omega_{IR}) sin\beta_{SFG} sin\beta_{Vis} sin\beta_{IR} \chi^{(2)}_{zzz}
 \end{aligned}
 $$
 
-Here $\chi_{xyz}$ is one componaent of $\chi^{(2)}$ with the lab coordinates chosedn such that z is along the interface normal and x is in the incident plane. $\chi_{eff,ssp}^{(2)}$ is a component of the effective second-order nonlinear susceptibility measured in the experiment, means the element obtained by s-polarized SF beam, s-polarized visible beam and p-polarized IR beam. $\beta_{x}$ is the angle between the surface normal and the x beam. $L_{ii} (i=x,y\ or\ z)$ are the Fresnel coefficients. Using the near total reflection geometry, the first three items in the equation of $\chi_{eff,ppp}^{(2)}$ are approxiamated to be 0. 
+Here $\chi_{xyz}$ is one componaent of $\chi^{(2)}$ with the lab coordinates chosedn such that z is along the interface normal and x is in the incident plane. $\chi_{eff,ssp}^{(2)}$ is a component of the effective second-order nonlinear susceptibility measured in the experiment, means the element obtained by s-polarized SF beam, s-polarized visible beam and p-polarized IR beam. $\beta_{x}$ is the angle between the surface normal and the x beam. $L_{ii} (i=x,y\ or\ z)$ are the Fresnel coefficients. 
+$$L_{xx} = \frac {2n_1 cos (\theta_t)}{n_1 cos(\theta_t)+n_2cos(\alpha_i)}$$
+$\alpha_i$ and $\theta_t$ are incident and the transmitted angles of the optical beam. Using the near total reflection geometry, the first three items in the equation of $\chi_{eff,ppp}^{(2)}$ are approxiamated to be 0. 
 
 With IR-visible SFG, if the IR frequency is near vibrational resonance, $\chi_{eff}^{(2)}$ can be written as 
 
@@ -157,6 +168,18 @@ SFG amide I signals of proteins can be affected by the surface coverage, orienta
 
 # SFG Method
 
+## Secondary-Structure
+
+### [Structure and Orientation of Interfacial Proteins Determined by Sum Frequency Generation Vibrational Spectroscopy: Method and Application](https://www.sciencedirect.com/science/article/pii/B9780124165960000075?via%3Dihub)
+
+![2n struct](https://raw.githubusercontent.com/yueliu96/blog_images/master/2nd%20struct.png)
+
+Distinguished from antiparallel b-sheet, parallel b-sheet lacks the amide I peaks at high frequency (>1680)
+
+### Useful link:
+
+[Protein Secondary Structure](http://www.cryst.bbk.ac.uk/PPS2/course/section8/ss-960531_1.html)
+
 ## Tell $\beta$-strand and $\beta$-sheet
 
 ### [Misfolding of Human Islet Amyloid Polypeptide at Lipid Membrane Populates through β-Sheet Conformers without Involving α-Helical Intermediates](https://pubs.acs.org/doi/10.1021/jacs.8b08537)
@@ -172,28 +195,34 @@ SFG amide I signals of proteins can be affected by the surface coverage, orienta
 
 2. method
 
+![scheme of prism](https://raw.githubusercontent.com/yueliu96/blog_images/master/scheme%20of%20prism.png)
+
    the combination of interface-sensitive chiral amide I, achiral amide II and amide III spectral signals of the protein backbone generated in sum frequency generation vibrational spectroscopy (SFG-VS) can provide a unique and powerful tool to capture the hIAPP intermediates at the interface d uring the agggregation process with sufficient structural temporal resolutions
 
    develop a highly-sensitive femtosecond SFG-VS system, can acquire the ssp and psp sepctra simultaneously with a recording time of < 5 seconds
 
    Amide II vibrations arise from the out-of-phase combination of the C-N stretch and the N-H in-plane deformation
 
-- $\alpha$-helix: achiral: 1660, 1280
+- $\alpha$-helix: achiral: 1660, 1280(ammide III signals are detectable for $\alpha$-helical peptides with different orientations)
 - $\beta$-sheet:
   - chiral amide I mode:
-    - $\beta$-hairpin-like monomer (2 antiparallel hydrogen bonded $\beta$-strands connected by a $beta$-turn or short loop): 1630-1643
+    - $\beta$-hairpin-like monomer (2 antiparallel hydrogen bonded $\beta$-strands connected by a $\beta$-turn or short loop): 1630-1643
     - B mode parallel $\beta$-sheet oligomers and fibruls: 1624 (<1630)
     - A mode parrallel $\beta$-sheet: 1670
   - chiral N-H stretch mode: 3285 $cm^{-1}$
   - achiral amide I
     - 1625: B2 mode of antiparallel
     - 1680: (B1/B3 mode of antiparallel $\beta$-sheet) 
-  - achiral amide II at 1540: $\beta$-sheet oligomers and fibrils
-- loop: achiral: 1660, 1230
+  - achiral amide II
+    - 1540: $\beta$-sheet oligomers and fibrils
+    - 1220: $\beta$-sheet
+- loop: achiral: 1660, 1240
 - coil: achiral: 1660
 - turn: achiral: 1660
   
 ## Orientation angles
+
+The average orientation of helical was calculated based on the orientation of the amide C=O bonds, which are held up in the direction of the helical axis by the hydrogen bonds within the peptide molecules.
 
 ### [Observing a Model Ion Channel Gating Action in Model Cell Membranes in Real Time in Situ: Membrane Potential Change Induced Alamethicin Orientation Change](https://pubs.acs.org/doi/10.1021/ja2110784)
 
@@ -330,17 +359,35 @@ We can also calculate the population of each orientation by integration since th
 
 This is the first time that SFG has been used to deduce the orientation of a peripheral membrane protein.
 
-Soluble $G\beta_1\gamma_2$ generated weaker signals, with peak centered at 1630 $cm^{-1}$. This means it associates at best weakly with the surface, and when it does the $\beta$-propeller faces the membrane surface. At this orientaiton the helical domains orient more or less parallel to the surface. Therefore, the$\beta$-propeller of $G\beta_1$ should be able to generate some SFG amide signals due to its interaction with the surface despite its native semi-centrosymmetry, but $\alpha$-helices lying down generate no or extremely weak ssp and ppp SFG signals.
+Soluble $G\beta_1\gamma_2$ generated weaker signals, with peak centered at 1630 $cm^{-1}$. This means it associates at best weakly with the surface, and when it does the $\beta$-propeller faces the membrane surface. At this orientaiton the helical domains orient more or less parallel to the surface. Therefore, the $\beta$-propeller of $G\beta_1$ should be able to generate some SFG amide signals due to its interaction with the surface despite its native semi-centrosymmetry, but $\alpha$-helices lying down generate no or extremely weak ssp and ppp SFG signals.
 
-The injection of geranylgeranylated $G\beta_1\gamma_2$ resulted in significantly stronger SFG signals at 1650. It is anchored to the membrane via the geranylgeranyl group with the $\beta$-propeller more or less oeroendicular to the surface. Under this circumstance, the helical domains are no longer parallel to the surface and hence contribute the dominant spectral features. Furthermore, the $\beta$-propeller does not substantially interact with the membrane and its signal is minimal.
+The injection of geranylgeranylated $G\beta_1\gamma_2$ resulted in significantly stronger SFG signals at 1650. It is anchored to the membrane via the geranylgeranyl group with the $\beta$-propeller more or less perpendicular to the surface. Under this circumstance, the helical domains are no longer parallel to the surface and hence contribute the dominant spectral features. Furthermore, the $\beta$-propeller does not substantially interact with the membrane and its signal is minimal.
 
-# To Be Read 
+### [Molecular Interactions between Magainin 2 and Model Membranes in Situ](https://pubs.acs.org/doi/abs/10.1021/jp904154w)
 
-[Structure and Orientation of Interfacial Proteins Determined by Sum Frequency Generation Vibrational Spectroscopy: Method and Application](https://www.sciencedirect.com/science/article/pii/B9780124165960000075?via%3Dihub)
+![helix in POPG](https://raw.githubusercontent.com/yueliu96/blog_images/master/helix%20out%20mem.jpeg)
 
-[Molecular Interactions between Magainin 2 and Model Membranes in Situ](https://pubs.acs.org/doi/abs/10.1021/jp904154w)
+SFG has a much better detection limit than ATR-FTIR and can therefore be used to study interfacial molecules when the surface coverage is much lower. Magainin 2 with 2.0 $\mu M$ in POPC/POPC lipid bilayer detected by SFG, indicating a 75$^\circ$ orientation, while cannot be detectd by ATR-FTIR. It adopts different orientation in POPG/POPG lipid bilayer as shown in the figure.
 
+**How to Prepare Lipid Bilayer**
 
-# Useful Link
+Langmuir-Blodgett and Langmuir-Schaefer (LB/LS) method to deposit the proximal and the distal leaflets, respectively. A prism was attached to a sample holder via one right-angle face. The other right-angle face was perpendicularly immersed in the water inside of the Langmuir trough. An appropriate amount of lipid choloroform solution was then gently spread onto the water surface, and the chloroform was allowed to evaporate. The lipid monolayer area was compressed by two barriers at a rate of 5 mm/min until a surface pressure of 34 mN/m was reached. The prism was lifted out of the subphase at a rate of 1 mm/min. A monolayer of lipid on the prism was thus prepared. A 2 mL reservoir was placed in a large through slightly deeper than it so that water could cover it. The right-angle surface of the prism with the monolayer was horizontally lowered to contact the monolayer deposited on the water surface (with a surface pressure of 34 mN/m) of the through to form a lipid bilayer. After the formation of the bilayer, the extra lipids at the air-water interface were removed using a micropipet. Water in the large trough was drained while keeping the bilayer immersed in water inside of the small reservoir so that a much smaller amount of peptide/protein would be sufficient for the experiment. The bilayer was immersed in water throughout the entire experiment, and a small amount of water was added to the reservoir, when needed, to compensate for water evaporation during lengthy experiments.
 
-1. [Protein Secondary Structure](http://www.cryst.bbk.ac.uk/PPS2/course/section8/ss-960531_1.html)
+### [Membrane Orientation of MSI-78 Measured by Sum Frequency Generation Vibrational Spectroscopy](https://pubs.acs.org/doi/abs/10.1021/la201048t)
+
+![tilt angle](https://raw.githubusercontent.com/yueliu96/blog_images/master/c%20affect%20angle.jpeg)
+
+![chi](https://raw.githubusercontent.com/yueliu96/blog_images/master/c%20a%20angle%20chi.jpeg)
+
+If $\chi_{ppp}/\chi_{ssp}$ isn't fit with the diagram with the assumption of $\delta$ distribution, it may have nultidistribution or bent structure.
+
+## If peptide penetrates membrane
+
+### [In Situ Investigation of Peptide–Lipid Interaction Between PAP248–286 and Model Cell Membranes](https://link.springer.com/article/10.1007%2Fs00232-016-9878-1)
+
+ Both DPPC and DPPG are in gel phase under the current experimental conditions (at room temperature. Deuterated 3:7 $_d DPPG/_dDPPC$ was deposited on to the $CaF_2$ prism as the distal leaflet, and protonated 3:7 DPPG/DPPC was then deposited as the proximal leaflet. Upon time-dependent translocation calibration, the SFG signals of the terminal methyl C–H and C–D stretches suggest that the 3:7 DPPG/DPPC remained almost unchanged upon the binding of $PAP_{248-286}$. The minor spectral differences observed in Fig. 3 were most likely due to the minor stress caused by PAP248–286 when it was bound to the lipid bilayer.
+
+![gel-phase lipid](https://raw.githubusercontent.com/yueliu96/blog_images/master/Screen%20Shot%202019-02-18%20at%2011.44.25.png)
+
+ The flip-flopping rate of fluid-phase lipid bilayers is so rapid [t1/2 can be as low as 1.3 min at room temperature], which almost instantly causes the lipid bilayer to become entirely sym- metric, leading to no spectral features being observable by SFG. However, being a symmetry-sensitive technique, SFG can probe the symmetry deviation of interfaces. SFG data reveal that the fluid-phase 3:7 POPG/POPC lipid bilayer exhibits a noticeable decrease in the degree of symmetry upon interacting with PAP248–286, demonstrated by the vibrational modes of the terminal methyl groups starting to appear with the presence of the peptide.
+![fluid-phase lipid](https://raw.githubusercontent.com/yueliu96/blog_images/master/Screen%20Shot%202019-02-18%20at%2011.44.39.png)
