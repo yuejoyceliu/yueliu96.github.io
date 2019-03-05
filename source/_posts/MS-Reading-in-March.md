@@ -2,9 +2,9 @@
 title: MS Reading in March
 date: 2019-03-04 09:45:29
 tags:
--MS
+- MS
 categories:
--MSReading
+- MSReading
 ---
 
 [ETD & internal energy](#ETDE) | [UVPD](#uvpd) | [IRMPD & DFT](#irdft) | ...
