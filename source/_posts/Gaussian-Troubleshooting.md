@@ -7,17 +7,15 @@ categories:
 - Turecek Lab Tutorial
 ---
 
-Troubleshooting about:  [Freq: Negative Frequency](#nfreq) | [Freq job never stops calculating vectors](#vecfreq) | [Opt: Energy Oscillates](#eosc) | [Opt: FormBX had a problem](#formbx) | [Transformation cannot fit in the specified MaxDisk](#maxdisk) | To be continue ...
+Troubleshooting about:  [Freq: Negative Frequency](#nfreq) | [Freq job never stops calculating vectors](#vecfreq) | [Opt: Energy Oscillates](#eosc) | [Opt: FormBX had a problem](#formbx) | [Opt-Solution: Inv3 failed in PCMMkU](#pcm) | [Transformation cannot fit in the specified MaxDisk](#maxdisk) | To be continue ...
 
-# <jump id='eosc'>Energy oscillates and opt never converges
+# <jump id='eosc'>Energy oscillates and opt never converges (I)
 
 If during geometry optimization the energy oscillates as shown in the following figure:
 ![E_osc](https://raw.githubusercontent.com/yueliu96/blog_images/master/energy_osc.PNG)
 
-This oscillation happens because one or more of the second derivatives is very close to zero.
-
-Try:
-1. restart the geometry optimization from the point with the lowest energy (step 60 for this case). It works for all of my jobs for now. If it doesn't work, try what is listed below
+Try ([Reference](https://www.researchgate.net/post/What_are_possible_solutions_when_the_during_geometry_optimization_the_energy_oscillates_as_shown_in_attachment)):
+1. restart the geometry optimization from the point with the lowest energy (step 60 marked by a red circle for this case). It works for all of my jobs for now. If it doesn't work, try what is listed below. But the following two methods either runs forever or doesn't help in my cases.
 2. change `opt` to `opt(calcfc)` on the route card
    - specifies that the force constants be computed at the first point using the current method.
    - ensures that the calculation starts with accurate second derivatives, but may be too expensive to be practical. 
@@ -27,6 +25,15 @@ Try:
    - Also useful for optimizations of larger molecules with many soft modes such as methyl rotations, making such optimizations more reliable.
    - But note that it is very important to **use the same gride for all calculations where you intend to compare energies**.
 
+# Energy oscillates and opt never converges (II)
+
+Another type of energy oscillation is shown in the following figure. Energies always oscillate around a certain number and rarely change due to small gradient values (close to  0). 
+
+![RMS small](https://raw.githubusercontent.com/yueliu96/blog_images/master/energy_osc2.PNG)
+
+Solution:
+
+Load the output file to GaussView and see how structures change with optimation step numbers. Manually modify the structure by a little bit and reoptimize it again. Usually change the angle between two atoms/groups where structres get stuck.
 
 # <jump id='formbx'>FormBX had a problem</jump>
 
@@ -46,6 +53,8 @@ If get error message like:
 ```
 
 That means the angle formed by atom 33, 87 and 81 is 180$^\circ$. So, modify it manually and start over optimization again.
+
+# <jump id='pcm'> Inv3 failed in PCMMkU </jump>
 
 # <jump id='nfreq'> Negative Frequency </jump>
 
