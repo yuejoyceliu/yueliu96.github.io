@@ -31,12 +31,12 @@ One of the main problems in computational chemistry is selecting a suitable leve
 
 $$
 \begin{aligned}
-\mathbf H_{tot}\Psi_{tot}(\vec R, \vec r) &= E_{tot}\Psi_{tot}(\vec R, \vec r)\\
-\mathbf H_{tot} &= \mathbf H_e +\mathbf T_n\\ 
-\mathbf H_{et} &= \mathbf T_e + \mathbf V_{ne} +\mathbf V_{ee} + \mathbf V_{nn}\\ 
-\Psi_{tot}(\vec R,\vec r) &= \Psi_n(\vec R) \Psi_e (\vec R, \vec r)\\
-\mathbf H_e \Psi_e(\vec R, \vec r) &= E_e(\vec R) \Psi_e (\vec R, \vec r) \\ 
-(\mathbf T_n + E_e(\vec R)) \Psi_n(\vec R) &= E_{tot}\Psi_n(\vec R)\\
+\mathbf H_{tot}\Psi_{tot}(\vec R, \vec r) &= E_{tot}\Psi_{tot}(\vec R, \vec r) \\
+\mathbf H_{tot} &= \mathbf H_e +\mathbf T_n \\
+\mathbf H_{et} &= \mathbf T_e + \mathbf V_{ne} +\mathbf V_{ee} + \mathbf V_{nn} \\
+\Psi_{tot}(\vec R,\vec r) &= \Psi_n(\vec R) \Psi_e (\vec R, \vec r) \\
+\mathbf H_e \Psi_e(\vec R, \vec r) &= E_e(\vec R) \Psi_e (\vec R, \vec r) \\
+(\mathbf T_n + E_e(\vec R)) \Psi_n(\vec R) &= E_{tot}\Psi_n(\vec R) \\
 \end{aligned}
 $$
 
