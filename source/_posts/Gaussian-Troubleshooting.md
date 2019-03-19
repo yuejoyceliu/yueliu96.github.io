@@ -69,6 +69,29 @@ To solve this problem, we can add additional input: [**Surface**=*type*](http://
 
 A good solution is to optimize with SAS following by single point energy calcuation with SES surface. To optimize with SAS or SES, e.g. add `scrf(pcm, solvent=water, read)` on the route card, and `Surface=SAS` or `Surface=SES AddSph` on the additional section, which is after molecular specification and also terminated with a blank line.
 
+```c
+%mem=60gb
+%nprocshared=28
+%chk=test.chk
+# opt wb97xd/6-31+g(d,p) pop=none scf=(xqc,tight) scrf=(pcm,solvent=water,read)
+
+Title section
+
+Charge Multiplicity
+Molecular Coordinates
+
+surface=sas
+
+--Link1--
+%chk=test.chk
+%mem=60gb
+%nprocshared=28
+# wb97xd/6-31+g(d,p) pop=none scf=(sqc,tight) scrf=(pcm,solvent=water,read) geom=allcheck
+
+surface=ses addsph
+! terminate by a blank line
+```
+
 # <jump id='nfreq'> Negative Frequency </jump>
 
 Gaussian optimization algorithm uses the gradient descent to find the closest minmum ($f'(x)=0$). However, the gradient of a local maximum point is also 0, which corresponds to a transition state. A transition state should have one negative/imaginary frequency.
