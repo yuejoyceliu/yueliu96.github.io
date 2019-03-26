@@ -126,7 +126,7 @@ H        1.100354        3.004366        0.220564
 
 # Submit to Hyak
 
-Run ` ~/Hyak-Gaussian/gaussian-sub.py input_file`, will generate a sbatch file(suffix is sh):
+1. Run ` ~/Hyak-Gaussian/gaussian-sub.py input_file`, will generate a sbatch file(suffix is sh):
 
 ```bash
 #!/bin/bash
@@ -166,7 +166,7 @@ g16 ???input file???
 exit 0
 ```
 
-Run `sbatch *.sh` to submit it to hyak.
+2. Run `sbatch *.sh` to submit it to hyak.
 
 # Output & Analysis
 
@@ -202,7 +202,7 @@ If key word `Tight` or `SCF` is in route card, Berny optimization will be used. 
 - *Descriptions*
   - Uses `Stationary point found` as a key to tell if opt finishes
   - If finished, locates `Standard orientation` after it, reads charge and multiplicity from the very end and then writes them to a new file in the form of gaussian input, named *test_opt.gjf* if original one is *test$.$com*.
-  - If not  finished, checks if input file in the current directory, gets chk file name from input and then writes the restarted input file just as showed above named with *test_rst.gjf* if original one is *test.gjf*. If original input and chk files not found, it will just stop without doing anything.
+  - If not  finished, writes the restarted input file just as showed above named with *test_rst.gjf* if original one is *test.gjf*. Input and chk file name and route card are read from log file.
 - *Notes* 
   - The default route card for optimized file and link info for both optimized and restarted one are easily to change:
   
