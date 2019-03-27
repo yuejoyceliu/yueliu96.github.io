@@ -279,10 +279,6 @@ feature in radiation damage process
   - usually higher in energy than the relevant Frenkel-exciton band of optical (nonvanishing oscillator-strength) and dark (vanishing oscillater-strength) states
   - however, DFT methods drastically underesetimate their energies $\rightarrow$ all 3 types of states in dimers might be mixed
 
-
-
-# [Cytosine Radical Cations: A Gas-Phase Study Combining IRMPD Spectroscopy, UVPD Spectroscopy, Ion–Molecule Reactions, and Theoretical Calculations](https://onlinelibrary.wiley.com/doi/full/10.1002/cphc.201700281)
-
 # [Radical Cations of the Nucleic Bases and Radiation Damage to DNA: Ab Initio Study](https://www.sciencedirect.com/science/article/pii/S0065327606520064)
 
 # [Hydrogen Bonding and Proton Transfer in Ionized DNA Base Pairs,Amino Acids and Peptides](https://onlinelibrary.wiley.com/doi/abs/10.1002/9783527629213.ch7#)
