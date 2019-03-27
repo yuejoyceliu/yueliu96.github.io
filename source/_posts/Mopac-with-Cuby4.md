@@ -35,14 +35,14 @@ xyz file contains the geometry of the molecule system -- the first line is the n
   - `python gjfcom2xyz.py input-file`
 - *Descriptions*
   - use charge and multiplicity (chg&mp) as a key to locate the start of coordinates
-  - every lines containing 4 elements after chg&mp is considered as coordinate line.
+  - every lines containing 4 elements after chg&mp is considered as coordinate line. Valid delimiters: space, spaces and comma.
 
 python script [xyz2gjf.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/xyz2gjf.py) can convert xyz format back to gaussian input format.
 
 - *Usage*
   - `python xyz2gjf.py xyz-file`
 - *Descriptions*
-  - every line after the second line contains 4 elements and the last three elements are float is considered as coordinate line
+  - every line after the second line contains 4 elements and the last three elements are float is considered as coordinate line. Valid delimiters are space or spaces.
   - route card, charge and multiplicity are defined by default, could be changed later or modified in the scripts.
 
 ## yaml-file

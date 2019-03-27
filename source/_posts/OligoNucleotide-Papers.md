@@ -279,7 +279,7 @@ feature in radiation damage process
   - usually higher in energy than the relevant Frenkel-exciton band of optical (nonvanishing oscillator-strength) and dark (vanishing oscillater-strength) states
   - however, DFT methods drastically underesetimate their energies $\rightarrow$ all 3 types of states in dimers might be mixed
 
-# [Experimental Evidence for Noncanonical Thymine Cation Radicals in the Gas Phase](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.7b09872)
+
 
 # [Cytosine Radical Cations: A Gas-Phase Study Combining IRMPD Spectroscopy, UVPD Spectroscopy, Ion–Molecule Reactions, and Theoretical Calculations](https://onlinelibrary.wiley.com/doi/full/10.1002/cphc.201700281)
 

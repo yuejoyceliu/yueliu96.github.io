@@ -126,7 +126,14 @@ H        1.100354        3.004366        0.220564
 
 # Submit to Hyak
 
-Run ` ~/Hyak-Gaussian/gaussian-sub.py input_file`, will generate a sbatch file(suffix is sh):
+1. Run ` ~/Hyak-Gaussian/gaussian-sub.py input_file`, will generate a sbatch file(suffix is sh)
+   
+   Another way to create this file is to run my python script [gaussian-mox.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/gaussian-mox.py) 
+   - Usage:
+     - `python gaussian-mox.py input-file partition node-num time-hour`
+     - partition can be [stf chem ilahie ckpt]
+     - time is a float in hour
+     - if node-num > 1, "%lindaworker" must be in the head of input file
 
 ```bash
 #!/bin/bash
@@ -166,7 +173,7 @@ g16 ???input file???
 exit 0
 ```
 
-Run `sbatch *.sh` to submit it to hyak.
+1. Run `sbatch *.sh` to submit it to hyak.
 
 # Output & Analysis
 
@@ -202,7 +209,7 @@ If key word `Tight` or `SCF` is in route card, Berny optimization will be used. 
 - *Descriptions*
   - Uses `Stationary point found` as a key to tell if opt finishes
   - If finished, locates `Standard orientation` after it, reads charge and multiplicity from the very end and then writes them to a new file in the form of gaussian input, named *test_opt.gjf* if original one is *test$.$com*.
-  - If not  finished, checks if input file in the current directory, gets chk file name from input and then writes the restarted input file just as showed above named with *test_rst.gjf* if original one is *test.gjf*. If original input and chk files not found, it will just stop without doing anything.
+  - If not  finished, writes the restarted input file just as showed above named with *test_rst.gjf* if original one is *test.gjf*. The name of input and chk files, the route card are read from log file. If chk file not found, it will print a warning.
 - *Notes* 
   - The default route card for optimized file and link info for both optimized and restarted one are easily to change:
   
@@ -293,10 +300,11 @@ The main output of tddft contains the excitation energies, oscillation strength(
 
 - *Usage*
   - `python tddft_lorentzian.py td_log`
+  - `python tddft_lorentzian.py td_log N`
 - *Descriptions*
   - Reads all excitated frequencies, oscilation strength and S**2 from log file and checks if the last one is below 210nm.
   - If not, writes the new input file as shown above named with *test_add.gjf* if original input is *test.gjf*. The original input file and chk file must be in the same directory.
-  - Otherwise, uses S**2=2.6 as a cutoff to choose frequencies and applies lorentzian equation to calculate absorption spectra. The results are written to *test_uvvis.csv* if log named with *test.log*.
+  - Otherwise, uses S\*\*2=2.6 as a cut-off to choose excitations and applies lorentzian equation to calculate absorption spectra. The results are written to *test_uvvis.csv* if log named with *test.log*. **If N is specified in the usage command, only select excitations larger than N(nm).**
 
 ### <font size=3>2.[tddft_plot.py](https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/tddft_plot.py)
 

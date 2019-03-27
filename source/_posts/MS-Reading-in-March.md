@@ -3,6 +3,7 @@ title: MS Reading in March
 date: 2019-03-04 09:45:29
 tags:
 - MS
+- oligo
 categories:
 - MSReading
 ---
@@ -37,4 +38,17 @@ Infrared Multiphoton dissociation (IRMPD)
 Electron structure computations that can handle medium-size (>50 atoms) peptide ions are limited to gradient optimizations using density functional theory (DFT) methods. The most popular DFT hybrid functional (**B3LYP**), in the form that implements the local exchange and correlation functional of Vosko et al. and a nonlocal Lee−Yang−Parr functional with a gradient correction, has a well-recognized deficiency in that it does not fully eliminate two-electron, fourcenter integrals involving the same electron in the exchange part of the functional, leading to what is known as the **electron self-interaction error**. While this error is not critical in small molecular systems, it has been found to be quite **serious for peptide ions of >150 atoms where B3LYP calculations showed convergence collapses**. These problems can possibly be overcome by compensating the energy errors inherent to **B3LYP by perturbational (MP2) energy calculations**. MP2 calculations have been used to assign structures of small peptide ions. However, MP2 scales with the fifth power of the number of electrons/atomic orbitals and becomes prohibitively expensive when the molecular size exceeds about 100 atoms, corresponding to a peptide ion of 6−7 amino acid residues. In this paper, both the **wB97X and M06-2X relative energies are very close to those from averaged B3LYP and MP2 calcualtions**.
 
 The charge-reduced peptide cation-radicals had collisional cross sections that were nearly identical to those of the precursor dications. This indicated that **the peptide cation-radicals retained specific hydrogen bonding motifs from the precursor ion**.
+
+# [Experimental Evidence for Noncanonical Thymine Cation Radicals in the Gas Phase](https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.7b09872)
+
+- Among the DNA nucleobases, thymine has the **highest ionization energy** (8.8-9.4 eV) and **highest electrochemical oxidation potential** -- T: nonreactive spacer; T cation radical: electron acceptor.
+
+- But A-T-rich DNA models demonstrated the high reactivity of the ionized T nucleobase. Another reaction indicates deprotonation followed by oxygen addition to the C-7-H$_2$ radical. An important finding in these studies was the theoretical existence of a low-energy tautomer of T$^{+\bullet}$
+
+- Exotermic charge-transfer ion-molecule reactions typically proceed at the collision rate and provide a sensitive probe of ion structure in situations where isomeric ions differ in their adiabatic recombination enerigies (REs). 
+$$A^+ + B \rightarrow A + B^+ \text{ when RE(A)>RE(B)} $$
+
+- 50 ms is a benchmark ion residence time in the ion trap
+
+**Summary**: The reaction of T+gaseous anisole (IE=8.42eV) cation occurs on a rate of 20% indicataes major T: RE<8.42eV. Demonstarted by the calculation of the existence of noncononical $T^{+\bullet}$ (RE<5.9eV). Isomerization occurs probably during the process of collision
 

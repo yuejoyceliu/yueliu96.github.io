@@ -69,7 +69,7 @@ To solve this problem, we can add additional input: [**Surface**=*type*](http://
 
 A good solution is to optimize with SAS following by single point energy calcuation with SES surface. To optimize with SAS or SES, e.g. add `scrf(pcm, solvent=water, read)` on the route card, and `Surface=SAS` or `Surface=SES AddSph` on the additional section, which is after molecular specification and also terminated with a blank line.
 
-```c
+```
 %mem=60gb
 %nprocshared=28
 %chk=test.chk
