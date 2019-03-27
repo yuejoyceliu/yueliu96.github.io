@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AMATH,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="A manual for individual use, which focuses on how to solve ordinary and partial differential equation numerically, including how to solve initial value problem with Euler, 2nd- and 4th- order Runge-Ku">
+<meta name="keywords" content="AMATH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scientific Computing">
+<meta property="og:url" content="http://yoursite.com/2019/01/02/Scientific-Computing/index.html">
+<meta property="og:site_name" content="Yue Liu&#39;s Blog">
+<meta property="og:description" content="A manual for individual use, which focuses on how to solve ordinary and partial differential equation numerically, including how to solve initial value problem with Euler, 2nd- and 4th- order Runge-Ku">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-27T03:19:43.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scientific Computing">
+<meta name="twitter:description" content="A manual for individual use, which focuses on how to solve ordinary and partial differential equation numerically, including how to solve initial value problem with Euler, 2nd- and 4th- order Runge-Ku">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/02/Scientific-Computing/">
+
+
+
+
+
+  <title>Scientific Computing | Yue Liu's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yue Liu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/02/Scientific-Computing/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yue Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yue Liu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Scientific Computing</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T13:28:18-08:00">
+                2019-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/NoteBook/" itemprop="url" rel="index">
+                    <span itemprop="name">NoteBook</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>A manual for individual use, which focuses on how to solve ordinary and partial differential equation numerically, including how to solve initial value problem with Euler, 2nd- and 4th- order Runge-Kutta and Adams-Bashford method; how to handle boundary value problem with shooting method and direct method and how to deal with PDE with finite difference schemes and spectral methods. Quantum Harmonic Oscillator, Vorticity-Streamfunction Equations, Reaction-Diffusion Systems are are discussed.</em></p>
+<h1 id="Initial-Value-Problem"><a href="#Initial-Value-Problem" class="headerlink" title="Initial Value Problem"></a>Initial Value Problem</h1><p>$$<br>\frac{d\overrightarrow{y}}{dt}=f(t,\overrightarrow{y}) \quad \overrightarrow{y}(0)=\overrightarrow{y_0} \quad t\in[0,T]<br>$$</p>
+<h2 id="Forward-Euler-Method"><a href="#Forward-Euler-Method" class="headerlink" title="Forward Euler Method"></a>Forward Euler Method</h2><p>This is the simplest algorithm for solving this problem, which is derived from the definition of the derivative:</p>
+<p>$$<br>\frac{d\overrightarrow y}{dt}=\lim_{\Delta t \to 0} \frac{\Delta\overrightarrow y}{\Delta t} \approx \frac{\overrightarrow y_{n+1}-\overrightarrow y_n}{t_{n+1}-t_n}<br>$$</p>
+<p>From the above equation, we can get:</p>
+<p>$$<br>\overrightarrow{y}_{n+1} = \overrightarrow y_n + \Delta t \cdot f(t_n,\overrightarrow y_n)<br>$$</p>
+<p>Note that each subsequenct approximation in Euler Method is generated from the slope of the previous point. Considering the error coulde be very large, we need to find some ways to improve it.</p>
+<h2 id="Improved-from-Euler-Method"><a href="#Improved-from-Euler-Method" class="headerlink" title="Improved from Euler Method"></a>Improved from Euler Method</h2><p> One way we can think of is to use the slope of other points instead of that of the previous one to predict the next point. For example, the average slope (Heun’s Method), or the slope of the midpoint (RK2).</p>
+<h3 id="Heun’s"><a href="#Heun’s" class="headerlink" title="Heun’s"></a>Heun’s</h3><p>  $$y_{n+1}=y_n+\frac{\Delta t}{2}[f(t_n,y_n)+f(t_{n+1},y_{n+1})]$$</p>
+<h3 id="RK2"><a href="#RK2" class="headerlink" title="RK2"></a>RK2</h3><p>  $$y_{n+1}=y_n+\Delta t \cdot f[t_n+\frac{\Delta t}{2},y(t_n+\frac{\Delta t}{2})]$$</p>
+<h3 id="In-general"><a href="#In-general" class="headerlink" title="In general"></a>In general</h3><p>  $$y_{n+1}=y_n+\Delta t[A \cdot f(t_n,y_n)+B \cdot f(t+P\Delta t,y_n+Q\Delta t \cdot f(t_n,y_n)\\\\<br>  where\quad A+B=1\quad B\cdot P=\frac{1}{2}\quad B\cdot Q=\frac{1}{2}$$</p>
+<ul>
+<li>If $A=\frac{1}{2}\Rightarrow B=\frac{1}{2}\Rightarrow P=1\Rightarrow Q=1\Rightarrow$Heun’s Method</li>
+<li>If $A=0\Rightarrow B=0\Rightarrow P=\frac{1}{2}\Rightarrow Q=\frac{1}{2}\Rightarrow$RK2 Method</li>
+</ul>
+<h3 id="RK4"><a href="#RK4" class="headerlink" title="RK4"></a>RK4</h3><p>$$y_{n+1}=y_n+\frac{\Delta t}{6}(f_1+2f_2+2f_3+f_4)\\\\<br>f_1=f(t_n,y_n)\\\\<br>f_2=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_1)\\\\<br>f_3=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_2)\\\\<br>f_4=f(t_n+\frac{\Delta t}{2},y_n+\frac{\Delta t}{2}\cdot f_3)$$</p>
+<h3 id="Summary-and-Error-Analysis"><a href="#Summary-and-Error-Analysis" class="headerlink" title="Summary and Error Analysis"></a>Summary and Error Analysis</h3><table>
+<thead>
+<tr>
+<th>Scheme</th>
+<th>Local Error</th>
+<th>Global Error</th>
+<th>Matlab</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forward Euler</td>
+<td>$\Delta t^2$</td>
+<td>$\Delta t$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Heun’s/RK2</td>
+<td>$\Delta t^3$</td>
+<td>$\Delta t^2$</td>
+<td>ode23</td>
+<td>Method=RK23</td>
+</tr>
+<tr>
+<td>RK4</td>
+<td>$\Delta t^5$</td>
+<td>$\Delta t^4$</td>
+<td>ode45</td>
+<td>Method=RK45</td>
+</tr>
+</tbody>
+</table>
+<p>The error in numerical algorithm not only comes from the local error (truncated error) in the algorithm iteself, but also arises from round off error since computer can only keep limit digits of number: $Error_{total}=\varepsilon_{round off}+\varepsilon_{truncate}$. If the round-off error is dominant, our algorithm can be unstable to be used. That’s why Backward Euler Method is introduced.</p>
+<h2 id="Backward-Euler-Method"><a href="#Backward-Euler-Method" class="headerlink" title="Backward Euler Method"></a>Backward Euler Method</h2><p>It is an implicit method, which is more stable</p>
+<p>$$y_n=y_{n+1}-\Delta t \cdot f(t_{n+1},y_{n+1})$$</p>
+<p>Example:</p>
+<p>$$\frac{dy}{dt}=\lambda y\quad y(0)=y_0$$</p>
+<ul>
+<li><p>FE:<br>$$y_{n+1}=y_n+\Delta t \cdot f(t_n,y_n)=y_n+\Delta t \cdot \lambda y \Rightarrow y_n=(y_0+\varepsilon_{round_off})(1+\Delta t \lambda)^N$$<br>set  $r_{FE}=(1+\Delta t \lambda)^N\Rightarrow y_n=y_0\cdot r_{FE}^N+\varepsilon_{round_off}\cdot r_{FE}^N$</p>
+<ul>
+<li>$\lambda&gt;0\Rightarrow |r_{FE}|&gt;1\Rightarrow$ unconditionally unstable</li>
+<li>$\lambda&lt;0\Rightarrow |r_{FE}|&lt;1\Rightarrow \begin{cases} \Delta t&lt;\frac{2}{|\lambda|} &amp; stable\\\ \Delta t&gt;\frac{2}{|\lambda|} &amp; unsatble\ \end{cases}$</li>
+</ul>
+</li>
+<li><p>BE:</p>
+<p>$$y_n=y_{n+1}-\Delta t\cdot \lambda\cdot y_{n+1}\Rightarrow y_{n+1}=r_{BE}\cdot y_n, where r_{BE}=\frac{1}{1-\Delta t\lambda}\\\ <br>y_n=y_0\cdot r_{BE}^N+\varepsilon_{round_off}\cdot r_{BE}^N$$</p>
+<ul>
+<li>$\lambda&lt;0\Rightarrow |r_{FE}|&lt;1\Rightarrow$ unconditionally stable</li>
+<li>$\lambda&gt;0\Rightarrow |r_{FE}|&lt;1\Rightarrow \begin{cases} \Delta t&gt;\frac{2}{|\lambda|} &amp; stable\\\ \Delta t&lt;\frac{2}{|\lambda|} &amp; unsatble\ \end{cases}$</li>
+</ul>
+</li>
+</ul>
+<h2 id="MultiStep-Method"><a href="#MultiStep-Method" class="headerlink" title="MultiStep Method"></a>MultiStep Method</h2><ul>
+<li>Adams-Bash forth (explicit method)<br>$$y_{n+1}=y_n+\frac{\Delta t}{2}(3f_n-f_{n-1})$$ </li>
+<li>Adams-Moulthon (implicit method)<br>$$y_{n+1}=y_n+\frac{\Delta t}{2}(f_{n+1}+f_n)$$</li>
+<li>Predictor-Corrector<br>$$y_{n+1}^P=y_n+\frac{\Delta t}{2}(3f_n-f_{n-1})\\\<br>y_{n+1}=y_n+\frac{\Delta t}{2}[f(t_{n+1},y_{n+1}^P)+f_n]$$</li>
+</ul>
+<h2 id="Matlab-for-ODE45"><a href="#Matlab-for-ODE45" class="headerlink" title="Matlab for ODE45"></a>Matlab for ODE45</h2><p>solve this equation $\frac{d^2y(t)}{dt^2}+\epsilon[y^2(t)-1]\frac{dy(t)}{dt}+y(t)=0$ with $\epsilon$=0.1, t=[0:0.5:32], y(t=0)=$\sqrt 3$ and $\frac{dy(t=0)}{dt}$=1 by ode45 method.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span> = <span class="title">fvdposc</span><span class="params">(t,y,epsilon)</span></span></span><br><span class="line">f1 = y(<span class="number">2</span>);                          <span class="comment">%f1=y'</span></span><br><span class="line">f2 = -epsilon*(y(<span class="number">1</span>)^<span class="number">2</span><span class="number">-1</span>)*y(<span class="number">2</span>)-y(<span class="number">1</span>);<span class="comment">%f2=y''</span></span><br><span class="line">f = [f1;f2];    <span class="comment">%f must be a column vector</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">abstol=<span class="number">10</span>^<span class="number">-6</span>;reltol=<span class="number">10</span>^<span class="number">-6</span>;</span><br><span class="line">options = odeset(<span class="string">'AbsTol'</span>,abstol,<span class="string">'RelTol'</span>,reltol);</span><br><span class="line"><span class="comment">%if options not specified, use the default one. the other items must be there.</span></span><br><span class="line">[T,Y] = ode45( @(t,y) fvdposc(t,y,epsilon),tspan,y0,options);</span><br></pre></td></tr></table></figure>
+<p>In this way, we can get Y is a [65 $\times$ 2] matrix. This first column is the y values in tspan, and the other columne is y’ values in tspan.</p>
+<h1 id="Boundary-Value-Problem"><a href="#Boundary-Value-Problem" class="headerlink" title="Boundary Value Problem"></a>Boundary Value Problem</h1><p>There might be multiple solutions to this kind of problem, and we should choose those suit boundary conditions. Let’s start with a simple case:</p>
+<p>$$<br>\frac{d^2y}{dt^2} = f(t,y,\frac{dy}{dt})\quad y(a) = \alpha\quad y(b) = \beta<br>$$</p>
+<h2 id="Shooting-Method"><a href="#Shooting-Method" class="headerlink" title="Shooting Method"></a>Shooting Method</h2><p>Actually, BVP is  comparable to IVP:</p>
+<ul>
+<li>IVP: y(a)=$\alpha$, y’(a)=A</li>
+<li>BVP: y(a)=$\alpha$, y(b)=$\beta$</li>
+</ul>
+<p>So we can guess an initial condition to see how difference the result from the other boundary value; and decide a new initial guess to repeat the above process until the result reaches the other boundary value.</p>
+<h2 id="Direct-Linear-BVP"><a href="#Direct-Linear-BVP" class="headerlink" title="Direct-Linear BVP"></a>Direct-Linear BVP</h2><p>Here we can consider a general case:</p>
+<p>$$<br>\frac{d^2y}{dt^2}=p(t)\frac{dy}{dt}+q(t)y+r(t)\\\\<br>\alpha_1y(a)+\beta_1y’(a)=\gamma_1\\\\<br>\alpha_2y(b)+\beta_2y’(b)=\gamma_2<br>$$</p>
+<p>Combine Taylor series and central difference method $y’=\frac{y(t+\Delta t)-y(t-\Delta t)}{2\Delta t}+O(\Delta t^2)$, we can get $y’’=\frac{y(t+\Delta t)-2y(t)+y(t-\Delta t)}{\Delta t^2}+O(\Delta t^2)$. Finally, we can get: </p>
+<p>$$[1-\frac{p(t)\Delta t}{2}]\cdot y(t+\Delta t)-[2+q(t)\Delta t^2]\cdot y(t)+[1+\frac{p(t)\Delta t}{2}]\cdot y(t-\Delta t)=r(t)\Delta t^2$$</p>
+<p>Convert it in to matrix form:</p>
+<p>$$A\times \overrightarrow x = \overrightarrow b$$</p>
+<p>$$ \begin{pmatrix} 1 &amp; 0 &amp;\cdots &amp;\cdots &amp;\cdots &amp; 0 \\\ a &amp; b &amp; c &amp; 0 &amp;\cdots &amp;0 \\\\0&amp;a&amp;b&amp;c&amp;\cdots&amp;0\\\\\vdots&amp;\ddots&amp;\ddots&amp;\ddots&amp;\ddots&amp;\vdots\\\\\vdots&amp;\ddots&amp;\ddots&amp;a&amp;b&amp;c\\\\0&amp;\cdots&amp;\cdots&amp;\cdots&amp;a&amp;1 \end{pmatrix} \times \begin{pmatrix}y(t_0)\\\\y(t+\Delta t)\\\\y(t+2\Delta t)\\\\\vdots\\\\\vdots\\\\y(t_N) \end{pmatrix}=\begin{pmatrix} \alpha\\\\r(t+\Delta t)\Delta t^2\\\ r(t+2\Delta t)\Delta t^2\\\\\vdots\\\\\vdots\\\\\beta \end{pmatrix}$$</p>
+<p>In Matlab, we can use function <code>X=A\b</code> or <code>eig(A)</code> to solve it; in python(numpy), function <code>linalg.solve(A,b)</code> or <code>eig(A)</code> also works.</p>
+<h2 id="Newton-Raphson-Method"><a href="#Newton-Raphson-Method" class="headerlink" title="Newton-Raphson Method"></a>Newton-Raphson Method</h2><p>One thing must be noted that, initial guess for this method should be close to the real value, otherwise it may diverge.<br>$$x_{n+1}=x_n-\frac{f(x_n)}{f’(x_n)}$$</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
+<li>Approximate y’, y’’ using central difference formula;</li>
+<li>Approximate boundary condition using FDF, DBF</li>
+<li>Solve $A\overrightarrow x=\overrightarrow b$</li>
+<li>solution–O($\Delta t^2$)</li>
+</ol>
+<h2 id="Quantum-Harmonic-Oscillation"><a href="#Quantum-Harmonic-Oscillation" class="headerlink" title="Quantum Harmonic Oscillation"></a>Quantum Harmonic Oscillation</h2><p>$$\frac{d^2\phi_n}{dx^2}-[Kx^2-\varepsilon_n]\phi_n=0$$<br>we expect the solution $\phi_n(x)\rightarrow 0$ as $x\rightarrow \pm \infty$ and $\varepsilon_n&gt;0$ is the quantum energy. Note that $K=km/\hbar^2$ and $\varepsilon_n=E_nm/\hbar^2$. Here take K=1, and always normalize so that $\int_{-\infty} ^{+\infty} {|\phi_n|^2} \,{\rm d}x=1$. Calculate the first five normalized eigenfunctions ($\phi_n$) and eigenvalues($\varepsilon_n$) up to tolerance of $10^{-4}$ in increasing order such that the first eigenvalue is the lowest one.</p>
+<ul>
+<li><p>Shooting method</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>=<span class="title">pdefunc</span><span class="params">(x,y,e)</span></span></span><br><span class="line"></span><br><span class="line">f1 = y(<span class="number">2</span>);</span><br><span class="line">f2 = (x^<span class="number">2</span>-e)*y(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">f = [f1;f2];</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">L=<span class="number">4</span>; dx=<span class="number">0.1</span>; e_start=<span class="number">0.5</span>; tol=<span class="number">10</span>^<span class="number">-4</span>;</span><br><span class="line"></span><br><span class="line">xspan = -L:dx:L;</span><br><span class="line">A = <span class="number">1</span>; <span class="comment">% suggest A=phi(-L)=phi(L)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> modes=<span class="number">1</span>:<span class="number">5</span></span><br><span class="line">    e = e_start;</span><br><span class="line">    de=<span class="number">0.01</span>;</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">1000</span></span><br><span class="line">        y0 = [A;A*<span class="built_in">sqrt</span>(L^<span class="number">2</span>-e)];</span><br><span class="line">        </span><br><span class="line">        [x,phi] = ode45( @(x,phi) pdefunc(x,phi,e), xspan ,y0);</span><br><span class="line">        </span><br><span class="line">        rightbc = phi(<span class="keyword">end</span>,<span class="number">2</span>)+<span class="built_in">sqrt</span>(L^<span class="number">2</span>-e)*phi(<span class="keyword">end</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(rightbc)&lt;tol</span><br><span class="line">            eigen_e(modes,<span class="number">1</span>)=e;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (<span class="number">-1</span>)^(<span class="number">1</span>+modes)*rightbc&gt;<span class="number">0</span></span><br><span class="line">            e = e+de;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            de = de/<span class="number">2</span>;</span><br><span class="line">            e = e-de;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    eigen_phi(:,modes) = phi(:,<span class="number">1</span>)/<span class="built_in">sqrt</span>(trapz(x,phi(:,<span class="number">1</span>).^<span class="number">2</span>));</span><br><span class="line">        e_start = e+<span class="number">0.2</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%eigen_phi,eigen_e are what we want</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Direct Method</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">L=<span class="number">4</span>; dx=<span class="number">0.1</span>; </span><br><span class="line">xspan = -L:dx:L;</span><br><span class="line"><span class="built_in">max</span> = <span class="built_in">length</span>(xspan)<span class="number">-2</span>;</span><br><span class="line">A = <span class="built_in">zeros</span>(<span class="built_in">max</span>,<span class="built_in">max</span>);</span><br><span class="line">phi_sort = <span class="built_in">zeros</span>(<span class="built_in">max</span>+<span class="number">2</span>,<span class="built_in">max</span>+<span class="number">2</span>);</span><br><span class="line"><span class="comment">% build up A matrix which doesn't consider phi(x1) and phi(xn). A is built</span></span><br><span class="line"><span class="comment">% based on 2nd order central difference. The first and last row don't</span></span><br><span class="line"><span class="comment">% consider x1 and xn, use FDF and BDF and approximation to make phi(x2) and</span></span><br><span class="line"><span class="comment">% phi(x3) express phi(x1); phi(xn-2) and phi(xn-1) express phi(xn).</span></span><br><span class="line">A(<span class="number">1</span>,<span class="number">1</span>:<span class="number">2</span>) = [<span class="number">2</span>/<span class="number">3</span>/dx^<span class="number">2</span>+xspan(<span class="number">2</span>)^<span class="number">2</span>,<span class="number">-2</span>/<span class="number">3</span>/dx^<span class="number">2</span>];</span><br><span class="line">A(<span class="keyword">end</span>,<span class="keyword">end</span><span class="number">-1</span>:<span class="keyword">end</span>) = [<span class="number">-2</span>/<span class="number">3</span>/dx^<span class="number">2</span>,<span class="number">2</span>/<span class="number">3</span>/dx^<span class="number">2</span>+xspan(<span class="keyword">end</span><span class="number">-1</span>)^<span class="number">2</span>];</span><br><span class="line"><span class="built_in">i</span> = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">i</span>&lt;<span class="built_in">max</span></span><br><span class="line">    A(<span class="built_in">i</span>,<span class="built_in">i</span><span class="number">-1</span>) = <span class="number">-1</span>/dx^<span class="number">2</span>;</span><br><span class="line">    A(<span class="built_in">i</span>,<span class="built_in">i</span>+<span class="number">1</span>) = <span class="number">-1</span>/dx^<span class="number">2</span>;</span><br><span class="line">    A(<span class="built_in">i</span>,<span class="built_in">i</span>) = <span class="number">2</span>/dx^<span class="number">2</span>+xspan(<span class="built_in">i</span>+<span class="number">1</span>)^<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">i</span>=<span class="built_in">i</span>+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">%phi function only contains [phi(2),phi(3),...phi(n-2),phi(n-1)]</span></span><br><span class="line">[phi,e]=eig(A);</span><br><span class="line"></span><br><span class="line"><span class="comment">%sort phi function based on ascending energy.</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">max</span></span><br><span class="line">    eng(<span class="built_in">i</span>,<span class="number">1</span>) = e(<span class="built_in">i</span>,<span class="built_in">i</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">[eng, Index_eng] = <span class="built_in">sort</span>(eng);</span><br><span class="line"></span><br><span class="line"><span class="comment">%only get the first five phi functions. </span></span><br><span class="line"><span class="comment">%phi(1)/phi(N) are calculated based on FDF/BDF method without approximation.</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> =<span class="number">1</span>:<span class="number">5</span></span><br><span class="line">    phi_sort(<span class="number">2</span>:<span class="keyword">end</span><span class="number">-1</span>,<span class="built_in">i</span>) = phi(:,Index_eng(<span class="built_in">i</span>));</span><br><span class="line">    phi_sort(<span class="number">1</span>,<span class="built_in">i</span>) = (<span class="number">4</span>*phi_sort(<span class="number">2</span>,<span class="built_in">i</span>)-phi_sort(<span class="number">3</span>,<span class="built_in">i</span>))/(<span class="number">3</span>+<span class="number">2</span>*dx*<span class="built_in">sqrt</span>(L^<span class="number">2</span>-eng(<span class="built_in">i</span>)));</span><br><span class="line">    phi_sort(<span class="keyword">end</span>,<span class="built_in">i</span>) = (<span class="number">4</span>*phi_sort(<span class="keyword">end</span><span class="number">-1</span>,<span class="built_in">i</span>)-phi_sort(<span class="keyword">end</span><span class="number">-2</span>,<span class="built_in">i</span>))/(<span class="number">3</span>+<span class="number">2</span>*dx*<span class="built_in">sqrt</span>(L^<span class="number">2</span>-eng(<span class="built_in">i</span>)));</span><br><span class="line">    phi_sort(:,<span class="built_in">i</span>) = phi_sort(:,<span class="built_in">i</span>)/<span class="built_in">sqrt</span>(trapz(xspan,phi_sort(:,<span class="built_in">i</span>).^<span class="number">2</span>));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%phi_sort,eng is the result</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Shooting for nonlinear cases</p>
+</li>
+</ul>
+<p>$$\frac{d^2\phi_n}{dx^2}-[\gamma |\phi_n|^2+Kx^2-\varepsilon_n]\phi_n=0$$\</p>
+<p>Still use $x\in [-L,L]$ with L=2 and choose xspan = -L:0.1:L. Find the first two normalized modes for  $\gamma=0.05$:</p>
+ <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">L=<span class="number">2</span>; dx=<span class="number">0.1</span>; e_start=<span class="number">0.5</span>; tol=<span class="number">10</span>^<span class="number">-4</span>; gama=<span class="number">0.05</span>; A_start=<span class="number">0.2</span>;</span><br><span class="line">xspan = -L:dx:L;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> modes=<span class="number">1</span>:<span class="number">2</span></span><br><span class="line">    e = e_start;</span><br><span class="line">    de=<span class="number">0.01</span>;</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:<span class="number">1000</span></span><br><span class="line">        A = A_start;</span><br><span class="line">        dA = <span class="number">0.1</span>;</span><br><span class="line">        <span class="keyword">for</span> a=<span class="number">1</span>:<span class="number">1000</span></span><br><span class="line">            y0 = [A;A*<span class="built_in">sqrt</span>(L^<span class="number">2</span>-e)];</span><br><span class="line">            </span><br><span class="line">            [x,phi] = ode45( @(x,phi) nolinpdefunc(x,phi,gama,e), xspan ,y0);</span><br><span class="line">         </span><br><span class="line">            AA = trapz(x,phi(:,<span class="number">1</span>).^<span class="number">2</span>);</span><br><span class="line">           </span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">abs</span>(AA<span class="number">-1</span>)&lt;tol</span><br><span class="line">                opt_A(modes,<span class="number">1</span>)=A;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">            <span class="keyword">if</span> AA&gt;<span class="number">1</span></span><br><span class="line">                A = A-dA;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                dA = dA/<span class="number">2</span>;</span><br><span class="line">                A = A+dA;</span><br><span class="line">            <span class="keyword">end</span>       </span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        </span><br><span class="line">        rightbc = phi(<span class="keyword">end</span>,<span class="number">2</span>)+<span class="built_in">sqrt</span>(L^<span class="number">2</span>-e)*phi(<span class="keyword">end</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(rightbc)&lt;tol</span><br><span class="line">            eigen_e(modes,<span class="number">1</span>)=e;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (<span class="number">-1</span>)^(<span class="number">1</span>+modes)*rightbc&gt;<span class="number">0</span></span><br><span class="line">            e = e+de;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            de = de/<span class="number">2</span>;</span><br><span class="line">            e = e-de;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    e_start = e+<span class="number">1</span>;</span><br><span class="line">    A_start = A+<span class="number">1</span>;</span><br><span class="line">    eigen_phi(:,modes) = phi(:,<span class="number">1</span>)/<span class="built_in">sqrt</span>(trapz(x,phi(:,<span class="number">1</span>).^<span class="number">2</span>));    </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h1 id="Partial-Differential-Equations"><a href="#Partial-Differential-Equations" class="headerlink" title="Partial Differential Equations"></a>Partial Differential Equations</h1><p>Solving PDE is harder than ODE, because we need to consider both initial conditions and boundary conditions, also need to solve both in time and in space. The classic PDE is vortivity-streamfunction equations and reaction-diffusion systems. We will go through these two systems to show how to slove PDE.</p>
+<h2 id="Finite-Scheme-Method-for-Vorticity-Streamfunction-Equations"><a href="#Finite-Scheme-Method-for-Vorticity-Streamfunction-Equations" class="headerlink" title="Finite Scheme Method for Vorticity-Streamfunction Equations"></a>Finite Scheme Method for Vorticity-Streamfunction Equations</h2><p>$$\omega_t+[\psi,\omega]=\mu\nabla^2\psi\quad \nabla^2\psi=\omega\\\\<br>where\; [\psi,\omega]=\psi_x\omega_y-\psi_y\omega_x \; and \; \nabla^2=\partial_x^2+\partial_y^2$$</p>
+<ul>
+<li><p>Steps:</p>
+<ol>
+<li>Elliptic Solve: given $\omega_0 \rightarrow$ compute $\psi_0$ by using $\nabla^2\psi=\omega$</li>
+<li>Time-Stepping: choose step $\Delta t$ compute $\omega ‘$ using $\omega_{k+1}=\omega_k+\Delta t\cdot f(\psi^k,\omega^k)$</li>
+<li>Iterate</li>
+</ol>
+</li>
+<li><p>Step 1: the elliptic problem<br>$$(\psi_{mn})_{xx}+(\psi_{mn})_{yy}=\omega_{mn}$$<br>By using CDF:<br>$$\frac{\psi_{m-1,n}-2\psi_{m,n}+\psi_{m+1,n}}{\Delta x^2}+\frac{\psi_{m,n-1}-2\psi_{m,n}+\psi_{m,n+1}}{\Delta y^2}=\omega_{m,n}\delta^2$$<br>If we set $\Delta x=\Delta y$, and reshape the matrix $\psi_{m,n}$ and $\omega_{m,n}$ (m=n)to vectors (the same thing as matlab fucntion <code>reshape(matrix,n^2,1)</code>), we can write the above equation into a matrix form:<br>$$A\overrightarrow \psi = \overrightarrow \omega $$<br>where $A=A’/\delta^2$, $A’=A_D+A_x+A_y$, $A_D=-4\psi_{m,n}$, $A_x=\psi_{m-1,n}+\psi_{m,n-1}$ and $A_y=\psi_{m,n-1}+\psi_{m,n+1}$</p>
+</li>
+<li><p><em>Matlab script</em></p>
+<p>  $A=\nabla^2$, $B=\partial_x$, $C=\partial_y$</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[A B C]</span> = <span class="title">derivmatrix</span><span class="params">(dx,dy,n)</span></span></span><br><span class="line"></span><br><span class="line">e1 = <span class="built_in">ones</span>(n^<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line"><span class="comment">%A = dx^2+dy^2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%A = (AD+AX+AY)/dx/dy; AD=-4y(m,n),AX=y(m-1,n)+y(m+1,n), AY=y(m,n-1)+y(m,n+1)</span></span><br><span class="line">AD = spdiags(<span class="number">-4</span>*e1,<span class="number">0</span>,n^<span class="number">2</span>,n^<span class="number">2</span>); </span><br><span class="line">AD(<span class="number">1</span>,<span class="number">1</span>)=<span class="number">2</span>;<span class="comment">%set the first element not -4 to avoid denominator too small</span></span><br><span class="line">AX = spdiags([e1 e1 e1 e1],[-(n<span class="number">-1</span>)*n -n n n*(n<span class="number">-1</span>)],n^<span class="number">2</span>,n^<span class="number">2</span>);</span><br><span class="line">AY = spdiags([e1 e1],[<span class="number">-1</span> <span class="number">1</span>],n^<span class="number">2</span>,n^<span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:n</span><br><span class="line">    AY(<span class="number">1</span>+n*(<span class="built_in">i</span><span class="number">-1</span>),n*<span class="built_in">i</span>) = <span class="number">1</span>;</span><br><span class="line">    AY(n*<span class="built_in">i</span>,<span class="number">1</span>+n*(<span class="built_in">i</span><span class="number">-1</span>)) = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">i</span>&lt;n</span><br><span class="line">        AY(n*<span class="built_in">i</span>,<span class="number">1</span>+n*<span class="built_in">i</span>) = <span class="number">0</span>;</span><br><span class="line">        AY(<span class="number">1</span>+n*<span class="built_in">i</span>,n*<span class="built_in">i</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">A = (AD+AX+AY)/(dx*dy);</span><br><span class="line"></span><br><span class="line"><span class="comment">%B = dx</span></span><br><span class="line"><span class="comment">%B = (y(m+1,n)-y(m-1,n))/(2*dx)</span></span><br><span class="line">B = spdiags([e1 -e1 e1 -e1],[-(n<span class="number">-1</span>)*n -n n n*(n<span class="number">-1</span>)],n^<span class="number">2</span>,n^<span class="number">2</span>)/(<span class="number">2</span>*dx);</span><br><span class="line"></span><br><span class="line"><span class="comment">%C = dy</span></span><br><span class="line"><span class="comment">%C = (y(m,n+1)-y(m,n-1))/(2*dy)</span></span><br><span class="line">C = spdiags([-e1 e1],[<span class="number">-1</span>,<span class="number">1</span>],n^<span class="number">2</span>,n^<span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:n</span><br><span class="line">    C(<span class="number">1</span>+n*(<span class="built_in">i</span><span class="number">-1</span>),n*<span class="built_in">i</span>) = <span class="number">-1</span>;</span><br><span class="line">    C(n*<span class="built_in">i</span>,<span class="number">1</span>+n*(<span class="built_in">i</span><span class="number">-1</span>)) = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">i</span>&lt;n</span><br><span class="line">        C(n*<span class="built_in">i</span>,<span class="number">1</span>+n*<span class="built_in">i</span>) = <span class="number">0</span>;</span><br><span class="line">        C(<span class="number">1</span>+n*<span class="built_in">i</span>,n*<span class="built_in">i</span>) = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">C = C/(<span class="number">2</span>*dy);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>then, we could use one of these two method to slove $\psi$</p>
+ <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">psi</span> = A\w;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[L,U,P] = lu(A);</span><br><span class="line">y = L\(P*w);</span><br><span class="line"><span class="built_in">psi</span> = U\y;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Step 2: Method Line</li>
+</ul>
+<p>$$<br>\nabla^2\psi(x,y)=f(x,y)\qquad+b.c.\\\\<br>u_t(t,x)=u_x(t,x)\quad+i.c.,b.c.\\\\<br>u_x(t,x)\approx\frac{u(x+\Delta x)-u(x-\Delta x)}{2\Delta x}<br>$$<br>We have to condiser the stability of this method. Choose $\lambda$ carefully to make sure it is stable and also will not run forever.<br>$$u_n^{(m)}=g^mexp(i\zeta\Delta x)\\\\<br>\lambda =\frac{\Delta t^{num-t-der}} {\Delta x^{num-x-der}}$$</p>
+<h2 id="Spectral-Method-for-Vorticity-Streamfunction-Equations"><a href="#Spectral-Method-for-Vorticity-Streamfunction-Equations" class="headerlink" title="Spectral Method for Vorticity-Streamfunction Equations"></a>Spectral Method for Vorticity-Streamfunction Equations</h2><p>expand u(x,t):</p>
+<p>$$u(x,t)=\sum_{k=1}^N a_k(t)\phi_k(x)\qquad$$<br> where $\phi_k(x)$are orthogonal<br>Using Fourier Series</p>
+<p>$$\widehat{u}(t)=u(k,t)=\sum_{n=1}^N u(n,t)e^{-i2\pi(k-1)(n-1)/N}\\\\\qquad\;u(n,t)=1/N\sum_{n=1}^N \widehat u(t)e^{i2\pi(k-1)(n-1)/N}$$<br>Derivative property:<br>$$\widehat u^{(m)}(x,t)=(ik)^{(m)}\widehat u(k,t)$$<br>PDE  Fourier Space<br>$$u_t=Lu+N(u) \Longrightarrow \widehat(u)_t=\alpha(k)\widehat u+\widehat N(u)$$<br>Here attached the script for solve VSE by the above two methods.</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear all; clf; close all; clc</span><br><span class="line">nu = <span class="number">0.001</span>;</span><br><span class="line">n=<span class="number">64</span>;</span><br><span class="line">L=<span class="number">10</span>;</span><br><span class="line">tspan = <span class="number">0</span>:<span class="number">0.5</span>:<span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">w1 = runvs(L,n,tspan,nu,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">w2 = runvs(L,n,tspan,nu,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">w3 = runvs(L,n,tspan,nu,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wfsol</span> = <span class="title">runvs</span><span class="params">(L,n,tspan,nu,choice)</span></span></span><br><span class="line"></span><br><span class="line">x2 = <span class="built_in">linspace</span>(-L/<span class="number">2</span>,L/<span class="number">2</span>,n+<span class="number">1</span>);</span><br><span class="line">x = x2(<span class="number">1</span>:n);</span><br><span class="line">dx = x(<span class="number">2</span>)-x(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">[X,Y] = <span class="built_in">meshgrid</span>(x);<span class="comment">%grid</span></span><br><span class="line">[A,B,C] = derivmatrix(dx,dx,n);<span class="comment">%apply to vector [64*64,1]</span></span><br><span class="line"></span><br><span class="line">wfinit = <span class="built_in">exp</span>(-X.^<span class="number">2</span>-Y.^<span class="number">2</span>/<span class="number">20</span>);<span class="comment">%grid</span></span><br><span class="line">wfinitvect = <span class="built_in">reshape</span>(wfinit,n^<span class="number">2</span>,<span class="number">1</span>);<span class="comment">%vector</span></span><br><span class="line"></span><br><span class="line">[t,wfsol] = ode45(@(t,wfvec) vortstream(t,wfvec,n,nu,A,B,C,choice,<span class="number">1</span>),tspan,wfinitvect);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> choice==<span class="number">3</span></span><br><span class="line">    kx = (<span class="number">2</span>*<span class="built_in">pi</span>/L)*[<span class="number">0</span>:(n/<span class="number">2</span><span class="number">-1</span>) (-n/<span class="number">2</span>):<span class="number">-1</span>];</span><br><span class="line">    kx(<span class="number">1</span>) = <span class="number">1e-6</span>;</span><br><span class="line"></span><br><span class="line">    [KX,KY]=<span class="built_in">meshgrid</span>(kx);</span><br><span class="line">    K = KX.^<span class="number">2</span>+KY.^<span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    [t,wfsol] = ode45(@(t,wfvec) vortstream(t,wfvec,n,nu,A,B,C,choice,K)tspan,wfinitvect);</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rhs</span> = <span class="title">vortstream</span><span class="params">(t,w,n,nu,A,B,C,choice,K)</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> choice==<span class="number">1</span></span><br><span class="line">    <span class="built_in">psi</span> = A\w;<span class="comment">%vector</span></span><br><span class="line"><span class="keyword">elseif</span> choice==<span class="number">2</span></span><br><span class="line">    [L,U,P] = lu(A);</span><br><span class="line">    y=L\(P*w);</span><br><span class="line">    <span class="built_in">psi</span> = U\y;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    wf = fft2(<span class="built_in">reshape</span>(w,n,n));</span><br><span class="line">    psif = -wf./K;</span><br><span class="line">    <span class="built_in">psi</span> = <span class="built_in">reshape</span>(<span class="built_in">real</span>(ifft2(psif)),n^<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">rhs = -(B*<span class="built_in">psi</span>).*(C*w)+(C*<span class="built_in">psi</span>).*(B*w)+nu*A*w;<span class="comment">%vector</span></span><br></pre></td></tr></table></figure>
+<h2 id="Chebishev-Polynomials"><a href="#Chebishev-Polynomials" class="headerlink" title="Chebishev Polynomials"></a>Chebishev Polynomials</h2><p>$$\phi_k(x)=T_k(x)\quad T_k(cos\theta)=cosk\theta$$<br>Matlab Script:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[D,x]</span> = <span class="title">cheb</span><span class="params">(N)</span></span></span><br><span class="line">  <span class="keyword">if</span> N==<span class="number">0</span>, D=<span class="number">0</span>; x=<span class="number">1</span>; <span class="keyword">return</span>, <span class="keyword">end</span></span><br><span class="line">  x = <span class="built_in">cos</span>(<span class="built_in">pi</span>*(<span class="number">0</span>:N)/N)'; </span><br><span class="line">  c = [<span class="number">2</span>; <span class="built_in">ones</span>(N<span class="number">-1</span>,<span class="number">1</span>); <span class="number">2</span>].*(<span class="number">-1</span>).^(<span class="number">0</span>:N)';</span><br><span class="line">  X = <span class="built_in">repmat</span>(x,<span class="number">1</span>,N+<span class="number">1</span>);</span><br><span class="line">  dX = X-X';                  </span><br><span class="line">  D  = (c*(<span class="number">1.</span>/c)')./(dX+(<span class="built_in">eye</span>(N+<span class="number">1</span>)));      <span class="comment">% off-diagonal entries</span></span><br><span class="line">  D  = D - <span class="built_in">diag</span>(sum(D'));                 <span class="comment">% diagonal entries</span></span><br></pre></td></tr></table></figure>
+<p>Solve reaction-diffusion system with both spectral and cheb methods<br>$$U_t=\lambda(A)U-\omega (A)V+D_1\nabla^2U\\\\V_t=\omega (a)U+\lambda(A)V+D_2\nabla^2V$$<br>where $A^2=U^2+V^2$ and $\nabla^2=\partial_x^2+\partial_y^2$. Consider $\lambda(A)=1-A^2$ and $\omega(A)=-\beta A^2$</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear all; close all; clc</span><br><span class="line">L=<span class="number">20</span>;n=<span class="number">64</span>;<span class="built_in">beta</span>=<span class="number">1</span>;d1=<span class="number">0.1</span>;d2=d1;m=<span class="number">1</span>;</span><br><span class="line">tspan=<span class="number">0</span>:<span class="number">0.5</span>:<span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">uv1 = runrds_fft(tspan,L,n,<span class="built_in">beta</span>,d1,d2,m);</span><br><span class="line">A1 = <span class="built_in">real</span>(uv1);</span><br><span class="line">A2 = <span class="built_in">imag</span>(uv1);</span><br><span class="line"></span><br><span class="line">n=<span class="number">31</span>;</span><br><span class="line">uv2 = runrds_cheb(tspan,L,n,<span class="built_in">beta</span>,d1,d2,m);</span><br><span class="line">A3 = uv2;</span><br></pre></td></tr></table></figure>
+<p>we consider $x,y \in[-10,10]$, n=64, $\beta =1$, $D_1=D_2=0.1$, m=1, tspan=0:0.5:4 and $u_f$ stacked on top of $v_f$.<br>The following is FFT(spectral) method:</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xfsol</span> = <span class="title">runrds_fft</span><span class="params">(tspan,L,n,beta,d1,d2,m)</span></span></span><br><span class="line"></span><br><span class="line">x2 = <span class="built_in">linspace</span>(-L/<span class="number">2</span>,L/<span class="number">2</span>,n+<span class="number">1</span>);</span><br><span class="line">x = x2(<span class="number">1</span>:n);</span><br><span class="line">y=x;</span><br><span class="line"></span><br><span class="line">kx = (<span class="number">2</span>*<span class="built_in">pi</span>/L)*[<span class="number">0</span>:(n/<span class="number">2</span><span class="number">-1</span>) (-n/<span class="number">2</span>):<span class="number">-1</span>];</span><br><span class="line">kx(<span class="number">1</span>) = <span class="number">1e-6</span>;</span><br><span class="line">ky=kx;</span><br><span class="line"></span><br><span class="line">[X,Y]=<span class="built_in">meshgrid</span>(x,y);</span><br><span class="line">[KX,KY]=<span class="built_in">meshgrid</span>(kx,ky);</span><br><span class="line">K = KX.^<span class="number">2</span>+KY.^<span class="number">2</span>;</span><br><span class="line">Kvec = <span class="built_in">reshape</span>(K,n^<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">uint = <span class="built_in">tanh</span>(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)).*<span class="built_in">cos</span>(m*<span class="built_in">angle</span>(X+<span class="built_in">i</span>*Y)-(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)));<span class="comment">%grid</span></span><br><span class="line">vint = <span class="built_in">tanh</span>(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)).*<span class="built_in">sin</span>(m*<span class="built_in">angle</span>(X+<span class="built_in">i</span>*Y)-(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)));</span><br><span class="line">ufint = fft2(uint);</span><br><span class="line">vfint = fft2(vint);</span><br><span class="line">ufvecint = <span class="built_in">reshape</span>(ufint,n^<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">vfvecint = <span class="built_in">reshape</span>(vfint,n^<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">xfvecint = [ufvecint;vfvecint];</span><br><span class="line"></span><br><span class="line">[t,xfsol] = ode45(@(t,xfvec) rds_fft(t,xfvec,<span class="built_in">beta</span>,Kvec,n,d1,d2),tspan,xfvecint);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rhs</span> = <span class="title">rds_fft</span><span class="params">(t,xfvec,beta,Kvec,n,d1,d2)</span></span></span><br><span class="line"></span><br><span class="line">ufvec = xfvec(<span class="number">1</span>:n^<span class="number">2</span>);</span><br><span class="line">vfvec = xfvec(n^<span class="number">2</span>+<span class="number">1</span>:<span class="keyword">end</span>);</span><br><span class="line"></span><br><span class="line">u = <span class="built_in">real</span>(ifft2(<span class="built_in">reshape</span>(ufvec,n,n)));</span><br><span class="line">v = <span class="built_in">real</span>(ifft2(<span class="built_in">reshape</span>(vfvec,n,n)));</span><br><span class="line">A = u.^<span class="number">2</span>+v.^<span class="number">2</span>;</span><br><span class="line">l = <span class="number">1</span>-A;</span><br><span class="line">w = -<span class="built_in">beta</span>*A;</span><br><span class="line"></span><br><span class="line">uft = <span class="built_in">reshape</span>(fft2(l.*u-w.*v),n^<span class="number">2</span>,<span class="number">1</span>)-d1*Kvec.*ufvec;</span><br><span class="line">vft = <span class="built_in">reshape</span>(fft2(w.*u+l.*v),n^<span class="number">2</span>,<span class="number">1</span>)-d2*Kvec.*vfvec;</span><br><span class="line"></span><br><span class="line">rhs = [uft;vft];</span><br></pre></td></tr></table></figure>
+<p>The following is cheb method with n=30 and m=1</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">xsolvec</span> = <span class="title">runrds_cheb</span><span class="params">(tspan,L,n,beta,d1,d2,m)</span></span></span><br><span class="line"></span><br><span class="line">[D,x2] = cheb(n<span class="number">-1</span>);</span><br><span class="line">D2= D^<span class="number">2</span>;</span><br><span class="line">D2(<span class="number">1</span>,:) = <span class="built_in">zeros</span>(<span class="number">1</span>,n);</span><br><span class="line">D2(n,:) = <span class="built_in">zeros</span>(<span class="number">1</span>,n);<span class="comment">%boundary should be 0</span></span><br><span class="line">I = <span class="built_in">eye</span>(<span class="built_in">length</span>(D2));</span><br><span class="line">Lap = kron(D2,I)+kron(I,D2);</span><br><span class="line"></span><br><span class="line">x = x2*L/<span class="number">2</span>;</span><br><span class="line">[X,Y]=<span class="built_in">meshgrid</span>(x);</span><br><span class="line"></span><br><span class="line">uinit = <span class="built_in">tanh</span>(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)).*<span class="built_in">cos</span>(m*<span class="built_in">angle</span>(X+<span class="built_in">i</span>*Y)-(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)));<span class="comment">%grid</span></span><br><span class="line">vinit = <span class="built_in">tanh</span>(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)).*<span class="built_in">sin</span>(m*<span class="built_in">angle</span>(X+<span class="built_in">i</span>*Y)-(<span class="built_in">sqrt</span>(X.^<span class="number">2</span>+Y.^<span class="number">2</span>)));</span><br><span class="line"></span><br><span class="line">uvecinit = <span class="built_in">reshape</span>(uinit,n^<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">vvecinit = <span class="built_in">reshape</span>(vinit,n^<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">xvecinit = [uvecinit;vvecinit];</span><br><span class="line"></span><br><span class="line">[t,xsolvec] =ode45(@(t,xvec) rds_cheb(t,L,xvec,<span class="built_in">beta</span>,Lap,n,d1,d2),tspan,xvecinit);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rhs</span> = <span class="title">rds_cheb</span><span class="params">(t,L,xvec,beta,Lap,n,d1,d2)</span></span></span><br><span class="line"></span><br><span class="line">uvec = xvec(<span class="number">1</span>:n^<span class="number">2</span>);</span><br><span class="line">vvec = xvec(n^<span class="number">2</span>+<span class="number">1</span>:<span class="keyword">end</span>);</span><br><span class="line"></span><br><span class="line">Avec = uvec.^<span class="number">2</span>+vvec.^<span class="number">2</span>;</span><br><span class="line">lvec = <span class="number">1</span>-Avec;</span><br><span class="line">wvec = -<span class="built_in">beta</span>*Avec;</span><br><span class="line"></span><br><span class="line">ut = lvec.*uvec-wvec.*vvec+d1*<span class="number">4</span>/L^<span class="number">2</span>*Lap*uvec;</span><br><span class="line">vt = wvec.*uvec+lvec.*vvec+d2*<span class="number">4</span>/L^<span class="number">2</span>*Lap*vvec;</span><br><span class="line"></span><br><span class="line">rhs = [ut;vt];</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AMATH/" rel="tag"># AMATH</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/31/Hyak-Tips/" rel="next" title="Hyak Tips">
+                <i class="fa fa-chevron-left"></i> Hyak Tips
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/02/OligoNucleotide-Papers/" rel="prev" title="OligoNucleotide Papers">
+                OligoNucleotide Papers <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="Yue Liu">
+            
+              <p class="site-author-name" itemprop="name">Yue Liu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Initial-Value-Problem"><span class="nav-text">Initial Value Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-Euler-Method"><span class="nav-text">Forward Euler Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Improved-from-Euler-Method"><span class="nav-text">Improved from Euler Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heun’s"><span class="nav-text">Heun’s</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RK2"><span class="nav-text">RK2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#In-general"><span class="nav-text">In general</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RK4"><span class="nav-text">RK4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-and-Error-Analysis"><span class="nav-text">Summary and Error Analysis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backward-Euler-Method"><span class="nav-text">Backward Euler Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MultiStep-Method"><span class="nav-text">MultiStep Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matlab-for-ODE45"><span class="nav-text">Matlab for ODE45</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Boundary-Value-Problem"><span class="nav-text">Boundary Value Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shooting-Method"><span class="nav-text">Shooting Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Direct-Linear-BVP"><span class="nav-text">Direct-Linear BVP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Newton-Raphson-Method"><span class="nav-text">Newton-Raphson Method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quantum-Harmonic-Oscillation"><span class="nav-text">Quantum Harmonic Oscillation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Partial-Differential-Equations"><span class="nav-text">Partial Differential Equations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Finite-Scheme-Method-for-Vorticity-Streamfunction-Equations"><span class="nav-text">Finite Scheme Method for Vorticity-Streamfunction Equations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spectral-Method-for-Vorticity-Streamfunction-Equations"><span class="nav-text">Spectral Method for Vorticity-Streamfunction Equations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chebishev-Polynomials"><span class="nav-text">Chebishev Polynomials</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

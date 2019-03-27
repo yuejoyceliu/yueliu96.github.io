@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ComputChem,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Reference Jensen, F., 2017. Introduction to computational chemistry. John wiley &amp;amp; sons. A Z-matrix is a conventient way of specifying a molecular geometry in terms of internal coordinates, and it">
+<meta name="keywords" content="ComputChem">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction to Computational Chemistry">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/Introduction-to-Computational-Chemistry/index.html">
+<meta property="og:site_name" content="Yue Liu&#39;s Blog">
+<meta property="og:description" content="Reference Jensen, F., 2017. Introduction to computational chemistry. John wiley &amp;amp; sons. A Z-matrix is a conventient way of specifying a molecular geometry in terms of internal coordinates, and it">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-27T07:01:09.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Introduction to Computational Chemistry">
+<meta name="twitter:description" content="Reference Jensen, F., 2017. Introduction to computational chemistry. John wiley &amp;amp; sons. A Z-matrix is a conventient way of specifying a molecular geometry in terms of internal coordinates, and it">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/Introduction-to-Computational-Chemistry/">
+
+
+
+
+
+  <title>Introduction to Computational Chemistry | Yue Liu's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yue Liu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/Introduction-to-Computational-Chemistry/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yue Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yue Liu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Introduction to Computational Chemistry</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-09T21:24:33-08:00">
+                2019-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>Reference</strong> Jensen, F., 2017. Introduction to computational chemistry. John wiley &amp; sons.</p>
+<p>A Z-matrix is a conventient way of specifying a molecular geometry in terms of internal coordinates, and it is used by many electronic structure programs. Futhermore, geometry optimizations are often performed in Z-matirx variables, and since optimizations in a good set of internal coordinates are significantly faster than in Cartesian coordinates.</p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><p>Given a set of nuclei and electrons, theoretical chemistry can attempt to calculate things such as:</p>
+<ol>
+<li>The geometrical arrangements of the nuclei that correspond to stable molecules.</li>
+<li>Their relative energies.</li>
+<li>Their properties (dipole moment, polarizability, NMR coupling constants etc.).</li>
+<li>The rate by which one stable molecule can transform into another</li>
+<li>The time dependence of molecular structures and properties.</li>
+</ol>
+<p>One of the main problems in computational chemistry is selecting a suitable level of theory for a given problem, and being able to evaluating the quality of the obtained results.</p>
+<h2 id="1-1-Background"><a href="#1-1-Background" class="headerlink" title="1.1 Background"></a>1.1 Background</h2><p><strong>Chemistry is knowing the energy as a function of the nuclear coordinates.</strong></p>
+<p><strong>Properties are knowing how the energy changes upon adding a perturbation.</strong> The link between the properties of a single molecule, or a small collection of molecules, and the macroscopic observable, is statistical mechanics. Macroscopic properties, such as temperature, heat capacities, entropies etc., are the net effect of a very large number of molecules having a certain distribution of energies.</p>
+<p>$$<br>\begin{aligned}<br>\mathbf H_{tot}\Psi_{tot}(\mathbf R, \mathbf r) &amp;= E_{tot}\Psi_{tot}(\mathbf R, \mathbf r) \\<br>\mathbf H_{tot} &amp;= \mathbf H_e +\mathbf T_n \\<br>\mathbf H_{et} &amp;= \mathbf T_e + \mathbf V_{ne} +\mathbf V_{ee} + \mathbf V_{nn} \\<br>\Psi_{tot}(\mathbf R,\mathbf r) &amp;= \Psi_n(\mathbf R) \Psi_e (\mathbf R, \mathbf r) \\<br>\mathbf H_e \Psi_e(\mathbf R, \mathbf r) &amp;= E_e(\mathbf R) \Psi_e (\mathbf R, \mathbf r) \\<br>(\mathbf T_n + E_e(\mathbf R)) \Psi_n(\mathbf R) &amp;= E_{tot}\Psi_n(\mathbf R) \\<br>\end{aligned}<br>$$</p>
+<p><strong>Born-Openheimer (BO) approxiamtion</strong>: The Schrodinger equation can be separated into one part which describes the electronic wavefunction for a fixed nuclear geometry, and another part which describes the nuclear wavefunction. where the energy from the electronic wave function plays the role of potential energy. The electronic wave function depends parametrically on the nuclear coordinates. The picture is that the nuclei move on <strong>Potential Energy Surface (PES)</strong>, which are solutions to the electronic Schrodinger equation. (nuclei: R, n; electrons: r, e). The interesting parts of a PES are usually nuclear arrangements which have low energies. For example, nuclear movements near a minimum on the PES, which corresponds to a stable molecule, are molecular vibtrations. Chemical reactions correspond to large movements, and may in the simplest approximation be described by locating the lowest energy path leading from one minimum on the PES to another.</p>
+<p>Electrons are very light particles and cannot be described by classical mechanics, while neclei are heavy enough for neglecting quantum effects. If nuclei showed significant quantum aspects, the concept of molecular strucutre would not have any meaning, the nuclei would simply tunnel through barriers and end up in the global minimum. Furthermore, it would not be possible to speak of a molecular geometry, since the Heisenberg uncertainty principle would not permit a measure of nuclear positions to an accuracy much smaller than the molecular dimension.</p>
+<h1 id="2-Force-Field-Methods"><a href="#2-Force-Field-Methods" class="headerlink" title="2. Force Field Methods"></a>2. Force Field Methods</h1><h2 id="2-1-Introduction"><a href="#2-1-Introduction" class="headerlink" title="2.1 Introduction"></a>2.1 Introduction</h2><p>In <em>Force Field</em> (FF) or <em>Molecular Mechanics</em> (MM) methods, electronic structrue calculations are achieved by writing $E_e$ as a parametric function of nuclear coordinates, and molecules are modelled as atoms held together by bonds. Atoms have different sizes and “softness” and bonds are more or less “stiff”. i.e. the molecule is described by a “ball and spring” model. The foundation of FF methods is the observation that molecules tend to be composed of units which are structurally similiar in different molecules. The picture of molecules being composed of structural units, “functional groups”, which behave similiarly in different molecules forms the very basis of organic chemistry.</p>
+<h2 id="2-2-The-Force-Field-Energy"><a href="#2-2-The-Force-Field-Energy" class="headerlink" title="2.2 The Force Field Energy"></a>2.2 The Force Field Energy</h2><p>$$E_{FF}=E_{str}+E_{bend}+E_{tors}+E_{vdw}+E_{el}+E_{cross}$$</p>
+<h3 id="2-2-1-The-stretch-Energy"><a href="#2-2-1-The-stretch-Energy" class="headerlink" title="2.2.1 The stretch Energy"></a>2.2.1 The stretch Energy</h3><p>$E_{str}$ is the energy function for stretching a bond between two atom types A and B. Its simples form is written as a Taylor expansion around a “natural”, or “equilibrium”, bond length $R_0$. ($\Delta R = R^{AB}-R_0^{AB}$)</p>
+<p>$$E_{str}(\Delta R)=E(0)+k_2(\Delta R)^2 +k_3(\Delta R)^3+k_4(\Delta R)^4+\cdots$$</p>
+<ul>
+<li>E(0)=0: zero point for the energy scale</li>
+<li>terminated at 2nd order: harmonic form</li>
+<li>terminated at 3rd order: $k_3&lt;0, E\rightarrow -\infty$ for long bond lengths</li>
+<li>terminated at 4th order: $k_4&gt;0, E\rightarrow +\infty$ for long bond lengths</li>
+<li>Morse potential satisfies the energy converges towards the dissociation energy for a large bond length, but it converges slowly for lond bond lengths.</li>
+</ul>
+<p>$$E_{Morse}(\Delta R)=D[1-e^{\alpha \Delta R}]^2$$</p>
+<p>For the large majority of systems, including simulations, the only important chemical region is up to ~10 kcal/mol above the bottom of the PES curve. In this reghion, a 4th order polynomial is essentially indistinguishable form a Morse, and even a simple harminic approximation does a quite good job.</p>
+<p>The $R_0$ isn’t equilibrium bond lenght for any molecule! The other terms of a polyatomic molecule in FF energy will usually produce a minimum energy structure with bond lengths slightly longer than $R_0$. Essentially all molecules have bond lengths which devieate very little from their “natural” values, typically less than 0.003nm. For this reason, a simple harmonic, or possibly a cubic expansion, is usually sufficient for reproducing experimental geomertries.</p>
+<h3 id="2-2-2-The-Bending-Energy"><a href="#2-2-2-The-Bending-Energy" class="headerlink" title="2.2.2 The Bending Energy"></a>2.2.2 The Bending Energy</h3><p>$E_{bend}$ is the energy required for bending an angle formed by three atoms A-B-C. Since chemically important region is below ~10 kcal/mole above the bottom, and the energy coset for bending is so large that most molecules only deviate a few degrees from their natural bond angles, the harmonic term is adequate for most applications. Special atom types are often defined for small rings.</p>
+<h3 id="2-2-3-The-Out-of-plane-Bending-Energy"><a href="#2-2-3-The-Out-of-plane-Bending-Energy" class="headerlink" title="2.2.3 The Out-of-plane Bending Energy"></a>2.2.3 The Out-of-plane Bending Energy</h3><p>The in-plane angle deformations for a planar structure become unrealistically stiff, so a special <em>out-of-plane energy bend term</em> ($E_{oop}$ or $E_{inv}$) is usually added to increase in inversion barrier in $sp^3$-hybridized atoms (i.e. an extra energy penalty for being planar). Inversion barriers are in most cases (e,g, $NR_3$) adequately modelled without an explicit $E_{inv}$ term, the barrier arising naturally from the increase in bond angles upon inversion and improper torsinal energy.</p>
+<h3 id="2-2-4-The-Torsional-Energy"><a href="#2-2-4-The-Torsional-Energy" class="headerlink" title="2.2.4 The Torsional Energy"></a>2.2.4 The Torsional Energy</h3><p>$E_{tors}$ is the energy change associated with rotation around a B-C bond in a four atom sequency A-B-C-D. Differing from $E_{str}$ and $E_{bend}$, $E_{tors}$ is periodic in angle $\omega$, and the cost in energy for distorting a molecule by rotation around a bond is often low.</p>
+<p>$$E_{tors}(\omega)=\sum_{n=1}V_n cos(n\omega)$$</p>
+<p>Molecules that are composed of atoms having a maximum valency of 4 are with a few exceptions found to have rotational profiles showing at most three minima. The first three terms are sufficient for qualitatively reproducing such profiles. FF methods which are aimed at large systems often limit the Fourie series to only one term, depending on the bond type (e.g. single bonds only have $cos(3\omega)$ and double bonds only have $cos(2\omega)$). Exceptions from the regular three minima rotational profile around single bonds are caused by repulsive and attractive van der Waals interactions, and can still be modeled by having only terms up to $cos(3\omega)$ in the torsional energy expression. Cases where higher-order terms probably are necessary are those with ratation around bonds to octaheral coordinated metals (Ru(pyridine)$_6$), or a dinuclear complex ($Cl_4Mo-MoCl_4$).</p>
+<h3 id="2-2-5-The-van-der-Waals-Energy"><a href="#2-2-5-The-van-der-Waals-Energy" class="headerlink" title="2.2.5 The van der Waals Energy"></a>2.2.5 The van der Waals Energy</h3><p>$E_{vdw}$ is the van der Waals energy decribing the repulsion or attraction between atoms that are not directly bonded. $E_vdw$ is very positive at small distances (electron replusion), has a minimum which is slightly negative at a distance corresponding to the two atoms just “touching” each other (electron correlation: dipole-dipole interaction and London force), and goes towards zero as the distance becomes large. Lennard-Jones potential, computationally more efficient, gives results comparable to the more accurate functions, even if its repulsive interaction is bad.</p>
+<p>$$E_{LJ} (R)=\varepsilon [(\frac{R_0}{r})^{12}-2(\frac{R_0}{R})^6]$$</p>
+<p>Shortcomings:</p>
+<ul>
+<li>$E_{vdw}$ is calculated between pairs of atoms, but it includes many-body contributions in real systems</li>
+<li>atoms are treated as spheres. two exceptions:<ul>
+<li>H-X: electron distirbution around the hydrogen nucleus is not spherical (more spherical for increasing electron numbers), rather the electron distribution is displaced towards the other atom and it affects H’s elecgron density a lot (e.g. oxygen or nitrogen leads to a smaller effective van der Waals radius for the hydrogen, than if it is bonded to carbon.)</li>
+<li>atoms have lone pairs, like O and N: these electrons are more diffuse than the electrons invovled in bonding, and the atoms is ths “larger” in the lond pair direction.</li>
+<li>H bonds require special attention: such bond strength 2-5 kcal/mol, while normal single bonds are 60-110kcal/mol and van der Waals interaction are 0.1-0.2 kcal/mol.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-6-The-Electrostatic-Energy"><a href="#2-2-6-The-Electrostatic-Energy" class="headerlink" title="2.2.6 The Electrostatic Energy"></a>2.2.6 The Electrostatic Energy</h3><p>The other part of the non-bonded interaction is due to internal distributon of the electrons, creating positive and negative parts of the molecule. This may be modelled by assiging charges to each atom, or the assigning a bond dipole moment to the bond. Two methods give similiar, but not identical results. </p>
+<p>“Many-body” effects, similiar to VDW, can be modelled by including an atom polarization, but often neglect due to computational time. Another question is how far apart should two atoms be before a non-bonded energy term contributes to $E_{FF}$? It is clear that two atoms directly bonded should not have an $E_{vdw}$<br>or $E_{el}$ term; their interaction is described by $E_{str}$. Most modern force fields calculate $E_{str}$ between all atoms pairs which are 1,2 with respect to each other in terms of bonding, $E_{bend}$ for all pairs which are 1,3, $E_{tors}$ between all pairs which are 1,4, and $E_{vdw}/E_{el}$ between all pairs which are 1,4 or higher.</p>
+<h3 id="2-2-7-Cross-Term"><a href="#2-2-7-Cross-Term" class="headerlink" title="2.2.7 Cross Term"></a>2.2.7 Cross Term</h3><p>The first five terms are common to all force fields. This term covers coupling between these fundamental, or diagonal terms, (e.g. a term depends on both bond length and angle). It should be noted that some types of cross terms are unstable if the geometry is far from equilibrium.</p>
+<h3 id="2-2-8-Small-Rings-and-Conjugated-Systems"><a href="#2-2-8-Small-Rings-and-Conjugated-Systems" class="headerlink" title="2.2.8 Small Rings and Conjugated Systems"></a>2.2.8 Small Rings and Conjugated Systems</h3><p><strong>Small Rings</strong>: If a sufficient number of cross terms is included, however, the necessary number of atom types can be actually reduced, i.e. the cross terms modify the diagonal terms so that a more realistic behaviour is obtained for large deviations from the nature value.</p>
+<p><strong>Conjugated System</strong>: e.g. according to the MM2 type convention, all carbond atoms of 1,3-butadiene are of the same type. But the outer C-C bond is slightly reduced in double bond character while the central bond is roughly halfway between a single and a double bond. Also, the rotational barrier for the central bond is calculated to be ~55kcal/mol, while only ~6kcal/mol in experiment. Two approaches to deal with this case, one is to identify certain bonding combinations and use special parameters for these cases; the other is to perform a simple electronic structure calculation to determine the degree of delocalization within the $\pi$-system. The main problem of the first method is there are so many such special cases, while the other method is compuational expensive and requires additional iteration.</p>
+<p>The natural bond length varies between 1.503 $\text{\AA}$ and 1.337 $\text{\AA}$ for bond orders between 0 and 1, these are values for pure single and double bonds between two $sp^2$-carbons. The rotational barrier for an isolated double bond is 60kcal/mol.</p>
+<h3 id="2-2-9-Comparing-Energies-of-Structurally-Different-Molecules"><a href="#2-2-9-Comparing-Energies-of-Structurally-Different-Molecules" class="headerlink" title="2.2.9 Comparing Energies of Structurally Different Molecules"></a>2.2.9 Comparing Energies of Structurally Different Molecules</h3><p>The zero point of the energy in each term has so far been choosen for convenience. The force field energy, $E_{FF}$, is often called the <em>steric energy</em> as in some sense it is the excess energy relative to a hypothetical molecule with non-interacting fragments. This is inconsequential for comparing energies of different conformations of the same molecule, i.e. where the atom types and bonding are the same.</p>
+<p>$$\Delta H_f = E_{FF} + \sum^{bonds} \Delta H_{AB} + \sum^{groups} \Delta H_G$$</p>
+<p>To convert the steric energy to heat of formation, terms can be added depending on the number and types of bond present in the molecule. Since correctrions from larger moities are small, it follows that energy differences between systems having the same groups can be calculated directly from differences in steric energy.</p>
+<h2 id="2-3-Force-Field-Parameterization"><a href="#2-3-Force-Field-Parameterization" class="headerlink" title="2.3 Force Field Parameterization"></a>2.3 Force Field Parameterization</h2><p>Inherent contradiction in designing highly accurate force fields:</p>
+<ul>
+<li>problem1: need numerous experimental data</li>
+<li>solution1: rely on data from electronic structure calculations to derive force field parameters $\rightarrow$ the electrostatic interaction may be assigned on the basis of fitting parameters to the electrostatic potential derived from an electronic wave function</li>
+<li>problem2: van der Waals interactions are difficult to calculate reliably by electronic structure methods, requiring a combination of electron correlation and very large basis sets</li>
+<li>solution2: VDW parameters $\leftarrow$ experimental data for either the solid or liquid state</li>
+<li>problem3: since the parameterization implicitly takes many-body effects into account, the parameters are not unique</li>
+</ul>
+<ol>
+<li><p>functional form of FF</p>
+<p> In  MM2(91), fewer parameters are used than estimated ones: two routes for insufficient parameters:</p>
+<ol>
+<li>estimate the missing parameters by comparison to force field parameters for similiar systems</li>
+<li>use external information, experimental or electronic structure calculations</li>
+</ol>
+</li>
+<li><p>how to assign weights for reference data?</p>
+</li>
+<li>error function $\rightarrow$ find the global minimum?</li>
+</ol>
+<p>$$ErrF(parameter)=\sum_{data}weight \cdot (reference value-calculated value)^2$$</p>
+<h3 id="2-3-1-Parameter-Reduction-in-Force-Fields"><a href="#2-3-1-Parameter-Reduction-in-Force-Fields" class="headerlink" title="2.3.1 Parameter Reduction in Force Fields"></a>2.3.1 Parameter Reduction in Force Fields</h3><p>achieve by reducing the dependence on atom types. The quality of force field parameters is essential for judging how much faith can be put in the results.</p>
+<h3 id="2-3-2-Force-Fields-for-Metal-Coordination-Compounds"><a href="#2-3-2-Force-Fields-for-Metal-Coordination-Compounds" class="headerlink" title="2.3.2 Force Fields for Metal Coordination Compounds"></a>2.3.2 Force Fields for Metal Coordination Compounds</h3><p>The increased number of ligands combined with the multitude of possible geometries significantly increases the problems of assigning suitable functional forms for each of the energy term.</p>
+<ol>
+<li>the energy cost for a geometrical distortion (bond stretching and bending) is usually much smaller around a metal atom than for a carbon atom: coordination compounds are much more dynamics and the distance of a given metal-ligand bond is often sensitive to the nature of the other ligand.</li>
+<li>lack of well-defined bonds.</li>
+</ol>
+<h3 id="2-3-3-Universal-Force-Fields"><a href="#2-3-3-Universal-Force-Fields" class="headerlink" title="2.3.3 Universal Force Fields"></a>2.3.3 Universal Force Fields</h3><p>a method with reduced parameters sets: can calcualte geometries correctly, but conformational energies are quire poor.</p>
+<h2 id="2-4-Differences-in-Force-Fields"><a href="#2-4-Differences-in-Force-Fields" class="headerlink" title="2.4 Differences in Force Fields"></a>2.4 Differences in Force Fields</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ComputChem/" rel="tag"># ComputChem</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/04/MS-Reading-in-March/" rel="next" title="MS Reading in March">
+                <i class="fa fa-chevron-left"></i> MS Reading in March
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="Yue Liu">
+            
+              <p class="site-author-name" itemprop="name">Yue Liu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Introduction"><span class="nav-text">1. Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Background"><span class="nav-text">1.1 Background</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Force-Field-Methods"><span class="nav-text">2. Force Field Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Introduction"><span class="nav-text">2.1 Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-The-Force-Field-Energy"><span class="nav-text">2.2 The Force Field Energy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-The-stretch-Energy"><span class="nav-text">2.2.1 The stretch Energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-The-Bending-Energy"><span class="nav-text">2.2.2 The Bending Energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-The-Out-of-plane-Bending-Energy"><span class="nav-text">2.2.3 The Out-of-plane Bending Energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-The-Torsional-Energy"><span class="nav-text">2.2.4 The Torsional Energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-The-van-der-Waals-Energy"><span class="nav-text">2.2.5 The van der Waals Energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-6-The-Electrostatic-Energy"><span class="nav-text">2.2.6 The Electrostatic Energy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-7-Cross-Term"><span class="nav-text">2.2.7 Cross Term</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-8-Small-Rings-and-Conjugated-Systems"><span class="nav-text">2.2.8 Small Rings and Conjugated Systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-9-Comparing-Energies-of-Structurally-Different-Molecules"><span class="nav-text">2.2.9 Comparing Energies of Structurally Different Molecules</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Force-Field-Parameterization"><span class="nav-text">2.3 Force Field Parameterization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-Parameter-Reduction-in-Force-Fields"><span class="nav-text">2.3.1 Parameter Reduction in Force Fields</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-Force-Fields-for-Metal-Coordination-Compounds"><span class="nav-text">2.3.2 Force Fields for Metal Coordination Compounds</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-Universal-Force-Fields"><span class="nav-text">2.3.3 Universal Force Fields</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-Differences-in-Force-Fields"><span class="nav-text">2.4 Differences in Force Fields</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
