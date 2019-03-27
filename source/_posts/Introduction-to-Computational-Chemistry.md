@@ -31,12 +31,12 @@ One of the main problems in computational chemistry is selecting a suitable leve
 
 $$
 \begin{aligned}
-\mathbf H_{tot}\Psi_{tot}(\vec R, \vec r) &= E_{tot}\Psi_{tot}(\vec R, \vec r) \\
+\mathbf H_{tot}\Psi_{tot}(\mathbf R, \mathbf r) &= E_{tot}\Psi_{tot}(\mathbf R, \mathbf r) \\
 \mathbf H_{tot} &= \mathbf H_e +\mathbf T_n \\
 \mathbf H_{et} &= \mathbf T_e + \mathbf V_{ne} +\mathbf V_{ee} + \mathbf V_{nn} \\
-\Psi_{tot}(\vec R,\vec r) &= \Psi_n(\vec R) \Psi_e (\vec R, \vec r) \\
-\mathbf H_e \Psi_e(\vec R, \vec r) &= E_e(\vec R) \Psi_e (\vec R, \vec r) \\
-(\mathbf T_n + E_e(\vec R)) \Psi_n(\vec R) &= E_{tot}\Psi_n(\vec R) \\
+\Psi_{tot}(\mathbf R,\mathbf r) &= \Psi_n(\mathbf R) \Psi_e (\mathbf R, \mathbf r) \\
+\mathbf H_e \Psi_e(\mathbf R, \mathbf r) &= E_e(\mathbf R) \Psi_e (\mathbf R, \mathbf r) \\
+(\mathbf T_n + E_e(\mathbf R)) \Psi_n(\mathbf R) &= E_{tot}\Psi_n(\mathbf R) \\
 \end{aligned}
 $$
 
@@ -46,13 +46,15 @@ Electrons are very light particles and cannot be described by classical mechanic
 
 # 2. Force Field Methods
 
+## 2.1 Introduction
+
 In *Force Field* (FF) or *Molecular Mechanics* (MM) methods, electronic structrue calculations are achieved by writing $E_e$ as a parametric function of nuclear coordinates, and molecules are modelled as atoms held together by bonds. Atoms have different sizes and "softness" and bonds are more or less "stiff". i.e. the molecule is described by a "ball and spring" model. The foundation of FF methods is the observation that molecules tend to be composed of units which are structurally similiar in different molecules. The picture of molecules being composed of structural units, "functional groups", which behave similiarly in different molecules forms the very basis of organic chemistry.
 
-## 2.1 The Force Field Energy
+## 2.2 The Force Field Energy
 
 $$E_{FF}=E_{str}+E_{bend}+E_{tors}+E_{vdw}+E_{el}+E_{cross}$$
 
-### 2.1.1 The stretch Energy
+### 2.2.1 The stretch Energy
 
 $E_{str}$ is the energy function for stretching a bond between two atom types A and B. Its simples form is written as a Taylor expansion around a "natural", or "equilibrium", bond length $R_0$. ($\Delta R = R^{AB}-R_0^{AB}$)
 
@@ -89,7 +91,8 @@ Molecules that are composed of atoms having a maximum valency of 4 are with a fe
 ### 2.2.5 The van der Waals Energy
 
 $E_{vdw}$ is the van der Waals energy decribing the repulsion or attraction between atoms that are not directly bonded. $E_vdw$ is very positive at small distances (electron replusion), has a minimum which is slightly negative at a distance corresponding to the two atoms just "touching" each other (electron correlation: dipole-dipole interaction and London force), and goes towards zero as the distance becomes large. Lennard-Jones potential, computationally more efficient, gives results comparable to the more accurate functions, even if its repulsive interaction is bad.
-$$E_{LJ}(R)=\varepsilon[(\frac{R_0}{r})^{12}-2(\frac{R_0}{R})^6]$$
+
+$$E_{LJ} (R)=\varepsilon [(\frac{R_0}{r})^{12}-2(\frac{R_0}{R})^6]$$
 
 Shortcomings:
 
@@ -101,4 +104,65 @@ Shortcomings:
 
 ### 2.2.6 The Electrostatic Energy
 
-The other part of the non-bonded interaction is due to internal distributon of the electrons, creating positive and negative parts of the molecule. This may be modelled by assiging charges to each atom, or the assigning a bond dipole moment to the bond.
+The other part of the non-bonded interaction is due to internal distributon of the electrons, creating positive and negative parts of the molecule. This may be modelled by assiging charges to each atom, or the assigning a bond dipole moment to the bond. Two methods give similiar, but not identical results. 
+
+"Many-body" effects, similiar to VDW, can be modelled by including an atom polarization, but often neglect due to computational time. Another question is how far apart should two atoms be before a non-bonded energy term contributes to $E_{FF}$? It is clear that two atoms directly bonded should not have an $E_{vdw}$
+or $E_{el}$ term; their interaction is described by $E_{str}$. Most modern force fields calculate $E_{str}$ between all atoms pairs which are 1,2 with respect to each other in terms of bonding, $E_{bend}$ for all pairs which are 1,3, $E_{tors}$ between all pairs which are 1,4, and $E_{vdw}/E_{el}$ between all pairs which are 1,4 or higher.
+
+### 2.2.7 Cross Term
+
+The first five terms are common to all force fields. This term covers coupling between these fundamental, or diagonal terms, (e.g. a term depends on both bond length and angle). It should be noted that some types of cross terms are unstable if the geometry is far from equilibrium.
+
+### 2.2.8 Small Rings and Conjugated Systems
+
+**Small Rings**: If a sufficient number of cross terms is included, however, the necessary number of atom types can be actually reduced, i.e. the cross terms modify the diagonal terms so that a more realistic behaviour is obtained for large deviations from the nature value.
+
+**Conjugated System**: e.g. according to the MM2 type convention, all carbond atoms of 1,3-butadiene are of the same type. But the outer C-C bond is slightly reduced in double bond character while the central bond is roughly halfway between a single and a double bond. Also, the rotational barrier for the central bond is calculated to be ~55kcal/mol, while only ~6kcal/mol in experiment. Two approaches to deal with this case, one is to identify certain bonding combinations and use special parameters for these cases; the other is to perform a simple electronic structure calculation to determine the degree of delocalization within the $\pi$-system. The main problem of the first method is there are so many such special cases, while the other method is compuational expensive and requires additional iteration.
+
+The natural bond length varies between 1.503 $\text{\AA}$ and 1.337 $\text{\AA}$ for bond orders between 0 and 1, these are values for pure single and double bonds between two $sp^2$-carbons. The rotational barrier for an isolated double bond is 60kcal/mol.
+
+### 2.2.9 Comparing Energies of Structurally Different Molecules
+
+The zero point of the energy in each term has so far been choosen for convenience. The force field energy, $E_{FF}$, is often called the *steric energy* as in some sense it is the excess energy relative to a hypothetical molecule with non-interacting fragments. This is inconsequential for comparing energies of different conformations of the same molecule, i.e. where the atom types and bonding are the same.
+
+$$\Delta H_f = E_{FF} + \sum^{bonds} \Delta H_{AB} + \sum^{groups} \Delta H_G$$
+
+To convert the steric energy to heat of formation, terms can be added depending on the number and types of bond present in the molecule. Since correctrions from larger moities are small, it follows that energy differences between systems having the same groups can be calculated directly from differences in steric energy.
+
+## 2.3 Force Field Parameterization
+
+Inherent contradiction in designing highly accurate force fields:
+
+- problem1: need numerous experimental data
+- solution1: rely on data from electronic structure calculations to derive force field parameters $\rightarrow$ the electrostatic interaction may be assigned on the basis of fitting parameters to the electrostatic potential derived from an electronic wave function
+- problem2: van der Waals interactions are difficult to calculate reliably by electronic structure methods, requiring a combination of electron correlation and very large basis sets
+- solution2: VDW parameters $\leftarrow$ experimental data for either the solid or liquid state
+- problem3: since the parameterization implicitly takes many-body effects into account, the parameters are not unique
+
+1. functional form of FF
+
+    In  MM2(91), fewer parameters are used than estimated ones: two routes for insufficient parameters:
+    1. estimate the missing parameters by comparison to force field parameters for similiar systems
+    2. use external information, experimental or electronic structure calculations
+
+2. how to assign weights for reference data?
+3. error function $\rightarrow$ find the global minimum?
+
+$$ErrF(parameter)=\sum_{data}weight \cdot (reference\ value-calculated\ value)^2$$
+
+### 2.3.1 Parameter Reduction in Force Fields
+
+achieve by reducing the dependence on atom types. The quality of force field parameters is essential for judging how much faith can be put in the results.
+
+### 2.3.2 Force Fields for Metal Coordination Compounds
+
+The increased number of ligands combined with the multitude of possible geometries significantly increases the problems of assigning suitable functional forms for each of the energy term.
+
+1. the energy cost for a geometrical distortion (bond stretching and bending) is usually much smaller around a metal atom than for a carbon atom: coordination compounds are much more dynamics and the distance of a given metal-ligand bond is often sensitive to the nature of the other ligand.
+2. lack of well-defined bonds.
+
+### 2.3.3 Universal Force Fields
+
+a method with reduced parameters sets: can calcualte geometries correctly, but conformational energies are quire poor.
+
+## 2.4 Differences in Force Fields
