@@ -8,7 +8,7 @@ categories:
 - MSReading
 ---
 
-[ETD & internal energy](#ETDE) | [UVPD](#uvpd) | [IRMPD & DFT](#irdft) | [RE & T noncanonical isomer](#Tisomer) | ...
+[ETD & internal energy](#ETDE) | [UVPD](#uvpd) | [IRMPD & DFT](#irdft) | [RE & T noncanonical isomer](#Tisomer) | [Rxn & C isomers](#Ciso) | ...
 
 # <jump id='ETDE'>[Kinetic Ion Thermometers for Electron Transfer Dissociation](https://pubs.acs.org/doi/abs/10.1021/jp510244d)</jump>
 
@@ -55,14 +55,14 @@ $$A^+ + B \rightarrow A + B^+ \text{ when RE(A)>RE(B)} $$
 **Summary**: The reaction of T+gaseous anisole (IE=8.42eV) cation occurs on a rate of 20% indicataes major T: RE<8.42eV. Demonstarted by the calculation of the existence of noncononical $T^{+\bullet}$ (RE<5.9eV). Isomerization occurs probably during the process of collision
 
 
-# <jump id=''>[Cytosine Radical Cations: A Gas-Phase Study Combining IRMPD Spectroscopy, UVPD Spectroscopy, Ion–Molecule Reactions, and Theoretical Calculations](https://onlinelibrary.wiley.com/doi/full/10.1002/cphc.201700281)</jump>
+# <jump id='Ciso'>[Cytosine Radical Cations: A Gas-Phase Study Combining IRMPD Spectroscopy, UVPD Spectroscopy, Ion–Molecule Reactions, and Theoretical Calculations](https://onlinelibrary.wiley.com/doi/full/10.1002/cphc.201700281)</jump>
 
 - Such solvent-free analysis is unencumbered by multi-conformational averagin g and counterion efffects, allowing for direct experimental observation of the specific radical species
 - isomerization between the low-energy isomers of the cytosine radical cation would require less energy than their fragmentation.
 - C: loss of CO (m/z 83) amd loss of (NCO) (m/z 69)
 - if an electron is stripped from the Cyt site, resulting in a transient radical cation species, a facile hydrogen-atom or electron-transfer reaction may follow. This will lead to propagation of the radical site either intramolecularly within the DNA strand or intermolecularly through reactions with neighboring species
 - highly delocalized phenoxy radicals display reactivity towards nitric oxide even if the spin density at the oxygen atom is as low as 0.17
-- $A^{\bullet +}+B\rightarrow A + B^{\bullet +}$ when B has a lower ionization potential (IP). IP(Cyt)=8.695-8.738eV
+- $A^{\bullet +}+B\rightarrow A + B^{\bullet +}$ when B has a lower ionization potential (IP). IP(Cyt) = 8.695 - 8.738eV
 - $M^{\bullet +}+RSH\rightarrow MH^+ +RS^\bullet$: hydrogen abstraction of $Cyt^{\bullet +}$: exothermic (~75kJ/mol) and a small activation barrier
 
 **Summary**: IRMPD, UVPD and calculation favors a mixture of protonated cytosine cation radicals (C-H2 or C-H3) from CID oxidation of $[Cu^{II}(terpy)(M)]^{\bullet 2+}$. The $Cyt^{\bullet +}$ isomeric mixture might originate from different $[Cu^{II}(terpy)(M)]^{\bullet 2+}$ isomers present in solution, or from the gas-phase rearrangement of $Cyt^{\bullet +}$ upon CID of the Cu complex. A high-energy disonic isomer, a reasonalbe match with UVPD spectra, is unlikely formed.

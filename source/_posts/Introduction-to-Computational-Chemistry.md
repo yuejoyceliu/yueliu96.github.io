@@ -3,13 +3,13 @@ title: Introduction to Computational Chemistry
 date: 2019-03-09 21:24:33
 tags:
 - ComputChem
-categoreis:
+categories:
 - NoteBook
 ---
 
 **Reference** Jensen, F., 2017. Introduction to computational chemistry. John wiley & sons.
 
-A Z-matrix is a conventient way of specifying a molecular geometry in terms of internal coordinates, and it is used by many electronic structure programs. Futhermore, geometry optimizations are often performed in Z-matirx variables, and since optimizations in a good set of internal coordinates are significantly faster than in Cartesian coordinates.
+A Z-matrix is a convenient way of specifying a molecular geometry in terms of internal coordinates, and it is used by many electronic structure programs. Furthermore, geometry optimizations are often performed in Z-matrix variables, and since optimizations in a good set of internal coordinates are significantly faster than in Cartesian coordinates.
 
 # 1. Introduction
 
@@ -40,15 +40,15 @@ $$
 \end{aligned}
 $$
 
-**Born-Openheimer (BO) approxiamtion**: The Schrodinger equation can be separated into one part which describes the electronic wavefunction for a fixed nuclear geometry, and another part which describes the nuclear wavefunction. where the energy from the electronic wave function plays the role of potential energy. The electronic wave function depends parametrically on the nuclear coordinates. The picture is that the nuclei move on **Potential Energy Surface (PES)**, which are solutions to the electronic Schrodinger equation. (nuclei: R, n; electrons: r, e). The interesting parts of a PES are usually nuclear arrangements which have low energies. For example, nuclear movements near a minimum on the PES, which corresponds to a stable molecule, are molecular vibtrations. Chemical reactions correspond to large movements, and may in the simplest approximation be described by locating the lowest energy path leading from one minimum on the PES to another.
+**Born-Openheimer (BO) approximation**: The Schrodinger equation can be separated into one part which describes the electronic wave function for a fixed nuclear geometry, and another part which describes the nuclear wave function. where the energy from the electronic wave function plays the role of potential energy. The electronic wave function depends parametrically on the nuclear coordinates. The picture is that the nuclei move on **Potential Energy Surface (PES)**, which are solutions to the electronic Schrodinger equation. (nuclei: R, n; electrons: r, e). The interesting parts of a PES are usually nuclear arrangements which have low energies. For example, nuclear movements near a minimum on the PES, which corresponds to a stable molecule, are molecular vibrations. Chemical reactions correspond to large movements, and may in the simplest approximation be described by locating the lowest energy path leading from one minimum on the PES to another.
 
-Electrons are very light particles and cannot be described by classical mechanics, while neclei are heavy enough for neglecting quantum effects. If nuclei showed significant quantum aspects, the concept of molecular strucutre would not have any meaning, the nuclei would simply tunnel through barriers and end up in the global minimum. Furthermore, it would not be possible to speak of a molecular geometry, since the Heisenberg uncertainty principle would not permit a measure of nuclear positions to an accuracy much smaller than the molecular dimension.
+Electrons are very light particles and cannot be described by classical mechanics, while nuclei are heavy enough for neglecting quantum effects. If nuclei showed significant quantum aspects, the concept of molecular structure would not have any meaning, the nuclei would simply tunnel through barriers and end up in the global minimum. Furthermore, it would not be possible to speak of a molecular geometry, since the Heisenberg uncertainty principle would not permit a measure of nuclear positions to an accuracy much smaller than the molecular dimension.
 
 # 2. Force Field Methods
 
 ## 2.1 Introduction
 
-In *Force Field* (FF) or *Molecular Mechanics* (MM) methods, electronic structrue calculations are achieved by writing $E_e$ as a parametric function of nuclear coordinates, and molecules are modelled as atoms held together by bonds. Atoms have different sizes and "softness" and bonds are more or less "stiff". i.e. the molecule is described by a "ball and spring" model. The foundation of FF methods is the observation that molecules tend to be composed of units which are structurally similiar in different molecules. The picture of molecules being composed of structural units, "functional groups", which behave similiarly in different molecules forms the very basis of organic chemistry.
+In *Force Field* (FF) or *Molecular Mechanics* (MM) methods, electronic structure calculations are achieved by writing $E_e$ as a parametric function of nuclear coordinates, and molecules are modeled as atoms held together by bonds. Atoms have different sizes and "softness" and bonds are more or less "stiff". i.e. the molecule is described by a "ball and spring" model. The foundation of FF methods is the observation that molecules tend to be composed of units which are structurally similar in different molecules. The picture of molecules being composed of structural units, "functional groups", which behave similarly in different molecules forms the very basis of organic chemistry.
 
 ## 2.2 The Force Field Energy
 
@@ -64,33 +64,33 @@ $$E_{str}(\Delta R)=E(0)+k_2(\Delta R)^2 +k_3(\Delta R)^3+k_4(\Delta R)^4+\cdots
 - terminated at 2nd order: harmonic form
 - terminated at 3rd order: $k_3<0, E\rightarrow -\infty$ for long bond lengths
 - terminated at 4th order: $k_4>0, E\rightarrow +\infty$ for long bond lengths
-- Morse potential satisfies the energy converges towards the dissociation energy for a large bond length, but it converges slowly for lond bond lengths.
+- Morse potential satisfies the energy converges towards the dissociation energy for a large bond length, but it converges slowly for lone bond lengths.
 
 $$E_{Morse}(\Delta R)=D[1-e^{\alpha \Delta R}]^2$$
 
-For the large majority of systems, including simulations, the only important chemical region is up to ~10 kcal/mol above the bottom of the PES curve. In this reghion, a 4th order polynomial is essentially indistinguishable form a Morse, and even a simple harminic approximation does a quite good job.
+For the large majority of systems, including simulations, the only important chemical region is up to ~10 kcal/mol above the bottom of the PES curve. In this region, a 4th order polynomial is essentially indistinguishable form a Morse, and even a simple harmonic approximation does a quite good job.
 
-The $R_0$ isn't equilibrium bond lenght for any molecule! The other terms of a polyatomic molecule in FF energy will usually produce a minimum energy structure with bond lengths slightly longer than $R_0$. Essentially all molecules have bond lengths which devieate very little from their "natural" values, typically less than 0.003nm. For this reason, a simple harmonic, or possibly a cubic expansion, is usually sufficient for reproducing experimental geomertries.
+The $R_0$ isn't equilibrium bond length for any molecule! The other terms of a polyatomic molecule in FF energy will usually produce a minimum energy structure with bond lengths slightly longer than $R_0$. Essentially all molecules have bond lengths which deviate very little from their "natural" values, typically less than 0.003nm. For this reason, a simple harmonic, or possibly a cubic expansion, is usually sufficient for reproducing experimental geometries.
 
 ### 2.2.2 The Bending Energy
 
-$E_{bend}$ is the energy required for bending an angle formed by three atoms A-B-C. Since chemically important region is below ~10 kcal/mole above the bottom, and the energy coset for bending is so large that most molecules only deviate a few degrees from their natural bond angles, the harmonic term is adequate for most applications. Special atom types are often defined for small rings.
+$E_{bend}$ is the energy required for bending an angle formed by three atoms A-B-C. Since chemically important region is below ~10 kcal/mole above the bottom, and the energy cost for bending is so large that most molecules only deviate a few degrees from their natural bond angles, the harmonic term is adequate for most applications. Special atom types are often defined for small rings.
 
 ### 2.2.3 The Out-of-plane Bending Energy
 
-The in-plane angle deformations for a planar structure become unrealistically stiff, so a special *out-of-plane energy bend term* ($E_{oop}$ or $E_{inv}$) is usually added to increase in inversion barrier in $sp^3$-hybridized atoms (i.e. an extra energy penalty for being planar). Inversion barriers are in most cases (e,g, $NR_3$) adequately modelled without an explicit $E_{inv}$ term, the barrier arising naturally from the increase in bond angles upon inversion and improper torsinal energy.
+The in-plane angle deformations for a planar structure become unrealistically stiff, so a special *out-of-plane energy bend term* ($E_{oop}$ or $E_{inv}$) is usually added to increase in inversion barrier in $sp^3$-hybridized atoms (i.e. an extra energy penalty for being planar). Inversion barriers are in most cases (e,g, $NR_3$) adequately modeled without an explicit $E_{inv}$ term, the barrier arising naturally from the increase in bond angles upon inversion and improper torsinal energy.
 
 ### 2.2.4 The Torsional Energy
 
-$E_{tors}$ is the energy change associated with rotation around a B-C bond in a four atom sequency A-B-C-D. Differing from $E_{str}$ and $E_{bend}$, $E_{tors}$ is periodic in angle $\omega$, and the cost in energy for distorting a molecule by rotation around a bond is often low.
+$E_{tors}$ is the energy change associated with rotation around a B-C bond in a four atom sequence A-B-C-D. Differing from $E_{str}$ and $E_{bend}$, $E_{tors}$ is periodic in angle $\omega$, and the cost in energy for distorting a molecule by rotation around a bond is often low.
 
 $$E_{tors}(\omega)=\sum_{n=1}V_n cos(n\omega)$$
 
-Molecules that are composed of atoms having a maximum valency of 4 are with a few exceptions found to have rotational profiles showing at most three minima. The first three terms are sufficient for qualitatively reproducing such profiles. FF methods which are aimed at large systems often limit the Fourie series to only one term, depending on the bond type (e.g. single bonds only have $cos(3\omega)$ and double bonds only have $cos(2\omega)$). Exceptions from the regular three minima rotational profile around single bonds are caused by repulsive and attractive van der Waals interactions, and can still be modeled by having only terms up to $cos(3\omega)$ in the torsional energy expression. Cases where higher-order terms probably are necessary are those with ratation around bonds to octaheral coordinated metals (Ru(pyridine)$_6$), or a dinuclear complex ($Cl_4Mo-MoCl_4$).
+Molecules that are composed of atoms having a maximum valency of 4 are with a few exceptions found to have rotational profiles showing at most three minima. The first three terms are sufficient for qualitatively reproducing such profiles. FF methods which are aimed at large systems often limit the Fourier series to only one term, depending on the bond type (e.g. single bonds only have $cos(3\omega)$ and double bonds only have $cos(2\omega)$). Exceptions from the regular three minima rotational profile around single bonds are caused by repulsive and attractive van der Waals interactions, and can still be modeled by having only terms up to $cos(3\omega)$ in the torsional energy expression. Cases where higher-order terms probably are necessary are those with rotation around bonds to octahedral coordinated metals (Ru(pyridine)$_6$), or a dinuclear complex ($Cl_4Mo-MoCl_4$).
 
 ### 2.2.5 The van der Waals Energy
 
-$E_{vdw}$ is the van der Waals energy decribing the repulsion or attraction between atoms that are not directly bonded. $E_vdw$ is very positive at small distances (electron replusion), has a minimum which is slightly negative at a distance corresponding to the two atoms just "touching" each other (electron correlation: dipole-dipole interaction and London force), and goes towards zero as the distance becomes large. Lennard-Jones potential, computationally more efficient, gives results comparable to the more accurate functions, even if its repulsive interaction is bad.
+$E_{vdw}$ is the van der Waals energy describing the repulsion or attraction between atoms that are not directly bonded. $E_vdw$ is very positive at small distances (electron repulsion), has a minimum which is slightly negative at a distance corresponding to the two atoms just "touching" each other (electron correlation: dipole-dipole interaction and London force), and goes towards zero as the distance becomes large. Lennard-Jones potential, computationally more efficient, gives results comparable to the more accurate functions, even if its repulsive interaction is bad.
 
 $$E_{LJ} (R)=\varepsilon [(\frac{R_0}{r})^{12}-2(\frac{R_0}{R})^6]$$
 
@@ -98,15 +98,15 @@ Shortcomings:
 
 - $E_{vdw}$ is calculated between pairs of atoms, but it includes many-body contributions in real systems
 - atoms are treated as spheres. two exceptions:
-  - H-X: electron distirbution around the hydrogen nucleus is not spherical (more spherical for increasing electron numbers), rather the electron distribution is displaced towards the other atom and it affects H's elecgron density a lot (e.g. oxygen or nitrogen leads to a smaller effective van der Waals radius for the hydrogen, than if it is bonded to carbon.)
-  - atoms have lone pairs, like O and N: these electrons are more diffuse than the electrons invovled in bonding, and the atoms is ths "larger" in the lond pair direction.
+  - H-X: electron distribution around the hydrogen nucleus is not spherical (more spherical for increasing electron numbers), rather the electron distribution is displaced towards the other atom and it affects H's electron density a lot (e.g. oxygen or nitrogen leads to a smaller effective van der Waals radius for the hydrogen, than if it is bonded to carbon.)
+  - atoms have lone pairs, like O and N: these electrons are more diffuse than the electrons involved in bonding, and the atoms is "larger" in the lone pair direction.
   - H bonds require special attention: such bond strength 2-5 kcal/mol, while normal single bonds are 60-110kcal/mol and van der Waals interaction are 0.1-0.2 kcal/mol.
 
 ### 2.2.6 The Electrostatic Energy
 
-The other part of the non-bonded interaction is due to internal distributon of the electrons, creating positive and negative parts of the molecule. This may be modelled by assiging charges to each atom, or the assigning a bond dipole moment to the bond. Two methods give similiar, but not identical results. 
+The other part of the non-bonded interaction is due to internal distribution of the electrons, creating positive and negative parts of the molecule. This may be modeled by assigning charges to each atom, or the assigning a bond dipole moment to the bond. Two methods give similar, but not identical results. 
 
-"Many-body" effects, similiar to VDW, can be modelled by including an atom polarization, but often neglect due to computational time. Another question is how far apart should two atoms be before a non-bonded energy term contributes to $E_{FF}$? It is clear that two atoms directly bonded should not have an $E_{vdw}$
+"Many-body" effects, similar to VDW, can be modeled by including an atom polarization, but often neglect due to computational time. Another question is how far apart should two atoms be before a non-bonded energy term contributes to $E_{FF}$? It is clear that two atoms directly bonded should not have an $E_{vdw}$
 or $E_{el}$ term; their interaction is described by $E_{str}$. Most modern force fields calculate $E_{str}$ between all atoms pairs which are 1,2 with respect to each other in terms of bonding, $E_{bend}$ for all pairs which are 1,3, $E_{tors}$ between all pairs which are 1,4, and $E_{vdw}/E_{el}$ between all pairs which are 1,4 or higher.
 
 ### 2.2.7 Cross Term
@@ -115,34 +115,34 @@ The first five terms are common to all force fields. This term covers coupling b
 
 ### 2.2.8 Small Rings and Conjugated Systems
 
-**Small Rings**: If a sufficient number of cross terms is included, however, the necessary number of atom types can be actually reduced, i.e. the cross terms modify the diagonal terms so that a more realistic behaviour is obtained for large deviations from the nature value.
+**Small Rings**: If a sufficient number of cross terms is included, however, the necessary number of atom types can be actually reduced, i.e. the cross terms modify the diagonal terms so that a more realistic behavior is obtained for large deviations from the nature value.
 
-**Conjugated System**: e.g. according to the MM2 type convention, all carbond atoms of 1,3-butadiene are of the same type. But the outer C-C bond is slightly reduced in double bond character while the central bond is roughly halfway between a single and a double bond. Also, the rotational barrier for the central bond is calculated to be ~55kcal/mol, while only ~6kcal/mol in experiment. Two approaches to deal with this case, one is to identify certain bonding combinations and use special parameters for these cases; the other is to perform a simple electronic structure calculation to determine the degree of delocalization within the $\pi$-system. The main problem of the first method is there are so many such special cases, while the other method is compuational expensive and requires additional iteration.
+**Conjugated System**: e.g. according to the MM2 type convention, all carbon atoms of 1,3-butadiene are of the same type. But the outer C-C bond is slightly reduced in double bond character while the central bond is roughly halfway between a single and a double bond. Also, the rotational barrier for the central bond is calculated to be ~55kcal/mol, while only ~6kcal/mol in experiment. Two approaches to deal with this case, one is to identify certain bonding combinations and use special parameters for these cases; the other is to perform a simple electronic structure calculation to determine the degree of de-localization within the $\pi$-system. The main problem of the first method is there are so many such special cases, while the other method is computational expensive and requires additional iteration.
 
 The natural bond length varies between 1.503 $\text{\AA}$ and 1.337 $\text{\AA}$ for bond orders between 0 and 1, these are values for pure single and double bonds between two $sp^2$-carbons. The rotational barrier for an isolated double bond is 60kcal/mol.
 
 ### 2.2.9 Comparing Energies of Structurally Different Molecules
 
-The zero point of the energy in each term has so far been choosen for convenience. The force field energy, $E_{FF}$, is often called the *steric energy* as in some sense it is the excess energy relative to a hypothetical molecule with non-interacting fragments. This is inconsequential for comparing energies of different conformations of the same molecule, i.e. where the atom types and bonding are the same.
+The zero point of the energy in each term has so far been chosen for convenience. The force field energy, $E_{FF}$, is often called the *steric energy* as in some sense it is the excess energy relative to a hypothetical molecule with non-interacting fragments. This is inconsequential for comparing energies of different conformations of the same molecule, i.e. where the atom types and bonding are the same.
 
 $$\Delta H_f = E_{FF} + \sum^{bonds} \Delta H_{AB} + \sum^{groups} \Delta H_G$$
 
-To convert the steric energy to heat of formation, terms can be added depending on the number and types of bond present in the molecule. Since correctrions from larger moities are small, it follows that energy differences between systems having the same groups can be calculated directly from differences in steric energy.
+To convert the steric energy to heat of formation, terms can be added depending on the number and types of bond present in the molecule. Since corrections from larger moieties are small, it follows that energy differences between systems having the same groups can be calculated directly from differences in steric energy.
 
 ## 2.3 Force Field Parameterization
 
 Inherent contradiction in designing highly accurate force fields:
 
-- problem1: need numerous experimental data
-- solution1: rely on data from electronic structure calculations to derive force field parameters $\rightarrow$ the electrostatic interaction may be assigned on the basis of fitting parameters to the electrostatic potential derived from an electronic wave function
-- problem2: van der Waals interactions are difficult to calculate reliably by electronic structure methods, requiring a combination of electron correlation and very large basis sets
-- solution2: VDW parameters $\leftarrow$ experimental data for either the solid or liquid state
-- problem3: since the parameterization implicitly takes many-body effects into account, the parameters are not unique
+- problem 1: need numerous experimental data
+- solution 1: rely on data from electronic structure calculations to derive force field parameters $\rightarrow$ the electrostatic interaction may be assigned on the basis of fitting parameters to the electrostatic potential derived from an electronic wave function
+- problem 2: van der Waals interactions are difficult to calculate reliably by electronic structure methods, requiring a combination of electron correlation and very large basis sets
+- solution 2: VDW parameters $\leftarrow$ experimental data for either the solid or liquid state
+- problem 3: since the parameterization implicitly takes many-body effects into account, the parameters are not unique
 
 1. functional form of FF
 
-    In  MM2(91), fewer parameters are used than estimated ones: two routes for insufficient parameters:
-    1. estimate the missing parameters by comparison to force field parameters for similiar systems
+    In MM2(91), fewer parameters are used than estimated ones: two routes for insufficient parameters:
+    1. estimate the missing parameters by comparison to force field parameters for similar systems
     2. use external information, experimental or electronic structure calculations
 
 2. how to assign weights for reference data?
@@ -163,6 +163,96 @@ The increased number of ligands combined with the multitude of possible geometri
 
 ### 2.3.3 Universal Force Fields
 
-a method with reduced parameters sets: can calcualte geometries correctly, but conformational energies are quire poor.
+a method with reduced parameters sets: can calculate geometries correctly, but conformational energies are quite poor.
 
 ## 2.4 Differences in Force Fields
+
+There are many different force fields in use. They differ in three main aspects:
+
+1. The functional form of each energy term
+2. The number of cross terms included
+3. The type of information used for fitting the parameters
+
+- large system
+    - simple functional forms: only $E_{str}$ and $E_{bend}$ harmonic forms, no cross terms, Lennard-Jones potential for $E_{vdw}$
+    - further simplification: united atom approach (i.e. not consider hydrogens explicitly). e.g. a single "$CH_2$ atom" assigned instead of a carbon and two hydrogens for modeling a $CH_2$ group
+- small or medium size molecules
+    - several cross terms, at least cubic or quartic expansions of $E_{str}$ and $E_{bend}$, and possibly an exponential type potential for $E_{vdw}$
+
+## 2.5 Computational Consideration
+
+Evaluation of the non-bonded energy is by far the most time-consuming. $E_{str}$, $E_{bend}$ and $E_{tors}$, grows linearly with the system size. The non-bonded contributions, $E_{vdw}$(and $E_{el}$), grows as the square of the system size. In the limit of large molecules, the computational time for calculating the force field energy grows approximately as the square of the number of atoms. The majority of these non-bonded energy contributions are numerically very small, as the distance between the atom  pairs is large.
+
+The first solution is to use a cutoff distance, e.g. $10 \text{\AA}$. Besides that, prepare a non-bonded or neighbor list over atom pairs, only calculate their contributions, and update the list at  suitable intervals to avoid calculation of distances between all pairs of atoms.
+
+$E_{vdw}$ becomes small (less than ~0.001kcal/mol) beyond a distance of ~$10\text{\AA}$. But the electrostatic interaction reaches the same level of importance at a distance of ~$30\text{\AA}$. The interaction between net charges is very long range (~$3000\text{\AA}$).
+
+The simplest way of implementing the cut-off approximation is to neglect all contributions if the distance is larger than the cut-off. This is in general not a very good method as the energy function becomes discontinuous. A better method is to use two cut-off distances between which a switch function connects the correct $E_{vdw}$ or $E_{el}$ smoothly with zero. But the chemical significance of the cut-off of course still remains. It is especially troublesome in simulation studies where the distribution of solvent molecules can be very dependent on the use of cut-off.
+
+Obtaining a good description of the electrostatic interaction between molecules (or between different parts of the same molecule) is one of the big problems in force field work. For polar molecules, such as  for example amino acids, the electrostatic interactions are very important. Unfortunately, atom centered point charge models, or bond dipoles, are fairly crude approximations of the real interaction. See more in [section 9.2](#9.2)
+
+## 2.6 Validation of Force Fields
+
+The quality of a force field calculation depends on two things: how appropriate is the mathematical form of the energy expression, and how accurate are the parameters. Reproducibility is another concern.
+
+Force field methods are primarily geared to predict two properties: geometries and relative energies. Structural features are in general much easier to predict than relative energies, which are a consequence of many small contributions, i.e. the exact shape of the individual energy terms and the balance between them. The largest contributions to conformational energy differences are the non-bonded and torsional terms. For large system it is inevitable that small inaccuracies in the functional forms for the energy terms and parameters will influence the shape of the whole energy surface to the point where minima may disappear or become saddle points.
+
+## 2.7 Practical Considerations
+
+Force field methods are models of the real quantum mechanical systems. The total neglect of electrons as individual particles forces the user to define explicitly the bonding present in the molecule prior to any calculations. Input:
+
+1.  The types of atom present
+2.  How they are connected
+3. A start guess of the geometry
+
+## 2.8 Advantages and Limitations of Force Field Methods
+
+- advantages:
+    - speed (allows large systems)
+- limitations:
+    - unusual molecules (little info);
+    - "zero-dimensional" (no error assessment within this method)
+
+## 2.9 Transition Structure Modeling
+
+Structural changes can be divided into two general types: those of a conformational nature and those involving bond breaking/forming. The bottleneck for structural changes is the highest energy point along the reaction path, called the Transition State or Transition Structure ([TS](#ts))
+1. Conformational TSs:
+    - have the same atom types and bonding for both the reactant and product
+    - can be located on the force field energy surface by standard optimization algorithms
+    - often localized to rotation around a single bond
+2. TSs for reaction:
+    - reactant and product are not described by the same set of atom types and/or bonding
+    - two different force field energy functions for reactant and product, i.e. the energy as a function of the reactant coordinate is not continuous
+
+methods for modeling differences in activation energies between similar reactions by means of force field techniques
+
+### 2.9.1 Modeling the TS as a Minimum Energy Structure
+
+1. locate the TS for a typical example of the reaction with electronic structure methods, often at ab initio HF level
+2. modify FF function to create a TS geometry with minimum energy
+3. minimize the structure until the ab initio TS geometry is reproducible
+4. relative energy differences between the reactant and the TS model correlates with relative activation energies.
+
+Purely electronic effects, like Hammett type effects due to para-substitution in aromatic systems
+
+- Problem
+  - TS is a first-order saddle point, not a minimum
+  - invite new parameters
+
+### 2.9.2 Modeling the TS as a Minimum Energy Structure on the Reactant/Product Energy Seam
+
+Energy minimization is subject to the constraint that the reactant and product energies are identical. Only parameters for describing the reactant and product are matter, but require to be more accurate. 
+
+Disadvantages: exothermic reaction produces a lower activation energy, so the FF need to calculate relative energies of the reactant and product, i.e. the ability to convert steric energies to heat of formation. If the result doesn't accurately repeat the real TS, it's hard to modify parameters. The TS is given in terms of the diabatic energy surfaces for the reactant and product, activation energies will be too high, which can be improved by adding a "resonance" term to produce a smooth surface connecting the reactant and product.
+
+## 2.10 Hybrid Force Field-Electronic Structure Methods
+
+FF methods are inherently unable to describe the details of bond breaking/forming reactions, since there is an extensive rearrangement of the electrons, which is neglected in the classical method.
+
+For studying enzymes: assume the whole system is important for holding the active size in the proper arrangement, and the "backbone" conformation may change during the reaction. Hybrid methods have been designed for modeling such cases, where the active size is calculated by electronic structure methods (usually semi-empirical, low-lavel ab initio or DFT methods), while the backbone is clculated by a force field method.
+
+# 3. Electronic Structure Methods
+
+## <jump id='9.2'>9.2</jump>
+
+# <jump id='ts'>12</jump>
