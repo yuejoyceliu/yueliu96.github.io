@@ -2,9 +2,10 @@
 title: OligoNucleotide Papers
 date: 2019-01-02 15:30:51
 tags:
-- oligo
+- DNA
+- MS
 categories:
-- OligoReading
+- MSReading
 ---
 
  ***Keyword***
@@ -268,16 +269,16 @@ feature in radiation damage process
 
 # [Dependence of Spurious Charge- Transfer Excited States on Orbital Exchange in TDDFT: Large Molecules and Clusters](https://pubs.acs.org/doi/10.1021/ct600282k)
 
-- intensity of CT ransitions is likely to be exaggerated by TDDFT calcualtions
-- Density functional theory formally permits the expression of the total ground-state energy and other properties of a quantum many-body systme as functionals of the electron density alone and provides a formally exact scheme for solving the many-body problem
+- intensity of CT transitions is likely to be exaggerated by TDDFT calculations
+- Density functional theory formally permits the expression of the total ground-state energy and other properties of a quantum many-body system as functionals of the electron density alone and provides a formally exact scheme for solving the many-body problem
 - TDDFT is an extension of DFT in which many-body excitations are associated with the poles of the exact density response
-- 6-31G basis sets: an efficient blend of accuracy and manageablw size for large confugated molecules
+- 6-31G basis sets: an efficient blend of accuracy and manageable size for large conjugated molecules
   - 6-31G*: with polarization functions
   - 6-31+G: with diffuse functions
 - Charge transfer states
-  - photexcited electron and hole are significant spatial separation
-  - usually higher in energy than the relevant Frenkel-exciton band of optical (nonvanishing oscillator-strength) and dark (vanishing oscillater-strength) states
-  - however, DFT methods drastically underesetimate their energies $\rightarrow$ all 3 types of states in dimers might be mixed
+  - photoexcited electron and hole are significant spatial separation
+  - usually higher in energy than the relevant Frenkel-exciton band of optical (non-vanishing oscillator-strength) and dark (vanishing oscillator-strength) states
+  - however, DFT methods drastically underestimate their energies $\rightarrow$ all 3 types of states in dimers might be mixed
 
 # [Radical Cations of the Nucleic Bases and Radiation Damage to DNA: Ab Initio Study](https://www.sciencedirect.com/science/article/pii/S0065327606520064)
 
@@ -305,7 +306,7 @@ Here, one-electron oxidation of DNA oligomers that do not contain guanine: react
 
 # [Toward True DNA Base-Stacking Energies: MP2, CCSD(T), and Complete Basis Set Calculations](https://pubs.acs.org/doi/10.1021/ja026759n)
 
-# [Purine bases, nucleosides, and nucleotides: aqueous solution redox chemistry and transformation reactions of their radical cations and e- and OH adducts](https://pubs.acs.org/doi/10.1021/cr00093a003)
+# [Purine bases, nucleotides, and nucleotides: aqueous solution redox chemistry and transformation reactions of their radical cations and e- and OH adducts](https://pubs.acs.org/doi/10.1021/cr00093a003)
 
 # [Proton-coupled Electron Transfer in DNA on Formation of Radiation-produced Ion Radicals](http://pubs.acs.org/doi/abs/10.1021/cr100023g)
 

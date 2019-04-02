@@ -249,9 +249,86 @@ Disadvantages: exothermic reaction produces a lower activation energy, so the FF
 
 FF methods are inherently unable to describe the details of bond breaking/forming reactions, since there is an extensive rearrangement of the electrons, which is neglected in the classical method.
 
-For studying enzymes: assume the whole system is important for holding the active size in the proper arrangement, and the "backbone" conformation may change during the reaction. Hybrid methods have been designed for modeling such cases, where the active size is calculated by electronic structure methods (usually semi-empirical, low-lavel ab initio or DFT methods), while the backbone is clculated by a force field method.
+For studying enzymes: assume the whole system is important for holding the active size in the proper arrangement, and the "backbone" conformation may change during the reaction. Hybrid methods have been designed for modeling such cases, where the active size is calculated by electronic structure methods (usually semi-empirical, low-lavel ab initio or DFT methods), while the backbone is calculated by a force field method.
 
 # 3. Electronic Structure Methods
+
+If solutions are generated without reference to experimental data, the methods are usually called *ab initio*, in contrast to [semi-empirical models](#3.9)
+
+## 3.1 The Adiabatic and Born-Oppenheimer Approximations
+
+$$\begin{aligned}
+H_{tot} &= T_n+T_e+V_{ne}+V_{ee}+V_{nn}\\
+&= T_n+H_e+H_{mp} \text{ (center of mass system)}\\
+H_e &= T_e+V_{ne}+V_{ee}+V_{nn}\\
+H_{mp} &= -\frac{1}{2M_{tot}}(\sum_{i=1}^N \nabla_i)^2\\
+\Psi_{tot}(R,r)&=\sum_i^\infty \Psi_{ni}(R)\Psi_i(R,r), \;\;i=1,2...\infty
+\end{aligned}\\
+\sum_{i=1}^\infty (T_n+H_e+H_{mp})\Psi_{ni}(R)\Psi_i(r,r) = E_{tot}\sum_{i=1}^\infty \Psi_{ni}(R)\Psi_i(R,r)\\
+\nabla^2_n\Psi_{ni}+E_j\Psi_{ni}+\sum_{i=1}^\infty \lbrace 2\langle \Psi_j |\nabla_n|\Psi_i \rangle(\nabla_n\Psi_{ni})+\langle\Psi_j|\nabla_n^2|\Psi_i\rangle\Psi_{ni} +\langle\Psi_j|H_{mp}|\Psi_i\rangle\Psi_{ni}\rbrace = E_{tot}\Psi_{nj} $$
+
+The electronic wave function $\Psi_i$ has been removed from the first two terms while the curly bracket contains terms coupling different electronic states. The first two terms in the curly bracket are the first- and second order non-adiabatic coupling elements, which are important for systems involving more than one electronic surface, such as photochemical reaction. The last element si the mass polarization.
+
+In the **adiabatic approximation** the form of the total wave function is restricted to one electronic surface
+$$(\nabla_n^2+E_j+\langle\Psi_j|\nabla_n^2|\Psi_j\rangle+\langle\Psi_j|H_{mp}|\Psi_j\rangle)\Psi_{nj}=E_{tot}\Psi_{nj}$$
+neglecting the mass polarization and reintroducing hte kinetic energy operator gives
+$$(T_n+E_j(R)+U(R))\Psi_{nj}(R)=E_{tot}\Psi_{nj}(R)$$
+U(R) term is known as the *diagonal correction*, and is smaller than $E_j(R)$ by a factor roughly equal to the ratio of the electronic and nuclear masses.It is usually a slowly varying function of R, and the shape of the energy surface is therefore determined almost exclusively by $E_j(R)$. In **Born-Oppenheimer (BO) approximation** the diagonal correction is neglected , and the resulting equation takes on the usual Schrodinger form, where the electronic energy plays the role of a potential energy.
+$$(T_n+E_j(R))\Psi_{nj}(R)=E_{tot}\Psi_{nj}(R)\\
+(T_n+V_j(R))\Psi_{nj}(R)=E_{tot}\Psi_{nj}(R)$$
+In the BO picture the nuclei move on a **potential energy surface** (PES) which is a solution to the electronic Schrodinger equation. Solution of above equation leads to energy levels for molecular vibrations and rotations, which in turn are fundamentals for may forms of spectroscopy, such as IR, Raman, microwave etc.
+
+When two or more solutions to the electronic Schrodinger equation (S.E.) come close together energetically, adiabatic and therefore BO approximation breaks down.
+
+We implicitly neglected relativistic effect (important for the 4th and 5th rows an d transition metals, see [Chapter 8](#chp8)), so need to introduce an ad hoc quantum effect for spin-dependent terms, which are calculated as corrections (e.g. by perturbation theory) after electronic Schrodinger equation ahs been solved..
+
+## 3.2 Self-consistent Field Theory
+
+Electronic S.E. can only be solved exactly for the $H_2^+$ molecule, and similar one-electron system. In the general case we have to rely on approximate (numerical) methods.
+
+Spin: each electron has a spin quantum number of 1/2. In the presence of external magnetic field there are two possible states, corresponding to alignment along ($\alpha$) or opposite ($\beta$) to the field: $\langle\alpha|\alpha\rangle=\langle\beta|\beta\rangle=1;\langle\alpha|\beta\rangle\langle\beta|\alpha\rangle=0$
+
+Variational principle: $E_e=\frac{\langle\Psi|H_e|\Psi\rangle}{\langle\Psi|\Psi\rangle}\geq E_{real}$
+
+Pauli principle: two electrons cannot have all quantum numbers equal $\rightarrow$ antisymmetric wave function
+
+single Slater determinant: neglect electron correlation, or equivalently, the electron-electron repulsion is only included as an average effect.
+
+Hartree-Fock equations: derived from a single determinant trial wave function and variational principle. It is a kind of branching point, either additional approximations for semi-empirical methods, or improved by additional determinants to converge solutions towards exact solutions.
+
+## 3.3 The Energy of a Slater Determinant
+
+
+
+## 3.4 Koopmans' Theorem
+## 3.5 The Basis Set Approximation
+## 3.6 Alternative Formulation of the Variational Problem
+## 3.7 Restricted and Unrestricted Hartree-Fock
+## 3.8 SCF Techniques
+### 3.8.1 SCF Convergence
+### 3.8.2 Use of Symmetry
+### 3.8.3 Ensuring that the HF Energy is a Minimum
+### 3.8.4 Initial Guess Orbitals
+### 3.8.5 Direct SCF
+### 3.8.6 Linear Scaling Techniques
+## <jump id='3.9'>3.9 Semi-Empirical Methods</jump>
+### 3.9.1 Neglect of Diatomic Differential Overlap Approximation (NDDO)
+### 3.9.2 Intermediate NEglect of Differential Overlap Approximation (INDO)
+### 3.9.3 Complete Neglect of Differential Overlap Approximation (CNDO)
+## 3.10 Parameterization
+### 3.10.1 Modified Intermediate NEglect of Differential Overlap (MINDO)
+### 3.10.2 Modified NDDO Models
+### 3.10.3 Modified Neglect of Diatomic Overlap (MNDO)
+### 3.10.4 Austin Model 1 (AM1)
+### 3.10.5 Modified NEglect of Diatomic Overlap Parametric Method Number 3 (MNDO-PM3)
+### 3.10.6 The MNDO/d Method 
+### 3.10.7 Semi-Ab Initio Method 1
+## 3.11 Performance of Semi-empirical Methods
+## 3.12 Extend Huckel Theory
+### 3.12.1 Sample Huckel Theory
+## 3.13 Limitations and Advantages of Semi-empirical Methods References
+
+## <jump id='chp8'>8</jump>
 
 ## <jump id='9.2'>9.2</jump>
 
