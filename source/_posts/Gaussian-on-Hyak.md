@@ -3,8 +3,7 @@ title: Gaussian on Hyak
 date: 2018-12-16 20:54:49
 tags: 
 - Hyak
-- ComputChem
-- software
+- Software Tutorial
 categories:
 - Turecek Lab Tutorial
 ---

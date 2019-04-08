@@ -2,7 +2,7 @@
 title: Introduction to Computational Chemistry
 date: 2019-03-09 21:24:33
 tags:
-- ComputChem
+- PChem
 categories:
 - NoteBook
 ---

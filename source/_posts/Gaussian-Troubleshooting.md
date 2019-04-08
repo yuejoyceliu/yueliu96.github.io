@@ -2,7 +2,7 @@
 title: Gaussian Troubleshooting
 date: 2019-01-22 20:05:42
 tags:
-- software
+- Software Tutorial
 categories:
 - Turecek Lab Tutorial
 ---
