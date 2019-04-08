@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Lecture notes for course CHEM553 in University of Washington… Basics of Probability Theory“probability space”It consists of three things:  $\Omega$: sample space: “set of all outcomes”, “state space”">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-08T06:26:58.369Z">
+<meta property="og:updated_time" content="2019-04-08T06:41:55.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Statistical Mechanics">
 <meta name="twitter:description" content="Lecture notes for course CHEM553 in University of Washington… Basics of Probability Theory“probability space”It consists of three things:  $\Omega$: sample space: “set of all outcomes”, “state space”">
@@ -414,71 +414,71 @@
 <li>$p(x) \geq 0$</li>
 <li>$\int_\Omega \text{d}x p(x) = 1$</li>
 </ul>
-<p>Example: pick a random number between 0 and 1 ($\Omega$=[0,1]), probability that the number is in [1/4,1/2]:<br>$$p(x) =<br> \begin{cases}<br> 1,  &amp; \text{if } 0\leq x \leq 1 \\<br> 0, &amp; \text{if } x<0 \="" or\="" x="">1<br> \end{cases}\\<br> \int_{\frac{1}{4}}^{\frac{1}{2}} p(x)dx=\frac{1}{4}$$</0></p>
+<p>Example: pick a random number between 0 and 1 ($\Omega$=[0,1]), probability that the number is in [1/4,1/2]:<br>$$p(x) =<br> \begin{cases}<br> 1,  &amp; \text{if } 0\leq x \leq 1 \\<br> 0, &amp; \text{if } x<0 \text{="" or="" }="" x="">1<br> \end{cases}\\<br> \int_{\frac{1}{4}}^{\frac{1}{2}} p(x)dx=\frac{1}{4}$$</0></p>
 </li>
 </ol>
 <h2 id="Random-Variable"><a href="#Random-Variable" class="headerlink" title="Random Variable"></a>Random Variable</h2><p>State space can be everything besides number, so that we don’t do math directly on them but map them onto real numbers, which is described with random variable. </p>
-<p>$$\hat X: \Omega \rightarrow R^n$$</p>
+<p>$$\hat{X}: \Omega \rightarrow R^n$$</p>
 <p>Example: Rolling a die</p>
 <ul>
 <li><p>case 1</p>
-<p>$$\hat X = \begin{cases}0 &amp;\text{if $\omega$ is odd}\\1 &amp;\text{if $\omega$ is even}\end{cases}$$</p>
-<p>State space $\omega$ can be 1, 2, 3, 4, 5, or 6 with probability of 1/6, respectively. $\hat X$ reflect each $\omega$ to a new state space with new probability. $P_{\hat X}(x)=P({\omega \in \Omega:\hat X(\omega)=x})$. x can be 0 or 1. So, $P_{\hat X}(0)=P({1,3,5})=P({1})+P({3})+P({5})$</p>
+<p>$$\hat{X} = \begin{cases}0 &amp;\text{if $\omega$ is odd}\\1 &amp;\text{if $\omega$ is even}\end{cases}$$</p>
+<p>State space $\omega$ can be 1, 2, 3, 4, 5, or 6 with probability of 1/6, respectively. $\hat{X}$ reflect each $\omega$ to a new state space with new probability. $P_{\hat{X}}(x)=P({\omega \in \Omega:\hat{X}(\omega)=x})$. x can be 0 or 1. So, $P_{\hat{X}}(0)=P({1,3,5})=P({1})+P({3})+P({5})$</p>
 </li>
 <li><p>case 2:</p>
-<p>$$\hat Y(\omega)=\begin{cases}0 &amp;\text{if } \omega \leq 3\\1 &amp;\text{if } \omega &gt;3\end{cases}$$</p>
+<p>$$\hat{Y}(\omega)=\begin{cases}0 &amp;\text{if } \omega \leq 3\\1 &amp;\text{if } \omega &gt;3\end{cases}$$</p>
 </li>
-<li><p>Two RVs $\hat X$, $\hat Y$ are independent, if $P(\hat X=x \text{ and } \hat Y=y)=P(\hat X=x)P(\hat Y=y)$ for all x and y</p>
-<p>$P(\hat X=x \text{ and } \hat Y=y)=P({1,3})=\frac 2 6 \\<br>P(\hat X=0)\cdot P(\hat Y=0)=P({1,3,5})\cdot P({1,2,3})=\frac 1 4$</p>
+<li><p>Two RVs $\hat{X}$, $\hat{Y}$ are independent, if $P(\hat{X}=x \text{ and } \hat{Y}=y)=P(\hat{X}=x)P(\hat{Y}=y)$ for all x and y</p>
+<p>$P(\hat{X}=x \text{ and } \hat{Y}=y)=P({1,3})=\frac 2 6 \\<br>P(\hat{X}=0)\cdot P(\hat{Y}=0)=P({1,3,5})\cdot P({1,2,3})=\frac 1 4$</p>
 </li>
 </ul>
 <p>After we know the distribution, we can know:</p>
 <ol>
 <li>Expectation Value<ul>
-<li>$&lt;\hat X&gt;=\sum_{\omega \in \Omega} P(\omega)\hat X(\omega)$ (discrete)</li>
-<li>$&lt;\hat X&gt;=\int_\Omega d\omega p(\omega)\hat X(\omega)$ (continuous)</li>
+<li>$&lt;\hat{X}&gt;=\sum_{\omega \in \Omega} P(\omega)\hat{X}(\omega)$ (discrete)</li>
+<li>$&lt;\hat{X}&gt;=\int_\Omega d\omega p(\omega)\hat{X}(\omega)$ (continuous)</li>
 </ul>
 </li>
-<li>Variance: Var$(\hat X)=&lt;\hat {X^2}&gt;-&lt;\hat X&gt;^2$</li>
-<li>Standard deviation: $\sqrt {Var(\hat X)}$</li>
+<li>Variance: Var$(\hat{X})=&lt;\hat {X^2}&gt;-&lt;\hat{X}&gt;^2$</li>
+<li>Standard deviation: $\sqrt {Var(\hat{X})}$</li>
 </ol>
 <p>But in chemistry, we do experiment first to get expectations and hope to find their distributions. It can be achieved if we choose the observation carefully. Useful trick:</p>
 <ol>
-<li><p>discrete RV $\hat X$. </p>
-<p>Define a new RV:<br> $$\hat Y(\omega)=\begin{cases}1 &amp;\text{if } \hat X(\omega)=x\\0 &amp;\text{if } \hat X (\omega) \neq x\end{cases}=\delta_{\hat X(\omega),x}\\<br>&lt;\hat Y&gt;=&lt;\delta_{\hat X(\omega),x}&gt;= \sum_{\omega=\Omega} P(\omega) \delta_{\hat X(\omega),x}\\<br>=P{\omega\in\Omega:\hat X(\omega)=x}=P_{\hat X}(x)$$</p>
+<li><p>discrete RV $\hat{X}$. </p>
+<p>Define a new RV:<br> $$\hat{Y}(\omega)=\begin{cases}1 &amp;\text{if } \hat{X}(\omega)=x\\0 &amp;\text{if } \hat{X} (\omega) \neq x\end{cases}=\delta_{\hat{X}(\omega),x}\\<br>&lt;\hat{Y}&gt;=&lt;\delta_{\hat{X}(\omega),x}&gt;= \sum_{\omega=\Omega} P(\omega) \delta_{\hat{X}(\omega),x}\\<br>=P{\omega\in\Omega:\hat{X}(\omega)=x}=P_{\hat{X}}(x)$$</p>
 </li>
-<li><p>continuous:<br>$$\hat Y(\omega)=\delta (\hat X(\omega)-x)\\<br><y>=&lt;\delta(\hat X(\omega)-x&gt;\\<br>=\int_{\Omega}d\omega p(\omega)\delta (\hat X(\omega)-x)=p(x)$$</y></p>
+<li><p>continuous:<br>$$\hat{Y}(\omega)=\delta (\hat{X}(\omega)-x)\\<br><y>=&lt;\delta(\hat{X}(\omega)-x&gt;\\<br>=\int_{\Omega}d\omega p(\omega)\delta (\hat{X}(\omega)-x)=p(x)$$</y></p>
 <ul>
 <li>Delta function<br>$$\delta (x)=\begin{cases}\infty &amp; x=0\ 0 &amp; x \neq 0\end{cases}\\<br>\delta (x)=\int_{-\infty}^\infty f(x)\delta (x)=f(0)\\<br>\int_{-\infty}^\infty dx f(x)\delta (x-a)=f(a)$$</li>
 </ul>
 </li>
 </ol>
 <h2 id="Different-Types-of-RVs"><a href="#Different-Types-of-RVs" class="headerlink" title="Different Types of RVs"></a>Different Types of RVs</h2><ol>
-<li>Two RVs $\hat X$, $\hat Y$ are independent, if $P(\hat X=x \text{ and } \hat Y=y)=P(\hat X=x)P(\hat Y=y)$ for all x and y</li>
-<li>Two RVs are uncorrelated if $&lt;\hat X\hat Y&gt;=&lt;\hat X&gt;&lt;\hat Y&gt;$</li>
+<li>Two RVs $\hat{X}$, $\hat{Y}$ are independent, if $P(\hat{X}=x \text{ and } \hat{Y}=y)=P(\hat{X}=x)P(\hat{Y}=y)$ for all x and y</li>
+<li>Two RVs are uncorrelated if $&lt;\hat{X}\hat{Y}&gt;=&lt;\hat{X}&gt;&lt;\hat{Y}&gt;$</li>
 </ol>
 <ul>
 <li><p>Examples: roll a die</p>
-<p>$$\hat X(\omega)=\begin{cases}0 &amp;\text{if $\omega$ odd}\\1 &amp; \text{if $\omega$ even}\end{cases} \;  &lt;\hat X&gt;=\frac 1 2 \\<br>\hat Y(\omega)=\begin{cases}0 &amp;\text{if $\omega\in${1,2,3}}\\1 &amp;\text{if $\omega\in${4,5,6}}\end{cases} \; &lt;\hat Y&gt;=\frac 1 2$$</p>
-<p>$&lt;\hat X\hat Y&gt; \\<br>=\sum_{\omega\in\Omega}P(\omega)\hat X(\omega)\hat Y(\omega)\\<br>=P(1)0+P(1)0+P(3)0+P(4)1+P(5)0+P(6)1\\<br>=\frac 1 3\\<br>\Rightarrow \hat X, \hat Y$  are correlated</p>
+<p>$$\hat{X}(\omega)=\begin{cases}0 &amp;\text{if $\omega$ odd}\\1 &amp; \text{if $\omega$ even}\end{cases} \;  &lt;\hat{X}&gt;=\frac 1 2 \\<br>\hat{Y}(\omega)=\begin{cases}0 &amp;\text{if $\omega\in${1,2,3}}\\1 &amp;\text{if $\omega\in${4,5,6}}\end{cases} \; &lt;\hat{Y}&gt;=\frac 1 2$$</p>
+<p>$&lt;\hat{X}\hat{Y}&gt; \\<br>=\sum_{\omega\in\Omega}P(\omega)\hat{X}(\omega)\hat{Y}(\omega)\\<br>=P(1)0+P(1)0+P(3)0+P(4)1+P(5)0+P(6)1\\<br>=\frac 1 3\\<br>\Rightarrow \hat{X}, \hat{Y}$  are correlated</p>
 </li>
 </ul>
 <ol start="3">
 <li>conditional probability</li>
 </ol>
-<p>$$P(\hat X=x|\hat Y=y)=\frac{P(\hat X= x and \hat Y=y)}{P(\hat Y =y)}$$</p>
+<p>$$P(\hat{X}=x|\hat{Y}=y)=\frac{P(\hat{X}= x and \hat{Y}=y)}{P(\hat{Y} =y)}$$</p>
 <ul>
-<li>Examples: $P(\hat X=0|\hat Y=0)=\frac{P({1,3})}{P{1,2,3}}=\frac 2 3$</li>
+<li>Examples: $P(\hat{X}=0|\hat{Y}=0)=\frac{P({1,3})}{P{1,2,3}}=\frac 2 3$</li>
 </ul>
 <h2 id="Central-Limit-Theorem"><a href="#Central-Limit-Theorem" class="headerlink" title="Central Limit Theorem"></a>Central Limit Theorem</h2><p>So far, $\Omega$ was the set of possible outcomes of one experiment. Now: perform N independent experiments. Examples: roll a die 3 times: $\Omega^1=${(1,1,1),(1,1,2),(1,1,3),…}$=\Omega^3$, $P^1(\omega_1,\omega_2,\omega_3)=P(\omega_1)P(\omega_2)P(\omega_3)$</p>
-<p>If $\hat X$ is a RV on $\Omega$, we can define new RVs on $\Omega ‘$:</p>
-<p>$$\hat X_i (\omega_1,\omega_2,\cdots ,\omega_N)=\hat X(\omega_i) \tag{i=1,…,N}$$</p>
+<p>If $\hat{X}$ is a RV on $\Omega$, we can define new RVs on $\Omega ‘$:</p>
+<p>$$\hat{X}_i (\omega_1,\omega_2,\cdots ,\omega_N)=\hat{X}(\omega_i) \tag{i=1,…,N}$$</p>
 <p><strong>central limit theorem</strong></p>
-<p>$\hat X_1,\hat X_2,\cdots ,\hat X_N$ are independent identically distributed (iid) RVs with mean $\mu$ and variance $\sigma^2$.Then $p(\hat S=s)$ can represent normal distribution with mean $\mu$ and variance $\sigma^2/N$</p>
-<p>$$\hat S = \frac 1 N \sum_{i=1}^N X_i(\omega)\\<br>p(\hat S=s)\stackrel{N\rightarrow \infty}{\longrightarrow} \frac{1}{\sqrt {2\pi\sigma^2/N}}e^{-\frac{(s-\mu)^2}{2\sigma^2/N}}$$</p>
+<p>$\hat{X}_1,\hat{X}_2,\cdots ,\hat{X}_N$ are independent identically distributed (iid) RVs with mean $\mu$ and variance $\sigma^2$.Then $p(\hat{S}=s)$ can represent normal distribution with mean $\mu$ and variance $\sigma^2/N$</p>
+<p>$$\hat{S} = \frac 1 N \sum_{i=1}^N X_i(\omega)\\<br>p(\hat{S}=s)\stackrel{N\rightarrow \infty}{\longrightarrow} \frac{1}{\sqrt {2\pi\sigma^2/N}}e^{-\frac{(s-\mu)^2}{2\sigma^2/N}}$$</p>
 <p>The more experiments have been done, the smaller the standard deviation $\sqrt{\sigma^2/N}$. The center (mean) doesn’t relate with the number of experiments. s can have more variables than $\omega$ (e.g. $\omega$ can only be 0 or 1, the s can be any real number in [0,1].) So here we use probability density p instead of probability of a certain number.</p>
 <h1 id="Statistical-Mechanics"><a href="#Statistical-Mechanics" class="headerlink" title="Statistical Mechanics"></a>Statistical Mechanics</h1><p>classical: gaseous atoms in a cubic box with length of L. what should to know to describe this system (N atoms)? </p>
-<p>positions: $\vec r_1,\vec r_2,\cdots ,\vec r_N$ and momentums: $\vec p_1,\vec p_2,\cdots,\vec p_N$. Each r and p contains three elements (x,y,z). so microstate $\omega=(\vec r_1,\vec r_2,\cdots ,\vec r_N;\vec p_1,\vec p_2,\cdots,\vec p_N)$ contains 6N elements. $\Omega=[0,L]^{3N}\times \bf{R}^{3N}$</p>
+<p>positions: ${\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N$ and momentums: ${\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N$. Each r and p contains three elements (x,y,z). so microstate $\omega=({\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N;{\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N)$ contains 6N elements. $\Omega=[0,L]^{3N}\times \bf{R}^{3N}$</p>
 
       
     </div>
