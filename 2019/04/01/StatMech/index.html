@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Lecture notes for course CHEM553 in University of Washington… Basics of Probability Theory“probability space”It consists of three things:  $\Omega$: sample space: “set of all outcomes”, “state space”">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-08T06:41:55.679Z">
+<meta property="og:updated_time" content="2019-04-22T02:01:22.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Statistical Mechanics">
 <meta name="twitter:description" content="Lecture notes for course CHEM553 in University of Washington… Basics of Probability Theory“probability space”It consists of three things:  $\Omega$: sample space: “set of all outcomes”, “state space”">
@@ -478,7 +478,94 @@
 <p>$$\hat{S} = \frac 1 N \sum_{i=1}^N X_i(\omega)\\<br>p(\hat{S}=s)\stackrel{N\rightarrow \infty}{\longrightarrow} \frac{1}{\sqrt {2\pi\sigma^2/N}}e^{-\frac{(s-\mu)^2}{2\sigma^2/N}}$$</p>
 <p>The more experiments have been done, the smaller the standard deviation $\sqrt{\sigma^2/N}$. The center (mean) doesn’t relate with the number of experiments. s can have more variables than $\omega$ (e.g. $\omega$ can only be 0 or 1, the s can be any real number in [0,1].) So here we use probability density p instead of probability of a certain number.</p>
 <h1 id="Statistical-Mechanics"><a href="#Statistical-Mechanics" class="headerlink" title="Statistical Mechanics"></a>Statistical Mechanics</h1><p>classical: gaseous atoms in a cubic box with length of L. what should to know to describe this system (N atoms)? </p>
-<p>positions: ${\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N$ and momentums: ${\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N$. Each r and p contains three elements (x,y,z). so microstate $\omega=({\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N;{\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N)$ contains 6N elements. $\Omega=[0,L]^{3N}\times \bf{R}^{3N}$</p>
+<p>positions: ${\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N$ and momentums: ${\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N$. Each r and p contains three elements (x,y,z). so microstate $\omega=({\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N;{\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N)$ contains 6N elements. $\Omega$ : all positions of N atoms and their momentum, i.e. $\Omega = {({\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N;{\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N)} = {(\vec r^N;\vec p^N)}$ whose size is $[0,L]^{3N}\times \bf{R}^{3N}$</p>
+<h2 id="1-Microcanonical-ensemble-NVE"><a href="#1-Microcanonical-ensemble-NVE" class="headerlink" title="1. Microcanonical ensemble (NVE)"></a>1. Microcanonical ensemble (NVE)</h2><ul>
+<li>specify number of atoms, volume of box, and energy of all atoms; contains possible micro-states with same N, V and E</li>
+<li>probability density of all these states:<ul>
+<li>$p(\vec r^N,\vec p^N)=\frac {\delta (\hat H (\vec r ^N, \vec p ^N)-E)}{\int_{d\vec r,d\vec p}\delta (\hat H (\vec r ^N, \vec p ^N)-E)}$</li>
+<li>only microstates with energy equals E can occur</li>
+<li>one trick here is p only relates with one micro-state, while the right hand side depends on all micro-states<h2 id="2-Canonical-ensemble-NVT"><a href="#2-Canonical-ensemble-NVT" class="headerlink" title="2. Canonical ensemble (NVT)"></a>2. Canonical ensemble (NVT)</h2></li>
+</ul>
+</li>
+<li>contains possible micro-states with same N, V and T(temperature)</li>
+<li>probability density:<ul>
+<li>$p(\vec r^N,\vec p^N)=\frac{e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}{\int_{d\vec r^Nd\vec p^N}e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}$</li>
+<li>microstates with lower energy are more likely to exist</li>
+</ul>
+</li>
+<li>partition function $Q=\frac 1 {h^{3N}N!}\int_{d\vec r^Nd\vec p^N}e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}$<ul>
+<li>N!: for degeneracy; h for unit</li>
+<li>Q is important since it connects mechanics with thermo-chemistry</li>
+<li>free energy can be got from it: $F(N,V,T)=-k_BT\ln Q$</li>
+</ul>
+</li>
+<li><p>If $\hat X$ is an observable RV<br>$$&lt; \hat X&gt; = \int_{d\vec r^Nd\vec p^N}\hat X(\vec r^N,\vec p^N)p(\vec r^N,\vec p^N) \\<br>= \frac{\int_{d\vec r^Nd\vec p^N}\hat X(\vec r^N,\vec p^N)e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}{\int_{d\vec r^Nd\vec p^N}e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}$$</p>
+<p>Typically, energy consists of two part: potential energy and kinetic energy: $\hat H(\vec r^N,\vec p^N) = U(\vec r^N)+E_{kin}(\vec p^N)$. If $\hat X$ only depends on $\vec r^N$, not on $\vec p^N$. So,<br>  $$&lt;\hat X&gt; = \frac{\int_{d\vec r^N}\hat X(\vec r^N)e^{-\frac{U(\vec r^N)}{k_BT}}\int_{d\vec p^N} e^{-\frac{E_{kin}(\vec p^N)}{k_BT}}}{\int_{d\vec r^N}e^{-\frac{U(\vec r^N)}{k_BT}}\int_{d\vec p^N} e^{-\frac{E_{kin}(\vec p^N)}{k_BT}}}$$</p>
+</li>
+</ul>
+<h2 id="Ergodieity-Hypothesis-for-lt-hat-X-gt"><a href="#Ergodieity-Hypothesis-for-lt-hat-X-gt" class="headerlink" title="Ergodieity Hypothesis for $&lt;\hat X&gt;$"></a>Ergodieity Hypothesis for $&lt;\hat X&gt;$</h2><p>The intergrient is complicated and hard to calculate for the average of observable random variable. So <strong>Ergodieity hypothesis</strong> comes up: time average can substitute ensemble average. But it can break, e.g. 2 big balls in a narrow box: time average only has ball 1 at the left/right side of ball 2; while both can exist for ensemble average. </p>
+<p>$$&lt;\hat X&gt; = \lim _{\tau\rightarrow \infty}\frac 1 \tau \int_0^\tau \hat X(\vec r^N(t),\vec p^N(t)) \text{d}t$$</p>
+<p>Here comes a question: how long is long enough? It depends on different system and we don’t want to wait forever. Another question is to create a trajectory $\hat X$</p>
+<h3 id="Newtonian-Dynamics"><a href="#Newtonian-Dynamics" class="headerlink" title="Newtonian Dynamics"></a>Newtonian Dynamics</h3><p>$$\begin{aligned}<br>\vec a &amp;= \frac {\vec F} m  &amp;\vec F = -\vec \nabla U(\vec r) \\<br>\vec a &amp;= \frac {d\vec v}{dt} = \frac {d^2 \vec r}{d t^2}= \dot {\vec v} = \ddot{\vec r}<br>\end{aligned}$$</p>
+<p>We are looking for $\vec r(t),\vec p(t)$ given $\vec r(0),\vec p(0)$, but it’s hard. One thing is we can generate Taylor expansion:</p>
+<p>$$\vec r (t+\Delta t) = \vec r(t)+\Delta t \dot {\vec r}(t) +\frac 1 2 (\Delta t)^2 \ddot {\vec r}(t) +\frac 1 6 (\Delta t)^3 \vec r’’’(t) + \cdots \tag{1}$$</p>
+<p>But we don’t want to include infinity terms, so <strong>Euler method</strong>: truncate at the second direvatives with error $O(\Delta t^3)$.</p>
+<p>$$\vec r (t+\Delta t) = \vec r(t)+\Delta t \dot {\vec r}(t) +\frac 1 2 (\Delta t)^2 \ddot {\vec r}(t) \tag{2}$$</p>
+<p>What else can do is to do Taylor expansion in the backward of time:</p>
+<p>$$\vec r (t-\Delta t)=\vec r (t)-\Delta t \dot {\vec r}(t) +\frac 1 2 (\Delta t)^2 \ddot {\vec r}(t) -\frac 1 6 (\Delta t)^3 \vec r’’’(t) + \cdots \tag{3}$$</p>
+<p>add equation (1) and (3),</p>
+<p>$$\vec r (t+\Delta t)+\vec r (t-\Delta t)=2\vec r(t)+(\Delta t)^2\ddot {\vec r}(t)+ O(\Delta t^4)$$</p>
+<p><strong>Verlet algorithm</strong> with Error $O(\Delta t^4)$</p>
+<p>$$\vec r (t+\Delta t)=2\vec r(t)-\vec r (t-\Delta t)+(\Delta t)^2\ddot {\vec r}(t) \tag{4}$$</p>
+<p>HW: Velocity Verlet algorithm</p>
+<h2 id="Miss-1"><a href="#Miss-1" class="headerlink" title="Miss 1"></a>Miss 1</h2><h2 id="Miss-2"><a href="#Miss-2" class="headerlink" title="Miss 2"></a>Miss 2</h2><h2 id="April-17"><a href="#April-17" class="headerlink" title="April 17"></a>April 17</h2><ul>
+<li><p>1 point in space: </p>
+<p>$$\begin{aligned}<br>\omega_1^{(1)}(\vec r) &amp;= \text{prob dens that atom 1 is at $\vec r$}\\<br>&amp;= &lt;\delta (\vec r_1 -\vec r)&gt; \\<br>&amp;= \frac {\int d\vec r^N d\vec p^N \delta (\vec r_1 -\vec r)e^{-\beta H}}{\int d\vec r^N d\vec p^Ne^{-\beta H}}\\<br>&amp;= \frac{\int d\vec r_1\vec r_2\cdots d\vec r_N \delta (\vec r_1 -\vec r)e^{-\beta U(\vec r_1,\vec r_2,\cdots,\vec r_N)}}{\int d\vec r_1\vec r_2\cdots d\vec r_N e^{-\beta U(\vec r_1,\vec r_2,\cdots,\vec r_N)}}\\<br>&amp;= \frac{\int d\vec r_2\cdots d\vec r_N  e^{-\beta U(\vec r,\vec r_2,\cdots,\vec r_N)}}{\int d\vec r^N  e^{-\beta U}}\\</p>
+<p>\omega_2^{(1)}(\vec r)&amp;=&lt;\delta (\vec r_2 -\vec r)&gt;=\omega_1^{(1)}(\vec r) \text{ independent of atom index}\\</p>
+<p>\rho^{(1)}(\vec r) &amp;= N\cdot \omega^{(1)}(\vec r) \text{ Avg number density at }\vec r\\</p>
+<p>\int d\vec r \rho (\vec r) &amp;= N \text{ if the system is translationally invariant}\\<br> \rho^{(1)}(\vec r) &amp;= const. = \frac N V = \rho<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>Make it more interesting, 2 points in space:</p>
+<p>$$<br>\omega_{1,2}^{(2)}(\vec r,\vec r’) = \text{pro dens that atom 1 is at $\vec r$ and atom 2 is at $\vec r’$}\\<br>= &lt;\delta (\vec r_1-\vec r)\delta(\vec r_2-\vec r’)&gt;$$</p>
+<p>$$<br>\int d\vec r\int d\vec r’ \omega_{1,2}^{(2)}(\vec r,\vec r’) =1<br>$$</p>
+<p>This is independent of which atom pair you choose $\omega^{(2)}(\vec r,\vec r’)$</p>
+<p>$$\rho^{(2)}(\vec r,\vec r’)=N(N-1)\omega^{(2)}(\vec r,\vec r’)$$</p>
+</li>
+<li><p>Pair correlation function:<br>$$g(\vec r,\vec r’ )= \frac{\rho^{(2)}(\vec r,\vec r’)}{\rho^{(1)}(\vec r)\rho^{(2)}(\vec r’)}$$<br>If the system is translationally invariant (i.e. same everywhere) and also isotropic:<br>$$g(\vec r,\vec r’) = g(|\vec r’ -\vec r|)$$</p>
+</li>
+</ul>
+<p>Why it is interesting? it is enough to calculate some expectations:</p>
+<ul>
+<li><p>example: calculate potential energy $<u>$<br>$$U(\vec r_1,\cdots,\vec r_N) = \sum_{i=1}^{N-1}\sum_{j=i+1}^N u(\vec r_i,\vec r_j)$$</u></p>
+<p>$$<br>\begin{aligned}<br><u> &amp;=\sum_{i&lt;j}&lt;u(\vec r_i,\vec r_j)&gt; \\<br>&amp;= \frac {N(N-1)}{2}&lt;u(\vec r_1,\vec r_2)&gt; \text{ if all atoms same}\\<br>&amp;=\frac{N(N-1)} 2 \frac{\int d\vec r_1,d\vec r_2,\cdots,d\vec r_N u(\vec r_1,\vec r_2)e^{-\beta U}}{\int d\vec r^N e^{\beta U}}\\<br>&amp;= \frac{N(N-1)} 2 \frac{\int d\vec r_1d\vec r_2 u(\vec r_1,\vec r_2)\int d\vec r_3\cdots d\vec r_N e^{-\beta U}}{\int d\vec r^N e^{\beta U}}\\<br>&amp;= \frac{N(N-1)} 2 \int d\vec r_1d\vec r_2 u(\vec r_1,\vec r_2)\rho^{(2)}(\vec r_1,\vec r_2)\\<br>&amp; = \frac 1 2 \rho^2\int d\vec r_1 d\vec r_2 u(\vec r_1,\vec r_2)g(|\vec r’ -\vec r|)\\<br>&amp; \overset{\vec s = \vec r_2=\vec r_1}{=} \frac 1 2 \rho^2\int d\vec r_1 d\vec s u(|\vec s|)g(|\vec s|)\\<br>&amp;= \frac 1 2 \rho^2 V \int_0^\infty ds s^2\int_0^\pi d\theta sin\theta \int_0^{2\pi}d\phi u(s)g(s)\\<br>&amp;= 2\pi \frac {N^2} V\int_0^\infty ds s^2 u(s)g(s)<br>\end{aligned}<br>$$</u></p>
+<p>g(s) is the how atoms correlate in the sample (structure), u(s) is pair potential.</p>
+</li>
+</ul>
+<h2 id="Correlation-function"><a href="#Correlation-function" class="headerlink" title="Correlation function"></a>Correlation function</h2><p>So,</p>
+<p>$$<u> = 2\pi \frac {N^2} V\int_0^\infty dr r^2 u(r)g(r)\\<br>g(\vec r,\vec r’) = \frac {\rho^{(2)}(\vec r,\vec r’)}{\rho^{(1)}(\vec r)\rho^{(1)}(\vec r’)}$$</u></p>
+<p>If homogeneous, $\rho^{(1)}(\vec r) = frac N V = \rho$</p>
+<p>$$\begin{aligned}<br>g(\vec r,\vec r’) &amp;= g(|\vec r’-\vec r|)\\<br>\rho g(\vec r,\vec r’) &amp;= \frac {N(N-1)\omega^{(2)}(\vec r,<br>\vec r’)}{N\omega^{(1)}(\vec r)}\\<br>&amp;= (N-1)\frac {&lt;\delta (\vec r_1-\vec r)\delta (\vec r_2 - \vec r’)&gt;}{&lt;\delta (\vec r_1 -\vec r)&gt;}\\<br>&amp;= (N-1) \frac {\text{Prob does that atom a at $\vec r$ and atom 2 at $\vec r’$}}{\text{Prob does that atom 1 at $\vec r$}}\\<br>&amp;= (N-1) \text{Prob(atom 2 at $\vec r’$ | atom a at $\vec r$)}\\<br>&amp;= \text{Avg density at $\vec r’$ given that atom 1 at $\vec r$}<br>\end{aligned}$$</p>
+<p>$$g(\vec O,\vec r’) = g(|\vec r’|)= \text{Avg density at $\vec r’$ given that there is an atom at the origin}$$</p>
+<ul>
+<li>What is the density of the quantum space? N/V</li>
+<li>What is the density here given that an atom is at another point? the probability at that point is 0.</li>
+</ul>
+<p>What does $g(r)$ look like?</p>
+<ol>
+<li>Ideal gas: no interaction, 2 atoms are independent<ul>
+<li>g(r) = 1, means no correlation</li>
+</ul>
+</li>
+<li><p>Solid: g(r) only has sharp peak at distince at $d, \sqrt 2d, 2d, \cdots$, if the origin is at one solid atom.<br>$$\begin{aligned}<br>\bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet \\<br>\bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet \\<br>\bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet \\<br>\bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>liquid: dense, atoms touch each other but no order. If set the position of one atom is origin, and the distance between it and its neighboring atom centers is $\sigma$. So,<br>$$g(r)=\begin{cases} 0 &amp;r&lt;\sigma\\<br>\approx 2 &amp;r=\sigma &amp;\text{1st solution shell}\\<br>1-2 &amp;r=2\sigma &amp;\text{2nd}\\</p>
+<blockquote>
+<p>1 &amp;r=3\sigma &amp;\text{3rd}\\<br> 1 &amp;r&gt;3\sigma\end{cases}$$</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="pressure"><a href="#pressure" class="headerlink" title="pressure"></a>pressure</h2><p>$\Lambda$ is deBroglie wavelength</p>
+<p>$$p=-\left.\frac{\partial F}{\partial N}\right|_{N,T}\\<br>Q = \frac 1 {h^{3N}N!}\int d\vec r^N d\vec p^N e^{-\beta \hat H} = \frac {\int d\vec r^N e^{-\beta U}}{N!\Lambda^{3N}}\\<br>F(N,V,T) = -k_B T \ln Q(N,V,T)$$</p>
 
       
     </div>
@@ -519,7 +606,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/07/Maching-Learning-on-Coursera/" rel="prev" title="Machine Learning on Coursera">
+              <a href="/2019/04/07/Machine-Learning-on-Coursera/" rel="prev" title="Machine Learning on Coursera">
                 Machine Learning on Coursera <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -655,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basics-of-Probability-Theory"><span class="nav-text">Basics of Probability Theory</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#“probability-space”"><span class="nav-text">“probability space”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Variable"><span class="nav-text">Random Variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Different-Types-of-RVs"><span class="nav-text">Different Types of RVs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Central-Limit-Theorem"><span class="nav-text">Central Limit Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Statistical-Mechanics"><span class="nav-text">Statistical Mechanics</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basics-of-Probability-Theory"><span class="nav-text">Basics of Probability Theory</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#“probability-space”"><span class="nav-text">“probability space”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-Variable"><span class="nav-text">Random Variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Different-Types-of-RVs"><span class="nav-text">Different Types of RVs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Central-Limit-Theorem"><span class="nav-text">Central Limit Theorem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Statistical-Mechanics"><span class="nav-text">Statistical Mechanics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Microcanonical-ensemble-NVE"><span class="nav-text">1. Microcanonical ensemble (NVE)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Canonical-ensemble-NVT"><span class="nav-text">2. Canonical ensemble (NVT)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ergodieity-Hypothesis-for-lt-hat-X-gt"><span class="nav-text">Ergodieity Hypothesis for $&lt;\hat X&gt;$</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Newtonian-Dynamics"><span class="nav-text">Newtonian Dynamics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Miss-1"><span class="nav-text">Miss 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Miss-2"><span class="nav-text">Miss 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#April-17"><span class="nav-text">April 17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Correlation-function"><span class="nav-text">Correlation function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pressure"><span class="nav-text">pressure</span></a></li></ol></li></ol></div>
             
 
           </div>
