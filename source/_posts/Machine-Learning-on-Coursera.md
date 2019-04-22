@@ -190,7 +190,7 @@ Useful tricks:
 1. feature scaling: $-1\leq x_i \leq 1$ to increase efficiency by $\frac{x_i-\mu_i}{max(x_i)-min(m_i)}$ or $\frac{x_i-\mu_i}{\sqrt{var(x_i)}}$
 2. learning rate $\alpha$:
    - too small: always slow convergence
-   - too large: $J(\theta)$ mya not decrease on every iteration; may not converge
+   - too large: $J(\theta)$ may not decrease on every iteration; may not converge
    - try $\alpha$ from "..., 0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 0,1, ..." to choose
 
 ## Normal equation:
@@ -208,3 +208,83 @@ $$\mathbf{\Theta} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$$
       - delete some features, or use regularization
 3. Octave: `pinv(X'*X)*X'*y`
    - `pinv`:sudo inverse, works for most cases even if X'*X non-invertible  
+
+# Logistic Regression for classification
+
+## Binary Classification
+
+Ignore the fact that y is discrete-valued, and use our old linear regression algorithm to try to predict y given x. y={0,1}
+
+- Hypothesis  Representation
+  - Logistic/sigmoid function $g(z) = \frac 1 {1+e^{-z}}$, use $h_\theta (x)=g(\theta^T x)$
+  - Interpretation of Hypothesis Output $h_\theta (x)= P(y=1 | x;\theta)$ estimated probability that y=1 on input x
+
+- Decision Boundary
+  - $\theta^T x=0$
+
+- Cost Function
+  - training set: $\{(x^{(1)},y^{(1)}),(x^{(2)},y^{(2)}),\cdots,(x^{(m)},y^{(m)})\}$
+  - cost function: $J(\theta)=\frac 1 {2m}\sum_{i=1}^m\left(h_\theta(x^{(i)})-y^{(i)}\right)^2$ is non-convex and may have a lot local minimum. So,
+
+  $$J(\theta)=\frac 1 m \sum_{i=1}^m Cost(h_\theta(x^{(i)}),y^{(i)})\\
+  Cost(h_\theta(x),y)=\begin{cases}
+  -\log(h_\theta(x)) &if\ y=1\\-\log (1-h_\theta(x)) &if \ y=0\\
+  \end{cases}$$
+
+
+-  simplified cost function and gradient descent
+  
+   $$Cost(h_\theta (x),y) = -y\log(h_\theta (x))-(1-y)\log (1-h_\theta (x))\\
+   J(\theta)=-\frac 1 m \sum[y^{(i)}\log(h_\theta (x^{(i)}))-(1-y^{(i)})\log (1-h_\theta (x^{(i)}))]$$
+   Repeat{$\theta_j := \theta_j-\alpha \frac \partial {\partial \theta_j} J(\theta)$}, which is $\theta_j := \theta_j-\frac \alpha m \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$}
+
+- Advanced Optimization
+
+  ```MatLab
+  function [jVal, gradient] = costFunction(theta)
+      jVal = ...
+      gradient = ...
+  ```
+
+  ```MatLab
+  options = optimset('GradObj','on','MaxIter',100);
+  initialTheta = ...; %len>=2
+  [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+  ```
+
+## Multiclass Classification: One-vs-all
+
+if n classes y={1,2,3,...,n}: we can do logistic regression classifier $h_\theta^{(i)}(x)$ for each cass i to predit the probability $P(y=i|x;\theta)$ when $i={1,2,3,...,n}$, respectively.
+
+# Regularization
+
+## The problem of overfitting
+
+overfit/high variance: if too many features, the learned hypothesis may fit the training set very well, but fail to generalize to new examples
+
+options:
+- reduce number of features
+  - manually select features to keep
+  - model selection algorithm
+- regularization
+  - keep all features, but reduce magnitude of parameters $\theta_j$
+
+## Cost Function
+
+$$J(\theta) =\frac 1 {2m} [\sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})^2+\lambda \sum_{j=1}^n \theta_j^2]\\
+min_\theta J(\theta)$$
+
+$\lambda$ regularization parameter, determines how much the costs of our theta parameters are inflated. If $\lambda$ too large, all $\theta$ go 0 and can be underfit.
+
+## Regularized linear regression
+
+- Gradient descent, Repeat{
+  $$\theta_0 := \theta_0 -\frac \alpha m \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})x_0^{(i)}\\
+\theta_j := \theta_j(1-\alpha \frac \lambda m) -\frac \alpha m \sum_{i=1}^m (h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$$
+  }$-\alpha \frac \lambda m$ shrinks $\theta$
+
+- Normal eqaution:
+
+  $$\theta = \left( X^TX+\lambda\begin{bmatrix}0&0&\cdots&0\\0&1&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&1\end{bmatrix}\right)^{-1}X^Ty$$
+
+  If (#examples)$\leq$(#features), $\theta=(X^TX)^{-1}X^Ty$. $X^TX$ is non-invertible. but if $\lambda >0$, regularization is invertible

@@ -138,4 +138,180 @@ The more experiments have been done, the smaller the standard deviation $\sqrt{\
 
 classical: gaseous atoms in a cubic box with length of L. what should to know to describe this system (N atoms)? 
 
-positions: ${\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N$ and momentums: ${\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N$. Each r and p contains three elements (x,y,z). so microstate $\omega=({\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N;{\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N)$ contains 6N elements. $\Omega=[0,L]^{3N}\times \bf{R}^{3N}$
+positions: ${\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N$ and momentums: ${\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N$. Each r and p contains three elements (x,y,z). so microstate $\omega=({\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N;{\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N)$ contains 6N elements. $\Omega$ : all positions of N atoms and their momentum, i.e. $\Omega = \{({\vec r}_1,{\vec r}_2,\cdots ,{\vec r}_N;{\vec p}_1,{\vec p}_2,\cdots,{\vec p}_N)\} = \{(\vec r^N;\vec p^N)\}$ whose size is $[0,L]^{3N}\times \bf{R}^{3N}$
+
+## 1. Microcanonical ensemble (NVE)
+- specify number of atoms, volume of box, and energy of all atoms; contains possible micro-states with same N, V and E
+- probability density of all these states:
+  - $p(\vec r^N,\vec p^N)=\frac {\delta (\hat H (\vec r ^N, \vec p ^N)-E)}{\int_{d\vec r,d\vec p}\delta (\hat H (\vec r ^N, \vec p ^N)-E)}$
+  - only microstates with energy equals E can occur
+  - one trick here is p only relates with one micro-state, while the right hand side depends on all micro-states
+## 2. Canonical ensemble (NVT)
+- contains possible micro-states with same N, V and T(temperature)
+- probability density:
+  - $p(\vec r^N,\vec p^N)=\frac{e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}{\int_{d\vec r^Nd\vec p^N}e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}$
+  - microstates with lower energy are more likely to exist
+- partition function $Q=\frac 1 {h^{3N}N!}\int_{d\vec r^Nd\vec p^N}e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}$
+  - N!: for degeneracy; h for unit
+  - Q is important since it connects mechanics with thermo-chemistry
+  - free energy can be got from it: $F(N,V,T)=-k_BT\ln Q$
+- If $\hat X$ is an observable RV
+  $$< \hat X> = \int_{d\vec r^Nd\vec p^N}\hat X(\vec r^N,\vec p^N)p(\vec r^N,\vec p^N) \\
+  = \frac{\int_{d\vec r^Nd\vec p^N}\hat X(\vec r^N,\vec p^N)e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}{\int_{d\vec r^Nd\vec p^N}e^{-\hat H(\vec r^N, \vec p^N)/(k_BT)}}$$
+
+  Typically, energy consists of two part: potential energy and kinetic energy: $\hat H(\vec r^N,\vec p^N) = U(\vec r^N)+E_{kin}(\vec p^N)$. If $\hat X$ only depends on $\vec r^N$, not on $\vec p^N$. So,
+    $$<\hat X> = \frac{\int_{d\vec r^N}\hat X(\vec r^N)e^{-\frac{U(\vec r^N)}{k_BT}}\int_{d\vec p^N} e^{-\frac{E_{kin}(\vec p^N)}{k_BT}}}{\int_{d\vec r^N}e^{-\frac{U(\vec r^N)}{k_BT}}\int_{d\vec p^N} e^{-\frac{E_{kin}(\vec p^N)}{k_BT}}}$$
+
+## Ergodieity Hypothesis for $<\hat X>$
+
+The intergrient is complicated and hard to calculate for the average of observable random variable. So **Ergodieity hypothesis** comes up: time average can substitute ensemble average. But it can break, e.g. 2 big balls in a narrow box: time average only has ball 1 at the left/right side of ball 2; while both can exist for ensemble average. 
+
+$$<\hat X> = \lim _{\tau\rightarrow \infty}\frac 1 \tau \int_0^\tau \hat X(\vec r^N(t),\vec p^N(t)) \text{d}t$$
+
+Here comes a question: how long is long enough? It depends on different system and we don't want to wait forever. Another question is to create a trajectory $\hat X$
+
+### Newtonian Dynamics
+
+$$\begin{aligned}
+\vec a &= \frac {\vec F} m  &\vec F = -\vec \nabla U(\vec r) \\
+\vec a &= \frac {d\vec v}{dt} = \frac {d^2 \vec r}{d t^2}= \dot {\vec v} = \ddot{\vec r}
+\end{aligned}$$
+
+We are looking for $\vec r(t),\vec p(t)$ given $\vec r(0),\vec p(0)$, but it's hard. One thing is we can generate Taylor expansion:
+
+$$\vec r (t+\Delta t) = \vec r(t)+\Delta t \dot {\vec r}(t) +\frac 1 2 (\Delta t)^2 \ddot {\vec r}(t) +\frac 1 6 (\Delta t)^3 \vec r'''(t) + \cdots \tag{1}$$
+
+But we don't want to include infinity terms, so **Euler method**: truncate at the second direvatives with error $O(\Delta t^3)$.
+
+$$\vec r (t+\Delta t) = \vec r(t)+\Delta t \dot {\vec r}(t) +\frac 1 2 (\Delta t)^2 \ddot {\vec r}(t) \tag{2}$$
+
+What else can do is to do Taylor expansion in the backward of time:
+
+$$\vec r (t-\Delta t)=\vec r (t)-\Delta t \dot {\vec r}(t) +\frac 1 2 (\Delta t)^2 \ddot {\vec r}(t) -\frac 1 6 (\Delta t)^3 \vec r'''(t) + \cdots \tag{3}$$
+
+add equation (1) and (3),
+
+$$\vec r (t+\Delta t)+\vec r (t-\Delta t)=2\vec r(t)+(\Delta t)^2\ddot {\vec r}(t)+ O(\Delta t^4)$$
+
+**Verlet algorithm** with Error $O(\Delta t^4)$
+
+$$\vec r (t+\Delta t)=2\vec r(t)-\vec r (t-\Delta t)+(\Delta t)^2\ddot {\vec r}(t) \tag{4}$$
+
+HW: Velocity Verlet algorithm
+
+## Miss 1
+
+## Miss 2
+
+
+## April 17
+
+- 1 point in space: 
+
+  $$\begin{aligned}
+  \omega_1^{(1)}(\vec r) &= \text{prob dens that atom 1 is at $\vec r$}\\
+  &= <\delta (\vec r_1 -\vec r)> \\
+  &= \frac {\int d\vec r^N d\vec p^N \delta (\vec r_1 -\vec r)e^{-\beta H}}{\int d\vec r^N d\vec p^Ne^{-\beta H}}\\
+  &= \frac{\int d\vec r_1\vec r_2\cdots d\vec r_N \delta (\vec r_1 -\vec r)e^{-\beta U(\vec r_1,\vec r_2,\cdots,\vec r_N)}}{\int d\vec r_1\vec r_2\cdots d\vec r_N e^{-\beta U(\vec r_1,\vec r_2,\cdots,\vec r_N)}}\\
+  &= \frac{\int d\vec r_2\cdots d\vec r_N  e^{-\beta U(\vec r,\vec r_2,\cdots,\vec r_N)}}{\int d\vec r^N  e^{-\beta U}}\\
+
+  \omega_2^{(1)}(\vec r)&=<\delta (\vec r_2 -\vec r)>=\omega_1^{(1)}(\vec r) \text{ independent of atom index}\\
+
+  \rho^{(1)}(\vec r) &= N\cdot \omega^{(1)}(\vec r) \text{ Avg number density at }\vec r\\
+
+  \int d\vec r \rho (\vec r) &= N \text{ if the system is translationally invariant}\\
+   \rho^{(1)}(\vec r) &= const. = \frac N V = \rho
+  \end{aligned}
+  $$
+
+- Make it more interesting, 2 points in space:
+
+  $$
+  \omega_{1,2}^{(2)}(\vec r,\vec r') = \text{pro dens that atom 1 is at $\vec r$ and atom 2 is at $\vec r'$}\\
+  = <\delta (\vec r_1-\vec r)\delta(\vec r_2-\vec r')>$$
+
+  $$
+  \int d\vec r\int d\vec r' \omega_{1,2}^{(2)}(\vec r,\vec r') =1
+  $$
+
+  This is independent of which atom pair you choose $\omega^{(2)}(\vec r,\vec r')$
+
+  $$\rho^{(2)}(\vec r,\vec r')=N(N-1)\omega^{(2)}(\vec r,\vec r')$$
+
+- Pair correlation function:
+  $$g(\vec r,\vec r' )= \frac{\rho^{(2)}(\vec r,\vec r')}{\rho^{(1)}(\vec r)\rho^{(2)}(\vec r')}$$
+  If the system is translationally invariant (i.e. same everywhere) and also isotropic:   
+  $$g(\vec r,\vec r') = g(|\vec r' -\vec r|)$$
+
+Why it is interesting? it is enough to calculate some expectations:
+
+- example: calculate potential energy $<U>$
+  $$U(\vec r_1,\cdots,\vec r_N) = \sum_{i=1}^{N-1}\sum_{j=i+1}^N u(\vec r_i,\vec r_j)$$
+
+  $$
+  \begin{aligned}
+  <U> &=\sum_{i<j}<u(\vec r_i,\vec r_j)> \\
+  &= \frac {N(N-1)}{2}<u(\vec r_1,\vec r_2)> \text{ if all atoms same}\\
+  &=\frac{N(N-1)} 2 \frac{\int d\vec r_1,d\vec r_2,\cdots,d\vec r_N u(\vec r_1,\vec r_2)e^{-\beta U}}{\int d\vec r^N e^{\beta U}}\\
+  &= \frac{N(N-1)} 2 \frac{\int d\vec r_1d\vec r_2 u(\vec r_1,\vec r_2)\int d\vec r_3\cdots d\vec r_N e^{-\beta U}}{\int d\vec r^N e^{\beta U}}\\
+  &= \frac{N(N-1)} 2 \int d\vec r_1d\vec r_2 u(\vec r_1,\vec r_2)\rho^{(2)}(\vec r_1,\vec r_2)\\
+  & = \frac 1 2 \rho^2\int d\vec r_1 d\vec r_2 u(\vec r_1,\vec r_2)g(|\vec r' -\vec r|)\\
+  & \overset{\vec s = \vec r_2=\vec r_1}{=} \frac 1 2 \rho^2\int d\vec r_1 d\vec s u(|\vec s|)g(|\vec s|)\\
+  &= \frac 1 2 \rho^2 V \int_0^\infty ds s^2\int_0^\pi d\theta sin\theta \int_0^{2\pi}d\phi u(s)g(s)\\
+  &= 2\pi \frac {N^2} V\int_0^\infty ds s^2 u(s)g(s)
+  \end{aligned}
+  $$
+
+  g(s) is the how atoms correlate in the sample (structure), u(s) is pair potential.
+
+## Correlation function
+
+So,
+
+$$<U> = 2\pi \frac {N^2} V\int_0^\infty dr r^2 u(r)g(r)\\
+g(\vec r,\vec r') = \frac {\rho^{(2)}(\vec r,\vec r')}{\rho^{(1)}(\vec r)\rho^{(1)}(\vec r')}$$
+
+If homogeneous, $\rho^{(1)}(\vec r) = frac N V = \rho$
+
+$$\begin{aligned}
+g(\vec r,\vec r') &= g(|\vec r'-\vec r|)\\
+\rho g(\vec r,\vec r') &= \frac {N(N-1)\omega^{(2)}(\vec r, 
+\vec r')}{N\omega^{(1)}(\vec r)}\\
+&= (N-1)\frac {<\delta (\vec r_1-\vec r)\delta (\vec r_2 - \vec r')>}{<\delta (\vec r_1 -\vec r)>}\\
+&= (N-1) \frac {\text{Prob does that atom a at $\vec r$ and atom 2 at $\vec r'$}}{\text{Prob does that atom 1 at $\vec r$}}\\
+&= (N-1) \text{Prob(atom 2 at $\vec r'$ | atom a at $\vec r$)}\\
+&= \text{Avg density at $\vec r'$ given that atom 1 at $\vec r$}
+\end{aligned}$$
+
+$$g(\vec O,\vec r') = g(|\vec r'|)= \text{Avg density at $\vec r'$ given that there is an atom at the origin}$$
+
+- What is the density of the quantum space? N/V
+- What is the density here given that an atom is at another point? the probability at that point is 0.
+
+What does $g(r)$ look like?
+
+1. Ideal gas: no interaction, 2 atoms are independent
+  - g(r) = 1, means no correlation
+2. Solid: g(r) only has sharp peak at distince at $d, \sqrt 2d, 2d, \cdots$, if the origin is at one solid atom.
+  $$\begin{aligned}
+  \bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet \\
+  \bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet \\
+  \bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet \\
+  \bullet\underline{ d }\bullet\underline{ d }\bullet\underline{ d }\bullet
+  \end{aligned}
+  $$
+
+3. liquid: dense, atoms touch each other but no order. If set the position of one atom is origin, and the distance between it and its neighboring atom centers is $\sigma$. So,
+   $$g(r)=\begin{cases} 0 &r<\sigma\\
+   \approx 2 &r=\sigma &\text{1st solution shell}\\
+   1-2 &r=2\sigma &\text{2nd}\\
+    >1 &r=3\sigma &\text{3rd}\\
+    1 &r>3\sigma\end{cases}$$
+
+## pressure
+
+$\Lambda$ is deBroglie wavelength
+
+$$p=-\left.\frac{\partial F}{\partial N}\right|_{N,T}\\
+Q = \frac 1 {h^{3N}N!}\int d\vec r^N d\vec p^N e^{-\beta \hat H} = \frac {\int d\vec r^N e^{-\beta U}}{N!\Lambda^{3N}}\\
+F(N,V,T) = -k_B T \ln Q(N,V,T)$$
