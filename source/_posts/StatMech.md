@@ -204,7 +204,7 @@ HW: Velocity Verlet algorithm
 ## Miss 2
 
 
-## April 17
+## Probability Density
 
 - 1 point in space: 
 
@@ -214,11 +214,8 @@ HW: Velocity Verlet algorithm
   &= \frac {\int d\vec r^N d\vec p^N \delta (\vec r_1 -\vec r)e^{-\beta H}}{\int d\vec r^N d\vec p^Ne^{-\beta H}}\\
   &= \frac{\int d\vec r_1\vec r_2\cdots d\vec r_N \delta (\vec r_1 -\vec r)e^{-\beta U(\vec r_1,\vec r_2,\cdots,\vec r_N)}}{\int d\vec r_1\vec r_2\cdots d\vec r_N e^{-\beta U(\vec r_1,\vec r_2,\cdots,\vec r_N)}}\\
   &= \frac{\int d\vec r_2\cdots d\vec r_N  e^{-\beta U(\vec r,\vec r_2,\cdots,\vec r_N)}}{\int d\vec r^N  e^{-\beta U}}\\
-
   \omega_2^{(1)}(\vec r)&=<\delta (\vec r_2 -\vec r)>=\omega_1^{(1)}(\vec r) \text{ independent of atom index}\\
-
   \rho^{(1)}(\vec r) &= N\cdot \omega^{(1)}(\vec r) \text{ Avg number density at }\vec r\\
-
   \int d\vec r \rho (\vec r) &= N \text{ if the system is translationally invariant}\\
    \rho^{(1)}(\vec r) &= const. = \frac N V = \rho
   \end{aligned}
@@ -250,7 +247,7 @@ Why it is interesting? it is enough to calculate some expectations:
 
   $$
   \begin{aligned}
-  <U> &=\sum_{i<j}<u(\vec r_i,\vec r_j)> \\
+  \left<U\right> &=\sum_{i<j}<u(\vec r_i,\vec r_j)> \\
   &= \frac {N(N-1)}{2}<u(\vec r_1,\vec r_2)> \text{ if all atoms same}\\
   &=\frac{N(N-1)} 2 \frac{\int d\vec r_1,d\vec r_2,\cdots,d\vec r_N u(\vec r_1,\vec r_2)e^{-\beta U}}{\int d\vec r^N e^{\beta U}}\\
   &= \frac{N(N-1)} 2 \frac{\int d\vec r_1d\vec r_2 u(\vec r_1,\vec r_2)\int d\vec r_3\cdots d\vec r_N e^{-\beta U}}{\int d\vec r^N e^{\beta U}}\\
@@ -268,7 +265,7 @@ Why it is interesting? it is enough to calculate some expectations:
 
 So,
 
-$$<U> = 2\pi \frac {N^2} V\int_0^\infty dr r^2 u(r)g(r)\\
+$$\left<U\right> = 2\pi \frac {N^2} V\int_0^\infty dr r^2 u(r)g(r)\\
 g(\vec r,\vec r') = \frac {\rho^{(2)}(\vec r,\vec r')}{\rho^{(1)}(\vec r)\rho^{(1)}(\vec r')}$$
 
 If homogeneous, $\rho^{(1)}(\vec r) = frac N V = \rho$
@@ -305,13 +302,84 @@ What does $g(r)$ look like?
    $$g(r)=\begin{cases} 0 &r<\sigma\\
    \approx 2 &r=\sigma &\text{1st solution shell}\\
    1-2 &r=2\sigma &\text{2nd}\\
-    >1 &r=3\sigma &\text{3rd}\\
-    1 &r>3\sigma\end{cases}$$
+   1-2 &r=3\sigma &\text{3rd}\\
+   1 &r>3\sigma\end{cases}$$
 
 ## pressure
 
 $\Lambda$ is deBroglie wavelength
 
-$$p=-\left.\frac{\partial F}{\partial N}\right|_{N,T}\\
-Q = \frac 1 {h^{3N}N!}\int d\vec r^N d\vec p^N e^{-\beta \hat H} = \frac {\int d\vec r^N e^{-\beta U}}{N!\Lambda^{3N}}\\
-F(N,V,T) = -k_B T \ln Q(N,V,T)$$
+$$\begin{aligned}
+p&=-\left.\frac{\partial F}{\partial N}\right|_{N,T}\\
+Q &= \frac 1 {h^{3N}N!}\int d\vec r^N d\vec p^N e^{-\beta \hat H} = \frac {\int d\vec r^N e^{-\beta U}}{N!\Lambda^{3N}} = \frac Z {N!\Lambda^{3N}}\\
+F(N,V,T) &= -k_B T \ln Q(N,V,T)\\
+p&=k_BT\frac \partial {\partial V}\ln Q\\
+&= k_BT\frac 1 Q \frac \partial{\partial V} Q \\
+&= k_BT \frac{\Lambda^{3N}N!}{Z}\frac \partial{\partial V}\frac {Z}{\Lambda^{3N}N!}\\
+&=k_BT\frac 1 Z\frac {\partial Z}{\partial L}\frac{\partial L}{\partial V} \\
+&= k_BT\frac 1 Z 
+\frac 1 {3L^2}\frac {\partial Z}{\partial L}\\
+Z&=\int_Vd\vec r_1\int_Bd\vec r_2\cdots\int_Vd\vec r_Ne^{-\beta U(\vec r_1,\vec r_2,\cdots,\vec r_N)}\\
+\vec s_i  &= \frac {\vec r_i} {L^3}\\
+Z &= L^{3N}\int_{[0,1]^3}d\vec s_1\int_{[0,1]^3}d\vec s_2\cdots\int_{[0,1]^3}d\vec s_N e^{-\beta U(L\vec s_1,L\vec s_2,\cdots,L\vec s_N)}\\
+p&= \frac{k_BT}{3L^2}\frac 1 Z \left[3NL^{3N-1}\underbrace{\int_{[0,1]^{3N}}d\vec s^Ne^{-\beta U}}_{\frac Z {L^{3N}}}+L^{3N}\int_{[0,1]^{3N}}\underbrace{\frac \partial{\partial L}e^{-\beta U(L,\vec s^N)}}_{-\beta \frac {\partial U}{\partial L}e^{-\beta U(L\vec s^N)}}\right]\\
+&= \frac {k_BT}{3L^2}\left[\frac {3N}L-\frac 1 Z\beta L^{3N}\int d\vec s^N \frac {\partial U}{\partial  L}e^{-\beta U}\right]\\
+&= \frac {k_BTN}{L^3}-\frac 1{3L^2}\frac 1 Z L^{3N}\int d\vec s^N\frac {\partial U}{\partial L}e^{-\beta U}\\
+& = \frac {k_BTN}{L^3}-\frac 1{3L^2}\frac 1 Z\int d\vec r^N\frac {\partial U}{\partial L}e^{-\beta U}\\
+& = \underbrace{\frac {k_BTN}{L^3}}_{\text{ideal gas}}-\frac 1 {3L^2}\underbrace{\left<\frac {\partial U}{\partial L}\right>}_{\text{expectation}}\\
+\text{If } U(\vec r^N)&=\sum_{i<j} U(\vec r_i,\vec r_j)\\
+\text{Then } \frac{\partial U}{\partial L} &= \sum_{i<j}\frac{\partial u}{\partial L} = \sum_{i<j}\frac{\partial u}{\partial r_{ij}}\frac{\partial r_{ij}}{\partial L}=\sum_{i<j}u'(r_{ij})s_{ij} &s_{ij}=\frac{r_{ij}}L\\
+\left<\frac{\partial U}{\partial L}\right> & = \frac 1 {2L}\int d\vec r\int d\vec r' u'(|\vec r-\vec r'|)|\vec r-\vec r'|\rho^{(2)}(\vec r,\vec r')\\
+&= \frac 1{2L} V 4\pi \int_0^\infty dr r^3u'(r)\underbrace{\rho^{(2)}(r)}_{\rho^2 g(r)}\\
+\end{aligned}$$
+So, pressure equation:
+
+$$p = k_B T\rho -\frac {2\pi}3 \rho^2\int_0^\infty dr r^3 u'(r)\underbrace{g(r)}_{\text{depends on }\rho}$$
+
+Virial equation:
+
+$$\frac p{k_BT}=\rho + B_2\rho^2 +B_3\rho^3 +B_4\rho^4 +\cdots$$
+
+## Density Field 
+
+Considering a system with N particles, so need 3N elements to describe its configuration (micro-state), which are $\vec r_1,\vec r_2,\cdots,\vec r_N$. So its density field is:
+
+$$\rho (\vec r) = \sum_{i=1}^N \delta(\vec r - \vec r_i)$$
+
+If exchange positions of two particles, $\rho$ doesn't change. For each given $\vec r$, we can get a value. $\rho$ is a description of micro-state.
+
+$$\int d\vec r = \rho(\vec r) = N$$
+
+The $\rho^{(1)}(\vec r)$ is an average value of $\rho(\vec r)$:
+
+$$\rho^{(1)}(\vec r) = N\left<\delta(\vec r -\vec r_1)\right>=\sum_{i=1}^N \left<\delta(\vec r -\vec r_i)\right> = \left<\rho(\vec r)\right> $$
+
+Fourier transform:
+
+$$\tilde\rho(\vec k) = \int d\vec r \rho(\vec r)e^{-i\vec k\vec r}\\
+\rho(\vec r) = \frac{1}{(2\pi)^3}\int d\vec k \tilde{\rho}(\vec k)e^{i\vec k\vec r}$$
+
+Structure factor, which can be measured (Scattering):
+
+$$\begin{aligned}S(\vec k) &= \frac 1 N \left<\tilde{\rho}(\vec k)\tilde{\rho}(\vec h)\right>\\
+&=1+\rho \int d\vec rg(\vec r)e^{-i\vec k\vec r}\\
+&= 1+\rho \tilde{g}(\vec k)\end{aligned}$$
+
+##Scattering:
+
+use "electrons, neutrons" get scattered in different directions if interacting with our samples.
+Incoming light: 
+$$\psi_1(\vec r) = e^{i\vec k_1\vec r}$$
+Outgoing light: If it is astropic signal, it only depends on its wavelength and the distance from the source and the detector. 
+$$\psi_2(\vec r) = f(\theta)\frac{e^{i k_2r}}{r}$$
+Total Field:
+$$\psi(\vec r) = e^{i\vec k_1\vec r} +f(\theta)\frac{e^{i k_2 r}}{r}$$
+Experiments measure: scattering cross section
+$$\frac{d\sigma}{d\Omega}=\left<|f(\theta)|^2\right>$$
+
+Calculate $f(\theta)$: how every N particles affect scattering: the existing field of samples affect scattering ($\psi(\vec r_i)$), $r_i$ is the position of every particle of samples, r' is the position of samples but it doesn't need to be one of $r_i$,  r is the position of detector. Let make Born approximation: the signal can only be scattered at most by one particle, so $\psi(\vec r') = \psi_i(\vec r') = e^{i\vec k_1\vec r'}$
+$$\begin{aligned}\psi(\vec r) &= e^{i\vec k_1\vec r}+\sum_{i=1}^N \frac{e^{ik_2}|\vec r-\vec r_i|}{|\vec r-\vec r_i|} b \psi(\vec r_i)\\
+&=e^{i\vec k_1\vec r} +b\int d\vec r' \rho(\vec r')
+\frac {^{ik_2}|\vec r-\vec r'|}{|\vec r-\vec r'|}\\
+&= e^{i\vec k_1\vec r}+b\int_{sample} d\vec r' \rho(\vec r')\frac {e^{ik_2}|\vec r-\vec r_i|}{|\vec r-\vec r_i|} e^{i\vec k_1 \vec r'}\end{aligned}$$
+
