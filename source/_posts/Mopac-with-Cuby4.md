@@ -138,10 +138,13 @@ thermostat_tc: 0.05
 - add `scf_cycles: 1000` for open-shell system to define the maximum number of SCF iterations
 
 ### Other Keywords
+- `md_region: ""` & `trajectory_selection: ""`
+  - ex: md_region: "1-19,22-100", trajectory_selection: "1-100": means load atoms from 1-100 and fix atoms 20-21
 - `job_cleanup: yes | no`
   - delete directories with external calculations when job finishes successfuly, default is yes
 - `mopac_keywords: ""`
   - extra keywords (in the MOPAC format) added into the input
+  - add keyword "camp" if job fails with not self-consistency
 - `scf_convergence: 7`
   - change SCF convergence threshold (energy): set to $10^{-7}$ a.u.
 - click [here](http://cuby4.molecular.cz/keywords.html) to see more
