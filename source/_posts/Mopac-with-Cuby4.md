@@ -3,8 +3,7 @@ title: Mopac with Cuby4
 date: 2018-12-28 22:03:11
 tags:
 - Hyak
-- ComputChem
-- software
+- Software Tutorial
 categories:
 - Turecek Lab Tutorial
 ---

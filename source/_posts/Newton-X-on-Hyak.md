@@ -3,8 +3,7 @@ title: Newton-X on Hyak
 date: 2018-12-30 20:30:09
 tags:
 - Hyak
-- ComputChem
-- software
+- Software Tutorial
 categories:
 - Turecek Lab Tutorial
 ---
