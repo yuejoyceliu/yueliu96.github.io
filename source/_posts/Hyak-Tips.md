@@ -7,7 +7,7 @@ categories:
 - Turecek Lab Tutorial
 ---
 
-Tips on: [file transfer](#scp) | [memory & disk space](#memdisk) | [python scripts](#pyscripts) | [squeue format](#squeue) | to be continue...
+Tips on: [file transfer](#scp) | [memory & disk space](#memdisk) | [python scripts](#pyscripts) | [Run python: No such file or directory](#nofile) | [squeue format](#squeue) | to be continue...
 
 Hyak Mox Overview website: [click me](https://wiki.cac.washington.edu/display/hyakusers/Hyak+mox+Overview)
 
@@ -98,6 +98,19 @@ Hyak Mox Overview website: [click me](https://wiki.cac.washington.edu/display/hy
   - example: 
    
      If *xyz2gjf$.$py* (usage: `python xyz2gjf.py xyz-file` )is in a subdirecotry *myscripts* of home directory, run `chmod u+x ~/myscripts/xyz2gjf.py` first if it is not executable, move to a directory containing several xyz files and run `for i in *xyz; do ~/myscripts/xyz2gjf.py $i; done` to convert all *xyz files to gjf format.
+
+# <jump id='nofile'>Run python: No such file or directory</jump>
+
+If python scripts can be executed with `python script.py` but fails with `./script.py`:
+
+- Make sure add `#!/usr/bin/env python` at the head of the script
+- Make sure use `chmod u+x script.py` to make it executable
+
+If it still fails:
+
+- `vi scripts.py` to open it
+- `:set ff=unix` to change it file format
+- `:wq` to save it
 
 # <jump id='squeue'>Squeue Format</jump>
 
