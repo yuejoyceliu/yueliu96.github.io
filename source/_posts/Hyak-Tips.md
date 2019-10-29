@@ -49,7 +49,7 @@ Hyak Mox Overview website: [click me](https://wiki.cac.washington.edu/display/hy
   lls          #list files and folders on local directory
   ```
 
-# <jump id='memdisk'>Memory and Disk Space
+# <jump id='memdisk'>Memory and Disk Space</jump>
 
 - Commonality
   - Place to hold data
