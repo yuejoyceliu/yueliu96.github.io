@@ -117,18 +117,18 @@
 
 
 
-<meta name="description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | squeue format | to be continue… Hyak Mox Overview website: click me File Transfer from ikt to mox 12hyakbbcp myfile mox1.hyak.uw.edu">
+<meta name="description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | Run python: No such file or directory | squeue format | to be continue… Hyak Mox Overview website: click me File Transfer from ikt t">
 <meta name="keywords" content="Hyak">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hyak Tips">
 <meta property="og:url" content="http://yoursite.com/2018/12/31/Hyak-Tips/index.html">
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
-<meta property="og:description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | squeue format | to be continue… Hyak Mox Overview website: click me File Transfer from ikt to mox 12hyakbbcp myfile mox1.hyak.uw.edu">
+<meta property="og:description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | Run python: No such file or directory | squeue format | to be continue… Hyak Mox Overview website: click me File Transfer from ikt t">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T03:19:43.840Z">
+<meta property="og:updated_time" content="2019-10-29T03:35:28.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hyak Tips">
-<meta name="twitter:description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | squeue format | to be continue… Hyak Mox Overview website: click me File Transfer from ikt to mox 12hyakbbcp myfile mox1.hyak.uw.edu">
+<meta name="twitter:description" content="Tips on: file transfer | memory &amp;amp; disk space | python scripts | Run python: No such file or directory | squeue format | to be continue… Hyak Mox Overview website: click me File Transfer from ikt t">
 
 
 
@@ -380,7 +380,7 @@
       
 
       
-        <p>Tips on: <a href="#scp">file transfer</a> | <a href="#memdisk">memory &amp; disk space</a> | <a href="#pyscripts">python scripts</a> | <a href="#squeue">squeue format</a> | to be continue…</p>
+        <p>Tips on: <a href="#scp">file transfer</a> | <a href="#memdisk">memory &amp; disk space</a> | <a href="#pyscripts">python scripts</a> | <a href="#nofile">Run python: No such file or directory</a> | <a href="#squeue">squeue format</a> | to be continue…</p>
 <p>Hyak Mox Overview website: <a href="https://wiki.cac.washington.edu/display/hyakusers/Hyak+mox+Overview" target="_blank" rel="noopener">click me</a></p>
 <h1 id="File-Transfer"><a href="#File-Transfer" class="headerlink" title="File Transfer"></a><jump id="scp">File Transfer</jump></h1><ul>
 <li><p>from ikt to mox</p>
@@ -436,6 +436,17 @@
 </li>
 </ul>
 </li>
+</ul>
+<h1 id="Run-python-No-such-file-or-directory"><a href="#Run-python-No-such-file-or-directory" class="headerlink" title="Run python: No such file or directory"></a><jump id="nofile">Run python: No such file or directory</jump></h1><p>If python scripts can be executed with <code>python script.py</code> but fails with <code>./script.py</code>:</p>
+<ul>
+<li>Make sure add <code>#!/usr/bin/env python</code> at the head of the script</li>
+<li>Make sure use <code>chmod u+x script.py</code> to make it executable</li>
+</ul>
+<p>If it still fails:</p>
+<ul>
+<li><code>vi scripts.py</code> to open it</li>
+<li><code>:set ff=unix</code> to change it file format</li>
+<li><code>:wq</code> to save it</li>
 </ul>
 <h1 id="Squeue-Format"><a href="#Squeue-Format" class="headerlink" title="Squeue Format"></a><jump id="squeue">Squeue Format</jump></h1><p>add <code>export SQUEUE_FORMAT=&quot;the-format-you-like&quot;</code> to ~/.bash_profile file and then run <code>source ~/.bash_profile</code></p>
 <ul>
@@ -574,7 +585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -585,7 +596,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -596,7 +607,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -629,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#File-Transfer"><span class="nav-text">File Transfer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory-and-Disk-Space"><span class="nav-text">Memory and Disk Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Scripts"><span class="nav-text">Python Scripts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Squeue-Format"><span class="nav-text">Squeue Format</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#File-Transfer"><span class="nav-text">File Transfer</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory-and-Disk-Space"><span class="nav-text">Memory and Disk Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Scripts"><span class="nav-text">Python Scripts</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Run-python-No-such-file-or-directory"><span class="nav-text">Run python: No such file or directory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Squeue-Format"><span class="nav-text">Squeue Format</span></a></li></ol></div>
             
 
           </div>
