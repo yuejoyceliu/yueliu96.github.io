@@ -3,7 +3,7 @@ title: Coordinate Transformation
 date: 2019-10-28 16:34:41
 tags:
 - Math
-- Probabality
+- Probability
 categories:
 - Probability & Random Process
 ---
@@ -32,10 +32,8 @@ $$f_Z(\mathbf{z}) = \left|\mathbf{J^x_z}\right| \cdot f_X(\mathbf{\mathbf{J_z^x}
 
 $$\begin{aligned}f_Z(\mathbf{z}) &= \sum_{x: g(x)=z} \left|\mathbf{J^x_z}\right| \cdot f_X(\mathbf{\mathbf{J_z^x}\cdot\mathbf{x}}) \\
 &= \sum_{x: g(x)=z} f_X(\mathbf{\mathbf{J_z^x}\cdot\mathbf{x}})/|\mathbf{J^z_x}| \end{aligned}$$
-
-- note: sum can be integral, see [example](#eg)
   
-# <jump id="eg">example</jump>
+# example
 
 ## Question
 
@@ -55,7 +53,7 @@ J_{xy}^{zw} &= \begin{bmatrix} 1 & 1\\ -\frac{y}{x^2} & \frac{1}{x}\end{bmatrix}
 f_{Z,W} &= 2e^{-z} \times |J^{xy}_{zw}| = \frac{2ze^{-z}}{(w+1)^2} \end{aligned}$$
 
 - How to find the marginal p.d.f.?
-  - For a given value z, $f_Z(z)$ equals the sum of all $f_{X,Y}(x,y)$ satisfying $x+y=z$. This means, for a given z, if x is set, then y is uniquely determined (i.e. z-x). We can integral over x in the range of $(0,\frac{z}{2})$ since $x<y$ and $x+y=z$.
+  - For a given value z, $f_Z(z)$ equals the sum of all $f_{X,Y}(x,y)$ satisfying $x+y=z$. This means, for a provided z and x, y is uniquely determined (i.e. z-x). We can integral over x in the range of $(0,\frac{z}{2})$ since $x<y$ and $x+y=z$.
 
     $$f_Z(z) = \int_{0}^{\frac{z}{2}} 2e^{-(x+z-x)} \mathrm{d}x = ze^{-z}$$
 
@@ -63,8 +61,8 @@ f_{Z,W} &= 2e^{-z} \times |J^{xy}_{zw}| = \frac{2ze^{-z}}{(w+1)^2} \end{aligned}
     
     $$f_W(w) = \int_{0}^{+\infty}2e^{-(x+wx)}\mathrm{d}x = \frac{2}{w+1}$$
 
-- Since $f_{Z,W}\neq f_Z(z)f_W(w)$, they are not independent.
+- Since $f_{Z,W}(z,w)\neq f_Z(z)\cdot f_W(w)$, they are not independent.
 
 # Relevant Note
 
-- $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$, $A^{-1}=\frac{1}{|A|}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$, where $|A|=ad-bc$
+- $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$, $A^{-1} = \frac{1}{|A|} \times \begin{bmatrix} d & -b \\\\ -c & a \end{bmatrix}$, where $|A|=ad-bc$
