@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Jacobian MatrixIf $\mathbf{f}:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is a function  that maps from n-dimensional Euclidean space to m-dimensional Euclidean space. The Jacobian matrix of $\mathbf{f}$ is">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-29T07:08:23.900Z">
+<meta property="og:updated_time" content="2019-10-29T07:13:00.990Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coordinate Transformation">
 <meta name="twitter:description" content="Jacobian MatrixIf $\mathbf{f}:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is a function  that maps from n-dimensional Euclidean space to m-dimensional Euclidean space. The Jacobian matrix of $\mathbf{f}$ is">
@@ -396,7 +396,7 @@
 <ul>
 <li><p>How to find the marginal p.d.f.?</p>
 <ul>
-<li><p>For a given value z, $f_Z(z)$ equals the sum of all $f_{X,Y}(x,y)$ satisfying $x+y=z$. This means, for a given z, if x is set, then y is uniquely determined (i.e. z-x). We can integral over x in the range of $(0,\frac{z}{2})$ since $x&lt;y$ and $x+y=z$.</p>
+<li><p>For a given value z, $f_Z(z)$ equals the sum of all $f_{X,Y}(x,y)$ satisfying $x+y=z$. This means, for a provided z and x, y is uniquely determined (i.e. z-x). We can integral over x in the range of $(0,\frac{z}{2})$ since $x&lt;y$ and $x+y=z$.</p>
 <p>$$f_Z(z) = \int_{0}^{\frac{z}{2}} 2e^{-(x+z-x)} \mathrm{d}x = ze^{-z}$$</p>
 </li>
 <li><p>Similarly, to get $f_W(w)$, we can integral over x for all $y = wx$ from $0$ to $+\infty$.</p>
@@ -404,7 +404,7 @@
 </li>
 </ul>
 </li>
-<li><p>Since $f_{Z,W}\neq f_Z(z)f_W(w)$, they are not independent.</p>
+<li><p>Since $f_{Z,W}(z,w)\neq f_Z(z)\cdot f_W(w)$, they are not independent.</p>
 </li>
 </ul>
 <h1 id="Relevant-Note"><a href="#Relevant-Note" class="headerlink" title="Relevant Note"></a>Relevant Note</h1><ul>
@@ -451,6 +451,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/29/Jointly-Gaussian-Variables/" rel="prev" title="Jointly Gaussian Variables">
+                Jointly Gaussian Variables <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -529,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -551,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
