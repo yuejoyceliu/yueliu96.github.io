@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="Probability,Math,">
+  <meta name="keywords" content="Math,Probability,">
 
 
 
@@ -118,14 +118,14 @@
 
 
 <meta name="description" content="Jacobian MatrixIf $\mathbf{f}:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is a function  that maps from n-dimensional Euclidean space to m-dimensional Euclidean space. The Jacobian matrix of $\mathbf{f}$ is">
-<meta name="keywords" content="Probability,Math">
+<meta name="keywords" content="Math,Probability">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coordinate Transformation">
 <meta property="og:url" content="http://yoursite.com/2019/10/28/Coordinate-Transformation/index.html">
 <meta property="og:site_name" content="Yue Liu&#39;s Blog">
 <meta property="og:description" content="Jacobian MatrixIf $\mathbf{f}:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is a function  that maps from n-dimensional Euclidean space to m-dimensional Euclidean space. The Jacobian matrix of $\mathbf{f}$ is">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-14T01:07:22.143Z">
+<meta property="og:updated_time" content="2019-11-14T01:10:51.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coordinate Transformation">
 <meta name="twitter:description" content="Jacobian MatrixIf $\mathbf{f}:\mathbb{R}^n\rightarrow \mathbb{R}^m$ is a function  that maps from n-dimensional Euclidean space to m-dimensional Euclidean space. The Jacobian matrix of $\mathbf{f}$ is">
@@ -392,22 +392,22 @@
 <ul>
 <li>To find the joint p.d.f.</li>
 </ul>
-<p>$$\begin{aligned}<br>J_{xy}^{zw} &amp;= \begin{bmatrix} 1 &amp; 1\ -\frac{y}{x^2} &amp; \frac{1}{x}\end{bmatrix} \\<br>|J_{xy}^{zw}| &amp;= \frac{1}{x}+\frac{y}{x^2} = \frac{(w+1)^2}{z}\\<br>f_{Z,W} &amp;= 2e^{-z} \times |J^{xy}_{zw}| = \frac{2ze^{-z}}{(w+1)^2} \end{aligned}$$<br>&lt;!–<br>things following are wrong</p>
-<ul>
-<li><p>How to find the marginal p.d.f.?</p>
-<ul>
-<li><p>For a given value z, $f_Z(z)$ equals the sum of all $f_{X,Y}(x,y)$ satisfying $x+y=z$. This means, for a provided z and x, y is uniquely determined (i.e. z-x). We can integral over x in the range of $(0,\frac{z}{2})$ since $x&lt;y$ and $x+y=z$.</p>
-<p>$$f_Z(z) = \int_{0}^{\frac{z}{2}} 2e^{-(x+z-x)} \mathrm{d}x = ze^{-z}$$</p>
-</li>
-<li><p>Similarly, to get $f_W(w)$, we can integral over x for all $y = wx$ from $0$ to $+\infty$.</p>
-<p>$$f_W(w) = \int_{0}^{+\infty}2e^{-(x+wx)}\mathrm{d}x = \frac{2}{w+1}$$</p>
-</li>
-</ul>
-</li>
-<li><p>Since $f_{Z,W}(z,w)\neq f_Z(z)\cdot f_W(w)$, they are not independent.</p>
-</li>
-</ul>
-<h1 id="Expectation-and-Variance"><a href="#Expectation-and-Variance" class="headerlink" title="Expectation and Variance"></a>Expectation and Variance</h1><p>For $\mathbf{X}$ and $\mathbf{Y} = \mathbf{A}\mathbf{X}$, if $E[\mathbf{X}]=\mathbf{\mu}$ and $Cov[\mathbf{X}]=\mathbf{\Sigma}$, then $E[\mathbf{Y}]=\mathbf{A}\mathbf{\mu}$ and $Cov[\mathbf{X}]=\mathbf{\Sigma}$ –&gt;</p>
+<p>$$\begin{aligned}<br>J_{xy}^{zw} &amp;= \begin{bmatrix} 1 &amp; 1\ -\frac{y}{x^2} &amp; \frac{1}{x}\end{bmatrix} \\<br>|J_{xy}^{zw}| &amp;= \frac{1}{x}+\frac{y}{x^2} = \frac{(w+1)^2}{z}\\<br>f_{Z,W} &amp;= 2e^{-z} \times |J^{xy}_{zw}| = \frac{2ze^{-z}}{(w+1)^2} \end{aligned}$$</p>
+<!-- things following are wrong
+- How to find the marginal p.d.f.?
+  - For a given value z, $f_Z(z)$ equals the sum of all $f_{X,Y}(x,y)$ satisfying $x+y=z$. This means, for a provided z and x, y is uniquely determined (i.e. z-x). We can integral over x in the range of $(0,\frac{z}{2})$ since $x<y$ and $x+y=z$.
+
+    $$f_Z(z) = \int_{0}^{\frac{z}{2}} 2e^{-(x+z-x)} \mathrm{d}x = ze^{-z}$$
+
+  - Similarly, to get $f_W(w)$, we can integral over x for all $y = wx$ from $0$ to $+\infty$.
+
+    $$f_W(w) = \int_{0}^{+\infty}2e^{-(x+wx)}\mathrm{d}x = \frac{2}{w+1}$$
+
+- Since $f_{Z,W}(z,w)\neq f_Z(z)\cdot f_W(w)$, they are not independent.
+
+Expectation and Variance
+
+For $\mathbf{X}$ and $\mathbf{Y} = \mathbf{A}\mathbf{X}$, if $E[\mathbf{X}]=\mathbf{\mu}$ and $Cov[\mathbf{X}]=\mathbf{\Sigma}$, then $E[\mathbf{Y}]=\mathbf{A}\mathbf{\mu}$ and $Cov[\mathbf{X}]=\mathbf{\Sigma}$ -->
 <h1 id="Relevant-Note"><a href="#Relevant-Note" class="headerlink" title="Relevant Note"></a>Relevant Note</h1><ul>
 <li>$A=\begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix}$, $A^{-1} = \frac{1}{|A|} \times \begin{bmatrix} d &amp; -b \\\ -c &amp; a \end{bmatrix}$, where $|A|=ad-bc$</li>
 </ul>
@@ -428,9 +428,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Probability/" rel="tag"># Probability</a>
-          
             <a href="/tags/Math/" rel="tag"># Math</a>
+          
+            <a href="/tags/Probability/" rel="tag"># Probability</a>
           
         </div>
       
@@ -589,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jacobian-Matrix"><span class="nav-text">Jacobian Matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Coordination-Transformation"><span class="nav-text">Coordination Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#one-to-one-map"><span class="nav-text">one-to-one map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#many-to-one-map"><span class="nav-text">many-to-one map</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#example"><span class="nav-text">example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Answer"><span class="nav-text">Answer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Expectation-and-Variance"><span class="nav-text">Expectation and Variance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Relevant-Note"><span class="nav-text">Relevant Note</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jacobian-Matrix"><span class="nav-text">Jacobian Matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Coordination-Transformation"><span class="nav-text">Coordination Transformation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#one-to-one-map"><span class="nav-text">one-to-one map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#many-to-one-map"><span class="nav-text">many-to-one map</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#example"><span class="nav-text">example</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Answer"><span class="nav-text">Answer</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Relevant-Note"><span class="nav-text">Relevant Note</span></a></li></ol></div>
             
 
           </div>
