@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Arial:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hyak,Software Tutorial,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.">
+<meta name="keywords" content="Hyak,Software Tutorial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gaussian on Hyak">
+<meta property="og:url" content="http://yoursite.com/2018/12/16/Gaussian-on-Hyak/index.html">
+<meta property="og:site_name" content="Yue Liu&#39;s Blog">
+<meta property="og:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/yueliu96/blog_images/master/tddftplot_eg.jpg">
+<meta property="og:updated_time" content="2019-04-08T06:22:30.831Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gaussian on Hyak">
+<meta name="twitter:description" content="Here introduces how to setup Gaussian input file, submit it to Hyak (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yueliu96/blog_images/master/tddftplot_eg.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/16/Gaussian-on-Hyak/">
+
+
+
+
+
+  <title>Gaussian on Hyak | Yue Liu's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yue Liu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/16/Gaussian-on-Hyak/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yue Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yue Liu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gaussian on Hyak</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-16T20:54:49-08:00">
+                2018-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Turecek-Lab-Tutorial/" itemprop="url" rel="index">
+                    <span itemprop="name">Turecek Lab Tutorial</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>Here introduces how to setup Gaussian input file, submit it to <a href="https://wiki.cac.washington.edu/display/hyakusers/WIKI+for+Hyak+users" target="_blank" rel="noopener">Hyak</a> (super computer server) and analyze the output file by my python scripts. Scripts attached here are not limited by python versions.</em></p>
+<h1 id="Gaussian-16-Input"><a href="#Gaussian-16-Input" class="headerlink" title="Gaussian 16 Input"></a>Gaussian 16 Input</h1><p><a href="http://gaussian.com/input/" target="_blank" rel="noopener">Gaussian 16 input</a> consists of a series of lines in an ASCII text file. In general, the input is free-format and case-insensitive; comments start with an exclamation point(!), could be anywhere on a line; spaces, commas, tabs and forward slashes are all considered as valid delimiters (multi spaces are treated as a single demiliter); keyword=option,kw(op),kw=(op1,op2,…) and kw(op1,op2) are all correct. The common suffixes of the input file are gjf and com. The basic structure includes several different sections:</p>
+<h2 id="Link-0-Commands"><a href="#Link-0-Commands" class="headerlink" title="Link 0 Commands"></a><font size="3"><a href="http://gaussian.com/link0/" target="_blank" rel="noopener">Link 0 Commands</a></font></h2><ul>
+<li>locate and name scratch files </li>
+<li>not blank line terminated</li>
+<li>examples<ul>
+<li>%LindaWorker<ul>
+<li>add it when using 2 or more nodes on Hyak</li>
+</ul>
+</li>
+<li>%NProcShared=<em>N</em><ul>
+<li>use up to N processors/cores on shared memory on one node</li>
+<li>default: 28 on Hyak-mox, 16 on Hyak-ikt</li>
+</ul>
+</li>
+<li>%UseSSH<ul>
+<li>start linda workers by ssh instead of rsh(default)</li>
+<li>rsh, remote shell, can execute command on another computer as another user</li>
+<li>ssh: a more secure way to communicate between computers</li>
+<li>some parallel jobs may mess up by using rsh</li>
+</ul>
+</li>
+<li>%Mem=<em>N</em><ul>
+<li>set the dynamics of memory, can follow by MB,GB,etc. 800mb for g16 by default</li>
+<li>some gaussian jobs will select the appropriate algorithm automatically based on the setting of %Mem and <a href="#maxdisk">MaxDisk</a>.</li>
+<li>specifing more mem than availble will cause very poor performance; leave several GBs for operating system</li>
+</ul>
+</li>
+<li>%RWF=<em>file</em><ul>
+<li>locate and name the  read-write file, a super huge file, used to <a href="http://gaussian.com/restart/" target="_blank" rel="noopener">restart</a> a job(not need for opt)</li>
+<li>usually followed by <em><code>%NoSave</code></em>, everything before nosave will deleted if job completes normally</li>
+<li>a suggested location  on Hyak is <a href="https://wiki.cac.washington.edu/display/hyakusers/Hyak_disk_quota" target="_blank" rel="noopener"><code>/gscratch/scrubbed/</code> </a></li>
+<li>how to locate it if not include %RWF(Hyak version):<ul>
+<li>all scratch files are at <a href="https://wiki.cac.washington.edu/display/hyakusers/Managing+your+Files#ManagingyourFiles-HomeDirectories" target="_blank" rel="noopener"><code>/scr/</code></a> of the local node ( <code>ssh nodenumber</code> to enter that node)</li>
+<li>the scratch disk of that node will be cleaned up after walltime runs out </li>
+<li>general version and more about restarting opt and freq jobs: <a href="http://gaussian.com/faq2/" target="_blank" rel="noopener"><em>click  me</em></a></li>
+</ul>
+</li>
+<li>Related key word: <a href="#maxdisk">MaxDisk</a></li>
+</ul>
+</li>
+<li>%Chk=<em>file</em><ul>
+<li>locate and name the checkpoint file</li>
+<li>used to restart jobs(especially <a href="#rstopt">opt</a>), <a href="#addtd">add more states for td</a> and <a href="#vistd">visualize molecular orbitals for td</a></li>
+</ul>
+</li>
+<li>%OldChk=<em>file</em><ul>
+<li>use with <em><code>%Chk=newfile</code></em>: copy <em>file</em> to <em>newfile</em> and then write new chk info to <em>newfile</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Route-section-lines"><a href="#Route-section-lines" class="headerlink" title="Route section (# lines)"></a><font size="3"><a href="http://gaussian.com/route/" target="_blank" rel="noopener">Route section (# lines)</a></font></h2><ul>
+<li>job type and method</li>
+<li>blank line terminated</li>
+<li><p>examples</p>
+<ul>
+<li>print form<ul>
+<li><em><code>#N</code></em>: normal print, by default if not specify</li>
+<li><em><code>#P</code></em>: print more info</li>
+<li><em><code>#T</code></em>: terse print </li>
+</ul>
+</li>
+<li>job type<ul>
+<li><em><a href="http://gaussian.com/sp/" target="_blank" rel="noopener">SP</a></em> : single point energy, by default if not specify</li>
+<li><em><a href="http://gaussian.com/opt/" target="_blank" rel="noopener">OPT</a></em> : geometry optimization</li>
+<li><em><a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></em> : vibrational frequency and thermal information</li>
+<li><em><a href="http://gaussian.com/td/" target="_blank" rel="noopener">TD(NStates=n)</a></em> : calculate n excited transitions</li>
+</ul>
+</li>
+<li><p>other keywords</p>
+<ul>
+<li><a href="http://gaussian.com/population/" target="_blank" rel="noopener">POP</a><ul>
+<li>charge and spin distribution</li>
+<li><code>pop=min</code> by default except guess=only</li>
+</ul>
+</li>
+<li><a href="http://gaussian.com/scf/" target="_blank" rel="noopener">SCF</a><ul>
+<li>control the functioning of the SCF procedure</li>
+<li><code>scf=tight</code> by default</li>
+<li><code>scf=xqc</code> is helpful for difficult conversion case</li>
+<li><code>NoSymm</code> or <code>Symmetry=None</code>: release orbital symmetry constraints</li>
+</ul>
+</li>
+<li><p><a href="http://gaussian.com/scrf/" target="_blank" rel="noopener">SCRF</a></p>
+<ul>
+<li>in the presence of solvent, place solute in a cavity within the solvent reaction field.<ul>
+<li><code>scrf=pcm</code> by default</li>
+<li>ex: <code>scrf=(pcm,solvent=water)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font color="gray"><a href="http://gaussian.com/cachesize/" target="_blank" rel="noopener">CacheSize</a><br>- the amount of cache per processor to use with various cache-blocking algorithms (in 8-byte words)<br>- ex: from <code>/proc/cpuinfo</code> find the cache available(35840kb) and a good value is its 50% ( $35840\times1024\div8\times50\%=2293760$): <code>cachesize=2293760</code><br>- no need to add it for Hyak</font></li>
+<li><a href="http://gaussian.com/maxdisk/" target="_blank" rel="noopener"><jump id="maxdisk">MaxDisk</jump></a><ul>
+<li>the amount of disk storage available for <a href="https://gaussian.com/running/?tabid=6" target="_blank" rel="noopener">scratch data</a> </li>
+<li>disk space of one node on Hyak is ~100GB. <code>lsblk -d</code> or <code>df -h</code> can show physical disk info of linux system</li>
+<li>the more disk space available, the faster the evaluation, especially for MP2. Some jobs have fixed or minimum disk requirments, click <a href="http://gaussian.com/maxdisk/" target="_blank" rel="noopener">me</a> for more info.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Title-section"><a href="#Title-section" class="headerlink" title="Title section"></a><font size="3">Title section</font></h2><ul>
+<li>any descriptions within 5 lines</li>
+<li>avoid special character: @  #  !  –  _    control characters (especially Ctrl-G)</li>
+<li>blank line terminated</li>
+</ul>
+<h2 id="Molecule-specification"><a href="#Molecule-specification" class="headerlink" title="Molecule specification"></a><font size="3"><a href="http://gaussian.com/molspec/" target="_blank" rel="noopener">Molecule specification</a></font></h2><ul>
+<li>charge, multiplicity, atoms and coordinates<ul>
+<li>multiplicity<ul>
+<li>number of possible spin orientations of the total spin</li>
+<li>mp=2S+1, S($\alpha$ electron)=0.5, S($\beta$ electron)=-0.5</li>
+</ul>
+</li>
+<li>coordinates<ul>
+<li>x, y and z coordinates in angstrom</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>blank line terminated</li>
+</ul>
+<h2 id="Optinal-additional-sections"><a href="#Optinal-additional-sections" class="headerlink" title="Optinal additional sections"></a><font size="3">Optinal additional sections</font></h2><ul>
+<li>additional input</li>
+<li>blank line terminated</li>
+</ul>
+<p><em>Example:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%chk=guanosine.chk</span><br><span class="line"># opt um062x/6-31+g(d,p) pop=min scf=(xqc,tight)</span><br><span class="line"></span><br><span class="line">Complex guanosine</span><br><span class="line"></span><br><span class="line">1 2</span><br><span class="line">O       -3.094427        1.959361        0.291777</span><br><span class="line">C       -4.011153        1.021154       -0.267210</span><br><span class="line">C       -3.292860       -0.293751       -0.453718</span><br><span class="line">O       -2.175288       -0.104229       -1.347075</span><br><span class="line">...           ...             ...             ...</span><br><span class="line">H       -1.180628        1.929546       -0.412585</span><br><span class="line">H       -3.574938        2.742899        0.582770</span><br><span class="line">H        1.100354        3.004366        0.220564</span><br><span class="line">! a blank line must be here</span><br></pre></td></tr></table></figure>
+<h1 id="Submit-to-Hyak"><a href="#Submit-to-Hyak" class="headerlink" title="Submit to Hyak"></a>Submit to Hyak</h1><ol>
+<li><p>Run <code>~/Hyak-Gaussian/gaussian-sub.py input_file</code>, will generate a sbatch file(suffix is sh)</p>
+<p>Another way to create this file is to run my python script <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/gaussian-mox.py" target="_blank" rel="noopener">gaussian-mox.py</a> </p>
+<ul>
+<li>Usage:<ul>
+<li><code>python gaussian-mox.py input-file partition node-num time-hour</code></li>
+<li>partition can be [stf chem ilahie ckpt]</li>
+<li>time is a float in hour</li>
+<li>if node-num &gt; 1, “%lindaworker” must be in the head of input file</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#SBATCH --job-name=???</span></span><br><span class="line"><span class="comment">#SBATCH --nodes=1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##needed if ckpt partition or  any partitions with 2 or more nodes</span></span><br><span class="line"><span class="comment">#SBATCH --ntasks-per-node=??</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#SBATCH --time=???:00:00</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##larger than %mem in input file</span></span><br><span class="line"><span class="comment">#SBATCH --mem=???</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#SBATCH --workdir=??????</span></span><br><span class="line"><span class="comment">#SBATCH --partition=???</span></span><br><span class="line"><span class="comment">#SBATCH --account=???</span></span><br><span class="line"></span><br><span class="line"><span class="comment">##turn on email notification</span></span><br><span class="line"><span class="comment">#SBATCH --mail-type=ALL</span></span><br><span class="line"><span class="comment">#SBATCH --mail-user=???your email???</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># load Gaussian environment</span></span><br><span class="line">module load contrib/g16.b01</span><br><span class="line"></span><br><span class="line"><span class="comment"># debugging information</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"**** Job Debugging Information ****"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"This job will run on <span class="variable">$SLURM_JOB_NODELIST</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"ENVIRONMENT VARIABLES"</span></span><br><span class="line"><span class="built_in">set</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"**********************************************"</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># run Gaussian</span></span><br><span class="line">g16 ???input file???</span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Run <code>sbatch *.sh</code> to submit it to hyak.</li>
+</ol>
+<h1 id="Output-amp-Analysis"><a href="#Output-amp-Analysis" class="headerlink" title="Output &amp; Analysis"></a>Output &amp; Analysis</h1><h2 id="I-OPT"><a href="#I-OPT" class="headerlink" title="I. OPT"></a><font size="4">I. <a href="http://gaussian.com/opt/" target="_blank" rel="noopener">OPT</a></font></h2><p>If key word <code>Tight</code> or <code>SCF</code> is in route card, Berny optimization will be used. This kind of output is dilimited by <em>GradGradGrad…</em>. The appearance of the following words marks completion of opt, and the final structure is displayed after that. We always want to extract the optimized standard structure for the next step calculation.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">            Item               Value     Threshold  Converged?</span><br><span class="line">Maximum Force            0.000020     0.000450     YES</span><br><span class="line">RMS     Force            0.000004     0.000300     YES</span><br><span class="line">Maximum Displacement     0.001510     0.001800     YES</span><br><span class="line">RMS     Displacement     0.000199     0.001200     YES</span><br><span class="line">Optimization completed.</span><br><span class="line">   -- Stationary point found</span><br></pre></td></tr></table></figure>
+<p><jump id="rstopt"></jump>If <code>Stationary point found</code> is absent in log file, that means the opt job is ended earlier, maybe because of time limit. In this case, we need to write another restarted input file and submit it again to start from where it left, the route card of which should be <code># opt=restart</code> plus the other keywords in the original input. For example: if the original route card is:<code># opt ub3lyp/6-31+g(d,p) pop=min scf=(xqc,tight)</code> and the chk file is named as <em>test.chk</em>. The new input file is like: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%UseSSH</span><br><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%chk=test.chk</span><br><span class="line"># Opt=Restart ub3lyp/6-31+g(d,p) pop=min scf=(xqc,tight)</span><br><span class="line">! a blank line must be here</span><br></pre></td></tr></table></figure>
+<h3 id="1-optlog2gjfcom-py"><a href="#1-optlog2gjfcom-py" class="headerlink" title="1. optlog2gjfcom.py"></a><font size="3">1. <a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/optlog2gjfcom.py" target="_blank" rel="noopener">optlog2gjfcom.py</a></font></h3><ul>
+<li><em>Usage</em><ul>
+<li><code>python optlog2gjfcom.py opt_log</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>Uses <code>Stationary point found</code> as a key to tell if opt finishes</li>
+<li>If finished, locates <code>Standard orientation</code> after it, reads charge and multiplicity from the very end and then writes them to a new file in the form of gaussian input, named <em>test_opt.gjf</em> if original one is <em>test$.$com</em>.</li>
+<li>If not  finished, writes the restarted input file just as showed above named with <em>test_rst.gjf</em> if original one is <em>test.gjf</em>. The name of input and chk files, the route card are read from log file. If chk file not found, it will print a warning.</li>
+</ul>
+</li>
+<li><p><em>Notes</em> </p>
+<ul>
+<li><p>The default route card for optimized file and link info for both optimized and restarted one are easily to change:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LINK=&apos;%UseSSH\n%mem=32GB\n%nprocshared=28\n&apos;</span><br><span class="line">ROUTE=&apos;# td(NStates=25) um062x/6-31+g(d,p) pop=min scf=(xqc,tight)&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>A quick way to walk through all log files in one directory:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> *<span class="built_in">log</span>; <span class="keyword">do</span> python optlog2gjfcom.py <span class="variable">$x</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-HFenergies-py"><a href="#2-HFenergies-py" class="headerlink" title="2.HFenergies.py"></a><font size="3">2.<jump id="hfenergies"></jump><a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/HFenergies.py" target="_blank" rel="noopener">HFenergies.py</a></font></h3><p>Another important information in the output is optimized energy, which is easy to locate by key word <em>SCF Done</em>.</p>
+<ul>
+<li><em>Usage</em><ul>
+<li><code>python HFenergies.py</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>Goes through all <em>*.log</em> files in the current directory to extract energy</li>
+<li>If <code>Stationary point found</code> is in the presence of log file, reads the energy after the last <code>SCF Done</code>; if not, returns energy=<em>NA</em></li>
+<li>Energies are sorted ascendingly and written to <em>HFenergies.csv</em> file with corresponding logfile name(without suffix)</li>
+</ul>
+</li>
+</ul>
+<h2 id="II-FREQ"><a href="#II-FREQ" class="headerlink" title="II. FREQ"></a><font size="4">II. <a href="http://gaussian.com/freq/" target="_blank" rel="noopener">FREQ</a></font></h2><p><em>3N-6</em> frequecies can be found in the output file for nonlinear molecules (<em>3N-5</em> for linear molecules, <em>N</em> is the number of atoms), following by thermochemistry analysis at 298.15K, 1 atm.<br>Since the temperature in the Mass Spec is around 310K, we need to extrat all normal modes(frequencies), zero-point vibrational energy(ZPVE) and entropy(S) from the log file and calculate entropy and enthalpy(H) at 310K 1 atm. Also, we correct frequencies by a factor of 0.975.</p>
+<p><em>Note that the input of freq job should be the optimized structure optimized with the same method and basis set.</em></p>
+<h3 id="1-freq-thermal-py"><a href="#1-freq-thermal-py" class="headerlink" title="1.freq_thermal.py"></a><font size="3">1.<jump id="freqt"></jump><a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/freq_thermal.py" target="_blank" rel="noopener">freq_thermal.py</a></font></h3><ul>
+<li><em>Usage</em><ul>
+<li><code>python freq_thermal.py freq_log</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>Extracts frequencies from log file. If the first frequency is negative or freq not finished, raises error and stops.</li>
+<li>Uses partition functions to calculate enthalpy, entropy and heat capacity and writes the result to file named with <em>test_freq.csv</em> if <em>test.log</em> is given.</li>
+<li><em><font color="gray">explanations of calculation(to be writted)</font></em></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-CpExtractor-py"><a href="#2-CpExtractor-py" class="headerlink" title="2.CpExtractor.py"></a><font size="3">2.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/CpExtractor.py" target="_blank" rel="noopener">CpExtractor.py</a></font></h3><p>Sometimes, we only want to know the heat capacity at constant pressure. This scripts can extract Cp from all *freq.csv files.</p>
+<ul>
+<li><em>Usage</em><ul>
+<li><code>python CpExtractor.py</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>Goes through all <em>*_freq.csv</em> files in the working directory and writes the Cp and its file name into a new file <em>Cp.csv</em></li>
+<li>If Cp not found, <em>NA</em> will be there instead of a number</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-GibbsEnergy-py"><a href="#3-GibbsEnergy-py" class="headerlink" title="3.GibbsEnergy.py"></a><font size="3">3.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/GibbsEnergy.py" target="_blank" rel="noopener">GibbsEnergy.py</a></font></h3><p>After finish all opt and freq jobs, we can use energy file got from <em>HFenergies$.$py</em> and <em>ZPVE</em>, <em>H</em> and <em>S</em> from <em>freq_thermal$.$py</em> to calculate their free energies.</p>
+<ul>
+<li><em>Usage</em><ul>
+<li><code>python GibbsEnergy.py energyfile</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>Needs energy($E_{elec}$) file got from <a href="#hfenergies">HFenergies.py</a> and corresponding *_freq.csv files got from <a href="#freqt">freq_thermal.py</a> in the same directory. The delimiter of all these files must be comma(by default, don’t change it)</li>
+<li>Reads structure’s name(x) and energy from energy file. The frist row is considered as title, will be skipped. The structure with lowest energy is seen as reference.</li>
+<li>Uses x find its freq file: x_freq.csv and reads its 9th row(thermal information); only reads 8th row(title info) for one <em>*_freq.csv</em>.</li>
+<li>$G=E_{elec}+ZPVE_{corr}+H(T)-T\cdot S(T)$ and $\Delta G=G-G_{ref}$ are used, the result in $kJ/mol$</li>
+</ul>
+</li>
+</ul>
+<h2 id="III-TDDFT"><a href="#III-TDDFT" class="headerlink" title="III. TDDFT"></a><font size="4">III. <a href="http://gaussian.com/td/" target="_blank" rel="noopener">TDDFT</a></font></h2><p>The main output of tddft contains the excitation energies, oscillation strength(f, the intensity of that transition) and S**2, listed below. A resonable transition should satisfy spin forbidden. For a doublet(multiplicity:2S+1=2) S=0.5, so S**2=S(S+1)=0.75. What should be consider is that if not following that rule, the electron flips during the transiton, the total spin momentum S changes from 0.5 to 1.5, and S**2=3.75. When running tddft job, the transition is a combination of these two situations, usually the more differ from what S**2 should be, the less f is. In our lab, we only keep transitions whose S**2&lt;2.6, and use lorentzian equation to calcualte its absorption spectra.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Excited State   1:  2.065-A      2.0123 eV  616.13 nm  f=0.0002  &lt;S**2&gt;=0.816</span><br><span class="line">    62B -&gt; 70B       -0.10013</span><br><span class="line">    63B -&gt; 70B       -0.16217</span><br><span class="line">    63B -&gt; 72B       -0.10120</span><br><span class="line">    67B -&gt; 70B        0.87674</span><br><span class="line">    68B -&gt; 70B        0.37169</span><br></pre></td></tr></table></figure>
+<p><jump id="addtd"></jump>In experiment, we measure the action spectra from 210nm to 700nm, so we hope the theoritical one can cover that region. If the last transition energy cannot reach 210nm, we should add more states to it. For example, if the original route card is <code># TD(Nstates=30) um062x/6-31+g(d,p) pop=none scf=(xqc,tight)</code> and its chk file is <em>test.chk</em> the new input file should be:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">%mem=32GB</span><br><span class="line">%nprocshared=28</span><br><span class="line">%oldchk=test.chk</span><br><span class="line">%chk=test_add.chk</span><br><span class="line"># TD(add=10) Geom=AllCheck um062x/6-31+g(d,p) pop=none scf=(xqc,tight)</span><br><span class="line">! a blank line must be here</span><br></pre></td></tr></table></figure>
+<h3 id="1-tddft-lorentzian-py"><a href="#1-tddft-lorentzian-py" class="headerlink" title="1.tddft_lorentzian.py"></a><font size="3">1.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/tddft_lorentzian.py" target="_blank" rel="noopener">tddft_lorentzian.py</a></font></h3><ul>
+<li><em>Usage</em><ul>
+<li><code>python tddft_lorentzian.py td_log</code></li>
+<li><code>python tddft_lorentzian.py td_log N</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>Reads all excitated frequencies, oscilation strength and S**2 from log file and checks if the last one is below 210nm.</li>
+<li>If not, writes the new input file as shown above named with <em>test_add.gjf</em> if original input is <em>test.gjf</em>. The original input file and chk file must be in the same directory.</li>
+<li>Otherwise, uses S**2=2.6 as a cut-off to choose excitations and applies lorentzian equation to calculate absorption spectra. The results are written to <em>test_uvvis.csv</em> if log named with <em>test.log</em>. <strong>If N is specified in the usage command, only select excitations larger than N(nm).</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-tddft-plot-py"><a href="#2-tddft-plot-py" class="headerlink" title="2.tddft_plot.py"></a><font size="3">2.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/tddft_plot.py" target="_blank" rel="noopener">tddft_plot.py</a></font></h3><ul>
+<li><em>Usage</em><ul>
+<li><code>python tddft_plot.py uvvis.csv</code></li>
+<li>uvvis.csv is the file got from tddft_lorentzian.py</li>
+<li>need import matplotlib, pandas, numpy, <code>module load anacond3_5.3</code> if not able to import these modules</li>
+</ul>
+</li>
+<li><p><em>Descriptions</em></p>
+<p><img src="https://raw.githubusercontent.com/yueliu96/blog_images/master/tddftplot_eg.jpg" alt="tddft plot"></p>
+</li>
+</ul>
+<h3 id="3-cubegen-py"><a href="#3-cubegen-py" class="headerlink" title="3.cubegen.py"></a><jump id="vistd"></jump><font size="3">3.<a href="https://raw.githubusercontent.com/yueliu96/scripts_for_lab/master/cubegen.py" target="_blank" rel="noopener">cubegen.py</a></font></h3><p>We can also visualize the molecular orbital if we have tddft chk file. We should first use <a href="http://gaussian.com/formchk/" target="_blank" rel="noopener"><code>formchk</code></a> command to generate fchk file, and then use <a href="http://gaussian.com/cubegen/" target="_blank" rel="noopener"><code>cubegen</code></a> to get the cube file, which can be visualized by Gaussian-View. To use cubegen, we also need to decide the molecular orbital number. For $\alpha$ orbital, like 68A, just set mo=68. But for $\beta$ orbital,like 72B, we should find the total number of $\alpha$ orbitals first: if one molecule has 70 $\alpha$ electrons(NAE) and 356 virtual $\alpha$ orbitals(NVA), set mo=498(70+356+72). </p>
+<p>If we run cubegen on the login node, it will take around 1 minutes. Usually we are interested in several orbitals in one or more excited states. In this way, this script comes out. </p>
+<ul>
+<li><em>Usage</em><ul>
+<li><code>python cubegen.py td_log num_excited_states</code></li>
+</ul>
+</li>
+<li><em>Descriptions</em><ul>
+<li>Finds the name of chk/fchk file from log file. After fchk found, skip to next step; if not, start to locate chk file and generate fchk from chk. If both of them not found, stop processing. </li>
+<li>Finds NAE, NVA and unique molecule orbitals in the specified excited state. And writes corresponding cubegen to a txt file.</li>
+<li>Loads parallel environment and cats tasklists( the txt file) to the sbatch file.</li>
+<li>Submits it to ckpt partition. It should be finished in several seconds</li>
+</ul>
+</li>
+<li><p><em>Example</em></p>
+<p> The transition of the first excited state is listed above. If its log is test.log, NAE+NVA=426. Run <code>python cubegen.py test.log 1</code>, we will get 2 files: t1_test.txt and t1_test.sh, and it will submit t1_test.sh to ckpt queue.</p>
+<p>  <em>t1_test.txt</em>:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cubegen 0 mo=488 test.fchk test_62B.cube 0 h</span><br><span class="line">cubegen 0 mo=489 test.fchk test_63B.cube 0 h</span><br><span class="line">cubegen 0 mo=493 test.fchk test_67B.cube 0 h</span><br><span class="line">cubegen 0 mo=494 test.fchk test_68B.cube 0 h</span><br><span class="line">cubegen 0 mo=496 test.fchk test_70B.cube 0 h</span><br><span class="line">cubegen 0 mo=498 test.fchk test_72B.cube 0 h</span><br></pre></td></tr></table></figure>
+<p>  <em>t1_test.sh</em>:</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#SBATCH --job-name=fchk_cube</span></span><br><span class="line"><span class="comment">#SBATCH --nodes=1</span></span><br><span class="line"><span class="comment">#SBATCH --ntasks-per-node=28</span></span><br><span class="line"><span class="comment">#SBATCH --time=10:00</span></span><br><span class="line"><span class="comment">#SBATCH --mem=100G</span></span><br><span class="line"><span class="comment">#SBATCH --workdir=/gscratch/stf/yueliu96/test</span></span><br><span class="line"><span class="comment">#SBATCH --partition=ckpt</span></span><br><span class="line"><span class="comment">#SBATCH --account=stf-ckpt</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'This job will run on'</span> <span class="variable">$SLURM_JOB_NODELIST</span></span><br><span class="line"><span class="comment">#set up time</span></span><br><span class="line">start=$(date +%s)</span><br><span class="line"></span><br><span class="line"><span class="comment">#load Gaussian environment</span></span><br><span class="line">module load contrib/g16.b01</span><br><span class="line"></span><br><span class="line"><span class="comment">#use checkpoint file to generte formatted one</span></span><br><span class="line">formchk test.chk</span><br><span class="line"></span><br><span class="line"><span class="comment">#load parallel environment</span></span><br><span class="line">module load parallel-20170722</span><br><span class="line">cat t1_test_opt.txt | parallel -j 28</span><br><span class="line"></span><br><span class="line">end=$(date +%s)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Elapsed Time: '</span>$((<span class="variable">$end</span>-<span class="variable">$start</span>))<span class="string">'s'</span></span><br></pre></td></tr></table></figure>
+<p>  After finish, we can get 6 cube files. Transfer them from hyak to your local work directory. We need to use <em>GaussView</em> to see how the orbital looks like:</p>
+<ul>
+<li>open test.fchk with <em>GaussView</em></li>
+<li>click <code>Result</code>$\rightarrow$<code>Surfaces/Contours</code>$\rightarrow$<code>Cube Actions</code>$\rightarrow$<code>Load Cube</code>$\rightarrow$choose one of  your cube files$\rightarrow$highlight that cube$\rightarrow$<code>Surfacec Actions</code>$\rightarrow$<code>New Surface</code></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hyak/" rel="tag"># Hyak</a>
+          
+            <a href="/tags/Software-Tutorial/" rel="tag"># Software Tutorial</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/28/Mopac-with-Cuby4/" rel="prev" title="Mopac with Cuby4">
+                Mopac with Cuby4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="Yue Liu">
+            
+              <p class="site-author-name" itemprop="name">Yue Liu</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gaussian-16-Input"><span class="nav-text">Gaussian 16 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Link-0-Commands"><span class="nav-text">Link 0 Commands</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Route-section-lines"><span class="nav-text">Route section (# lines)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Title-section"><span class="nav-text">Title section</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Molecule-specification"><span class="nav-text">Molecule specification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optinal-additional-sections"><span class="nav-text">Optinal additional sections</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Submit-to-Hyak"><span class="nav-text">Submit to Hyak</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Output-amp-Analysis"><span class="nav-text">Output &amp; Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#I-OPT"><span class="nav-text">I. OPT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-optlog2gjfcom-py"><span class="nav-text">1. optlog2gjfcom.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-HFenergies-py"><span class="nav-text">2.HFenergies.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#II-FREQ"><span class="nav-text">II. FREQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-freq-thermal-py"><span class="nav-text">1.freq_thermal.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CpExtractor-py"><span class="nav-text">2.CpExtractor.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-GibbsEnergy-py"><span class="nav-text">3.GibbsEnergy.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#III-TDDFT"><span class="nav-text">III. TDDFT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-tddft-lorentzian-py"><span class="nav-text">1.tddft_lorentzian.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-tddft-plot-py"><span class="nav-text">2.tddft_plot.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-cubegen-py"><span class="nav-text">3.cubegen.py</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yue Liu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

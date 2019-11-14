@@ -51,6 +51,7 @@ J_{xy}^{zw} &= \begin{bmatrix} 1 & 1\\ -\frac{y}{x^2} & \frac{1}{x}\end{bmatrix}
 |J_{xy}^{zw}| &= \frac{1}{x}+\frac{y}{x^2} = \frac{(w+1)^2}{z}\\
 f_{Z,W} &= 2e^{-z} \times |J^{xy}_{zw}| = \frac{2ze^{-z}}{(w+1)^2} \end{aligned}$$
 <!-- 
+things following are wrong
 - How to find the marginal p.d.f.?
   - For a given value z, $f_Z(z)$ equals the sum of all $f_{X,Y}(x,y)$ satisfying $x+y=z$. This means, for a provided z and x, y is uniquely determined (i.e. z-x). We can integral over x in the range of $(0,\frac{z}{2})$ since $x<y$ and $x+y=z$.
 
@@ -60,9 +61,9 @@ f_{Z,W} &= 2e^{-z} \times |J^{xy}_{zw}| = \frac{2ze^{-z}}{(w+1)^2} \end{aligned}
     
     $$f_W(w) = \int_{0}^{+\infty}2e^{-(x+wx)}\mathrm{d}x = \frac{2}{w+1}$$
 
-- Since $f_{Z,W}(z,w)\neq f_Z(z)\cdot f_W(w)$, they are not independent. -->
+- Since $f_{Z,W}(z,w)\neq f_Z(z)\cdot f_W(w)$, they are not independent.
 
-<!-- # Expectation and Variance
+# Expectation and Variance
 
 For $\mathbf{X}$ and $\mathbf{Y} = \mathbf{A}\mathbf{X}$, if $E[\mathbf{X}]=\mathbf{\mu}$ and $Cov[\mathbf{X}]=\mathbf{\Sigma}$, then $E[\mathbf{Y}]=\mathbf{A}\mathbf{\mu}$ and $Cov[\mathbf{X}]=\mathbf{\Sigma}$ -->
 
